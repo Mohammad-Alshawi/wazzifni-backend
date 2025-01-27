@@ -1,4 +1,4 @@
-﻿namespace Wazzifni.Domain.Companies.Dto
+﻿namespace Wazzifni.Companies.Dto
 {
     public class CompanyContactDto
     {

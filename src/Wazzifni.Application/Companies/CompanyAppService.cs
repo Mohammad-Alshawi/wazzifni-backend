@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Wazzifni.Authorization.Users;
+using Wazzifni.Companies.Dto;
 using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.Companies;
@@ -34,6 +35,8 @@ namespace Wazzifni.Companies
             IRepository<Company> repository,
             IAttachmentManager attachmentManager,
             IMapper mapper
+
+
 
         ) : base(repository)
         {
@@ -71,8 +74,9 @@ namespace Wazzifni.Companies
                     throw new UserFriendlyException(Exceptions.YouCannotDoThisAction);
             }
             else
+            {
                 throw new UserFriendlyException(Exceptions.YouCannotDoThisAction);
-
+            }
 
             // var Contacts = _mapper.Map<List<CreateCompanyContactDto>, List<CompanyContact>>(input.CompanyContactDtos);
             // Company.CompanyContact = Contacts;

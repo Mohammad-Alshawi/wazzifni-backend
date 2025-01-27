@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using static Wazzifni.Enums.Enum;
 
-namespace Wazzifni.Domain.Companies.Dto
+namespace Wazzifni.Companies.Dto
 {
     public class CreateCompanyDto : ICustomValidate
     {
@@ -27,6 +27,7 @@ namespace Wazzifni.Domain.Companies.Dto
         public SuperLiteUserDto userDto { get; set; }
 
         public JobType JobType { get; set; }
+
 
 
         public void AddValidationErrors(CustomValidationContext context)

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Wazzifni.Companies.Dto;
 using Wazzifni.Domain.Companies;
-using Wazzifni.Domain.Companies.Dto;
 
 
 namespace Wazzifni.Companies.Mapper

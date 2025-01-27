@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Abp.Runtime.Validation;
+using System.ComponentModel.DataAnnotations;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Models.TokenAuth
@@ -18,7 +19,7 @@ namespace Wazzifni.Models.TokenAuth
 
     }
 
-    public class VerifySignUpByPhoneNumberInput
+    public class VerifySignUpByPhoneNumberInput : ICustomValidate
     {
         [Required]
         public string FullName { get; set; }
@@ -32,6 +33,12 @@ namespace Wazzifni.Models.TokenAuth
 
         public UserType? UserType { get; set; }
 
+        public int? CityId { get; set; }
 
+        public void AddValidationErrors(CustomValidationContext context)
+        {
+            if (UserType.HasValue && UserType == Enums.Enum.UserType.BasicUser && !CityId.HasValue)
+                context.Results.Add(new ValidationResult("CityId is required"));
+        }
     }
 }

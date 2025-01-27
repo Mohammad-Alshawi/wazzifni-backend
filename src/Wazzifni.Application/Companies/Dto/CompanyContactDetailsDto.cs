@@ -1,6 +1,6 @@
 ﻿using Abp.Application.Services.Dto;
 
-namespace Wazzifni.Domain.Companies.Dto
+namespace Wazzifni.Companies.Dto
 {
     public class CompanyContactDetailsDto : EntityDto
     {

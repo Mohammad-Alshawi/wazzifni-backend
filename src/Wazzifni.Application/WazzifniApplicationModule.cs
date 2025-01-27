@@ -5,11 +5,11 @@ using Abp.Reflection.Extensions;
 using AutoMapper;
 using Wazzifni.Authorization;
 using Wazzifni.Cities.Dto;
+using Wazzifni.Companies.Dto;
 using Wazzifni.Countries;
 using Wazzifni.Countries.Dto;
 using Wazzifni.Domain.Cities;
 using Wazzifni.Domain.Companies;
-using Wazzifni.Domain.Companies.Dto;
 using Wazzifni.Domain.Countries;
 using Wazzifni.Domain.Regions;
 

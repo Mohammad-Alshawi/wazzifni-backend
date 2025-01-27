@@ -20,6 +20,7 @@ using Wazzifni.Authorization;
 using Wazzifni.Authorization.Roles;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Domain.ChangedPhoneNumber;
+using Wazzifni.Domain.IndividualUserProfiles;
 using Wazzifni.Domain.RegisterdPhoneNumbers;
 using Wazzifni.Domains.UserVerficationCodes;
 using Wazzifni.Localization.SourceFiles;
@@ -42,6 +43,7 @@ namespace Wazzifni.Controllers
         private readonly UserRegistrationManager _userRegistrationManager;
         private readonly IRegisterdPhoneNumberManager _registerdPhoneNumberManager;
         private readonly IRepository<ChangedPhoneNumberForUser> _changedPhoneNumberForUserRepository;
+        private readonly IProfileManager _profileManager;
         private readonly TokenAuthConfiguration _configuration;
 
         public TokenAuthController(
@@ -55,6 +57,7 @@ namespace Wazzifni.Controllers
             UserRegistrationManager userRegistrationManager,
             IRegisterdPhoneNumberManager registerdPhoneNumberManager,
             IRepository<ChangedPhoneNumberForUser> changedPhoneNumberForUserRepository,
+            IProfileManager profileManager,
             TokenAuthConfiguration configuration)
         {
             _logInManager = logInManager;
@@ -67,6 +70,7 @@ namespace Wazzifni.Controllers
             _userRegistrationManager = userRegistrationManager;
             _registerdPhoneNumberManager = registerdPhoneNumberManager;
             _changedPhoneNumberForUserRepository = changedPhoneNumberForUserRepository;
+            _profileManager = profileManager;
             _configuration = configuration;
         }
 
@@ -132,7 +136,7 @@ namespace Wazzifni.Controllers
 
                     var loginResult = await GetLoginResultAsync(
                         registerdUser.UserName,
-                        "F?Bzs7RorxK$EKeryFJ8",
+                        "Msjofiho$kjsdh*7",
                         GetTenancyNameOrNull()
                     );
 
@@ -198,7 +202,7 @@ namespace Wazzifni.Controllers
                     ///await  UnitOfWorkManager.Current.SaveChangesAsync();
                     var loginResult = await GetLoginResultAsync(
                     registerdUser.UserName,
-                    "F?Bzs7RorxK$EKeryFJ8",
+                    "Msjofiho$kjsdh*7",
                     GetTenancyNameOrNull());
                     /// await _userManager.SetRolesAsync(registerdUser, new string[] { StaticRoleNames.Tenants.BasicUser });
                     await _changedPhoneNumberForUserRepository.HardDeleteAsync(newPhoneNumberForUser);
@@ -247,7 +251,7 @@ namespace Wazzifni.Controllers
                   string.Empty,
                   input.Email,
                   userName,
-                 "F?Bzs7RorxK$EKeryFJ8",
+                 "Msjofiho$kjsdh*7",
                   true,
                   input.PhoneNumber,
                   input.DialCode,
@@ -256,7 +260,7 @@ namespace Wazzifni.Controllers
 
                 var loginResult = await GetLoginResultAsync(
                 userName,
-                "F?Bzs7RorxK$EKeryFJ8",
+                "Msjofiho$kjsdh*7",
                 GetTenancyNameOrNull());
                 await _userVerficationCodeManager.AddUserVerficationCodeAsync(
                     new UserVerficationCode
@@ -271,7 +275,10 @@ namespace Wazzifni.Controllers
                         await _userManager.SetRolesAsync(user, new string[] { StaticRoleNames.Tenants.CompanyUser });
 
                     else
+                    {
                         await _userManager.SetRolesAsync(user, new string[] { StaticRoleNames.Tenants.BasicUser });
+                        await _profileManager.InitateProfileForBasicUser(user.Id, input.CityId.Value);
+                    }
                 }
                 catch (Exception ex) { throw new Exception(ex.Message); }
 

@@ -1,7 +1,8 @@
 ﻿using Abp.AutoMapper;
 using System.ComponentModel.DataAnnotations;
+using Wazzifni.Domain.Companies;
 
-namespace Wazzifni.Domain.Companies.Dto
+namespace Wazzifni.Companies.Dto
 {
     [AutoMap(typeof(CompanyTranslation))]
     public class CompanyTranslationDto

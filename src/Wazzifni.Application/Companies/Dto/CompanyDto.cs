@@ -1,7 +1,7 @@
 ﻿using Abp.Application.Services.Dto;
 using System.Collections.Generic;
 
-namespace Wazzifni.Domain.Companies.Dto
+namespace Wazzifni.Companies.Dto
 {
     public class CompanyDto : EntityDto<int>
     {

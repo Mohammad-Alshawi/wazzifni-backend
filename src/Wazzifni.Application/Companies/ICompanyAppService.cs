@@ -1,4 +1,5 @@
-﻿using Wazzifni.CrudAppServiceBase;
+﻿using Wazzifni.Companies.Dto;
+using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Companies.Dto;
 
 namespace Wazzifni.Companies

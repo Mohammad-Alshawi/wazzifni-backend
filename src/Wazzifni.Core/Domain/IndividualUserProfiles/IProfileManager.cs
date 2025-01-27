@@ -1,0 +1,10 @@
+﻿using Abp.Domain.Services;
+using System.Threading.Tasks;
+
+namespace Wazzifni.Domain.IndividualUserProfiles
+{
+    public interface IProfileManager : IDomainService
+    {
+        Task<long> InitateProfileForBasicUser(long UserId, int CityId);
+    }
+}

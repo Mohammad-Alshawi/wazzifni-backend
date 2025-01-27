@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Wazzifni.Cities.Dto;
 using static Wazzifni.Enums.Enum;
 
-namespace Wazzifni.Domain.Companies.Dto
+namespace Wazzifni.Companies.Dto
 {
     public class LiteCompanyDto : EntityDto<int>
     {
