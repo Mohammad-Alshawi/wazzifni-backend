@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="es">
+  <texts>
+	  <text name="UsersList">قائمة المستخدمين</text>
+	  <text name="UserCreate">إنشاء مستخدم</text>
+	  <text name="UserUpdate">تحديث مستخدم</text>
+	  <text name="UserDelete">حذف مستخدم</text>
+	  
+	  <text name="Accounts">صلاحيات الحسابات</text>
+	  <text name="AccountsDelete">صلاحية حذف الحساب</text>
+	  <text name="AccountsRead">صلاحية قراءة معلومات الحساب</text>
+	  <text name="AccountsUpdate">صلاحية تعديل معلومات الحساب</text>
+	  
+	  <text name="RolesList">قائمة الأدوار</text>
+	  <text name="RoleCreate">إنشاء دور</text>
+	  <text name="RoleUpdate">تحديث دور</text>
+	  <text name="RoleDelete">حذف دور</text>
+	  <text name="RolesPermission">قائمة الأذونات</text>
+	  <text name="RoleGet">عرض دور</text>
+  </texts>
+</localizationDictionary>
