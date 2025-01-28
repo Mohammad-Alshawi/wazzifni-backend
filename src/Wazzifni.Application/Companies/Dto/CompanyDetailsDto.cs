@@ -16,9 +16,9 @@ namespace Wazzifni.Companies.Dto
         public SuperLiteUserDto User { get; set; }
         public int Rate { get; set; }
         public bool IsActive { get; set; }
-        public CompanyStatus statues { get; set; }
+        public CompanyStatus Status { get; set; }
 
-        public JobType JobType { get; set; }
+        public string JobType { get; set; }
 
         public DateTime? DateOfEstablishment { get; set; }
         public string ReasonRefuse { get; set; }

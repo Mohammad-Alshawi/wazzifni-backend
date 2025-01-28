@@ -7,8 +7,7 @@ namespace Wazzifni.Domain.Companies.Dto
     {
         public string Keyword { get; set; }
 
-        public JobType? JobType { get; set; }
-        public CompanyStatus? statues { get; set; }
+        public CompanyStatus? Status { get; set; }
 
 
 

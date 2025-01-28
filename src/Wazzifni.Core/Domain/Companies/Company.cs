@@ -26,8 +26,7 @@ namespace Wazzifni.Domain.Companies
         public bool IsActive { get; set; }
         public CompanyStatus Status { get; set; }
 
-        public JobType JobType { get; set; }
-
+        public string JobType { get; set; }
         public DateTime? DateOfEstablishment { get; set; }
         public string ReasonRefuse { get; set; }
         public int? NumberOfEmployees { get; set; }

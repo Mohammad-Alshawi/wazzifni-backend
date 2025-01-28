@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Wazzifni.EntityFrameworkCore;
 
@@ -11,9 +12,11 @@ using Wazzifni.EntityFrameworkCore;
 namespace Wazzifni.Migrations
 {
     [DbContext(typeof(WazzifniDbContext))]
-    partial class WazzifniDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250128160304_edit-job-type-to-string")]
+    partial class editjobtypetostring
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

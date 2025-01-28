@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Wazzifni.Authorization.Users;
+using Wazzifni.Companies.Dto;
 
 namespace Wazzifni.Users.Dto
 {
@@ -14,6 +15,8 @@ namespace Wazzifni.Users.Dto
 
             CreateMap<CreateUserDto, User>();
             CreateMap<CreateUserDto, User>().ForMember(x => x.Roles, opt => opt.Ignore());
+
+            CreateMap<User, SuperLiteUserDto>();
         }
     }
 }

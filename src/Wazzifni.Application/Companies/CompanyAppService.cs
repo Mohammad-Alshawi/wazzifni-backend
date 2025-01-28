@@ -55,17 +55,11 @@ namespace Wazzifni.Companies
             if (AbpSession.UserId.HasValue)
             {
                 var userLogin = await _userManager.GetUserByIdAsync(AbpSession.UserId.Value);
-                if (userLogin.Type == UserType.Admin)
-                {
-                    // User user = await _userRegistrationManager.RegisterAsyncForUserCompanyByAdmin(input.userDto.PhoneNumber, input.userDto.DialCode, UserType.CompanyUser);
-                    // Company.User = user;
-                    // await AddDefaultBundleToCompany(Company);
-                    // Company.Status = CompanyStatus.Approved;
-                }
-                else if (userLogin.Type == UserType.CompanyUser)
+
+                if (userLogin.Type == UserType.CompanyUser)
                 {
                     if (await Repository.GetAll().AnyAsync(x => x.UserId == userLogin.Id))
-                        throw new UserFriendlyException(Exceptions.ObjectIsAlreadyExist, Tokens.User + " User Already Has Company");
+                        throw new UserFriendlyException(Exceptions.ObjectIsAlreadyExist, "Company" + " User Already Has Company");
                     Company.User = userLogin;
                     Company.Status = CompanyStatus.Checking;
                 }

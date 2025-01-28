@@ -1,7 +1,6 @@
 ﻿using Abp.Runtime.Validation;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Companies.Dto
 {
@@ -24,9 +23,7 @@ namespace Wazzifni.Companies.Dto
 
         public List<long> Attachments { get; set; } = new List<long>();
 
-        public SuperLiteUserDto userDto { get; set; }
-
-        public JobType JobType { get; set; }
+        public string JobType { get; set; }
 
 
 
