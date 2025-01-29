@@ -1,6 +1,5 @@
 ﻿using Abp.Application.Services;
 using Abp.Application.Services.Dto;
-using Abp.Authorization;
 using Abp.Collections.Extensions;
 using Abp.Domain.Repositories;
 using Abp.UI;
@@ -27,12 +26,14 @@ namespace Wazzifni.Companies
          ICompanyAppService
     {
         private readonly UserManager _userManager;
+        private readonly ICompanyManager _companyManager;
         private readonly IAttachmentManager _attachmentManager;
         private readonly IMapper _mapper;
 
         public CompanyAppService(
             UserManager userManager,
             IRepository<Company> repository,
+            ICompanyManager companyManager,
             IAttachmentManager attachmentManager,
             IMapper mapper
 
@@ -41,12 +42,13 @@ namespace Wazzifni.Companies
         ) : base(repository)
         {
             _userManager = userManager;
+            _companyManager = companyManager;
             _attachmentManager = attachmentManager;
             _mapper = mapper;
 
         }
 
-        [HttpPost, AbpAllowAnonymous]
+        [HttpPost]
         public override async Task<CompanyDetailsDto> CreateAsync(CreateCompanyDto input)
         {
             var Company = _mapper.Map<Company>(input);
@@ -66,10 +68,6 @@ namespace Wazzifni.Companies
 
                 else
                     throw new UserFriendlyException(Exceptions.YouCannotDoThisAction);
-            }
-            else
-            {
-                throw new UserFriendlyException(Exceptions.YouCannotDoThisAction);
             }
 
             // var Contacts = _mapper.Map<List<CreateCompanyContactDto>, List<CompanyContact>>(input.CompanyContactDtos);
@@ -110,6 +108,7 @@ namespace Wazzifni.Companies
 
         public override async Task<CompanyDetailsDto> GetAsync(EntityDto<int> input)
         {
+            var company = await _companyManager.GetEntityByIdAsync(input.Id);
             var result = await base.GetAsync(input);
             var attachments = await _attachmentManager.GetByRefAsync(input.Id, AttachmentRefType.CompanyImage);
             if (attachments is not null)
@@ -160,6 +159,9 @@ namespace Wazzifni.Companies
         {
             var data = base.CreateFilteredQuery(input);
             data = data.Include(x => x.User);
+            data = data.Include(x => x.City).ThenInclude(x => x.Translations);
+            data = data.Include(x => x.Translations);
+
             if (!input.Keyword.IsNullOrEmpty())
                 data = data.Where(x =>
                                        x.JobType.ToString().Contains(input.Keyword));

@@ -1,4 +1,5 @@
 ﻿using Abp.Runtime.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -15,7 +16,8 @@ namespace Wazzifni.Companies.Dto
 
         // public CompanyContactDto CompanyContact { get; set; }
         //public List<CompanyBranchDto> CompanyBranches { get; set; }
-
+        public int? NumberOfEmployees { get; set; }
+        public DateTime? DateOfEstablishment { get; set; }
 
         [Required]
         public long CompanyProfilePhotoId { get; set; }

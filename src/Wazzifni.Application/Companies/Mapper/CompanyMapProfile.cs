@@ -18,7 +18,6 @@ namespace Wazzifni.Companies.Mapper
             CreateMap<CompanyDetailsDto, UpdateCompanyDto>();
             CreateMap<CompanyContactDetailsDto, CompanyContactDto>();
 
-            CreateMap<Company, CompanyDetailsDto>();
 
         }
     }

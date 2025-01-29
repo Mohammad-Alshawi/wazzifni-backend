@@ -52,7 +52,7 @@ namespace Wazzifni.Authorization.Accounts
 
 
 
-        [HttpGet, AbpAuthorize(PermissionNames.Accounts_Read)]
+        [HttpGet, AbpAuthorize(PermissionNames.Accounts_Read), ApiExplorerSettings(IgnoreApi = true)]
         public async Task<ProfileInfoDto> GetProfileInfo()
         {
             User user = await _userManager.GetUserByIdAsync(AbpSession.UserId.Value);
@@ -78,7 +78,7 @@ namespace Wazzifni.Authorization.Accounts
 
 
 
-        [HttpPut, AbpAuthorize(PermissionNames.Accounts_Update)]
+        [HttpPut, AbpAuthorize(PermissionNames.Accounts_Update), ApiExplorerSettings(IgnoreApi = true)]
         public async Task UpdateProfile(UpdateProfileDto input)
         {
             var user = await _userManager.GetUserByIdAsync(AbpSession.UserId.Value);
@@ -130,7 +130,7 @@ namespace Wazzifni.Authorization.Accounts
 
         }
 
-        [HttpPost, AbpAuthorize(PermissionNames.Accounts_Update)]
+        [HttpPost, AbpAuthorize(PermissionNames.Accounts_Update), ApiExplorerSettings(IgnoreApi = true)]
         public async Task AddOrEditUserProfilePhoto(AddUserProfilePhotoDto input)
         {
             var oldAttachment = await _attachmentManager.GetElementByRefAsync(AbpSession.UserId.Value, Enums.Enum.AttachmentRefType.Profile);
@@ -142,7 +142,7 @@ namespace Wazzifni.Authorization.Accounts
             await _attachmentManager.UpdateRefIdAsync(attachment, AbpSession.UserId.Value);
         }
 
-        [HttpPut, AbpAuthorize(PermissionNames.Accounts_Update)]
+        [HttpPut, AbpAuthorize(PermissionNames.Accounts_Update), ApiExplorerSettings(IgnoreApi = true)]
         public async Task<SignInWithPhoneNumberOutput> ChangePhoneNumber(ChangePhoneNumberDto input)
         {
             var existUser = await _userManager.Users.Where(x => x.DialCode == input.DialCode && x.PhoneNumber == input.PhoneNumber).FirstOrDefaultAsync();
@@ -310,7 +310,7 @@ namespace Wazzifni.Authorization.Accounts
         }
 
         /// <summary> Allows the user to delete his account, Except ADMINS </summary>
-        [HttpDelete, AbpAuthorize(PermissionNames.Accounts_Delete)]
+        [HttpDelete, AbpAuthorize(PermissionNames.Accounts_Delete), ApiExplorerSettings(IgnoreApi = true)]
         public async Task DeleteAccount()
         {
             var user = await _userManager.GetUserByIdAsync(AbpSession.UserId.Value);
