@@ -110,6 +110,8 @@ namespace Wazzifni.Companies
         {
             var company = await _companyManager.GetEntityByIdAsync(input.Id);
             var result = await base.GetAsync(input);
+
+            var profile = await _attachmentManager.GetElementByRefAsync(input.Id, AttachmentRefType.CompanyLogo);
             var attachments = await _attachmentManager.GetByRefAsync(input.Id, AttachmentRefType.CompanyImage);
             if (attachments is not null)
             {
@@ -126,6 +128,18 @@ namespace Wazzifni.Companies
                     }
                 }
             }
+            if (profile is not null)
+            {
+
+                result.Profile = new LiteAttachmentDto
+                {
+                    Id = profile.Id,
+                    Url = _attachmentManager.GetUrl(profile),
+                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(profile),
+                };
+
+
+            }
             return result;
         }
         //
@@ -133,7 +147,7 @@ namespace Wazzifni.Companies
         {
             var result = await base.GetAllAsync(input);
 
-            var attachments = await _attachmentManager.GetListByRefAsync(result.Items.Select(x => (long)x.Id).ToList(), AttachmentRefType.CompanyImage);
+            var attachments = await _attachmentManager.GetListByRefAsync(result.Items.Select(x => (long)x.Id).ToList(), AttachmentRefType.CompanyLogo);
 
             var attachmentsDict = new Dictionary<long, List<Attachment>>();
 
@@ -144,12 +158,11 @@ namespace Wazzifni.Companies
             {
                 if (attachmentsDict.TryGetValue(item.Id, out var itemAttachments))
                 {
-                    item.Attachments = itemAttachments
+                    item.Profile = itemAttachments
                         .Select(A => new LiteAttachmentDto(A.Id, _attachmentManager.GetUrl(A), _attachmentManager.GetLowResolutionPhotoUrl(A), A.Size))
-                        .ToList();
+                        .FirstOrDefault();
                 }
-                else
-                    item.Attachments = new List<LiteAttachmentDto>();
+
 
             }
             return result;
@@ -160,11 +173,11 @@ namespace Wazzifni.Companies
             var data = base.CreateFilteredQuery(input);
             data = data.Include(x => x.User);
             data = data.Include(x => x.City).ThenInclude(x => x.Translations);
+            data = data.Include(x => x.City).ThenInclude(x => x.Country).ThenInclude(x => x.Translations);
             data = data.Include(x => x.Translations);
 
             if (!input.Keyword.IsNullOrEmpty())
-                data = data.Where(x =>
-                                       x.JobType.ToString().Contains(input.Keyword));
+                data = data.Where(x => x.JobType.ToString().Contains(input.Keyword));
 
 
             return data;
