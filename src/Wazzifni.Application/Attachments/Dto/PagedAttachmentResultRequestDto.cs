@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services.Dto;
+using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Attachments.Dto
 {
@@ -10,5 +11,7 @@ namespace Wazzifni.Attachments.Dto
 
 
         public byte RefType { get; set; }
+
+        public AttachmentRefType Type { get; set; }
     }
 }

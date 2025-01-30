@@ -32,6 +32,8 @@ namespace Wazzifni.Attachments.Dto
         public string Url { get; set; }
         public string LowResolutionPhotosUrl { get; set; }
 
+
+
     }
 
 

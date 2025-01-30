@@ -23,13 +23,9 @@ namespace Wazzifni.Enums
         public enum AttachmentRefType : byte
         {
             Profile = 1,
-            Advertisiment = 2,
-            QR = 3,
-            Category = 6,
-            ContactUs = 8,
-            City = 9,
-            CompanyLogo = 10,
-            CompanyImage = 11
+            CompanyLogo = 2,
+            CompanyImage = 3,
+            City = 4
 
         }
         public enum AttachmentType : byte

@@ -5325,3 +5325,318 @@ DEBUG 2025-01-29 17:41:18,009 [1    ] Abp.AutoMapper.AbpAutoMapperModule       -
 DEBUG 2025-01-29 17:41:18,010 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
 WARN  2025-01-29 17:42:11,924 [13   ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
 WARN  2025-01-29 17:42:12,651 [14   ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+DEBUG 2025-01-30 17:13:55,611 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-01-30 17:13:59,867 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-01-30 17:13:59,970 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:13:59,983 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:13:59,985 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:13:59,986 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:13:59,988 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:13:59,990 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:13:59,991 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:13:59,996 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:13:59,997 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:13:59,999 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:14:00,000 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:14:00,002 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:14:00,004 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:14:00,006 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:14:00,008 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:14:00,025 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-01-30 17:14:01,080 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:14:01,081 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:14:01,081 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:14:01,081 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:14:04,156 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:14:05,867 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-01-30 17:14:06,135 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-01-30 17:14:06,181 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-01-30 17:14:06,186 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-01-30 17:14:06,207 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-01-30 17:14:06,272 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-01-30 17:14:06,325 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-01-30 17:14:06,480 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 14 classes define auto mapping attributes
+DEBUG 2025-01-30 17:14:06,481 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-01-30 17:14:06,508 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-01-30 17:14:06,510 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-01-30 17:14:06,512 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-01-30 17:14:06,513 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-01-30 17:14:06,513 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-01-30 17:14:06,514 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-01-30 17:14:06,514 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-01-30 17:14:06,514 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-01-30 17:14:06,515 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-01-30 17:14:06,515 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-01-30 17:14:06,516 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-01-30 17:14:06,516 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-01-30 17:14:06,516 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+DEBUG 2025-01-30 17:39:53,805 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-01-30 17:39:54,311 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-01-30 17:39:54,528 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,542 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,545 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,550 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,552 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,554 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,556 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,563 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,566 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,568 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,571 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,573 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,575 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,579 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,583 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:39:54,600 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-01-30 17:39:55,094 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:39:55,095 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:39:55,095 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:39:55,095 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:39:58,465 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:40:00,396 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-01-30 17:40:00,736 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-01-30 17:40:00,804 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-01-30 17:40:00,815 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-01-30 17:40:00,844 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-01-30 17:40:00,898 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-01-30 17:40:00,942 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-01-30 17:40:01,116 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 14 classes define auto mapping attributes
+DEBUG 2025-01-30 17:40:01,116 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-01-30 17:40:01,138 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-01-30 17:40:01,142 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-01-30 17:40:01,145 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-01-30 17:40:01,145 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-01-30 17:40:01,146 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-01-30 17:40:01,146 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-01-30 17:40:01,147 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-01-30 17:40:01,147 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-01-30 17:40:01,147 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-01-30 17:40:01,148 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-01-30 17:40:01,149 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-01-30 17:40:01,149 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-01-30 17:40:01,149 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+DEBUG 2025-01-30 17:43:23,629 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-01-30 17:43:23,916 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-01-30 17:43:24,019 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,039 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,042 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,044 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,046 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,048 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,049 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,058 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,064 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,066 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,070 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,072 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,074 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,076 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,078 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:24,094 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-01-30 17:43:24,548 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:43:24,549 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:43:24,549 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:43:24,549 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:43:27,785 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:43:29,703 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-01-30 17:43:29,982 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-01-30 17:43:30,065 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-01-30 17:43:30,076 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-01-30 17:43:30,101 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-01-30 17:43:30,174 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-01-30 17:43:30,207 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-01-30 17:43:30,419 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 14 classes define auto mapping attributes
+DEBUG 2025-01-30 17:43:30,419 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-01-30 17:43:30,445 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-01-30 17:43:30,449 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-01-30 17:43:30,454 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-01-30 17:43:30,455 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-01-30 17:43:30,456 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-01-30 17:43:30,456 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-01-30 17:43:30,457 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-01-30 17:43:30,457 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-01-30 17:43:30,458 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-01-30 17:43:30,458 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-01-30 17:43:30,459 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-01-30 17:43:30,459 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-01-30 17:43:30,459 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+DEBUG 2025-01-30 17:49:16,884 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-01-30 17:49:21,127 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-01-30 17:49:21,231 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,244 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,247 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,249 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,253 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,255 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,257 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,263 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,265 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,266 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,269 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,270 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,272 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,274 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,276 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:21,291 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-01-30 17:49:22,433 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:49:22,434 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:49:22,434 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:49:22,434 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:49:25,201 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:49:26,586 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-01-30 17:49:26,779 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-01-30 17:49:26,826 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-01-30 17:49:26,834 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-01-30 17:49:26,851 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-01-30 17:49:26,901 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-01-30 17:49:26,933 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-01-30 17:49:27,052 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 14 classes define auto mapping attributes
+DEBUG 2025-01-30 17:49:27,052 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-01-30 17:49:27,076 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-01-30 17:49:27,078 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-01-30 17:49:27,080 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-01-30 17:49:27,081 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-01-30 17:49:27,081 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-01-30 17:49:27,082 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-01-30 17:49:27,082 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-01-30 17:49:27,082 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-01-30 17:49:27,083 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-01-30 17:49:27,083 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-01-30 17:49:27,084 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-01-30 17:49:27,084 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-01-30 17:49:27,084 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+DEBUG 2025-01-30 17:57:14,289 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-01-30 17:57:15,044 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-01-30 17:57:15,160 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,175 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,179 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,182 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,184 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,186 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,189 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,195 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,198 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,200 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,201 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,203 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,204 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,205 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,206 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:15,220 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-01-30 17:57:15,635 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:57:15,636 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:57:15,636 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:57:15,637 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 17:57:19,334 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 17:57:21,924 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-01-30 17:57:22,306 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-01-30 17:57:22,402 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-01-30 17:57:22,417 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-01-30 17:57:22,458 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-01-30 17:57:22,546 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-01-30 17:57:22,584 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-01-30 17:57:22,801 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 14 classes define auto mapping attributes
+DEBUG 2025-01-30 17:57:22,802 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-01-30 17:57:22,830 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-01-30 17:57:22,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-01-30 17:57:22,841 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-01-30 17:57:22,842 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-01-30 17:57:22,843 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-01-30 17:57:22,843 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-01-30 17:57:22,844 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-01-30 17:57:22,845 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-01-30 17:57:22,846 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-01-30 17:57:22,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-01-30 17:57:22,848 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-01-30 17:57:22,848 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-01-30 17:57:22,848 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+DEBUG 2025-01-30 18:04:15,793 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-01-30 18:04:16,099 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-01-30 18:04:16,218 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,244 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,248 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,250 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,252 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,254 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,263 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,265 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,267 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,271 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,272 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,274 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,276 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,277 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:16,295 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-01-30 18:04:16,880 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 18:04:16,881 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 18:04:16,882 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 18:04:16,882 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 18:04:20,061 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:04:21,944 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-01-30 18:04:22,199 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-01-30 18:04:22,255 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-01-30 18:04:22,263 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-01-30 18:04:22,280 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-01-30 18:04:22,334 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-01-30 18:04:22,366 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-01-30 18:04:22,528 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 14 classes define auto mapping attributes
+DEBUG 2025-01-30 18:04:22,530 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-01-30 18:04:22,550 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-01-30 18:04:22,553 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-01-30 18:04:22,557 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-01-30 18:04:22,557 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-01-30 18:04:22,558 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-01-30 18:04:22,559 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-01-30 18:04:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-01-30 18:04:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-01-30 18:04:22,560 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-01-30 18:04:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-01-30 18:04:22,561 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-01-30 18:04:22,562 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-01-30 18:04:22,562 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+DEBUG 2025-01-30 18:11:05,003 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-01-30 18:11:05,274 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-01-30 18:11:05,383 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,393 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,395 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,396 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,397 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,399 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,408 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,411 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,412 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,415 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,417 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,420 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,423 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,425 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:05,437 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-01-30 18:11:05,869 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 18:11:05,870 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 18:11:05,870 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 18:11:05,870 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-01-30 18:11:08,754 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-01-30 18:11:10,352 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-01-30 18:11:10,554 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-01-30 18:11:10,616 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-01-30 18:11:10,622 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-01-30 18:11:10,642 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-01-30 18:11:10,698 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-01-30 18:11:10,733 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-01-30 18:11:10,866 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 14 classes define auto mapping attributes
+DEBUG 2025-01-30 18:11:10,866 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-01-30 18:11:10,888 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-01-30 18:11:10,891 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-01-30 18:11:10,893 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-01-30 18:11:10,894 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-01-30 18:11:10,894 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-01-30 18:11:10,895 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-01-30 18:11:10,895 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-01-30 18:11:10,895 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-01-30 18:11:10,896 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-01-30 18:11:10,897 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-01-30 18:11:10,897 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-01-30 18:11:10,897 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-01-30 18:11:10,898 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto

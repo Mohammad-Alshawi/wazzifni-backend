@@ -27,12 +27,7 @@ namespace Wazzifni.Attachments
         private readonly string _appBaseUrl;
         private static readonly string AttachmentsFolder = Path.Combine(AppConsts.UploadsFolderName, AppConsts.RecordsFolderName);
 
-        /// <summary>
-        /// AttachmentAppService
-        /// </summary>
-        /// <param name="repository"></param>
-        /// <param name="attachmentManager"></param>
-        /// <param name="fileUploadService"></param>
+
         public AttachmentAppService(IRepository<Attachment, long> repository,
             IAttachmentManager attachmentManager, IFileUploadService fileUploadService, IWebHostEnvironment webHostEnvironment, IConfiguration configuration)
         {
@@ -42,12 +37,7 @@ namespace Wazzifni.Attachments
             _webHostEnvironment = webHostEnvironment;
             _appBaseUrl = configuration[WazzifniConsts.AppServerRootAddressKey] ?? "/";
         }
-        /// <summary>
-        /// GetAllAsync
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        [RemoteService(IsEnabled = false)]
+
         public async Task<ListResultDto<AttachmentDto>> GetAllAsync(PagedAttachmentResultRequestDto input)
         {
 
@@ -64,11 +54,7 @@ namespace Wazzifni.Attachments
 
             return new ListResultDto<AttachmentDto>(listDto);
         }
-        /// <summary>
-        /// Get Attachment
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
+
         public async Task<AttachmentDto> GetAsync(EntityDto input)
         {
             var entity = await GetEntityByIdAsync(input.Id);
@@ -77,11 +63,7 @@ namespace Wazzifni.Attachments
             entityDto.Url = _attachmentManager.GetUrl(entity);
             return entityDto;
         }
-        /// <summary>
-        /// Upload Attachment
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
+
         public async Task<AttachmentDto> UploadAsync([FromForm] UploadAttachmentInputDto input)
         {
             var attachmentRefType = (AttachmentRefType)input.RefType;
@@ -100,11 +82,7 @@ namespace Wazzifni.Attachments
             entityDto.LowResolutionPhotosUrl = _attachmentManager.GetLowResolutionPhotoUrl(attachment);
             return entityDto;
         }
-        /// <summary>
-        /// Delete
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
+
         [RemoteService(IsEnabled = false)]
         public async Task DeleteAsync(EntityDto input)
         {
@@ -126,11 +104,7 @@ namespace Wazzifni.Attachments
         {
             return ObjectMapper.Map<AttachmentDto>(entity);
         }
-        /// <summary>
-        /// Upload Multi Attachments
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
+
         public async Task<List<AttachmentDto>> UploadMultiAttachmentAsync([FromForm] UploadMultiAttachmentInputDto input)
         {
             var attachmentDtos = new List<AttachmentDto>();
@@ -154,10 +128,7 @@ namespace Wazzifni.Attachments
             return attachmentDtos;
         }
 
-        /// <summary>
-        /// jitsi meet all recordings
-        /// </summary>
-        /// <returns></returns>
+
 
 
 

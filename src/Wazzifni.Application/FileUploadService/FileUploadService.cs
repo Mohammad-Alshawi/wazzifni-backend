@@ -24,6 +24,8 @@ namespace Wazzifni.FileUploadService
 
     public class FileUploadService : IFileUploadService
     {
+        private static readonly string UploadFolder = Path.Combine(AppConsts.UploadsFolderName);
+
         private static readonly string AttachmentsFolder = Path.Combine(AppConsts.UploadsFolderName, AppConsts.AttachmentsFolderName);
         private static readonly string VideosFolder = Path.Combine(AppConsts.UploadsFolderName, AppConsts.VideosFolderName);
         private static readonly string LowResolutionPhotosFolder = Path.Combine(AppConsts.UploadsFolderName, AppConsts.LowResolutionPhotosFolderName);
@@ -51,9 +53,23 @@ namespace Wazzifni.FileUploadService
             var fileInfo = new UploadedFileInfo { Type = GetAndCheckFileType(file) };
 
             var fileName = GenerateUniqueFileName(file);
+            var basePath = GetPathToSaveAttachment(fileName, AttachmentsFolder);
             var pathToSaveAttacment = GetPathToSaveAttachment(fileName, AttachmentsFolder);
 
             fileInfo.RelativePath = GetAttachmentRelativePath(fileName, AttachmentsFolder);
+
+            if (!Directory.Exists(basePath))
+            {
+                Directory.CreateDirectory(basePath);
+            }
+            if (!Directory.Exists(pathToSaveAttacment))
+            {
+                Directory.CreateDirectory(pathToSaveAttacment);
+            }
+            if (!Directory.Exists(fileInfo.RelativePath))
+            {
+                Directory.CreateDirectory(fileInfo.RelativePath);
+            }
 
             var fileSizeInBytes = file.Length;
             fileInfo.Size = FormatFileSize((double)fileSizeInBytes);

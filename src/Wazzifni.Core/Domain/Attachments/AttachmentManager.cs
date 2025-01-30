@@ -142,21 +142,13 @@ namespace Wazzifni.Domain.Attachments
             {
                 case AttachmentRefType.Profile:
                     return AllAcceptedTypes;
-                case AttachmentRefType.Advertisiment:
-                    return ImagesAcceptedTypes;
-                case AttachmentRefType.QR:
-                    return ImagesAcceptedTypes;
-
-                case AttachmentRefType.ContactUs:
-                    return ImagesAcceptedTypes;
-                case AttachmentRefType.City:
-                    return ImagesAcceptedTypes;
                 case AttachmentRefType.CompanyLogo:
                     return ImagesAcceptedTypes;
                 case AttachmentRefType.CompanyImage:
                     return ImagesAcceptedTypes;
-
+                case AttachmentRefType.City:
                     return ImagesAcceptedTypes;
+
             }
 
             return new AttachmentType[] { };
@@ -219,30 +211,7 @@ namespace Wazzifni.Domain.Attachments
         private static readonly AttachmentType[] ImagesAcceptedTypes =
             { AttachmentType.JPEG, AttachmentType.JPG, AttachmentType.PNG,AttachmentType.HEIC,AttachmentType.HEIF };
 
-        public async Task CreateOrUpdateAttachmentAsync(int partnerId, string relativePath, string name)
-        {
-            var oldAttachment = await _repository.FirstOrDefaultAsync(x =>
-                    x.RefId == partnerId && x.RefType == AttachmentRefType.QR);
-            if (oldAttachment != null)
-            {
-                oldAttachment.Name = name;
-                oldAttachment.RelativePath = relativePath;
-                await _repository.UpdateAsync(oldAttachment);
-            }
-            else
-            {
-                var attachment = new Attachment
-                {
-                    Name = name,
-                    Type = AttachmentType.PNG,
-                    RelativePath = relativePath,
-                    RefId = partnerId,
-                    RefType = AttachmentRefType.QR
-                };
 
-                await _repository.InsertAsync(attachment);
-            }
-        }
 
 
     }
