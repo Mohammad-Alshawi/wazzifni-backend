@@ -1,5 +1,4 @@
-﻿using Microsoft.OpenApi.Any;
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Linq;
@@ -10,10 +9,12 @@ public class EnumSchemaFilter : ISchemaFilter
     {
         if (context.Type.IsEnum)
         {
-            schema.Enum = Enum.GetNames(context.Type)
-                   .Select(name => (IOpenApiAny)new OpenApiString(name))
-                   .ToList();
-            schema.Type = "string";
+            schema.Enum = Enum.GetValues(context.Type)
+               .Cast<Enum>()
+               .Select(e => new Microsoft.OpenApi.Any.OpenApiInteger(Convert.ToInt32(e)))
+               .ToList<Microsoft.OpenApi.Any.IOpenApiAny>();
+            schema.Type = "integer";
+            schema.Format = null;
         }
     }
 }

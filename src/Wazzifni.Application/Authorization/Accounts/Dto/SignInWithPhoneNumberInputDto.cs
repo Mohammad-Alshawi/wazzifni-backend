@@ -14,7 +14,6 @@ namespace Wazzifni.Authorization.Accounts.Dto
 
         public UserType? userType { get; set; }
 
-        public bool? WithVeficationCodeOtp { get; set; }
 
 
     }

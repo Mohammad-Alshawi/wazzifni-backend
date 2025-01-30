@@ -45,5 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Logs\" />
+    <Folder Include="wwwroot\Uploads\LowResolutionPhotos\" />
+    <Folder Include="wwwroot\Uploads\Attachments\" />
   </ItemGroup>
 </Project>

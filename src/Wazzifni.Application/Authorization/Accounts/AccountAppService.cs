@@ -261,8 +261,7 @@ namespace Wazzifni.Authorization.Accounts
         public async Task<SignInWithPhoneNumberOutput> SignInWithPhoneNumberAsync(SignInWithPhoneNumberInputDto input)
         {
             if (!input.userType.HasValue) input.userType = UserType.BasicUser;
-            if (input.WithVeficationCodeOtp.HasValue && input.WithVeficationCodeOtp.Value == false)
-                return await SendVerificationCode(input, false);
+
             return await SendVerificationCode(input, true);
         }
 
