@@ -7,14 +7,13 @@ using KeyFinder;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
-using Wazzifni;
 using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.SpokenLanguages;
 using Wazzifni.SpokenLanguages.DTOs;
 using static Wazzifni.Enums.Enum;
 
-namespace Tyoutor.SpokenLanguages.Services;
+namespace Wazzifni.SpokenLanguages.Services;
 
 public class SpokenLanguagesAppService :
         WazzifniAsyncCrudAppService<SpokenLanguage, SpokenLanguageDetailsDto, int, LiteSpokenLanguageDto, PagedSpokenLanguageRequestResultDto, CreateSpokenLanguageDto, UpdateSpokenLanguageDto>, ISpokenLanguagesAppService
@@ -31,7 +30,7 @@ public class SpokenLanguagesAppService :
     }
 
     //[AbpAuthorize(PermissionNames.SpokenLanguageCUD)]
-    public async Task<SpokenLanguageDetailsDto> Create(CreateSpokenLanguageDto input)
+    public override async Task<SpokenLanguageDetailsDto> CreateAsync(CreateSpokenLanguageDto input)
     {
         var lan = new SpokenLanguage { Name = input.Name, DisplayName = input.DisplayName, IsActive = true };
         var language = await _mainRepository.InsertAsync(lan);
