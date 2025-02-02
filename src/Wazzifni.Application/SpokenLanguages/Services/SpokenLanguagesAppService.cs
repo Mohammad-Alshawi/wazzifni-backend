@@ -1,5 +1,6 @@
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
+using Abp.Collections.Extensions;
 using Abp.Domain.Repositories;
 using AutoMapper;
 using KeyFinder;
@@ -117,5 +118,27 @@ public class SpokenLanguagesAppService :
         SpokenLanguage.IsActive = !SpokenLanguage.IsActive;
         await _mainRepository.UpdateAsync(SpokenLanguage);
         return MapToEntityDto(SpokenLanguage);
+    }
+
+
+    protected override IQueryable<SpokenLanguage> CreateFilteredQuery(PagedSpokenLanguageRequestResultDto input)
+    {
+        var data = base.CreateFilteredQuery(input);
+
+
+        if (input.IsActive.HasValue)
+            data = data.Where(x => x.IsActive == input.IsActive.Value);
+
+
+        if (!input.Keyword.IsNullOrEmpty())
+            data = data.Where(x => x.Name.Contains(input.Keyword) || x.DisplayName.Contains(input.Keyword));
+
+        return data;
+    }
+
+    protected override IQueryable<SpokenLanguage> ApplySorting(IQueryable<SpokenLanguage> query, PagedSpokenLanguageRequestResultDto input)
+    {
+
+        return query.OrderBy(r => r.Id);
     }
 }
