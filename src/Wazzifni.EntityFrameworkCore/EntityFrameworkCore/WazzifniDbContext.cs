@@ -14,6 +14,7 @@ using Wazzifni.Domain.IndividualUserProfiles;
 using Wazzifni.Domain.Regions;
 using Wazzifni.Domain.RegisterdPhoneNumbers;
 using Wazzifni.Domain.Skills;
+using Wazzifni.Domain.SpokenLanguages;
 using Wazzifni.Domain.WorkExperiences;
 using Wazzifni.Domains.UserVerficationCodes;
 using Wazzifni.MultiTenancy;
@@ -43,6 +44,8 @@ namespace Wazzifni.EntityFrameworkCore
         public virtual DbSet<WorkExperience> WorkExperiences { get; set; }
         public virtual DbSet<Education> Educations { get; set; }
         public virtual DbSet<Award> Awards { get; set; }
+
+        public virtual DbSet<SpokenLanguage> SpokenLanguages { get; set; }
         public WazzifniDbContext(DbContextOptions<WazzifniDbContext> options)
             : base(options)
         {

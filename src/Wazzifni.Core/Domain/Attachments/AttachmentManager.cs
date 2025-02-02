@@ -148,6 +148,8 @@ namespace Wazzifni.Domain.Attachments
                     return ImagesAcceptedTypes;
                 case AttachmentRefType.City:
                     return ImagesAcceptedTypes;
+                case AttachmentRefType.SpokenLanguage:
+                    return ImagesAcceptedTypes;
 
             }
 
