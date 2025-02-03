@@ -13,7 +13,11 @@ namespace Wazzifni.Attachments.Dto
     public class UploadAttachmentInputDto : ICustomValidate
     {
         /// <summary>
-        ///  Profile = 1,       
+        ///        Profile = 1,
+        ///        CompanyLogo = 2,
+        ///        CompanyImage = 3,
+        ///        City = 4,
+        ///        SpokenLanguage = 5
         /// </summary>
         public byte RefType { get; set; }
 

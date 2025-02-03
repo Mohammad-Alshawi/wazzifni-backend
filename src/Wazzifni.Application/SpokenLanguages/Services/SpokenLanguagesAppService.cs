@@ -33,11 +33,11 @@ public class SpokenLanguagesAppService :
     public override async Task<SpokenLanguageDetailsDto> CreateAsync(CreateSpokenLanguageDto input)
     {
         var lan = new SpokenLanguage { Name = input.Name, DisplayName = input.DisplayName, IsActive = true };
-        var language = await _mainRepository.InsertAsync(lan);
+        var languageId = await _mainRepository.InsertAndGetIdAsync(lan);
 
         if (input.AttachmentId != 0)
         {
-            await _attachmentManager.CheckAndUpdateRefIdAsync(input.AttachmentId, AttachmentRefType.SpokenLanguage, language.Id);
+            await _attachmentManager.CheckAndUpdateRefIdAsync(input.AttachmentId, AttachmentRefType.SpokenLanguage, languageId);
         }
         return _mapper.Map<SpokenLanguageDetailsDto>(lan);
     }

@@ -12,6 +12,8 @@ using Wazzifni.Domain.Cities;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.Countries;
 using Wazzifni.Domain.Regions;
+using Wazzifni.Domain.Skills;
+using Wazzifni.Skills.Dto;
 
 namespace Wazzifni
 {
@@ -94,6 +96,17 @@ namespace Wazzifni
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))
                 .ForMember(dest => dest.About, opt => opt.MapFrom(src => src.About));
+                #endregion
+
+                #region Skill
+                // Skill Translation Configuration
+                configuration.CreateMultiLingualMap<Skill, SkillTranslation, LiteSkillDto>(context).TranslationMap
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                configuration.CreateMultiLingualMap<Skill, SkillTranslation, SkillDetailsDto>(context).TranslationMap
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                configuration.CreateMultiLingualMap<Skill, SkillTranslation, SkillDto>(context).TranslationMap
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+
                 #endregion
             }
         }
