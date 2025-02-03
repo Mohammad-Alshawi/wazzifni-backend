@@ -1,22 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Abp.Authorization;
+﻿using Abp.Authorization;
 using Abp.Authorization.Users;
 using Abp.Configuration;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
 using Abp.Organizations;
 using Abp.Runtime.Caching;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Wazzifni.Authorization.Roles;
-using Abp.Authorization.Roles;
+using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Authorization.Users
 {
     public class UserManager : AbpUserManager<Role, User>
     {
+        private readonly IRepository<User, long> _userRepository;
+
         public UserManager(
           RoleManager roleManager,
           UserStore store,
@@ -27,6 +30,7 @@ namespace Wazzifni.Authorization.Users
           ILookupNormalizer keyNormalizer,
           IdentityErrorDescriber errors,
           IServiceProvider services,
+          IRepository<User, long> UserRepository,
           ILogger<UserManager<User>> logger,
           IPermissionManager permissionManager,
           IUnitOfWorkManager unitOfWorkManager,
@@ -34,7 +38,7 @@ namespace Wazzifni.Authorization.Users
           IRepository<OrganizationUnit, long> organizationUnitRepository,
           IRepository<UserOrganizationUnit, long> userOrganizationUnitRepository,
           IOrganizationUnitSettings organizationUnitSettings,
-          ISettingManager settingManager, 
+          ISettingManager settingManager,
           IRepository<UserLogin, long> userLoginRepository)
           : base(
               roleManager,
@@ -56,6 +60,37 @@ namespace Wazzifni.Authorization.Users
               settingManager,
               userLoginRepository)
         {
+            _userRepository = UserRepository;
         }
+
+        public async Task<bool> CheckUserTypeFromSession(UserType userType)
+        {
+            if (AbpSession.UserId.HasValue)
+            {
+                var dbUser = await _userRepository.FirstOrDefaultAsync(AbpSession.UserId.Value);
+
+                return dbUser.Type == userType;
+            }
+
+            return false;
+        }
+
+        public async Task<bool> CheckUserTypeByUserId(UserType userType, long UserId)
+        {
+
+            var dbUser = await _userRepository.FirstOrDefaultAsync(UserId);
+
+            return dbUser.Type == userType;
+
+        }
+
+        public async Task<bool> IsCompany() => await CheckUserTypeFromSession(UserType.CompanyUser);
+
+        public async Task<bool> IsAdminSession() => await CheckUserTypeFromSession(UserType.Admin);
+        public async Task<bool> IsBasicUser() => await CheckUserTypeFromSession(UserType.BasicUser);
+
+
+        public async Task<bool> IsCompany(long UserId) => await CheckUserTypeByUserId(UserType.CompanyUser, UserId);
+        public async Task<bool> IsBasicUser(long UserId) => await CheckUserTypeByUserId(UserType.BasicUser, UserId);
     }
 }

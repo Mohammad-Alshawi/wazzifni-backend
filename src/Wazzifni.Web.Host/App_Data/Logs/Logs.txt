@@ -6720,3 +6720,996 @@ Abp.UI.UserFriendlyException: Tokens.Skill Not Found
    at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
    at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
    at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+DEBUG 2025-02-03 18:19:20,747 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-02-03 18:19:21,913 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-02-03 18:19:21,942 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,946 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,947 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,948 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,948 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,949 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,949 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,951 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,952 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,952 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,953 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,953 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,953 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,954 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,954 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:21,958 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-02-03 18:19:22,327 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:19:22,327 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:19:22,327 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:19:22,327 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:19:23,272 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:19:23,817 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-02-03 18:19:23,908 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-02-03 18:19:23,931 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-02-03 18:19:23,934 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-02-03 18:19:23,945 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-02-03 18:19:23,969 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-02-03 18:19:23,985 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-02-03 18:19:24,043 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2025-02-03 18:19:24,044 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-02-03 18:19:24,053 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-02-03 18:19:24,054 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-02-03 18:19:24,055 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-02-03 18:19:24,055 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-02-03 18:19:24,056 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-02-03 18:19:24,056 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-02-03 18:19:24,056 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-02-03 18:19:24,056 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-02-03 18:19:24,056 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-02-03 18:19:24,057 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-02-03 18:19:24,057 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-02-03 18:19:24,057 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-02-03 18:19:24,057 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-02-03 18:19:24,057 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+DEBUG 2025-02-03 18:30:44,484 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-02-03 18:30:44,558 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-02-03 18:30:44,611 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,614 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,615 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,617 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,618 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,618 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,619 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,621 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,622 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,622 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,623 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,623 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,624 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,624 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,625 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:44,629 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-02-03 18:30:44,774 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:30:44,774 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:30:44,774 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:30:44,774 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:30:45,744 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:30:46,343 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-02-03 18:30:46,408 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-02-03 18:30:46,425 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-02-03 18:30:46,427 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-02-03 18:30:46,433 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-02-03 18:30:46,454 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-02-03 18:30:46,467 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-02-03 18:30:46,525 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2025-02-03 18:30:46,525 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-02-03 18:30:46,533 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-02-03 18:30:46,534 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-02-03 18:30:46,535 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-02-03 18:30:46,535 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-02-03 18:30:46,535 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-02-03 18:30:46,535 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-02-03 18:30:46,535 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-02-03 18:30:46,536 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-02-03 18:30:46,536 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-02-03 18:30:46,536 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-02-03 18:30:46,536 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-02-03 18:30:46,537 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-02-03 18:30:46,537 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-02-03 18:30:46,537 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+WARN  2025-02-03 18:33:14,610 [4    ] Mvc.ExceptionHandling.AbpExceptionFilter - Method arguments are not valid! See ValidationErrors for details.
+Abp.Runtime.Validation.AbpValidationException: Method arguments are not valid! See ValidationErrors for details.
+   at Abp.Runtime.Validation.Interception.MethodInvocationValidator.ThrowValidationError()
+   at Abp.Runtime.Validation.Interception.MethodInvocationValidator.Validate()
+   at Abp.AspNetCore.Mvc.Validation.AbpValidationActionFilter.OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+WARN  2025-02-03 18:33:14,618 [4    ] Mvc.ExceptionHandling.AbpExceptionFilter - There are 1 validation errors:
+WARN  2025-02-03 18:33:14,619 [4    ] Mvc.ExceptionHandling.AbpExceptionFilter - After parsing a value an unexpected character was encountered: ". Path 'userType', line 6, position 2. (userType)
+WARN  2025-02-03 18:39:34,775 [4    ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+DEBUG 2025-02-03 18:41:08,366 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-02-03 18:41:08,445 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-02-03 18:41:08,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,477 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,477 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,478 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,478 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,479 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,480 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,483 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,484 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,484 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,485 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,485 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,486 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,486 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,487 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:08,490 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-02-03 18:41:08,667 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:41:08,667 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:41:08,667 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:41:08,667 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:41:09,527 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:41:10,101 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-02-03 18:41:10,182 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-02-03 18:41:10,206 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-02-03 18:41:10,208 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-02-03 18:41:10,216 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-02-03 18:41:10,240 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-02-03 18:41:10,255 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-02-03 18:41:10,313 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2025-02-03 18:41:10,314 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-02-03 18:41:10,325 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-02-03 18:41:10,326 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-02-03 18:41:10,327 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-02-03 18:41:10,327 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-02-03 18:41:10,328 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-02-03 18:41:10,328 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-02-03 18:41:10,328 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-02-03 18:41:10,329 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-02-03 18:41:10,329 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-02-03 18:41:10,329 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-02-03 18:41:10,329 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-02-03 18:41:10,329 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-02-03 18:41:10,330 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-02-03 18:41:10,330 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+WARN  2025-02-03 18:42:02,822 [6    ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+DEBUG 2025-02-03 18:44:00,325 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-02-03 18:44:01,600 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-02-03 18:44:01,622 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,625 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,626 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,626 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,627 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,628 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,629 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,631 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,633 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,633 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,634 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,634 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,635 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,635 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,635 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:01,639 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-02-03 18:44:02,039 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:44:02,040 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:44:02,040 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:44:02,040 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:44:02,987 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:44:03,447 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-02-03 18:44:03,534 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-02-03 18:44:03,552 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-02-03 18:44:03,555 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-02-03 18:44:03,561 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-02-03 18:44:03,584 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-02-03 18:44:03,596 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-02-03 18:44:03,642 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2025-02-03 18:44:03,642 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-02-03 18:44:03,650 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-02-03 18:44:03,651 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-02-03 18:44:03,652 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-02-03 18:44:03,653 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-02-03 18:44:03,653 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-02-03 18:44:03,653 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-02-03 18:44:03,653 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-02-03 18:44:03,653 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-02-03 18:44:03,653 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-02-03 18:44:03,654 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-02-03 18:44:03,654 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-02-03 18:44:03,654 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-02-03 18:44:03,654 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-02-03 18:44:03,654 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+WARN  2025-02-03 18:45:05,384 [4    ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+DEBUG 2025-02-03 18:48:53,799 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-02-03 18:48:53,884 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-02-03 18:48:53,911 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,916 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,917 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,918 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,919 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,919 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,920 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,923 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,924 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,924 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,925 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,926 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,927 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,927 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,928 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:53,934 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-02-03 18:48:54,095 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:48:54,095 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:48:54,095 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:48:54,095 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:48:54,991 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:48:55,612 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-02-03 18:48:55,709 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-02-03 18:48:55,737 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-02-03 18:48:55,739 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-02-03 18:48:55,744 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-02-03 18:48:55,763 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-02-03 18:48:55,776 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-02-03 18:48:55,814 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2025-02-03 18:48:55,814 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-02-03 18:48:55,821 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-02-03 18:48:55,822 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-02-03 18:48:55,823 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-02-03 18:48:55,824 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-02-03 18:48:55,824 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-02-03 18:48:55,824 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-02-03 18:48:55,824 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-02-03 18:48:55,824 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-02-03 18:48:55,824 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-02-03 18:48:55,825 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-02-03 18:48:55,825 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-02-03 18:48:55,825 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-02-03 18:48:55,825 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-02-03 18:48:55,825 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+WARN  2025-02-03 18:50:15,867 [4    ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+DEBUG 2025-02-03 18:55:26,556 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-02-03 18:55:26,654 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-02-03 18:55:26,688 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,691 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,692 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,692 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,693 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,693 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,694 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,695 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,696 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,696 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,697 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,698 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,698 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,699 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,699 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:26,703 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-02-03 18:55:26,823 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:55:26,823 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:55:26,823 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:55:26,823 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:55:27,703 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:55:28,420 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-02-03 18:55:28,486 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-02-03 18:55:28,501 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-02-03 18:55:28,503 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-02-03 18:55:28,511 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-02-03 18:55:28,527 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-02-03 18:55:28,538 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-02-03 18:55:28,581 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2025-02-03 18:55:28,581 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-02-03 18:55:28,588 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-02-03 18:55:28,589 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-02-03 18:55:28,591 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-02-03 18:55:28,591 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-02-03 18:55:28,592 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-02-03 18:55:28,592 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-02-03 18:55:28,593 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-02-03 18:55:28,593 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-02-03 18:55:28,593 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-02-03 18:55:28,593 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-02-03 18:55:28,594 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-02-03 18:55:28,594 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-02-03 18:55:28,594 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-02-03 18:55:28,594 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+DEBUG 2025-02-03 18:57:01,129 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-02-03 18:57:01,214 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-02-03 18:57:01,242 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,246 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,247 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,249 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,249 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,250 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,253 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,254 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,254 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,255 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,255 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,256 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,256 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,257 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:01,261 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-02-03 18:57:01,421 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:57:01,422 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:57:01,422 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:57:01,422 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 18:57:02,257 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 18:57:02,765 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-02-03 18:57:02,829 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-02-03 18:57:02,860 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-02-03 18:57:02,864 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-02-03 18:57:02,874 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-02-03 18:57:02,898 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-02-03 18:57:02,967 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-02-03 18:57:03,015 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2025-02-03 18:57:03,015 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-02-03 18:57:03,026 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-02-03 18:57:03,028 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-02-03 18:57:03,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-02-03 18:57:03,030 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-02-03 18:57:03,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-02-03 18:57:03,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-02-03 18:57:03,031 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-02-03 18:57:03,032 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-02-03 18:57:03,032 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-02-03 18:57:03,032 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-02-03 18:57:03,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-02-03 18:57:03,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-02-03 18:57:03,034 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-02-03 18:57:03,034 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+ERROR 2025-02-03 18:57:30,765 [6    ] .EntityFrameworkCore.Database.Connection - An error occurred using the connection to database 'WazzifniDb' on server '147.93.46.66,1433'.
+WARN  2025-02-03 18:57:30,809 [6    ] Abp.BackgroundJobs.BackgroundJobManager  - Microsoft.Data.SqlClient.SqlException (0x80131904): A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.WaitForSSLHandShakeToComplete(UInt32& error, Int32& protocolVersion)
+   at Microsoft.Data.SqlClient.TdsParser.EnableSsl(UInt32 info, SqlConnectionEncryptOption encrypt, Boolean integratedSecurity, String serverCertificateFilename)
+   at Microsoft.Data.SqlClient.TdsParser.ConsumePreLoginHandshake(SqlConnectionEncryptOption encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean& marsCapable, Boolean& fedAuthRequired, Boolean tlsFirst, String serverCert)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.<>c__DisplayClass26_0.<BeginTransaction>b__0(DatabaseFacade database)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetContext()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.<GetQueryable>b__7_0(Type key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetQueryable()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAllIncluding(Expression`1[] propertySelectors)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.<>c__DisplayClass7_0.<GetWaitingJobsAsync>b__0()
+   at Abp.Domain.Uow.UnitOfWorkManagerExtensions.WithUnitOfWork[TResult](IUnitOfWorkManager manager, Func`1 action, UnitOfWorkOptions options)
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWorkAsync()
+   at Abp.Threading.BackgroundWorkers.AsyncPeriodicBackgroundWorkerBase.Timer_Elapsed(AbpAsyncTimer timer)
+ClientConnectionId:1e396e75-6fdc-4a5f-8c27-ceadd05fc2e7
+Error Number:258,State:0,Class:20
+Microsoft.Data.SqlClient.SqlException (0x80131904): A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.WaitForSSLHandShakeToComplete(UInt32& error, Int32& protocolVersion)
+   at Microsoft.Data.SqlClient.TdsParser.EnableSsl(UInt32 info, SqlConnectionEncryptOption encrypt, Boolean integratedSecurity, String serverCertificateFilename)
+   at Microsoft.Data.SqlClient.TdsParser.ConsumePreLoginHandshake(SqlConnectionEncryptOption encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean& marsCapable, Boolean& fedAuthRequired, Boolean tlsFirst, String serverCert)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.<>c__DisplayClass26_0.<BeginTransaction>b__0(DatabaseFacade database)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetContext()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.<GetQueryable>b__7_0(Type key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetQueryable()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAllIncluding(Expression`1[] propertySelectors)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.<>c__DisplayClass7_0.<GetWaitingJobsAsync>b__0()
+   at Abp.Domain.Uow.UnitOfWorkManagerExtensions.WithUnitOfWork[TResult](IUnitOfWorkManager manager, Func`1 action, UnitOfWorkOptions options)
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWorkAsync()
+   at Abp.Threading.BackgroundWorkers.AsyncPeriodicBackgroundWorkerBase.Timer_Elapsed(AbpAsyncTimer timer)
+ClientConnectionId:1e396e75-6fdc-4a5f-8c27-ceadd05fc2e7
+Error Number:258,State:0,Class:20
+ERROR 2025-02-03 18:57:48,226 [17   ] AspNetCore.Server.IIS.Core.IISHttpServer - Connection ID "17942340921349636169", Request ID "8000004a-0001-f900-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   at Microsoft.AspNetCore.Server.IIS.Core.HttpResponseStream.ValidateState(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.IIS.Core.HttpResponseStream.WriteAsync(ReadOnlyMemory`1 source, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserScriptMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.InvokeCore(HttpContext context, PathString matchedPath, PathString remainingPath)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+WARN  2025-02-03 18:58:21,999 [13   ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ERROR 2025-02-03 18:59:59,049 [25   ] Mvc.ExceptionHandling.AbpExceptionFilter - Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Profile -> ProfileDetailsDto
+Wazzifni.Domain.IndividualUserProfiles.Profile -> Wazzifni.Profiles.Dto.ProfileDetailsDto
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Profile -> ProfileDetailsDto
+Wazzifni.Domain.IndividualUserProfiles.Profile -> Wazzifni.Profiles.Dto.ProfileDetailsDto
+   at lambda_method2402(Closure, Object, ProfileDetailsDto, ResolutionContext)
+   at Abp.AutoMapper.AutoMapperObjectMapper.Map[TDestination](Object source)
+   at Wazzifni.CrudAppServiceBase.WazzifniCrudAppServiceBase`7.MapToEntityDto(TEntity entity) in C:\Users\DELL\Source\Repos\wazzifni-backend\aspnet-core\src\Wazzifni.Application\CrudAppServiceBase\WazzifniCrudAppServiceBase.cs:line 106
+   at Castle.Proxies.ProfileAppServiceProxy.MapToEntityDto_callback(Profile entity)
+   at Castle.Proxies.Invocations.WazzifniCrudAppServiceBase`7_MapToEntityDto.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Authorization.AuthorizationInterceptor.InterceptSynchronous(IInvocation invocation)
+   at Castle.DynamicProxy.AsyncDeterminationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.ProfileAppServiceProxy.MapToEntityDto(Profile entity)
+   at Wazzifni.CrudAppServiceBase.WazzifniAsyncCrudAppService`7.UpdateAsync(TUpdateInput input) in C:\Users\DELL\Source\Repos\wazzifni-backend\aspnet-core\src\Wazzifni.Application\CrudAppServiceBase\WazzifniAsyncCrudAppService.cs:line 66
+   at Wazzifni.Profiles.ProfileAppService.UpdateAsync(UpdateProfileDto input) in C:\Users\DELL\Source\Repos\wazzifni-backend\aspnet-core\src\Wazzifni.Application\Profiles\ProfileAppService.cs:line 77
+   at Abp.Authorization.AuthorizationInterceptor.InternalInterceptAsynchronous[TResult](IInvocation invocation)
+   at lambda_method1613(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+DEBUG 2025-02-03 19:00:43,652 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-02-03 19:00:44,087 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-02-03 19:00:44,151 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,156 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,157 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,158 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,159 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,160 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,160 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,163 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,164 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,165 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,166 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,167 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,168 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,169 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,169 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:44,174 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-02-03 19:00:44,320 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:00:44,320 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:00:44,320 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:00:44,320 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:00:45,220 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:00:45,870 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-02-03 19:00:45,950 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-02-03 19:00:45,966 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-02-03 19:00:45,968 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-02-03 19:00:45,974 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-02-03 19:00:45,991 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-02-03 19:00:46,001 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-02-03 19:00:46,064 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2025-02-03 19:00:46,064 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-02-03 19:00:46,075 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-02-03 19:00:46,077 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-02-03 19:00:46,079 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-02-03 19:00:46,079 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-02-03 19:00:46,080 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-02-03 19:00:46,080 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-02-03 19:00:46,080 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-02-03 19:00:46,080 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-02-03 19:00:46,081 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-02-03 19:00:46,081 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-02-03 19:00:46,081 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-02-03 19:00:46,082 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-02-03 19:00:46,082 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-02-03 19:00:46,082 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+WARN  2025-02-03 19:03:00,673 [8    ] Abp.BackgroundJobs.BackgroundJobManager  - Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+Operation cancelled by user.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction2005(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.ConnectionBeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.<>c__DisplayClass26_0.<BeginTransaction>b__0(DatabaseFacade database)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetContext()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetDbQueryTable()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetQueryable()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAllIncluding(Expression`1[] propertySelectors)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.<>c__DisplayClass7_0.<GetWaitingJobsAsync>b__0()
+   at Abp.Domain.Uow.UnitOfWorkManagerExtensions.WithUnitOfWork[TResult](IUnitOfWorkManager manager, Func`1 action, UnitOfWorkOptions options)
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWorkAsync()
+   at Abp.Threading.BackgroundWorkers.AsyncPeriodicBackgroundWorkerBase.Timer_Elapsed(AbpAsyncTimer timer)
+ClientConnectionId:65bd3cf1-1f29-48ca-a0a8-fa47ff1e9f56
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+Operation cancelled by user.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction2005(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.ConnectionBeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.<>c__DisplayClass26_0.<BeginTransaction>b__0(DatabaseFacade database)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetContext()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetDbQueryTable()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetQueryable()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAllIncluding(Expression`1[] propertySelectors)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.<>c__DisplayClass7_0.<GetWaitingJobsAsync>b__0()
+   at Abp.Domain.Uow.UnitOfWorkManagerExtensions.WithUnitOfWork[TResult](IUnitOfWorkManager manager, Func`1 action, UnitOfWorkOptions options)
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWorkAsync()
+   at Abp.Threading.BackgroundWorkers.AsyncPeriodicBackgroundWorkerBase.Timer_Elapsed(AbpAsyncTimer timer)
+ClientConnectionId:65bd3cf1-1f29-48ca-a0a8-fa47ff1e9f56
+Error Number:-2,State:0,Class:11
+ERROR 2025-02-03 19:03:05,036 [6    ] Mvc.ExceptionHandling.AbpExceptionFilter - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+Operation cancelled by user.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+Operation cancelled by user.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction2005(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.ConnectionBeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.<>c__DisplayClass26_0.<BeginTransaction>b__0(DatabaseFacade database)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide, String name)
+   at Abp.EntityFrameworkCore.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetContext()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.<GetQueryable>b__7_0(Type key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetQueryable()
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAllIncluding(Expression`1[] propertySelectors)
+   at Wazzifni.Domain.IndividualUserProfiles.ProfileManager.GetEntityByUserIdAsync(Int64 UserId) in C:\Users\DELL\Source\Repos\wazzifni-backend\aspnet-core\src\Wazzifni.Core\Domain\IndividualUserProfiles\ProfileManager.cs:line 37
+   at Wazzifni.Profiles.ProfileAppService.UpdateAsync(UpdateProfileDto input) in C:\Users\DELL\Source\Repos\wazzifni-backend\aspnet-core\src\Wazzifni.Application\Profiles\ProfileAppService.cs:line 68
+   at Abp.Authorization.AuthorizationInterceptor.InternalInterceptAsynchronous[TResult](IInvocation invocation)
+   at lambda_method1613(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ClientConnectionId:a585335a-18af-4901-8c42-2f1956a61748
+Error Number:-2,State:0,Class:11
+ERROR 2025-02-03 19:03:36,871 [6    ] EntityFrameworkCore.Database.Transaction - An error occurred using a transaction.
+WARN  2025-02-03 19:03:47,225 [8    ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+WARN  2025-02-03 19:04:25,257 [6    ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+DEBUG 2025-02-03 19:11:04,292 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-02-03 19:11:04,394 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-02-03 19:11:04,432 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,437 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,439 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,439 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,440 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,440 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,441 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,442 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,443 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,443 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,444 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,444 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,444 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,445 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,445 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:04,448 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-02-03 19:11:04,582 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:11:04,582 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:11:04,582 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:11:04,582 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:11:05,335 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:11:06,041 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-02-03 19:11:06,112 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-02-03 19:11:06,138 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-02-03 19:11:06,142 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-02-03 19:11:06,155 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-02-03 19:11:06,176 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-02-03 19:11:06,188 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-02-03 19:11:06,232 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2025-02-03 19:11:06,232 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-02-03 19:11:06,239 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-02-03 19:11:06,241 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-02-03 19:11:06,242 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-02-03 19:11:06,243 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-02-03 19:11:06,243 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-02-03 19:11:06,243 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-02-03 19:11:06,243 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-02-03 19:11:06,243 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-02-03 19:11:06,244 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-02-03 19:11:06,244 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-02-03 19:11:06,244 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-02-03 19:11:06,244 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-02-03 19:11:06,244 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-02-03 19:11:06,244 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+WARN  2025-02-03 19:12:15,344 [13   ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+DEBUG 2025-02-03 19:13:34,918 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-02-03 19:13:35,013 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-02-03 19:13:35,041 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,044 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,045 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,046 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,046 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,047 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,047 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,049 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,049 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,050 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,050 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,050 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,052 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:35,055 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-02-03 19:13:35,168 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:13:35,169 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:13:35,169 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:13:35,169 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:13:36,050 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:13:36,656 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-02-03 19:13:36,739 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-02-03 19:13:36,770 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-02-03 19:13:36,773 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-02-03 19:13:36,782 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-02-03 19:13:36,809 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-02-03 19:13:36,823 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-02-03 19:13:36,870 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2025-02-03 19:13:36,870 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-02-03 19:13:36,877 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-02-03 19:13:36,878 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-02-03 19:13:36,879 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-02-03 19:13:36,879 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-02-03 19:13:36,879 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-02-03 19:13:36,880 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-02-03 19:13:36,880 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-02-03 19:13:36,880 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-02-03 19:13:36,880 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-02-03 19:13:36,880 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-02-03 19:13:36,880 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-02-03 19:13:36,881 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-02-03 19:13:36,881 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-02-03 19:13:36,881 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+ERROR 2025-02-03 19:14:16,351 [6    ] EntityFrameworkCore.Database.Transaction - An error occurred using a transaction.
+WARN  2025-02-03 19:14:16,389 [6    ] Abp.BackgroundJobs.BackgroundJobManager  - Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction2005(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalTransaction.Commit()
+   at Microsoft.Data.SqlClient.SqlTransaction.Commit()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Commit()
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.Commit()
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.CommitTransaction()
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.CompleteUow()
+   at Abp.Domain.Uow.UnitOfWorkBase.Complete()
+   at Abp.Domain.Uow.UnitOfWorkManagerExtensions.WithUnitOfWork[TResult](IUnitOfWorkManager manager, Func`1 action, UnitOfWorkOptions options)
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWorkAsync()
+   at Abp.Threading.BackgroundWorkers.AsyncPeriodicBackgroundWorkerBase.Timer_Elapsed(AbpAsyncTimer timer)
+ClientConnectionId:118e85e3-9f20-4021-b97a-bc661eef85c2
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction2005(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalTransaction.Commit()
+   at Microsoft.Data.SqlClient.SqlTransaction.Commit()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Commit()
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.Commit()
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.CommitTransaction()
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.CompleteUow()
+   at Abp.Domain.Uow.UnitOfWorkBase.Complete()
+   at Abp.Domain.Uow.UnitOfWorkManagerExtensions.WithUnitOfWork[TResult](IUnitOfWorkManager manager, Func`1 action, UnitOfWorkOptions options)
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWorkAsync()
+   at Abp.Threading.BackgroundWorkers.AsyncPeriodicBackgroundWorkerBase.Timer_Elapsed(AbpAsyncTimer timer)
+ClientConnectionId:118e85e3-9f20-4021-b97a-bc661eef85c2
+Error Number:-2,State:0,Class:11
+ERROR 2025-02-03 19:14:32,266 [1    ] EntityFrameworkCore.Database.Transaction - An error occurred using a transaction.
+DEBUG 2025-02-03 19:14:46,913 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-02-03 19:14:47,001 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-02-03 19:14:47,037 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,041 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,042 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,042 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,043 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,043 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,044 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,045 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,046 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,046 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,047 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,047 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,048 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,048 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,048 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:47,053 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-02-03 19:14:47,176 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:14:47,176 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:14:47,176 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:14:47,176 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:14:48,029 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:14:48,632 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-02-03 19:14:48,704 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-02-03 19:14:48,723 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-02-03 19:14:48,726 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-02-03 19:14:48,732 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-02-03 19:14:48,748 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-02-03 19:14:48,761 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-02-03 19:14:48,803 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2025-02-03 19:14:48,803 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-02-03 19:14:48,810 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-02-03 19:14:48,811 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-02-03 19:14:48,812 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-02-03 19:14:48,812 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-02-03 19:14:48,813 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-02-03 19:14:48,813 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-02-03 19:14:48,813 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-02-03 19:14:48,813 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-02-03 19:14:48,813 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-02-03 19:14:48,813 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-02-03 19:14:48,814 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-02-03 19:14:48,814 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-02-03 19:14:48,814 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-02-03 19:14:48,814 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+WARN  2025-02-03 19:16:11,585 [6    ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+DEBUG 2025-02-03 19:17:57,263 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-02-03 19:17:57,346 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-02-03 19:17:57,387 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,391 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,393 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,394 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,396 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,397 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,398 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,400 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,403 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,404 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,404 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,405 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,406 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:57,410 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-02-03 19:17:57,556 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:17:57,556 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:17:57,557 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:17:57,557 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:17:58,517 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:17:59,174 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-02-03 19:17:59,236 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-02-03 19:17:59,252 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-02-03 19:17:59,254 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-02-03 19:17:59,260 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-02-03 19:17:59,277 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-02-03 19:17:59,288 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-02-03 19:17:59,325 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2025-02-03 19:17:59,325 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-02-03 19:17:59,334 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-02-03 19:17:59,335 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-02-03 19:17:59,336 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-02-03 19:17:59,336 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-02-03 19:17:59,336 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-02-03 19:17:59,337 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-02-03 19:17:59,337 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-02-03 19:17:59,337 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-02-03 19:17:59,337 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-02-03 19:17:59,337 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-02-03 19:17:59,337 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-02-03 19:17:59,338 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-02-03 19:17:59,338 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-02-03 19:17:59,338 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+WARN  2025-02-03 19:19:05,971 [6    ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+WARN  2025-02-03 19:22:33,372 [14   ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+DEBUG 2025-02-03 19:25:07,369 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-02-03 19:25:07,443 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-02-03 19:25:07,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,479 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,480 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,481 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,481 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,482 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,482 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,484 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,484 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,485 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,485 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,486 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,486 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,486 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,487 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:07,491 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-02-03 19:25:07,617 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:25:07,617 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:25:07,617 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:25:07,617 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-03 19:25:08,400 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-03 19:25:08,929 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-02-03 19:25:08,993 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-02-03 19:25:09,012 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-02-03 19:25:09,015 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-02-03 19:25:09,022 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-02-03 19:25:09,040 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-02-03 19:25:09,051 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-02-03 19:25:09,094 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2025-02-03 19:25:09,094 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-02-03 19:25:09,102 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-02-03 19:25:09,103 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-02-03 19:25:09,104 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-02-03 19:25:09,105 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-02-03 19:25:09,105 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-02-03 19:25:09,105 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-02-03 19:25:09,105 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-02-03 19:25:09,105 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-02-03 19:25:09,105 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-02-03 19:25:09,106 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-02-03 19:25:09,106 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-02-03 19:25:09,106 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-02-03 19:25:09,106 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-02-03 19:25:09,106 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+WARN  2025-02-03 19:27:27,778 [22   ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+WARN  2025-02-03 19:29:47,731 [12   ] Microsoft.EntityFrameworkCore.Query      - Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ERROR 2025-02-03 19:31:27,448 [12   ] Microsoft.EntityFrameworkCore.Query      - An exception occurred while iterating over the results of a query for context type 'Wazzifni.EntityFrameworkCore.WazzifniDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.CheckThrowSNIException()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.<>c__DisplayClass212_0.<OnTimeoutCore>b__0(Task _)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:8e43c807-d8d3-452b-9837-91742241ad50
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.CheckThrowSNIException()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.<>c__DisplayClass212_0.<OnTimeoutCore>b__0(Task _)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:8e43c807-d8d3-452b-9837-91742241ad50
+Error Number:-2,State:0,Class:11
+ERROR 2025-02-03 19:31:37,420 [12   ] Mvc.ExceptionHandling.AbpExceptionFilter - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.CheckThrowSNIException()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.<>c__DisplayClass212_0.<OnTimeoutCore>b__0(Task _)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Wazzifni.Domain.IndividualUserProfiles.ProfileManager.GetEntityByIdAsync(Int64 ProfileId) in C:\Users\DELL\Source\Repos\wazzifni-backend\aspnet-core\src\Wazzifni.Core\Domain\IndividualUserProfiles\ProfileManager.cs:line 23
+   at Wazzifni.Profiles.ProfileAppService.GetAsync(EntityDto`1 input) in C:\Users\DELL\Source\Repos\wazzifni-backend\aspnet-core\src\Wazzifni.Application\Profiles\ProfileAppService.cs:line 44
+   at Abp.Authorization.AuthorizationInterceptor.InternalInterceptAsynchronous[TResult](IInvocation invocation)
+   at lambda_method2438(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ClientConnectionId:8e43c807-d8d3-452b-9837-91742241ad50
+Error Number:-2,State:0,Class:11

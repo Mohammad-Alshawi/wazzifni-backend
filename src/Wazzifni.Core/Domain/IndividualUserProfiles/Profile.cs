@@ -6,6 +6,7 @@ using Wazzifni.Awards;
 using Wazzifni.Domain.Cities;
 using Wazzifni.Domain.Educations;
 using Wazzifni.Domain.Skills;
+using Wazzifni.Domain.SpokenLanguages;
 using Wazzifni.Domain.WorkExperiences;
 
 namespace Wazzifni.Domain.IndividualUserProfiles
@@ -24,5 +25,7 @@ namespace Wazzifni.Domain.IndividualUserProfiles
         public virtual ICollection<Award> Awards { get; set; }
 
         public virtual ICollection<Skill> Skills { get; set; }
+
+        public virtual ICollection<SpokenLanguageValue> SpokenLanguages { get; set; }
     }
 }

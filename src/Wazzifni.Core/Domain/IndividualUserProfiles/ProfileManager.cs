@@ -1,5 +1,7 @@
 ﻿using Abp.Domain.Repositories;
 using Abp.Domain.Services;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
 using Wazzifni.Authorization.Users;
 
@@ -16,6 +18,33 @@ namespace Wazzifni.Domain.IndividualUserProfiles
             this.userManager = userManager;
         }
 
+        public async Task<Profile> GetEntityByIdAsync(long ProfileId)
+        {
+            return await repository
+                .GetAllIncluding(x => x.User)
+                .Include(x => x.City)
+                .ThenInclude(x => x.Translations)
+                .Include(x => x.Skills)
+                .ThenInclude(x => x.Translations)
+                .Include(x => x.Educations)
+                .Include(x => x.WorkExperiences)
+                .Include(x => x.Awards)
+                .AsNoTracking().Where(x => x.Id == ProfileId).FirstOrDefaultAsync();
+        }
+
+        public async Task<Profile> GetEntityByUserIdAsync(long UserId)
+        {
+            return await repository
+              .GetAllIncluding(x => x.User)
+              .Include(x => x.City)
+              .ThenInclude(x => x.Translations)
+              .Include(x => x.Skills)
+              .ThenInclude(x => x.Translations)
+              .Include(x => x.Educations)
+              .Include(x => x.WorkExperiences)
+              .Include(x => x.Awards)
+              .AsNoTracking().Where(x => x.UserId == UserId).FirstOrDefaultAsync();
+        }
 
         public async Task<long> InitateProfileForBasicUser(long UserId, int CityId)
         {
