@@ -7,6 +7,8 @@ using Abp.UI;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Wazzifni.Authorization.Users;
@@ -19,6 +21,7 @@ using Wazzifni.Domain.Skills;
 using Wazzifni.Domain.SpokenLanguages;
 using Wazzifni.Domain.WorkExperiences;
 using Wazzifni.Profiles.Dto;
+using static Wazzifni.Enums.Enum;
 using Profile = Wazzifni.Domain.IndividualUserProfiles.Profile;
 
 namespace Wazzifni.Profiles
@@ -66,7 +69,18 @@ namespace Wazzifni.Profiles
         {
             var profile = await _profileManager.GetEntityByIdAsync(input.Id);
 
-            return _mapper.Map<ProfileDetailsDto>(profile);
+            var result = _mapper.Map<ProfileDetailsDto>(profile);
+            var logo = await _attachmentManager.GetElementByRefAsync(result.Id, AttachmentRefType.Profile);
+            if (logo is not null)
+            {
+                result.Image = new LiteAttachmentDto
+                {
+                    Id = logo.Id,
+                    Url = _attachmentManager.GetUrl(logo),
+                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(logo),
+                };
+            }
+            return result;
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]
@@ -123,6 +137,32 @@ namespace Wazzifni.Profiles
             UnitOfWorkManager.Current.SaveChanges();
 
             return _mapper.Map<ProfileDetailsDto>(profile);
+        }
+
+
+        [AbpAuthorize]
+        public async Task<ProfileDetailsDto> UpdateLogoAsync(int Id, [Required] long LogoAttchmentId)
+        {
+            if (!await _userManager.IsBasicUser())
+            {
+                throw new UserFriendlyException("Cant do this");
+            }
+            var profile = await _profileManager.GetEntityByUserIdAsync(AbpSession.UserId.Value);
+
+            var logo = await _attachmentManager.GetElementByRefAsync(Id, AttachmentRefType.Profile);
+            if (logo is not null && logo.Id != LogoAttchmentId && LogoAttchmentId != 0)
+            {
+                await _attachmentManager.DeleteRefIdAsync(logo);
+                await _attachmentManager.CheckAndUpdateRefIdAsync(LogoAttchmentId, AttachmentRefType.Profile, profile.Id);
+
+            }
+            else if (logo is null && LogoAttchmentId != 0)
+                await _attachmentManager.CheckAndUpdateRefIdAsync(LogoAttchmentId, AttachmentRefType.Profile, profile.Id);
+
+            profile.LastModificationTime = DateTime.Now;
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+            var result = MapToEntityDto(profile);
+            return result;
         }
 
         public override async Task<PagedResultDto<ProfileLiteDto>> GetAllAsync(PagedProfileResultRequestDto input)

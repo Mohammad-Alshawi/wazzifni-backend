@@ -8,6 +8,7 @@ namespace Wazzifni.Profiles.Dto
 {
     public class ProfileDetailsDto : EntityDto<long>
     {
+        public string About { get; set; }
         public LiteCity City { get; set; }
         public SuperLiteUserDto User { get; set; }
         public List<EducationDto> Educations { get; set; }
@@ -19,6 +20,8 @@ namespace Wazzifni.Profiles.Dto
         public List<SpokenLanguageOutputDto> SpokenLanguages { get; set; }
 
         public List<LiteSkillDto> Skills { get; set; }
+
+        public LiteAttachmentDto Image { get; set; }
 
     }
 }
