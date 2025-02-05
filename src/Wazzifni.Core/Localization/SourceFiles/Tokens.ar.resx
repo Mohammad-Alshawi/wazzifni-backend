@@ -120,41 +120,17 @@
   <data name="Admin" xml:space="preserve">
     <value>مدير</value>
   </data>
-  <data name="Apartment" xml:space="preserve">
-    <value>شقة</value>
-  </data>
   <data name="BasicUser" xml:space="preserve">
     <value>مستخدم أساسي</value>
-  </data>
-  <data name="Bundle" xml:space="preserve">
-    <value>حزمة</value>
-  </data>
-  <data name="CarCategory" xml:space="preserve">
-    <value>تصنيف السيارات</value>
   </data>
   <data name="City" xml:space="preserve">
     <value>المدينة</value>
   </data>
-  <data name="Complaint" xml:space="preserve">
-    <value>الشكوى</value>
-  </data>
-  <data name="ComplaintCategory" xml:space="preserve">
-    <value>فئات الشكوى</value>
-  </data>
-  <data name="Compound" xml:space="preserve">
-    <value>مجمع سكني</value>
-  </data>
   <data name="ConfirmEmail" xml:space="preserve">
     <value>تأكيد البريد الاكتروني</value>
   </data>
-  <data name="ConfirmPhoneNumber" xml:space="preserve">
-    <value>تأكيد رقم الهاتف</value>
-  </data>
   <data name="Country" xml:space="preserve">
     <value>الدولة</value>
-  </data>
-  <data name="East" xml:space="preserve">
-    <value>الشرق</value>
   </data>
   <data name="EmailAddress" xml:space="preserve">
     <value>البريدالإلكتروني</value>
@@ -162,149 +138,17 @@
   <data name="ForgetPassword" xml:space="preserve">
     <value>نسيان رقم الهاتف</value>
   </data>
-  <data name="FourOrMore" xml:space="preserve">
-    <value>أربع أو أكثر</value>
-  </data>
-  <data name="Furnished" xml:space="preserve">
-    <value>مفروش</value>
-  </data>
-  <data name="GoodCondition" xml:space="preserve">
-    <value>حالة جديدة</value>
-  </data>
-  <data name="HotelApartment" xml:space="preserve">
-    <value>شقة فندقية</value>
-  </data>
-  <data name="Monthly" xml:space="preserve">
-    <value>شهري</value>
-  </data>
-  <data name="NationalNumber" xml:space="preserve">
-    <value>الرقم الوطني</value>
-  </data>
-  <data name="NeedsRenovation" xml:space="preserve">
-    <value>بحاجة تجديد</value>
-  </data>
-  <data name="NewHome" xml:space="preserve">
-    <value>منزل جديد</value>
-  </data>
-  <data name="North" xml:space="preserve">
-    <value>الشمال</value>
-  </data>
-  <data name="NorthEast" xml:space="preserve">
-    <value>الشمال الشرقي</value>
-  </data>
-  <data name="NorthWest" xml:space="preserve">
-    <value>الشمال الغربي</value>
-  </data>
   <data name="Offer" xml:space="preserve">
     <value>العرض</value>
   </data>
-  <data name="One" xml:space="preserve">
-    <value>واحد/واحدة</value>
-  </data>
-  <data name="Patient" xml:space="preserve">
-    <value>مريض</value>
-  </data>
-  <data name="Penthouse" xml:space="preserve">
-    <value>شقة على السطح</value>
-  </data>
   <data name="PhoneNumber" xml:space="preserve">
     <value>رقم الهاتف</value>
-  </data>
-  <data name="Post" xml:space="preserve">
-    <value>خبر</value>
-  </data>
-  <data name="PostCategory" xml:space="preserve">
-    <value>فئة الاخبار</value>
-  </data>
-  <data name="PremiumUser" xml:space="preserve">
-    <value>مستخدم مميز</value>
-  </data>
-  <data name="PropertyCategory" xml:space="preserve">
-    <value>تصنيف الملكية</value>
   </data>
   <data name="PushNotification" xml:space="preserve">
     <value>الإشعار</value>
   </data>
   <data name="Region" xml:space="preserve">
     <value>منطقة</value>
-  </data>
-  <data name="SemiFurnished" xml:space="preserve">
-    <value>نصف مفروش</value>
-  </data>
-  <data name="Service" xml:space="preserve">
-    <value>الخدمة</value>
-  </data>
-  <data name="Shift" xml:space="preserve">
-    <value>مناوبة</value>
-  </data>
-  <data name="SingleRoomInASharedHouse" xml:space="preserve">
-    <value>غرفة في منزل مشترك</value>
-  </data>
-  <data name="Advertisiment" xml:space="preserve">
-    <value>زاوية الاعلان</value>
-  </data>
-  <data name="South" xml:space="preserve">
-    <value>الجنوب</value>
-  </data>
-  <data name="SouthEast" xml:space="preserve">
-    <value>الجنوب الشرقي</value>
-  </data>
-  <data name="SouthWest" xml:space="preserve">
-    <value>الجنوب الغربي</value>
-  </data>
-  <data name="Speciality" xml:space="preserve">
-    <value>اختصاص</value>
-  </data>
-  <data name="Studio" xml:space="preserve">
-    <value>ستوديو</value>
-  </data>
-  <data name="Subscription" xml:space="preserve">
-    <value>اشتراك</value>
-  </data>
-  <data name="SubscriptionDocument" xml:space="preserve">
-    <value>مستند اشتراك</value>
-  </data>
-  <data name="SubscriptionRequest" xml:space="preserve">
-    <value>طلب الاشتراك</value>
-  </data>
-  <data name="SuperDelux" xml:space="preserve">
-    <value>فاخر جداً</value>
-  </data>
-  <data name="Three" xml:space="preserve">
-    <value>ثلاث/ثلاثة</value>
-  </data>
-  <data name="ThreeOrMore" xml:space="preserve">
-    <value>ثلاث أو أكثر</value>
-  </data>
-  <data name="Townhouse" xml:space="preserve">
-    <value>منزل قروي</value>
-  </data>
-  <data name="Two" xml:space="preserve">
-    <value>اثنان/اثنتان</value>
-  </data>
-  <data name="Unfurnished" xml:space="preserve">
-    <value>غير مفروش</value>
-  </data>
-  <data name="User" xml:space="preserve">
-    <value>المستخدم</value>
-  </data>
-  <data name="Villa" xml:space="preserve">
-    <value>قصر</value>
-  </data>
-  <data name="Weekly" xml:space="preserve">
-    <value>أسبوعي</value>
-  </data>
-  <data name="West" xml:space="preserve">
-    <value>الغرب</value>
-  </data>
-  <data name="Car" xml:space="preserve">
-    <value>سيارة</value>
-  </data>
-  <data name="Category" xml:space="preserve">
-    <value>تصنيف</value>
-  </data>
-  <data name="Color" xml:space="preserve">
-    <value>لون</value>
   </data>
   <data name="Date" xml:space="preserve">
     <value>تاريخ</value>
@@ -315,44 +159,11 @@
   <data name="Number" xml:space="preserve">
     <value>رقم</value>
   </data>
-  <data name="Property" xml:space="preserve">
-    <value>عقار</value>
-  </data>
-  <data name="Rent" xml:space="preserve">
-    <value>إيجار</value>
-  </data>
-  <data name="Select" xml:space="preserve">
-    <value>تحديد</value>
-  </data>
-  <data name="Sell" xml:space="preserve">
-    <value>بيع</value>
-  </data>
-  <data name="TextFree" xml:space="preserve">
-    <value>نص</value>
-  </data>
-  <data name="Attribute" xml:space="preserve">
-    <value>صفة</value>
-  </data>
-  <data name="AttributeChoice" xml:space="preserve">
-    <value>خيار الصفة</value>
-  </data>
   <data name="Role" xml:space="preserve">
     <value>الدور</value>
   </data>
-  <data name="CategoryType" xml:space="preserve">
-    <value>نوع التصنيف</value>
-  </data>
-  <data name="Characteristic" xml:space="preserve">
-    <value>تاغ</value>
-  </data>
   <data name="Contact" xml:space="preserve">
     <value>جهة اتصال </value>
-  </data>
-  <data name="ForRent" xml:space="preserve">
-    <value>للإيجار</value>
-  </data>
-  <data name="ForSale" xml:space="preserve">
-    <value>للبيع</value>
   </data>
   <data name="FrequentlyQuestion" xml:space="preserve">
     <value>سؤال متكرر</value>
@@ -360,49 +171,13 @@
   <data name="OwnerAvailableTime" xml:space="preserve">
     <value>وقت المالك المتاح</value>
   </data>
-  <data name="PrivacyPolicy" xml:space="preserve">
-    <value>سياسة الخصوصية</value>
-  </data>
   <data name="ContactUsRequest" xml:space="preserve">
     <value>طلب تواصل</value>
   </data>
-  <data name="Wanted" xml:space="preserve">
-    <value>مطلوب</value>
-  </data>
-  <data name="VideoCategory" xml:space="preserve">
-    <value>تصنيف الفيديو</value>
-  </data>
-  <data name="Tag" xml:space="preserve">
-    <value>علامة</value>
-  </data>
-  <data name="ProgressMilestone" xml:space="preserve">
-    <value>مَعلم تقدم</value>
-  </data>
-  <data name="BrokerUser" xml:space="preserve">
-    <value>مستخدم وسيط</value>
-  </data>
-  <data name="Facility" xml:space="preserve">
-    <value>مرافق</value>
-  </data>
-  <data name="ServiceProviderUser" xml:space="preserve">
-    <value>مستخدم مقدم خدمة</value>
-  </data>
-  <data name="ServiceScope" xml:space="preserve">
-    <value>نطاق الخدمة</value>
-  </data>
-  <data name="RequestService" xml:space="preserve">
-    <value>طلب خدمة</value>
-  </data>
-  <data name="TowerSupervisor" xml:space="preserve">
-    <value>مشرف برج</value>
-  </data>
-  <data name="NoBundleDescriptionProvided" xml:space="preserve">
-    <value>لا يوجد وصف للباقة</value>
-  </data>
-  <data name="NoBundleNameProvided" xml:space="preserve">
-    <value>لا يوجد اسم للباقة</value>
-  </data>
   <data name="CompanyUser" xml:space="preserve">
     <value>مستخدم شركة</value>
+  </data>
+  <data name="ConfirmPhoneNumber" xml:space="preserve">
+    <value>تأكيد رقم الهاتف</value>
   </data>
 </root>
