@@ -19,7 +19,6 @@ namespace Wazzifni.Domain.Educations
         public long ProfileId { get; set; }
         [ForeignKey(nameof(ProfileId))]
         public virtual Profile Profile { get; set; }
-        public long UserId { get; set; }
 
     }
 }
