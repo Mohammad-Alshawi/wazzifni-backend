@@ -46,6 +46,8 @@ namespace Wazzifni.EntityFrameworkCore
         public virtual DbSet<Award> Awards { get; set; }
 
         public virtual DbSet<SpokenLanguage> SpokenLanguages { get; set; }
+
+        public virtual DbSet<SpokenLanguageValue> SpokenLanguageValue { get; set; }
         public WazzifniDbContext(DbContextOptions<WazzifniDbContext> options)
             : base(options)
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Wazzifni.Cities.Dto;
 using Wazzifni.Companies.Dto;
+using Wazzifni.Skills.Dto;
 
 namespace Wazzifni.Profiles.Dto
 {
@@ -16,5 +17,8 @@ namespace Wazzifni.Profiles.Dto
         public List<AwardDto> Awards { get; set; }
 
         public List<SpokenLanguageOutputDto> SpokenLanguages { get; set; }
+
+        public List<LiteSkillDto> Skills { get; set; }
+
     }
 }

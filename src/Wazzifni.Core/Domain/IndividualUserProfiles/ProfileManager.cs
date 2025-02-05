@@ -29,6 +29,7 @@ namespace Wazzifni.Domain.IndividualUserProfiles
                 .Include(x => x.Educations)
                 .Include(x => x.WorkExperiences)
                 .Include(x => x.Awards)
+                .Include(x => x.SpokenLanguages).ThenInclude(x => x.SpokenLanguage)
                 .AsNoTracking().Where(x => x.Id == ProfileId).FirstOrDefaultAsync();
         }
 
@@ -43,7 +44,8 @@ namespace Wazzifni.Domain.IndividualUserProfiles
               .Include(x => x.Educations)
               .Include(x => x.WorkExperiences)
               .Include(x => x.Awards)
-              .AsNoTracking().Where(x => x.UserId == UserId).FirstOrDefaultAsync();
+              .Include(x => x.SpokenLanguages).ThenInclude(x => x.SpokenLanguage)
+              .Where(x => x.UserId == UserId).FirstOrDefaultAsync();
         }
 
         public async Task<long> InitateProfileForBasicUser(long UserId, int CityId)

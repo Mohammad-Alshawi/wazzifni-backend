@@ -10,9 +10,14 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 using Wazzifni.Authorization.Users;
+using Wazzifni.Awards;
 using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Attachments;
+using Wazzifni.Domain.Educations;
 using Wazzifni.Domain.IndividualUserProfiles;
+using Wazzifni.Domain.Skills;
+using Wazzifni.Domain.SpokenLanguages;
+using Wazzifni.Domain.WorkExperiences;
 using Wazzifni.Profiles.Dto;
 using Profile = Wazzifni.Domain.IndividualUserProfiles.Profile;
 
@@ -26,15 +31,33 @@ namespace Wazzifni.Profiles
         private readonly IAttachmentManager _attachmentManager;
         private readonly UserManager _userManager;
         private readonly IProfileManager _profileManager;
+        private readonly ISkillManager _skillManager;
+        private readonly IRepository<Skill> _skillRepo;
+        private readonly IRepository<Award, long> _awardRepo;
+        private readonly IRepository<Education, long> _educationRepo;
+        private readonly IRepository<WorkExperience, long> _workExperienceRepo;
+        private readonly IRepository<SpokenLanguageValue, long> _spLanRepo;
         private readonly IMapper _mapper;
 
         public ProfileAppService(IRepository<Profile, long> repository, IAttachmentManager attachmentManager, UserManager userManager,
-            IProfileManager profileManager, IMapper mapper) : base(repository)
+            IProfileManager profileManager, ISkillManager skillManager,
+            IRepository<Skill> skillRepo,
+            IRepository<Award, long> awardRepo,
+            IRepository<Education, long> educationRepo,
+            IRepository<WorkExperience, long> workExperienceRepo,
+            IRepository<SpokenLanguageValue, long> spLanRepo,
+            IMapper mapper) : base(repository)
         {
             _repository = repository;
             _attachmentManager = attachmentManager;
             _userManager = userManager;
             _profileManager = profileManager;
+            _skillManager = skillManager;
+            _skillRepo = skillRepo;
+            _awardRepo = awardRepo;
+            _educationRepo = educationRepo;
+            _workExperienceRepo = workExperienceRepo;
+            _spLanRepo = spLanRepo;
             _mapper = mapper;
         }
 
@@ -74,7 +97,32 @@ namespace Wazzifni.Profiles
 
             profile = _mapper.Map(input, profile);
 
-            return await base.UpdateAsync(input);
+            await BulkHardDeleteOldEntities(profile.Id);
+
+            if (!input.SkillIds.IsNullOrEmpty())
+            {
+                var existingSkillIds = profile.Skills.Select(s => s.Id).ToList();
+                var skillsToRemove = profile.Skills.Where(s => !input.SkillIds.Contains(s.Id)).ToList();
+                var skillsToAddIds = input.SkillIds.Except(existingSkillIds).ToList();
+
+                // Remove skills
+                foreach (var skill in skillsToRemove)
+                {
+                    profile.Skills.Remove(skill);
+                }
+
+                // Add new skills
+                foreach (var skillId in skillsToAddIds)
+                {
+                    var skill = await _skillManager.GetEntityByIdAsync(skillId);
+                    profile.Skills.Add(skill);
+                }
+            }
+
+            await Repository.UpdateAsync(profile);
+            UnitOfWorkManager.Current.SaveChanges();
+
+            return _mapper.Map<ProfileDetailsDto>(profile);
         }
 
         public override async Task<PagedResultDto<ProfileLiteDto>> GetAllAsync(PagedProfileResultRequestDto input)
@@ -120,6 +168,14 @@ namespace Wazzifni.Profiles
         {
 
             return query.OrderByDescending(r => r.CreationTime);
+        }
+
+        private async Task BulkHardDeleteOldEntities(long profileId)
+        {
+            await _workExperienceRepo.HardDeleteAsync(x => x.ProfileId == profileId);
+            await _educationRepo.HardDeleteAsync(x => x.ProfileId == profileId);
+            await _awardRepo.HardDeleteAsync(x => x.ProfileId == profileId);
+            await _spLanRepo.HardDeleteAsync(x => x.ProfileId == profileId);
         }
     }
 }
