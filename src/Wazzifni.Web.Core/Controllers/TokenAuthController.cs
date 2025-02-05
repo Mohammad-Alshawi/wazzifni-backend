@@ -283,20 +283,19 @@ namespace Wazzifni.Controllers
                         UserId = user.Id,
                         VerficationCode = registerdUser.VerficationCode
                     });
-                try
+
+                if (input.UserType.HasValue && input.UserType.Value == UserType.CompanyUser)
+                    await _userManager.SetRolesAsync(user, new string[] { StaticRoleNames.Tenants.CompanyUser });
+
+                else
                 {
-                    if (input.UserType.HasValue && input.UserType.Value == UserType.CompanyUser)
-                        await _userManager.SetRolesAsync(user, new string[] { StaticRoleNames.Tenants.CompanyUser });
-
-                    else
-                    {
-                        await _userManager.SetRolesAsync(user, new string[] { StaticRoleNames.Tenants.BasicUser });
-                        await _profileManager.InitateProfileForBasicUser(user.Id, input.CityId.Value);
-                    }
+                    await _userManager.SetRolesAsync(user, new string[] { StaticRoleNames.Tenants.BasicUser });
+                    await _profileManager.InitateProfileForBasicUser(user.Id, input.CityId.Value);
                 }
-                catch (Exception ex) { throw new Exception(ex.Message); }
 
-                return new VerifyLoginByPhoneNumberOutput
+
+
+                var result = new VerifyLoginByPhoneNumberOutput
                 {
                     AccessToken = CreateAccessToken(CreateJwtClaims(loginResult.Identity)),
                     UserId = user.Id,
@@ -304,6 +303,11 @@ namespace Wazzifni.Controllers
                     UserType = user.Type,
                 };
 
+                if (input.UserType == UserType.BasicUser)
+                {
+                    result.ProfileId = await _profileManager.GetProfileIdByUserId(registerdUser.Id);
+                }
+                return result;
 
             }
             else
