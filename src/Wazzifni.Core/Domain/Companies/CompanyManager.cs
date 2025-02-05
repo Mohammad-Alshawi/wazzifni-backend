@@ -194,7 +194,15 @@ namespace Wazzifni.Domain.Companies
                         return reviews;
                     }
                 }*/
+        public async Task<CompanyStatus> GetCompanyStatusByUserIdAsync(long userId)
+        {
+            return await _companyRepository.GetAll().Where(x => x.UserId == userId).Select(x => x.Status).FirstOrDefaultAsync();
+        }
 
+        public async Task<int> GetCompanyIdByUserId(long userId)
+        {
+            return await _companyRepository.GetAll().Where(x => x.UserId == userId).Select(x => x.Id).FirstOrDefaultAsync();
+        }
 
     }
 }

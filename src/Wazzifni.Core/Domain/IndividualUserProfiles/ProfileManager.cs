@@ -55,5 +55,10 @@ namespace Wazzifni.Domain.IndividualUserProfiles
             return await repository.InsertAndGetIdAsync(profile);
 
         }
+
+        public async Task<long> GetProfileIdByUserId(long userId)
+        {
+            return await repository.GetAll().Where(x => x.UserId == userId).Select(x => x.Id).FirstOrDefaultAsync();
+        }
     }
 }

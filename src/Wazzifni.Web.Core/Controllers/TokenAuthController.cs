@@ -20,6 +20,7 @@ using Wazzifni.Authorization;
 using Wazzifni.Authorization.Roles;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Domain.ChangedPhoneNumber;
+using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.IndividualUserProfiles;
 using Wazzifni.Domain.RegisterdPhoneNumbers;
 using Wazzifni.Domains.UserVerficationCodes;
@@ -44,6 +45,7 @@ namespace Wazzifni.Controllers
         private readonly IRegisterdPhoneNumberManager _registerdPhoneNumberManager;
         private readonly IRepository<ChangedPhoneNumberForUser> _changedPhoneNumberForUserRepository;
         private readonly IProfileManager _profileManager;
+        private readonly ICompanyManager _companyManager;
         private readonly TokenAuthConfiguration _configuration;
 
         public TokenAuthController(
@@ -58,6 +60,7 @@ namespace Wazzifni.Controllers
             IRegisterdPhoneNumberManager registerdPhoneNumberManager,
             IRepository<ChangedPhoneNumberForUser> changedPhoneNumberForUserRepository,
             IProfileManager profileManager,
+            ICompanyManager companyManager,
             TokenAuthConfiguration configuration)
         {
             _logInManager = logInManager;
@@ -71,6 +74,7 @@ namespace Wazzifni.Controllers
             _registerdPhoneNumberManager = registerdPhoneNumberManager;
             _changedPhoneNumberForUserRepository = changedPhoneNumberForUserRepository;
             _profileManager = profileManager;
+            _companyManager = companyManager;
             _configuration = configuration;
         }
 
@@ -148,7 +152,17 @@ namespace Wazzifni.Controllers
                         UserName = registerdUser.UserName,
                         UserType = registerdUser.Type
                     };
+                    if (registerdUser.Type == UserType.CompanyUser)
+                    {
+                        result.CompanyStatus = await _companyManager.GetCompanyStatusByUserIdAsync(registerdUser.Id);
 
+                        result.CompanyId = await _companyManager.GetCompanyIdByUserId(registerdUser.Id);
+
+                    }
+                    if (registerdUser.Type == UserType.BasicUser)
+                    {
+                        result.ProfileId = await _profileManager.GetProfileIdByUserId(registerdUser.Id);
+                    }
                     return result;
 
                 }

@@ -11,5 +11,7 @@ namespace Wazzifni.Domain.IndividualUserProfiles
 
         Task<Profile> GetEntityByUserIdAsync(long UserId);
 
+        Task<long> GetProfileIdByUserId(long userId);
+
     }
 }
