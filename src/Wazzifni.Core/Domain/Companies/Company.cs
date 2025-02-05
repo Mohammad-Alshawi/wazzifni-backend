@@ -30,5 +30,7 @@ namespace Wazzifni.Domain.Companies
         public DateTime? DateOfEstablishment { get; set; }
         public string ReasonRefuse { get; set; }
         public int? NumberOfEmployees { get; set; }
+        public string WebSite { get; set; }
+
     }
 }

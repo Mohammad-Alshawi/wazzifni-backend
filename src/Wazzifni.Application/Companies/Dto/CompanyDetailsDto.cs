@@ -20,6 +20,8 @@ namespace Wazzifni.Companies.Dto
         public CompanyStatus Status { get; set; }
 
         public string JobType { get; set; }
+        public string WebSite { get; set; }
+
 
         public DateTime? DateOfEstablishment { get; set; }
         public string ReasonRefuse { get; set; }

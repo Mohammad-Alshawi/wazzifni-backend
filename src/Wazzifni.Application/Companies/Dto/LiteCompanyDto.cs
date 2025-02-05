@@ -24,6 +24,7 @@ namespace Wazzifni.Companies.Dto
         public string ReasonRefuse { get; set; }
         public int? NumberOfEmployees { get; set; }
         public LiteAttachmentDto Profile { get; set; }
+        public string WebSite { get; set; }
 
 
     }

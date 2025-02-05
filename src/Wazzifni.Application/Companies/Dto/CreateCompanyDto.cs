@@ -27,7 +27,7 @@ namespace Wazzifni.Companies.Dto
 
         public string JobType { get; set; }
 
-
+        public string WebSite { get; set; }
 
         public void AddValidationErrors(CustomValidationContext context)
         {
