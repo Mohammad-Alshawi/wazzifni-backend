@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,60 +118,57 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="FileSizeExceedsMaxFileSize" xml:space="preserve">
-    <value>File Size Exceeds Max File Size</value>
+    <value>قەبارەی پەڕگە لە سەر دەچێت لە سنووری پەڕگەی قبوڵکراو</value>
   </data>
   <data name="FileSizeSupported" xml:space="preserve">
-    <value>File Size Supported In MegaByte</value>
+    <value>قەبارەی پەڕگەی قبوڵکراو بە مێگابایت</value>
   </data>
   <data name="IncompatibleValue" xml:space="preserve">
-    <value>Incompatible Value</value>
+    <value>نرخی ناگونجاو</value>
   </data>
   <data name="LogInFirst" xml:space="preserve">
-    <value>You Need to Login First</value>
-  </data>
-  <data name="LowResolutionVideo" xml:space="preserve">
-    <value>Your Video has a Very Low Quality. Try to Upload another Video with better Quality.</value>
+    <value>پێویستە سەرەتا بچیتە ژوورەوە</value>
   </data>
   <data name="ObjectCantBeDeactivate" xml:space="preserve">
-    <value>Cant be deactivate It has related {0}</value>
+    <value>ناتوانرێت ناچالاک بکرێت چونکە بەستراوەتەوە. {0}</value>
   </data>
   <data name="ObjectCantBeDelete" xml:space="preserve">
-    <value>Cant be delete it has related {0}</value>
+    <value>ناتوانرێت بسڕدرێتەوە چونکە بەستراوەتەوە. {0}</value>
   </data>
   <data name="ObjectIsAlreadyExist" xml:space="preserve">
-    <value>{0} Is Already Exist</value>
+    <value>{0}  لە ئێستاوە بوونیان هەیە</value>
   </data>
   <data name="ObjectWasNotFound" xml:space="preserve">
-    <value>{0} Not Found</value>
+    <value>{0} نەدۆزرایەوە</value>
   </data>
   <data name="SignUpNotComplete" xml:space="preserve">
-    <value>Your signingup information not correct</value>
-  </data>
-  <data name="TheAttachedFileTypeIsNotAcceptable" xml:space="preserve">
-    <value>The Attached File Type Is Not Acceptable</value>
+    <value>زانیاری ناو تۆمارکردن هەڵەیە.</value>
   </data>
   <data name="ThePhoneNumberIsAlreadyInUse" xml:space="preserve">
-    <value>The phone number is already in use</value>
+    <value>ژمارەی تەلەفۆن پێشتر بەکارهاتووە</value>
   </data>
   <data name="ThisPositionIsAlreadyExist" xml:space="preserve">
-    <value>This Position Is Already Exist</value>
+    <value>ئەم شوێنە پێشتر هەیە</value>
+  </data>
+  <data name="UserNameTakenForRecoverBrokerUser" xml:space="preserve">
+    <value>ببورە، بەکارهێنەرەکە ناتوانرێت وەربگیرێتەوە چونکە بەکارهێنەرێکی هەبوو هەیە بە هەمان ناوی بەکارهێنەر.</value>
   </data>
   <data name="UserNotFoundPleasCreateNewAccount" xml:space="preserve">
-    <value>User not found. Please create an account with your phone number.</value>
+    <value>بەکارهێنەر بوونی نییە. تکایە بە بەکارهێنانی ژمارەی مۆبایل ئەکاونتێک دروست بکەن.</value>
   </data>
   <data name="VerificationCodeIsExpired" xml:space="preserve">
-    <value>Verification code is expired.</value>
+    <value>کۆدی پشتڕاستکردنەوە بەسەرچووە</value>
   </data>
   <data name="VerificationCodeIsnotCorrect" xml:space="preserve">
-    <value>Verification code isn't correct</value>
+    <value>کۆدی پشتڕاستکردنەوە نادروستە</value>
   </data>
   <data name="VerificationCodeIsnotValid" xml:space="preserve">
-    <value>Verification code Isn't valid</value>
+    <value>کۆدی پشتڕاستکردنەوەی نادروست</value>
   </data>
   <data name="YouCannotDoThisAction" xml:space="preserve">
-    <value>You can't  do this action</value>
+    <value>ناتوانیت ئەم کردارە بکەیت</value>
   </data>
   <data name="YourPhoneNumberIsntVerified" xml:space="preserve">
-    <value>Your phone number is not verified</value>
+    <value>ژمارەی تەلەفۆنت پشتڕاست نەکراوە</value>
   </data>
 </root>

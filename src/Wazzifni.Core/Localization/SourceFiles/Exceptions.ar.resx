@@ -117,30 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AttributeDataTypeDoesnotMatchInput" xml:space="preserve">
-    <value>نوع قيمة الإدخال غير متوتفقة مع نوع قيمة الخاصية</value>
-  </data>
-  <data name="AttributeValueIsAlreadyExist" xml:space="preserve">
-    <value>قيمة الخاصية موجودة مسبقاً</value>
-  </data>
-  <data name="BrokerContactEmptyForRecoverBrokerUser" xml:space="preserve">
-    <value>لا يمكن استعادة هذا المكتب لأنه قد تم حذف ارقام تواصله بشكل دائم</value>
-  </data>
-  <data name="BrokerIsNotApprove" xml:space="preserve">
-    <value>المكتب ليس في حالة قبول من فضلك انتظر موافقة الأدمن</value>
-  </data>
-  <data name="CannotDeleteDueToReservationsUndeProcessing" xml:space="preserve">
-    <value>لا يمكن الحذف بسبب وجود حجوزات تحت المعالجة يرجى اغلاق حالة الحجوزات ثم المحاولة لاحقا</value>
-  </data>
-  <data name="CannotUpdateThisPropertyDueToReservations" xml:space="preserve">
-    <value>لا يمكنك تعديل بعض معلومات هذا العقار نظرًا لوجود حجوزات مؤكدة قائمة أو مستقبلية.</value>
-  </data>
-  <data name="CantDeleteThisRequestNotClosed" xml:space="preserve">
-    <value>لا تسطيع حذف هذا الطلب لأنه بحالة {0}.</value>
-  </data>
-  <data name="ContributionExist" xml:space="preserve">
-    <value>هذه المساهمة موجودة بالفعل للبرج المحدد.</value>
-  </data>
   <data name="FileSizeExceedsMaxFileSize" xml:space="preserve">
     <value>حجم الملف يتجاوز الحد الأقصى لحجم الملف المقبول</value>
   </data>
@@ -150,20 +126,11 @@
   <data name="IncompatibleValue" xml:space="preserve">
     <value>قيمة غير متوافقة</value>
   </data>
-  <data name="InvalidDedlineToConfirmReservation" xml:space="preserve">
-    <value>يجب تحديد الموعد النهائي لتأكيد الحجز بالساعات و الدقائق</value>
-  </data>
   <data name="LogInFirst" xml:space="preserve">
     <value>يجب عليك تسجيل الدخول أولاً</value>
   </data>
   <data name="LowResolutionVideo" xml:space="preserve">
     <value>دقة الفيديو ضعيفة جداً. حاول رفع فيديو آخر بدقة أفضل</value>
-  </data>
-  <data name="NoReservationFeatureWithThisCategory" xml:space="preserve">
-    <value>لا توجد خاصية الحجز مع هذه الفئة</value>
-  </data>
-  <data name="NoReservationFeatureWithThisProperty" xml:space="preserve">
-    <value>لا توجد خاصية الحجز مع هذا الاعلان</value>
   </data>
   <data name="ObjectCantBeDeactivate" xml:space="preserve">
     <value>لايمكن الغاء تفعليه لانه مرتبط {0}</value>
@@ -177,44 +144,14 @@
   <data name="ObjectWasNotFound" xml:space="preserve">
     <value>{0} غير موجود</value>
   </data>
-  <data name="PropertyIsNotForRent" xml:space="preserve">
-    <value>الاعلان ليس للايجار</value>
-  </data>
-  <data name="ReachedMaximumNumberAllowed" xml:space="preserve">
-    <value>وصلت إلى العدد الأقصى المسموح للإضافة</value>
-  </data>
-  <data name="ReservationDatesBeyondAllowedLastDate" xml:space="preserve">
-    <value>يتضمن الحجز تواريخ تتجاوز الموعد الأخير المسموح به للحجز.</value>
-  </data>
-  <data name="ReservationIncludesAnotherReservationDates" xml:space="preserve">
-    <value>الحجز يشمل مواعيد حجز أخر ما زال تحت المعالجة</value>
-  </data>
-  <data name="ReservationIncludesPastOrCurrentDate" xml:space="preserve">
-    <value>يتضمن الحجز تواريخ في الماضي أو اليوم، وهي غير مسموح بها.</value>
-  </data>
-  <data name="ReservationIncludesUnavailableDates" xml:space="preserve">
-    <value>يشمل الحجز تواريخ غير متاحة للحجز.</value>
-  </data>
   <data name="SignUpNotComplete" xml:space="preserve">
     <value>معلومات التسجيل غير صحيحة</value>
-  </data>
-  <data name="TagsNumberIsPositive" xml:space="preserve">
-    <value>عدد العلامات يجب أن يكون أكبر من الصفر</value>
-  </data>
-  <data name="TheAttachedFileTypeIsNotAcceptable" xml:space="preserve">
-    <value>نوع الملف غير مقبول</value>
   </data>
   <data name="ThePhoneNumberIsAlreadyInUse" xml:space="preserve">
     <value>رقم الهاتف مستخدم بالفعل</value>
   </data>
-  <data name="TheRequestHasNotSelectedAServiceProvider" xml:space="preserve">
-    <value>لم يحدد الطلب مزود الخدمة</value>
-  </data>
   <data name="ThisPositionIsAlreadyExist" xml:space="preserve">
     <value>هذا الموقع موجود بالفعل</value>
-  </data>
-  <data name="UserCanotPuplish" xml:space="preserve">
-    <value>الوسيط استنفذ رصيده في النشر او لا يملك باقة</value>
   </data>
   <data name="UserNameTakenForRecoverBrokerUser" xml:space="preserve">
     <value>عذرا لا يمكن استرجاع المستخدم لأنه يوجد مستخدم حالي بنفس اسم المستخدم</value>
@@ -231,18 +168,8 @@
   <data name="VerificationCodeIsnotValid" xml:space="preserve">
     <value>رمز التحقق غير صالح</value>
   </data>
-  <data name="VideoTagsNumberIsAboveMaximum" xml:space="preserve">
-    <value>لا يمكن أن يرتبط الفيديو بأكثر من {0} علامة</value>
-  </data>
   <data name="YouCannotDoThisAction" xml:space="preserve">
     <value>لا يمكنك القيام بهذا الإجراء</value>
-  </data>
-  <data name="YouCannotDoThisAnymore" xml:space="preserve">
-    <value>عذراً لقد استنفذت عدد امكانية النشر المحدد</value>
-  </data>
-  <data name="YouCannotDoThisAnymoreWithPostsChecking" xml:space="preserve">
-    <value>تجاوزت عدد المنشورات المسموح به .
-لديك حالياً عدد من المنشورات قيد المراجعة، بالإضافة إلى عدد المنشورات التي قمت بنشرها يرجى انتظار الانتهاء من مراجعة منشوراتك الحالية قبل نشر المزيد.</value>
   </data>
   <data name="YourPhoneNumberIsntVerified" xml:space="preserve">
     <value>لم يتم التحقق من رقم هاتفك</value>
