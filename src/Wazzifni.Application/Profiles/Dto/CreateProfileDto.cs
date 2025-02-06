@@ -16,5 +16,8 @@ namespace Wazzifni.Profiles.Dto
 
         public List<SpokenLanguageInputDto> SpokenLanguages { get; set; } = new List<SpokenLanguageInputDto>();
         public List<int> SkillIds { get; set; }
+
+        public long ProfilePhotoId { get; set; }
+        public long CvId { get; set; }
     }
 }

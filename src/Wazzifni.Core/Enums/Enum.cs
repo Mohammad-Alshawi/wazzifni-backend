@@ -26,7 +26,8 @@ namespace Wazzifni.Enums
             CompanyLogo = 2,
             CompanyImage = 3,
             City = 4,
-            SpokenLanguage = 5
+            SpokenLanguage = 5,
+            CV = 6
 
         }
         public enum AttachmentType : byte

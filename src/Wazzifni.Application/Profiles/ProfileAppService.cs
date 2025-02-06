@@ -80,6 +80,17 @@ namespace Wazzifni.Profiles
                     LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(logo),
                 };
             }
+
+            var cv = await _attachmentManager.GetElementByRefAsync(result.Id, AttachmentRefType.CV);
+            if (cv is not null)
+            {
+                result.Cv = new LiteAttachmentDto
+                {
+                    Id = cv.Id,
+                    Url = _attachmentManager.GetUrl(cv),
+                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(cv),
+                };
+            }
             return result;
         }
 
@@ -133,8 +144,31 @@ namespace Wazzifni.Profiles
                 }
             }
 
+
+            var logo = await _attachmentManager.GetElementByRefAsync(profile.Id, AttachmentRefType.Profile);
+            if (logo is not null && logo.Id != input.ProfilePhotoId && input.ProfilePhotoId != 0)
+            {
+                await _attachmentManager.DeleteRefIdAsync(logo);
+                await _attachmentManager.CheckAndUpdateRefIdAsync(input.ProfilePhotoId, AttachmentRefType.Profile, profile.Id);
+
+            }
+            else if (logo is null && input.ProfilePhotoId != 0)
+                await _attachmentManager.CheckAndUpdateRefIdAsync(input.ProfilePhotoId, AttachmentRefType.Profile, profile.Id);
+
+            var cv = await _attachmentManager.GetElementByRefAsync(profile.Id, AttachmentRefType.CV);
+            if (cv is not null && cv.Id != input.CvId && input.CvId != 0)
+            {
+                await _attachmentManager.DeleteRefIdAsync(cv);
+                await _attachmentManager.CheckAndUpdateRefIdAsync(input.CvId, AttachmentRefType.CV, profile.Id);
+
+            }
+            else if (cv is null && input.CvId != 0)
+                await _attachmentManager.CheckAndUpdateRefIdAsync(input.CvId, AttachmentRefType.CV, profile.Id);
+
             await Repository.UpdateAsync(profile);
             UnitOfWorkManager.Current.SaveChanges();
+
+
 
             return _mapper.Map<ProfileDetailsDto>(profile);
         }

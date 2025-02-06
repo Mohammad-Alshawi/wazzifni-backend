@@ -23,5 +23,7 @@ namespace Wazzifni.Profiles.Dto
 
         public LiteAttachmentDto Image { get; set; }
 
+        public LiteAttachmentDto Cv { get; set; }
+
     }
 }

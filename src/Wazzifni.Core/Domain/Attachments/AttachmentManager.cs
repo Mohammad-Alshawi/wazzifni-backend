@@ -150,6 +150,8 @@ namespace Wazzifni.Domain.Attachments
                     return ImagesAcceptedTypes;
                 case AttachmentRefType.SpokenLanguage:
                     return ImagesAcceptedTypes;
+                case AttachmentRefType.CV:
+                    return AllAcceptedTypes;
 
             }
 
