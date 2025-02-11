@@ -169,7 +169,8 @@ namespace Wazzifni.Enums
             HighSchool = 1,
             Bachelor = 2,
             Master = 3,
-            Doctorate = 4
+            Doctorate = 4,
+            MiddleSchool = 5
         }
 
         public enum SpokenLanguageLevel : byte
@@ -181,6 +182,37 @@ namespace Wazzifni.Enums
             Advanced = 5,
             Fluent = 6
         }
+
+        public enum WorkEngagement : byte
+        {
+            FullTime = 1,
+            PartTime = 2,
+            Contract = 3,
+            ProjectOnly = 4,
+            StrategicPartnership = 5
+        }
+        public enum WorkLevel : byte
+        {
+            TeamLeader = 1,
+            Professional = 2,
+            Beginner = 3,
+            Manager = 4
+        }
+
+        public enum WorkPostStatus : byte
+        {
+            Checking = 1,
+            Approved = 2
+        }
+
+
+        public enum WorkVisibility : byte
+        {
+            Visible = 1,
+            Hidden = 2
+        }
+
+
     }
 }
 

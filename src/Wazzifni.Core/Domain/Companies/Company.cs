@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Domain.Cities;
+using Wazzifni.Domain.WorkPosts;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Domain.Companies
@@ -31,6 +32,9 @@ namespace Wazzifni.Domain.Companies
         public string ReasonRefuse { get; set; }
         public int? NumberOfEmployees { get; set; }
         public string WebSite { get; set; }
+
+
+        public virtual ICollection<WorkPost> WorkPosts { get; set; }
 
     }
 }
