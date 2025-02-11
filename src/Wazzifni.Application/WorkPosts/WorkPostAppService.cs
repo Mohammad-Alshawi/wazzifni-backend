@@ -39,8 +39,7 @@ namespace Wazzifni.WorkPosts
                 var companyId = await _companyManager.GetCompanyIdByUserId(AbpSession.UserId.Value);
                 post.CompanyId = companyId;
             }
-            else if (await _userManager.IsAdminSession())
-                post.CompanyId = input.CompanyId.Value;
+            else post.CompanyId = input.CompanyId.Value;
 
             post.Status = WorkPostStatus.Approved;
             post.WorkVisibility = WorkVisibility.Visible;
