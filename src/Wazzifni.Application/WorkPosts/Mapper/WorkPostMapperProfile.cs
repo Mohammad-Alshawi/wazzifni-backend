@@ -22,3 +22,4 @@ namespace Wazzifni.WorkPosts.Mapper
 
         }
     }
+}
