@@ -189,7 +189,7 @@ namespace Wazzifni.Controllers
                         result.ProfileId = await _profileManager.GetProfileIdByUserId(registerdUser.Id);
                         if (result.ProfileId.HasValue)
                         {
-                            var profile = await _profileManager.GetEntityByIdAsync(result.CompanyId.Value);
+                            var profile = await _profileManager.GetEntityByIdAsync(result.ProfileId.Value);
                             result.Profile = _mapper.Map<ProfileLiteDto>(profile);
                             var profileImage = await _attachmentManager.GetElementByRefAsync(result.ProfileId.Value, AttachmentRefType.Profile);
                             if (profileImage is not null)
