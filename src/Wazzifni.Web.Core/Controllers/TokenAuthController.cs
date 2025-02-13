@@ -5,6 +5,7 @@ using Abp.Domain.Uow;
 using Abp.MultiTenancy;
 using Abp.Runtime.Security;
 using Abp.UI;
+using AutoMapper;
 using KeyFinder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -19,6 +20,8 @@ using Wazzifni.Authentication.JwtBearer;
 using Wazzifni.Authorization;
 using Wazzifni.Authorization.Roles;
 using Wazzifni.Authorization.Users;
+using Wazzifni.Companies.Dto;
+using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.ChangedPhoneNumber;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.IndividualUserProfiles;
@@ -27,6 +30,7 @@ using Wazzifni.Domains.UserVerficationCodes;
 using Wazzifni.Localization.SourceFiles;
 using Wazzifni.Models.TokenAuth;
 using Wazzifni.MultiTenancy;
+using Wazzifni.Profiles.Dto;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Controllers
@@ -46,6 +50,8 @@ namespace Wazzifni.Controllers
         private readonly IRepository<ChangedPhoneNumberForUser> _changedPhoneNumberForUserRepository;
         private readonly IProfileManager _profileManager;
         private readonly ICompanyManager _companyManager;
+        private readonly IMapper _mapper;
+        private readonly AttachmentManager _attachmentManager;
         private readonly TokenAuthConfiguration _configuration;
 
         public TokenAuthController(
@@ -61,6 +67,8 @@ namespace Wazzifni.Controllers
             IRepository<ChangedPhoneNumberForUser> changedPhoneNumberForUserRepository,
             IProfileManager profileManager,
             ICompanyManager companyManager,
+            IMapper mapper,
+            AttachmentManager attachmentManager,
             TokenAuthConfiguration configuration)
         {
             _logInManager = logInManager;
@@ -75,6 +83,8 @@ namespace Wazzifni.Controllers
             _changedPhoneNumberForUserRepository = changedPhoneNumberForUserRepository;
             _profileManager = profileManager;
             _companyManager = companyManager;
+            _mapper = mapper;
+            _attachmentManager = attachmentManager;
             _configuration = configuration;
         }
 
@@ -157,11 +167,42 @@ namespace Wazzifni.Controllers
                         result.CompanyStatus = await _companyManager.GetCompanyStatusByUserIdAsync(registerdUser.Id);
 
                         result.CompanyId = await _companyManager.GetCompanyIdByUserId(registerdUser.Id);
+                        if (result.CompanyId.HasValue)
+                        {
+                            var company = await _companyManager.GetEntityByIdAsync(result.CompanyId.Value);
+                            result.Company = _mapper.Map<LiteCompanyDto>(company);
+                            var logo = await _attachmentManager.GetElementByRefAsync(result.CompanyId.Value, AttachmentRefType.CompanyLogo);
+                            if (logo is not null)
+                            {
 
+                                result.Company.Profile = new LiteAttachmentDto
+                                {
+                                    Id = logo.Id,
+                                    Url = _attachmentManager.GetUrl(logo),
+                                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(logo),
+                                };
+                            }
+                        }
                     }
                     if (registerdUser.Type == UserType.BasicUser)
                     {
                         result.ProfileId = await _profileManager.GetProfileIdByUserId(registerdUser.Id);
+                        if (result.ProfileId.HasValue)
+                        {
+                            var profile = await _profileManager.GetEntityByIdAsync(result.CompanyId.Value);
+                            result.Profile = _mapper.Map<ProfileLiteDto>(profile);
+                            var profileImage = await _attachmentManager.GetElementByRefAsync(result.ProfileId.Value, AttachmentRefType.Profile);
+                            if (profileImage is not null)
+                            {
+
+                                result.Profile.Image = new LiteAttachmentDto
+                                {
+                                    Id = profile.Id,
+                                    Url = _attachmentManager.GetUrl(profileImage),
+                                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(profileImage),
+                                };
+                            }
+                        }
                     }
                     return result;
 

@@ -1,4 +1,6 @@
-﻿using static Wazzifni.Enums.Enum;
+﻿using Wazzifni.Companies.Dto;
+using Wazzifni.Profiles.Dto;
+using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Models.TokenAuth
 {
@@ -12,5 +14,9 @@ namespace Wazzifni.Models.TokenAuth
         public CompanyStatus? CompanyStatus { get; set; }
         public int? CompanyId { get; set; }
         public long? ProfileId { get; set; }
+
+        public LiteCompanyDto Company { get; set; }
+        public ProfileLiteDto Profile { get; set; }
+
     }
 }
