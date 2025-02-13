@@ -37,7 +37,7 @@ namespace Wazzifni.WorkPosts
             _companyManager = companyManager;
         }
 
-        [HttpPost(PermissionNames.WorkPosts_Create)]
+        [HttpPost, AbpAuthorize(PermissionNames.WorkPosts_Create)]
         public override async Task<WorkPostDetailsDto> CreateAsync(CreateWorkPostDto input)
         {
             var post = _mapper.Map<WorkPost>(input);
@@ -69,7 +69,7 @@ namespace Wazzifni.WorkPosts
 
 
 
-        [HttpPut(PermissionNames.WorkPosts_Update)]
+        [HttpPut, AbpAuthorize(PermissionNames.WorkPosts_Update)]
 
 
         public override async Task<WorkPostDetailsDto> UpdateAsync(UpdateWorkPostDto input)

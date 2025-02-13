@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Services;
 using Abp.Application.Services.Dto;
+using Abp.Authorization;
 using Abp.Collections.Extensions;
 using Abp.Domain.Repositories;
 using Abp.UI;
@@ -49,7 +50,7 @@ namespace Wazzifni.Companies
 
         }
 
-        [HttpPost(PermissionNames.Companies_Create)]
+        [HttpPost, AbpAuthorize(PermissionNames.Companies_Create)]
         public override async Task<CompanyDetailsDto> CreateAsync(CreateCompanyDto input)
         {
             var Company = _mapper.Map<Company>(input);
@@ -102,7 +103,7 @@ namespace Wazzifni.Companies
 
         [ApiExplorerSettings(IgnoreApi = true)]
         [RemoteService(IsEnabled = false)]
-        [HttpPut(PermissionNames.Companies_Update)]
+        [HttpPut, AbpAuthorize(PermissionNames.Companies_Update)]
 
         public override Task<CompanyDetailsDto> UpdateAsync(UpdateCompanyDto input)
         {
