@@ -169,7 +169,7 @@ namespace Wazzifni.Controllers
                         result.CompanyId = await _companyManager.GetCompanyIdByUserId(registerdUser.Id);
                         if (result.CompanyId.HasValue)
                         {
-                            var company = await _companyManager.GetEntityByIdAsync(result.CompanyId.Value);
+                            var company = await _companyManager.GetFullEntityByIdAsync(result.CompanyId.Value);
                             result.Company = _mapper.Map<CompanyDetailsDto>(company);
                             var logo = await _attachmentManager.GetElementByRefAsync(result.CompanyId.Value, AttachmentRefType.CompanyLogo);
                             if (logo is not null)
