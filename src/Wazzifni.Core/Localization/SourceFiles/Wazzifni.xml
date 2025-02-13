@@ -135,6 +135,20 @@
 	  <text name="RoleDelete">Delete Role</text>
 	  <text name="RolesPermission">List Of Permission</text>
 	  <text name="RoleGet">Get Role</text>
+
+	  <text name="Companies">Permission for Companies</text>
+	  <text name="CompaniesRead">Permission to Read Company</text>
+	  <text name="CompaniesCreate">Permission to Create Company</text>
+	  <text name="CompaniesUpdate">Permission to Update Company</text>
+	  <text name="CompaniesDelete">Permission to Delete Company</text>
+
+
+	  <text name="WorkPosts">Permission for WorkPosts</text>
+	  <text name="WorkPostsRead">Permission to Read WorkPost</text>
+	  <text name="WorkPostsCreate">Permission to Create WorkPost</text>
+	  <text name="WorkPostsUpdate">Permission to Update WorkPost</text>
+	  <text name="WorkPostsDelete">Permission to Delete WorkPost</text>
 	  
+
   </texts>
 </localizationDictionary>

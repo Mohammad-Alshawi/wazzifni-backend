@@ -25,5 +25,18 @@
         public const string Accounts_Read = Accounts + "." + "Read";
         public const string Accounts_Delete = Accounts + "." + "Delete";
         public const string Accounts_Update = Accounts + "." + "Update";
+
+        public const string Companies = "Companies";
+        public const string Companies_Read = Companies + "." + "Read";
+        public const string Companies_Create = Companies + "." + "Create";
+        public const string Companies_Delete = Companies + "." + "Delete";
+        public const string Companies_Update = Companies + "." + "Update";
+
+        public const string WorkPosts = "WorkPosts";
+        public const string WorkPosts_Read = WorkPosts + "." + "Read";
+        public const string WorkPosts_Create = WorkPosts + "." + "Create";
+        public const string WorkPosts_Delete = WorkPosts + "." + "Delete";
+        public const string WorkPosts_Update = WorkPosts + "." + "Update";
+
     }
 }

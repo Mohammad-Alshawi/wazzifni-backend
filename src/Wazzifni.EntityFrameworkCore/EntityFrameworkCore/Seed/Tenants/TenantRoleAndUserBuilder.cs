@@ -94,6 +94,16 @@ namespace Wazzifni.EntityFrameworkCore.Seed.Tenants
             {
                 PermissionNames.Pages_Users,
 
+                  PermissionNames.Pages_Users,
+                  PermissionNames.Companies,
+                  PermissionNames.Companies_Create,
+                  PermissionNames.Companies_Update,
+                  PermissionNames.Companies_Read,
+                  PermissionNames.WorkPosts,
+                  PermissionNames.WorkPosts_Create,
+                  PermissionNames.WorkPosts_Update,
+                  PermissionNames.WorkPosts_Read,
+
 
             };
 

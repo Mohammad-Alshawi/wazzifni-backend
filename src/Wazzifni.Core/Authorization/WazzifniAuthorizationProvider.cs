@@ -28,6 +28,19 @@ namespace Wazzifni.Authorization
             context.CreatePermission(PermissionNames.Roles_GetAllPermission, L("RolesPermission"));
             context.CreatePermission(PermissionNames.Roles_Get, L("RoleGet"));
             context.CreatePermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
+
+
+            context.CreatePermission(PermissionNames.Companies, L("Companies"));
+            context.CreatePermission(PermissionNames.Companies_Read, L("CompaniesRead"));
+            context.CreatePermission(PermissionNames.Companies_Create, L("CompaniesCreate"));
+            context.CreatePermission(PermissionNames.Companies_Update, L("CompaniesUpdate"));
+            context.CreatePermission(PermissionNames.Companies_Delete, L("CompaniesDelete"));
+
+            context.CreatePermission(PermissionNames.WorkPosts, L("WorkPosts"));
+            context.CreatePermission(PermissionNames.WorkPosts_Read, L("WorkPostsRead"));
+            context.CreatePermission(PermissionNames.WorkPosts_Create, L("WorkPostsCreate"));
+            context.CreatePermission(PermissionNames.WorkPosts_Update, L("WorkPostsUpdate"));
+            context.CreatePermission(PermissionNames.WorkPosts_Delete, L("WorkPostsDelete"));
         }
 
         private static ILocalizableString L(string name)

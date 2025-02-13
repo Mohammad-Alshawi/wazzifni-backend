@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Companies.Dto;
 using Wazzifni.CrudAppServiceBase;
@@ -48,7 +49,7 @@ namespace Wazzifni.Companies
 
         }
 
-        [HttpPost]
+        [HttpPost(PermissionNames.Companies_Create)]
         public override async Task<CompanyDetailsDto> CreateAsync(CreateCompanyDto input)
         {
             var Company = _mapper.Map<Company>(input);
@@ -101,6 +102,8 @@ namespace Wazzifni.Companies
 
         [ApiExplorerSettings(IgnoreApi = true)]
         [RemoteService(IsEnabled = false)]
+        [HttpPut(PermissionNames.Companies_Update)]
+
         public override Task<CompanyDetailsDto> UpdateAsync(UpdateCompanyDto input)
         {
             return base.UpdateAsync(input);

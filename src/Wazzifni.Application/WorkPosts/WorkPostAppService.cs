@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services.Dto;
+using Abp.Authorization;
 using Abp.Domain.Repositories;
 using Abp.UI;
 using AutoMapper;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Companies;
@@ -35,7 +37,7 @@ namespace Wazzifni.WorkPosts
             _companyManager = companyManager;
         }
 
-        [HttpPost]
+        [HttpPost(PermissionNames.WorkPosts_Create)]
         public override async Task<WorkPostDetailsDto> CreateAsync(CreateWorkPostDto input)
         {
             var post = _mapper.Map<WorkPost>(input);
@@ -67,8 +69,9 @@ namespace Wazzifni.WorkPosts
 
 
 
+        [HttpPut(PermissionNames.WorkPosts_Update)]
 
-        [HttpPut]
+
         public override async Task<WorkPostDetailsDto> UpdateAsync(UpdateWorkPostDto input)
         {
             var post = await _workPostManager.GetEntityByIdAsync(input.Id);
@@ -97,7 +100,7 @@ namespace Wazzifni.WorkPosts
 
 
 
-
+        [AbpAllowAnonymous]
         public override async Task<PagedResultDto<WorkPostLiteDto>> GetAllAsync(PagedWorkPostResultRequestDto input)
         {
             var result = await base.GetAllAsync(input);
