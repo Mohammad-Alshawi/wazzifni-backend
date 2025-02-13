@@ -202,6 +202,18 @@ namespace Wazzifni.Controllers
                                     LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(profileImage),
                                 };
                             }
+
+                            var cv = await _attachmentManager.GetElementByRefAsync(result.ProfileId.Value, AttachmentRefType.CV);
+                            if (cv is not null)
+                            {
+
+                                result.Profile.Image = new LiteAttachmentDto
+                                {
+                                    Id = profile.Id,
+                                    Url = _attachmentManager.GetUrl(cv),
+                                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(cv),
+                                };
+                            }
                         }
                     }
                     return result;
