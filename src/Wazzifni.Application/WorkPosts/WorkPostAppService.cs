@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.Domain.Repositories;
+using Abp.UI;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,12 +21,17 @@ namespace Wazzifni.WorkPosts
     {
         private readonly IMapper _mapper;
         private readonly UserManager _userManager;
+        private readonly IWorkPostManager _workPostManager;
         private readonly ICompanyManager _companyManager;
 
-        public WorkPostAppService(IRepository<WorkPost, long> repository, IMapper mapper, UserManager userManager, ICompanyManager companyManager) : base(repository)
+        public WorkPostAppService(IRepository<WorkPost, long> repository,
+            IMapper mapper, UserManager userManager,
+            IWorkPostManager workPostManager,
+            ICompanyManager companyManager) : base(repository)
         {
             _mapper = mapper;
             _userManager = userManager;
+            _workPostManager = workPostManager;
             _companyManager = companyManager;
         }
 
@@ -49,6 +55,48 @@ namespace Wazzifni.WorkPosts
 
             return _mapper.Map<WorkPostDetailsDto>(post);
         }
+
+
+        [HttpGet]
+        public override async Task<WorkPostDetailsDto> GetAsync(EntityDto<long> input)
+        {
+            var post = await _workPostManager.GetEntityByIdAsync(input.Id);
+
+            return _mapper.Map<WorkPostDetailsDto>(post);
+        }
+
+
+
+
+        [HttpPut]
+        public override async Task<WorkPostDetailsDto> UpdateAsync(UpdateWorkPostDto input)
+        {
+            var post = await _workPostManager.GetEntityByIdAsync(input.Id);
+
+            var oldCompanyId = post.CompanyId;
+
+            _mapper.Map(input, post);
+
+            if (await _userManager.IsCompany())
+            {
+                var companyId = await _companyManager.GetCompanyIdByUserId(AbpSession.UserId.Value);
+                if (oldCompanyId != companyId)
+                {
+                    throw new UserFriendlyException("Denied");
+                }
+                post.CompanyId = companyId;
+            }
+            else
+            {
+                post.CompanyId = input.CompanyId.Value;
+            }
+
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+            return _mapper.Map<WorkPostDetailsDto>(post);
+        }
+
+
+
 
         public override async Task<PagedResultDto<WorkPostLiteDto>> GetAllAsync(PagedWorkPostResultRequestDto input)
         {

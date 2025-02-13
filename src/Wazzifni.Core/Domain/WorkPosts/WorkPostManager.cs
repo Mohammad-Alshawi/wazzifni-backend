@@ -19,7 +19,8 @@ namespace Wazzifni.Domain.WorkPosts
         public async Task<WorkPost> GetEntityByIdAsync(long workPostId)
         {
             return await _repository
-                .GetAllIncluding(x => x.Company)
+                .GetAll().Include(x => x.Company).ThenInclude(x => x.Translations)
+                .Include(x => x.Company).ThenInclude(x => x.User)
                 .AsNoTracking().Where(x => x.Id == workPostId).FirstOrDefaultAsync();
         }
     }
