@@ -48,12 +48,13 @@ namespace Wazzifni.Domain.Companies
         {
             return await _companyRepository.GetAsync(id);
         }
-        public async Task<Company> GetLiteEntityByIdAsync(int id)
+        public async Task<Company> GetFullEntityByIdAsync(int id)
         {
             return await _companyRepository
                 .GetAllIncluding(x => x.Translations)
                 .Include(x => x.City)
                 .ThenInclude(x => x.Translations)
+                .Include(c => c.User)
                 .AsNoTracking().Where(x => x.Id == id).FirstOrDefaultAsync();
         }
         public async Task<Company> GetEntityByIdAsync(int id)

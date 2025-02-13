@@ -12,5 +12,7 @@ namespace Wazzifni.Domain.Companies
         Task<CompanyStatus> GetCompanyStatusByUserIdAsync(long userId);
         Task<int> GetCompanyIdByUserId(long userId);
 
+        Task<Company> GetFullEntityByIdAsync(int id);
+
     }
 }

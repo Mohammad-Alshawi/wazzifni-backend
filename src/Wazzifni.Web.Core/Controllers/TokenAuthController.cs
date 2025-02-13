@@ -170,7 +170,7 @@ namespace Wazzifni.Controllers
                         if (result.CompanyId.HasValue)
                         {
                             var company = await _companyManager.GetEntityByIdAsync(result.CompanyId.Value);
-                            result.Company = _mapper.Map<LiteCompanyDto>(company);
+                            result.Company = _mapper.Map<CompanyDetailsDto>(company);
                             var logo = await _attachmentManager.GetElementByRefAsync(result.CompanyId.Value, AttachmentRefType.CompanyLogo);
                             if (logo is not null)
                             {
@@ -190,7 +190,7 @@ namespace Wazzifni.Controllers
                         if (result.ProfileId.HasValue)
                         {
                             var profile = await _profileManager.GetEntityByIdAsync(result.ProfileId.Value);
-                            result.Profile = _mapper.Map<ProfileLiteDto>(profile);
+                            result.Profile = _mapper.Map<ProfileDetailsDto>(profile);
                             var profileImage = await _attachmentManager.GetElementByRefAsync(result.ProfileId.Value, AttachmentRefType.Profile);
                             if (profileImage is not null)
                             {

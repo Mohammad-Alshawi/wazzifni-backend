@@ -15,8 +15,8 @@ namespace Wazzifni.Models.TokenAuth
         public int? CompanyId { get; set; }
         public long? ProfileId { get; set; }
 
-        public LiteCompanyDto Company { get; set; }
-        public ProfileLiteDto Profile { get; set; }
+        public CompanyDetailsDto Company { get; set; }
+        public ProfileDetailsDto Profile { get; set; }
 
     }
 }
