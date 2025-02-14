@@ -93,7 +93,7 @@ namespace Wazzifni.WorkPosts
             {
                 post.CompanyId = input.CompanyId.Value;
             }
-
+            await Repository.UpdateAsync(post);
             await UnitOfWorkManager.Current.SaveChangesAsync();
             return _mapper.Map<WorkPostDetailsDto>(post);
         }
