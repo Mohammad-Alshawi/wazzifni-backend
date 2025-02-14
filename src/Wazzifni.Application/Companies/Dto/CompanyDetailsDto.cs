@@ -12,7 +12,7 @@ namespace Wazzifni.Companies.Dto
         public string About { get; set; }
         public List<CompanyTranslationDto> Translations { get; set; }
         public string Address { get; set; }
-        public LiteRegionCityDto City { get; set; }
+        public LiteCity City { get; set; }
         public SuperLiteUserDto User { get; set; }
 
         //public int Rate { get; set; }
