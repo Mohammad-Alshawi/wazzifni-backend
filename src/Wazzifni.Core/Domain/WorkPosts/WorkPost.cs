@@ -27,7 +27,7 @@ namespace Wazzifni.Domain.WorkPosts
         public int ExperienceYearsCount { get; set; }
         public int RequiredEmployeesCount { get; set; }
         public int ApplicantsCount { get; set; }
-        public WorkVisibility WorkVisibility { get; set; } = WorkVisibility.Visible;
+        public WorkAvailbility WorkVisibility { get; set; } = WorkAvailbility.Available;
 
     }
 }

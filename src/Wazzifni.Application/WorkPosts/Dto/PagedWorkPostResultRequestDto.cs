@@ -16,6 +16,6 @@ namespace Wazzifni.WorkPosts.Dto
 
         public decimal? MinSalary { get; set; }
         public decimal? MaxSalary { get; set; }
-        public WorkVisibility? WorkVisibility { get; set; }
+        public WorkAvailbility? WorkVisibility { get; set; }
     }
 }

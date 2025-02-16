@@ -206,10 +206,10 @@ namespace Wazzifni.Enums
         }
 
 
-        public enum WorkVisibility : byte
+        public enum WorkAvailbility : byte
         {
-            Visible = 1,
-            Hidden = 2
+            Available = 1,
+            Unavilable = 2
         }
 
 

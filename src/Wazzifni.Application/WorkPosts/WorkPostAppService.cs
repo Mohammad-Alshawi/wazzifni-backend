@@ -50,7 +50,7 @@ namespace Wazzifni.WorkPosts
             else post.CompanyId = input.CompanyId.Value;
 
             post.Status = WorkPostStatus.Approved;
-            post.WorkVisibility = WorkVisibility.Visible;
+            post.WorkVisibility = WorkAvailbility.Available;
 
             await Repository.InsertAndGetIdAsync(post);
             UnitOfWorkManager.Current.SaveChanges();
