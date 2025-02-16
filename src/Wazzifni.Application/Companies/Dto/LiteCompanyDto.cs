@@ -25,6 +25,7 @@ namespace Wazzifni.Companies.Dto
         public int? NumberOfEmployees { get; set; }
         public LiteAttachmentDto Profile { get; set; }
         public string WebSite { get; set; }
+        public DateTime CreationTime { get; set; }
 
 
     }

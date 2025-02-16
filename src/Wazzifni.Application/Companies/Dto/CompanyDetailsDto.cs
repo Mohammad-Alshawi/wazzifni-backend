@@ -30,5 +30,8 @@ namespace Wazzifni.Companies.Dto
 
         public List<LiteAttachmentDto> Attachments { get; set; } = new List<LiteAttachmentDto>();
         public LiteAttachmentDto Profile { get; set; }
+
+        public DateTime CreationTime { get; set; }
+
     }
 }

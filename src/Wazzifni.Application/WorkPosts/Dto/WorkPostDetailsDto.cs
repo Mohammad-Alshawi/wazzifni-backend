@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services.Dto;
+using System;
 using Wazzifni.Companies.Dto;
 using static Wazzifni.Enums.Enum;
 
@@ -20,5 +21,7 @@ namespace Wazzifni.WorkPosts.Dto
         public int RequiredEmployeesCount { get; set; }
         public int ApplicantsCount { get; set; }
         public WorkAvailbility WorkVisibility { get; set; }
+        public DateTime CreationTime { get; set; }
+
     }
 }

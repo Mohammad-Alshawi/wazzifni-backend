@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services.Dto;
+using System;
 using Wazzifni.Profiles.Dto;
 using Wazzifni.WorkPosts.Dto;
 using static Wazzifni.Enums.Enum;
@@ -13,6 +14,8 @@ namespace Wazzifni.WorkApplications.Dto
 
         public ProfileLiteDto Profile { get; set; }
         public string RejectReason { get; set; }
+
+        public DateTime CreationTime { get; set; }
 
     }
 }
