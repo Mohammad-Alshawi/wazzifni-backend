@@ -2,6 +2,7 @@
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Domain.Repositories;
+using Abp.UI;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -94,7 +95,11 @@ namespace Wazzifni.WorkApplications
             return _mapper.Map<WorkApplicationDetailsDto>(application);
         }
 
-
+        [HttpDelete, ApiExplorerSettings(IgnoreApi = true), RemoteService(IsEnabled = false)]
+        public override async Task DeleteAsync(EntityDto<long> input)
+        {
+            throw new UserFriendlyException("");
+        }
 
         [HttpPost, AbpAuthorize(PermissionNames.WorkApplications_Approve)]
 
