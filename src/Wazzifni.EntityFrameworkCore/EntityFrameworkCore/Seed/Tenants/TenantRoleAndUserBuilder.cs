@@ -70,6 +70,10 @@ namespace Wazzifni.EntityFrameworkCore.Seed.Tenants
             {
                 PermissionNames.Pages_Users,
 
+                 PermissionNames.WorkApplications,
+                 PermissionNames.WorkApplications_Create,
+                 PermissionNames.WorkApplications_Update,
+                 PermissionNames.WorkApplications_Delete,
 
             };
 
@@ -103,6 +107,11 @@ namespace Wazzifni.EntityFrameworkCore.Seed.Tenants
                   PermissionNames.WorkPosts_Create,
                   PermissionNames.WorkPosts_Update,
                   PermissionNames.WorkPosts_Read,
+                  PermissionNames.WorkApplications,
+                  PermissionNames.WorkApplications_Approve,
+                  PermissionNames.WorkApplications_Reject,
+                  PermissionNames.WorkApplications_Delete,
+
 
 
             };

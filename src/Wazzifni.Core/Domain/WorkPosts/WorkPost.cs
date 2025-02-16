@@ -31,6 +31,7 @@ namespace Wazzifni.Domain.WorkPosts
         public int ApplicantsCount { get; set; }
         public WorkAvailbility WorkAvailbility { get; set; } = WorkAvailbility.Available;
 
+        public bool IsClosed { get; set; } = false;
         public virtual ICollection<WorkApplication> Applications { get; set; }
 
     }

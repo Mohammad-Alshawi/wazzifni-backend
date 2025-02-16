@@ -38,5 +38,14 @@
         public const string WorkPosts_Delete = WorkPosts + "." + "Delete";
         public const string WorkPosts_Update = WorkPosts + "." + "Update";
 
+
+        public const string WorkApplications = "WorkApplications";
+        public const string WorkApplications_Create = WorkApplications + "." + "Create";
+        public const string WorkApplications_Delete = WorkApplications + "." + "Delete";
+        public const string WorkApplications_Approve = WorkApplications + "." + "Approve";
+        public const string WorkApplications_Reject = WorkApplications + "." + "Reject";
+        public const string WorkApplications_Update = WorkApplications + "." + "Update";
+
+
     }
 }

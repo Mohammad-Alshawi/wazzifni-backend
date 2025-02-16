@@ -31,5 +31,13 @@
 	  <text name="WorkPostsCreate">صلاحية انشاء منشور وظبفة</text>
 	  <text name="WorkPostsUpdate">صلاحية تحديث منشور وظبفة</text>
 	  <text name="WorkPostsDelete">صلاحية حذف منشور وظبفة</text>
+
+
+	  <text name="WorkApplications">صلاحيات طلبات التوظيف</text>
+	  <text name="WorkApplicationsApprove">صلاحية قبول طلب توظيف</text>
+	  <text name="WorkApplicationsReject">صلاحية رفض طلب توظيف</text>
+	  <text name="WorkApplicationsCreate">صلاحية انشاء طلب توظيف</text>
+	  <text name="WorkApplicationsUpdate">صلاحية تحديث طلب توظيف</text>
+	  <text name="WorkApplicationsDelete">صلاحية حذف طلب توظيف</text>
   </texts>
 </localizationDictionary>

@@ -41,6 +41,16 @@ namespace Wazzifni.Authorization
             context.CreatePermission(PermissionNames.WorkPosts_Create, L("WorkPostsCreate"));
             context.CreatePermission(PermissionNames.WorkPosts_Update, L("WorkPostsUpdate"));
             context.CreatePermission(PermissionNames.WorkPosts_Delete, L("WorkPostsDelete"));
+
+
+
+            context.CreatePermission(PermissionNames.WorkApplications, L("WorkApplications"));
+            context.CreatePermission(PermissionNames.WorkApplications_Approve, L("WorkApplicationsApprove"));
+            context.CreatePermission(PermissionNames.WorkApplications_Create, L("WorkApplicationsCreate"));
+            context.CreatePermission(PermissionNames.WorkApplications_Reject, L("WorkApplicationsReject"));
+            context.CreatePermission(PermissionNames.WorkApplications_Delete, L("WorkApplicationsDelete"));
+            context.CreatePermission(PermissionNames.WorkApplications_Update, L("WorkApplicationsUpdate"));
+
         }
 
         private static ILocalizableString L(string name)

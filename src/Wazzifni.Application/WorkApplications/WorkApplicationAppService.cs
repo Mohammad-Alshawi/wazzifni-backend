@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Companies;
@@ -44,7 +45,7 @@ namespace Wazzifni.WorkApplications
             _companyManager = companyManager;
         }
 
-        //[HttpApplication, AbpAuthorize(PermissionNames.WorkApplications_Create)]
+        [HttpPost, AbpAuthorize(PermissionNames.WorkApplications_Create)]
         public override async Task<WorkApplicationDetailsDto> CreateAsync(CreateWorkApplicationDto input)
         {
             var application = _mapper.Map<WorkApplication>(input);
@@ -87,6 +88,41 @@ namespace Wazzifni.WorkApplications
             var oldWorkPostId = application.WorkPostId;
 
             _mapper.Map(input, application);
+
+            await Repository.UpdateAsync(application);
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+            return _mapper.Map<WorkApplicationDetailsDto>(application);
+        }
+
+
+
+        [HttpPost, AbpAuthorize(PermissionNames.WorkApplications_Approve)]
+
+        public async Task<WorkApplicationDetailsDto> Approve(ApproveWorkApplicationDto input)
+        {
+            var application = await _workApplicationManager.GetEntityByIdAsync(input.Id);
+            var workPost = await _workPostManager.GetEntityByIdAsTrackingAsync(application.WorkPostId);
+
+            application.Status = WorkApplicationStatus.Approved;
+            workPost.Applications.Where(x => x.Id == input.Id).FirstOrDefault().Status = WorkApplicationStatus.Approved;
+
+            if (workPost.ApplicantsCount >= workPost.RequiredEmployeesCount && workPost.Applications.Where(x => x.Status == WorkApplicationStatus.Approved).Count() == workPost.RequiredEmployeesCount)
+                workPost.IsClosed = true;
+
+            await Repository.UpdateAsync(application);
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+            return _mapper.Map<WorkApplicationDetailsDto>(application);
+        }
+
+
+        [HttpPost, AbpAuthorize(PermissionNames.WorkApplications_Reject)]
+
+        public async Task<WorkApplicationDetailsDto> Reject(RejectWorkApplicationDto input)
+        {
+            var application = await _workApplicationManager.GetEntityByIdAsync(input.Id);
+
+            application.Status = WorkApplicationStatus.Rejected;
+            application.RejectReason = input.RejectReason;
 
             await Repository.UpdateAsync(application);
             await UnitOfWorkManager.Current.SaveChangesAsync();

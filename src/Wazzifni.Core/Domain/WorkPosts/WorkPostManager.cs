@@ -28,6 +28,7 @@ namespace Wazzifni.Domain.WorkPosts
             return await _repository
                 .GetAll().Include(x => x.Company).ThenInclude(x => x.Translations)
                 .Include(x => x.Company).ThenInclude(x => x.User)
+                .Include(x => x.Applications)
                 .Where(x => x.Id == workPostId).FirstOrDefaultAsync();
         }
     }
