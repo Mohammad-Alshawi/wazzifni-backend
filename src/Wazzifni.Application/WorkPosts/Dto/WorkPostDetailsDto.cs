@@ -20,7 +20,7 @@ namespace Wazzifni.WorkPosts.Dto
         public int ExperienceYearsCount { get; set; }
         public int RequiredEmployeesCount { get; set; }
         public int ApplicantsCount { get; set; }
-        public WorkAvailbility WorkVisibility { get; set; }
+        public WorkAvailbility WorkAvailbility { get; set; }
         public DateTime CreationTime { get; set; }
 
     }

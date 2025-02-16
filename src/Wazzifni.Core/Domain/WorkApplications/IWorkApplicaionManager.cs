@@ -7,5 +7,10 @@ namespace Wazzifni.Domain.WorkApplications
     {
 
         Task<WorkApplication> GetEntityByIdAsync(long workApplicationId);
+
+        Task<WorkApplication> GetEntityByIdAsTrackingAsync(long workApplicationId);
+
+
+
     }
 }

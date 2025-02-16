@@ -100,7 +100,7 @@ namespace Wazzifni.WorkApplications
 
         public async Task<WorkApplicationDetailsDto> Approve(ApproveWorkApplicationDto input)
         {
-            var application = await _workApplicationManager.GetEntityByIdAsync(input.Id);
+            var application = await _workApplicationManager.GetEntityByIdAsTrackingAsync(input.Id);
             var workPost = await _workPostManager.GetEntityByIdAsTrackingAsync(application.WorkPostId);
 
             application.Status = WorkApplicationStatus.Approved;
@@ -119,10 +119,21 @@ namespace Wazzifni.WorkApplications
 
         public async Task<WorkApplicationDetailsDto> Reject(RejectWorkApplicationDto input)
         {
-            var application = await _workApplicationManager.GetEntityByIdAsync(input.Id);
+            var application = await _workApplicationManager.GetEntityByIdAsTrackingAsync(input.Id);
+
+            var workPost = await _workPostManager.GetEntityByIdAsTrackingAsync(application.WorkPostId);
+
 
             application.Status = WorkApplicationStatus.Rejected;
             application.RejectReason = input.RejectReason;
+
+            workPost.Applications.Where(x => x.Id == input.Id).FirstOrDefault().Status = WorkApplicationStatus.Rejected;
+
+            workPost.ApplicantsCount--;
+
+            if (workPost.ApplicantsCount < workPost.RequiredEmployeesCount)
+                workPost.WorkAvailbility = WorkAvailbility.Available;
+
 
             await Repository.UpdateAsync(application);
             await UnitOfWorkManager.Current.SaveChangesAsync();

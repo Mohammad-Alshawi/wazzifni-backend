@@ -148,8 +148,8 @@ namespace Wazzifni.WorkPosts
             if (input.MaxSalary.HasValue)
                 data = data.Where(wp => wp.MaxSalary <= input.MaxSalary.Value);
 
-            if (input.WorkVisibility.HasValue)
-                data = data.Where(wp => wp.WorkAvailbility == input.WorkVisibility.Value);
+            if (input.WorkAvailbility.HasValue)
+                data = data.Where(wp => wp.WorkAvailbility == input.WorkAvailbility.Value);
 
 
             return data;

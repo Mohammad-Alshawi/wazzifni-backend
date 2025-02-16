@@ -23,5 +23,13 @@ namespace Wazzifni.Domain.WorkApplications
                 .Include(x => x.WorkPost).ThenInclude(x => x.Company).ThenInclude(x => x.Translations)
                 .AsNoTracking().Where(x => x.Id == workApplicationId).FirstOrDefaultAsync();
         }
+
+        public async Task<WorkApplication> GetEntityByIdAsTrackingAsync(long workApplicationId)
+        {
+            return await _repository
+                .GetAll().Include(x => x.Profile).ThenInclude(x => x.User)
+                .Include(x => x.WorkPost).ThenInclude(x => x.Company).ThenInclude(x => x.Translations)
+                .Where(x => x.Id == workApplicationId).FirstOrDefaultAsync();
+        }
     }
 }
