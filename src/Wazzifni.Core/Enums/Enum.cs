@@ -212,6 +212,13 @@ namespace Wazzifni.Enums
             Unavilable = 2
         }
 
+        public enum WorkApplicationStatus : byte
+        {
+            Pending = 1,
+            Approved = 2,
+            Rejected = 3
+        }
+
 
     }
 }

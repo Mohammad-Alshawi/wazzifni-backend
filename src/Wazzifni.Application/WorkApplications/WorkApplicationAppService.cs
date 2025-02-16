@@ -1,0 +1,147 @@
+﻿using Abp.Application.Services;
+using Abp.Application.Services.Dto;
+using Abp.Authorization;
+using Abp.Domain.Repositories;
+using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
+using Wazzifni.Authorization.Users;
+using Wazzifni.CrudAppServiceBase;
+using Wazzifni.Domain.Companies;
+using Wazzifni.Domain.IndividualUserProfiles;
+using Wazzifni.Domain.WorkApplications;
+using Wazzifni.Domain.WorkPosts;
+using Wazzifni.WorkApplications.Dto;
+using static Wazzifni.Enums.Enum;
+
+namespace Wazzifni.WorkApplications
+{
+    public class WorkApplicationAppService :
+         WazzifniAsyncCrudAppService<WorkApplication, WorkApplicationDetailsDto, long, WorkApplicationLiteDto, PagedWorkApplicationResultRequestDto, CreateWorkApplicationDto, UpdateWorkApplicationDto>,
+         IWorkApplicationAppService
+    {
+        private readonly IMapper _mapper;
+        private readonly UserManager _userManager;
+        private readonly IProfileManager _profileManager;
+        private readonly IWorkPostManager _workPostManager;
+        private readonly IWorkApplicationManager _workApplicationManager;
+        private readonly ICompanyManager _companyManager;
+
+        public WorkApplicationAppService(IRepository<WorkApplication, long> repository,
+            IMapper mapper, UserManager userManager,
+            IProfileManager profileManager,
+            IWorkPostManager workPostManager,
+            IWorkApplicationManager workApplicationManager,
+            ICompanyManager companyManager) : base(repository)
+        {
+            _mapper = mapper;
+            _userManager = userManager;
+            _profileManager = profileManager;
+            _workPostManager = workPostManager;
+            _workApplicationManager = workApplicationManager;
+            _companyManager = companyManager;
+        }
+
+        //[HttpApplication, AbpAuthorize(PermissionNames.WorkApplications_Create)]
+        public override async Task<WorkApplicationDetailsDto> CreateAsync(CreateWorkApplicationDto input)
+        {
+            var application = _mapper.Map<WorkApplication>(input);
+            var currentProfileId = await _profileManager.GetProfileIdByUserId(AbpSession.UserId.Value);
+            var workPost = await _workPostManager.GetEntityByIdAsTrackingAsync(input.WorkPostId);
+
+            application.Status = WorkApplicationStatus.Pending;
+            application.Description = input.Description;
+            application.ProfileId = currentProfileId;
+
+            workPost.ApplicantsCount++;
+
+            if (workPost.ApplicantsCount >= workPost.RequiredEmployeesCount)
+                workPost.WorkAvailbility = WorkAvailbility.Unavilable;
+
+            await Repository.InsertAndGetIdAsync(application);
+            UnitOfWorkManager.Current.SaveChanges();
+
+            return _mapper.Map<WorkApplicationDetailsDto>(application);
+        }
+
+
+        [HttpGet]
+        public override async Task<WorkApplicationDetailsDto> GetAsync(EntityDto<long> input)
+        {
+            var application = await _workApplicationManager.GetEntityByIdAsync(input.Id);
+
+            return _mapper.Map<WorkApplicationDetailsDto>(application);
+        }
+
+
+
+        [HttpPut, ApiExplorerSettings(IgnoreApi = true), RemoteService(IsEnabled = false)]
+
+
+        public override async Task<WorkApplicationDetailsDto> UpdateAsync(UpdateWorkApplicationDto input)
+        {
+            var application = await _workApplicationManager.GetEntityByIdAsync(input.Id);
+
+            var oldWorkPostId = application.WorkPostId;
+
+            _mapper.Map(input, application);
+
+            await Repository.UpdateAsync(application);
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+            return _mapper.Map<WorkApplicationDetailsDto>(application);
+        }
+
+
+
+        [AbpAllowAnonymous]
+        public override async Task<PagedResultDto<WorkApplicationLiteDto>> GetAllAsync(PagedWorkApplicationResultRequestDto input)
+        {
+            var result = await base.GetAllAsync(input);
+            return result;
+        }
+
+        protected override IQueryable<WorkApplication> CreateFilteredQuery(PagedWorkApplicationResultRequestDto input)
+        {
+            var data = base.CreateFilteredQuery(input);
+            data = data.Include(x => x.Profile).ThenInclude(x => x.User);
+            data = data.Include(x => x.WorkPost).ThenInclude(x => x.Company).ThenInclude(x => x.Translations);
+
+            if (!string.IsNullOrEmpty(input.Keyword))
+            {
+                data = data.Where(wp =>
+
+                    wp.Description.Contains(input.Keyword) ||
+                    wp.RejectReason.Contains(input.Keyword) ||
+                    wp.Status.ToString().Contains(input.Keyword) ||
+                    wp.WorkPost.Company.Translations.Any(t => t.Name.Contains(input.Keyword)) ||
+                    wp.WorkPost.Title.Contains(input.Keyword) ||
+                    wp.WorkPost.Description.Contains(input.Keyword) ||
+                    wp.Profile.User.Name.Contains(input.Keyword) ||
+                    wp.Profile.User.Surname.Contains(input.Keyword)
+
+                );
+            }
+
+            if (input.WorkPostId.HasValue)
+                data = data.Where(wp => wp.WorkPostId == input.WorkPostId.Value);
+
+            if (input.Status.HasValue)
+                data = data.Where(wp => wp.Status == input.Status.Value);
+
+            if (input.CompanyId.HasValue)
+                data = data.Where(wp => wp.WorkPost.CompanyId == input.CompanyId.Value);
+
+            if (input.ProfileId.HasValue)
+                data = data.Where(wp => wp.ProfileId == input.ProfileId.Value);
+
+            return data;
+        }
+        protected override IQueryable<WorkApplication> ApplySorting(IQueryable<WorkApplication> query, PagedWorkApplicationResultRequestDto input)
+        {
+
+            return query.OrderByDescending(r => r.CreationTime);
+        }
+    }
+}

@@ -1,7 +1,9 @@
 ﻿using Abp.Domain.Entities.Auditing;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using Wazzifni.Domain.Companies;
+using Wazzifni.Domain.WorkApplications;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Domain.WorkPosts
@@ -27,7 +29,9 @@ namespace Wazzifni.Domain.WorkPosts
         public int ExperienceYearsCount { get; set; }
         public int RequiredEmployeesCount { get; set; }
         public int ApplicantsCount { get; set; }
-        public WorkAvailbility WorkVisibility { get; set; } = WorkAvailbility.Available;
+        public WorkAvailbility WorkAvailbility { get; set; } = WorkAvailbility.Available;
+
+        public virtual ICollection<WorkApplication> Applications { get; set; }
 
     }
 }

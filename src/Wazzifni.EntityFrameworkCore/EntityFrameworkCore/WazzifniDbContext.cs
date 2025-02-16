@@ -15,6 +15,7 @@ using Wazzifni.Domain.Regions;
 using Wazzifni.Domain.RegisterdPhoneNumbers;
 using Wazzifni.Domain.Skills;
 using Wazzifni.Domain.SpokenLanguages;
+using Wazzifni.Domain.WorkApplications;
 using Wazzifni.Domain.WorkExperiences;
 using Wazzifni.Domain.WorkPosts;
 using Wazzifni.Domains.UserVerficationCodes;
@@ -51,6 +52,7 @@ namespace Wazzifni.EntityFrameworkCore
         public virtual DbSet<SpokenLanguageValue> SpokenLanguageValue { get; set; }
         public virtual DbSet<WorkPost> WorkPosts { get; set; }
 
+        public virtual DbSet<WorkApplication> WorkApplications { get; set; }
 
         public WazzifniDbContext(DbContextOptions<WazzifniDbContext> options)
             : base(options)

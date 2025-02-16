@@ -7,5 +7,9 @@ namespace Wazzifni.Domain.WorkPosts
     {
 
         Task<WorkPost> GetEntityByIdAsync(long workPostId);
+
+        Task<WorkPost> GetEntityByIdAsTrackingAsync(long workPostId);
+
+
     }
 }

@@ -50,7 +50,7 @@ namespace Wazzifni.WorkPosts
             else post.CompanyId = input.CompanyId.Value;
 
             post.Status = WorkPostStatus.Approved;
-            post.WorkVisibility = WorkAvailbility.Available;
+            post.WorkAvailbility = WorkAvailbility.Available;
 
             await Repository.InsertAndGetIdAsync(post);
             UnitOfWorkManager.Current.SaveChanges();
@@ -149,7 +149,7 @@ namespace Wazzifni.WorkPosts
                 data = data.Where(wp => wp.MaxSalary <= input.MaxSalary.Value);
 
             if (input.WorkVisibility.HasValue)
-                data = data.Where(wp => wp.WorkVisibility == input.WorkVisibility.Value);
+                data = data.Where(wp => wp.WorkAvailbility == input.WorkVisibility.Value);
 
 
             return data;
