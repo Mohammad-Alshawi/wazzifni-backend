@@ -113,6 +113,7 @@ namespace Wazzifni.WorkPosts
             data = data.Include(x => x.Company).ThenInclude(x => x.User);
             data = data.Include(x => x.Company).ThenInclude(x => x.Translations);
             data = data.Include(x => x.Company).ThenInclude(x => x.City).ThenInclude(x => x.Translations);
+            data = data.Include(x => x.Applications);
 
             if (!string.IsNullOrEmpty(input.Keyword))
             {
@@ -150,6 +151,9 @@ namespace Wazzifni.WorkPosts
 
             if (input.WorkAvailbility.HasValue)
                 data = data.Where(wp => wp.WorkAvailbility == input.WorkAvailbility.Value);
+
+            if (input.ProfileId.HasValue)
+                data = data.Where(wp => wp.Applications.Any(x => x.ProfileId == input.ProfileId.Value));
 
 
             return data;
