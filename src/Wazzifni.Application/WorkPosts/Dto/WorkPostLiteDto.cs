@@ -23,6 +23,7 @@ namespace Wazzifni.WorkPosts.Dto
         public WorkAvailbility WorkAvailbility { get; set; }
 
         public DateTime CreationTime { get; set; }
+        public bool IsFavorite { get; set; }
 
     }
 }

@@ -17,6 +17,7 @@ using Wazzifni.Domain.Skills;
 using Wazzifni.Domain.SpokenLanguages;
 using Wazzifni.Domain.WorkApplications;
 using Wazzifni.Domain.WorkExperiences;
+using Wazzifni.Domain.WorkPostFaveorites;
 using Wazzifni.Domain.WorkPosts;
 using Wazzifni.Domains.UserVerficationCodes;
 using Wazzifni.MultiTenancy;
@@ -54,6 +55,7 @@ namespace Wazzifni.EntityFrameworkCore
 
         public virtual DbSet<WorkApplication> WorkApplications { get; set; }
 
+        public virtual DbSet<FavoriteWorkPost> FavoriteWorkPosts { get; set; }
         public WazzifniDbContext(DbContextOptions<WazzifniDbContext> options)
             : base(options)
         {

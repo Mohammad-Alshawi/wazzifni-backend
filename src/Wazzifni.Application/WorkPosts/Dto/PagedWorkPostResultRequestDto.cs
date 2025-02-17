@@ -19,5 +19,8 @@ namespace Wazzifni.WorkPosts.Dto
         public WorkAvailbility? WorkAvailbility { get; set; }
 
         public long? ProfileId { get; set; }
+
+        public bool? IsFavorite { get; set; }
+
     }
 }

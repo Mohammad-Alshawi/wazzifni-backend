@@ -22,6 +22,7 @@ namespace Wazzifni.WorkPosts.Dto
         public int ApplicantsCount { get; set; }
         public WorkAvailbility WorkAvailbility { get; set; }
         public DateTime CreationTime { get; set; }
+        public bool IsFavorite { get; set; }
 
     }
 }

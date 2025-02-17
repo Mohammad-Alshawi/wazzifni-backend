@@ -5,13 +5,16 @@ using Abp.UI;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Companies;
+using Wazzifni.Domain.WorkPostFaveorites;
 using Wazzifni.Domain.WorkPosts;
+using Wazzifni.Localization.SourceFiles;
 using Wazzifni.WorkPosts.Dto;
 using static Wazzifni.Enums.Enum;
 
@@ -24,16 +27,19 @@ namespace Wazzifni.WorkPosts
         private readonly IMapper _mapper;
         private readonly UserManager _userManager;
         private readonly IWorkPostManager _workPostManager;
+        private readonly IFavoriteWorkPostManager _favoriteWorkPostManager;
         private readonly ICompanyManager _companyManager;
 
         public WorkPostAppService(IRepository<WorkPost, long> repository,
             IMapper mapper, UserManager userManager,
             IWorkPostManager workPostManager,
+            IFavoriteWorkPostManager favoriteWorkPostManager,
             ICompanyManager companyManager) : base(repository)
         {
             _mapper = mapper;
             _userManager = userManager;
             _workPostManager = workPostManager;
+            _favoriteWorkPostManager = favoriteWorkPostManager;
             _companyManager = companyManager;
         }
 
@@ -64,7 +70,13 @@ namespace Wazzifni.WorkPosts
         {
             var post = await _workPostManager.GetEntityByIdAsync(input.Id);
 
-            return _mapper.Map<WorkPostDetailsDto>(post);
+            var result = _mapper.Map<WorkPostDetailsDto>(post);
+
+            if (AbpSession.UserId.HasValue)
+                result.IsFavorite = await _favoriteWorkPostManager.CheckIfWorkPostInFavoritesAsync(result.Id, AbpSession.UserId.Value);
+
+            return result;
+
         }
 
 
@@ -100,11 +112,50 @@ namespace Wazzifni.WorkPosts
 
 
 
+
+
+        [AbpAuthorize]
+        public async Task AddOrRemoveFromMyFavourites(EntityDto<long> input)
+        {
+            var WorkPost = await _workPostManager.GetEntityByIdAsync(input.Id);
+            if (WorkPost is null)
+                throw new UserFriendlyException(string.Format(Exceptions.ObjectWasNotFound, "Tokens.WorkPost"));
+            var isWorkPostInFavourite = await _favoriteWorkPostManager.CheckIfWorkPostInFavoritesAsync(input.Id, AbpSession.UserId.Value);
+            if (!isWorkPostInFavourite)
+            {
+                FavoriteWorkPost favoriteWorkPost = new FavoriteWorkPost
+                {
+                    CreatorUserId = AbpSession.UserId.Value,
+                    WorkPostId = input.Id
+                };
+                await _favoriteWorkPostManager.AddWorkPostToFavouriteAsync(favoriteWorkPost);
+            }
+            await _favoriteWorkPostManager.DeleteWorkPostFromFavouriteAsync(input.Id, AbpSession.UserId.Value);
+        }
+
+
+
+
         [AbpAllowAnonymous]
         public override async Task<PagedResultDto<WorkPostLiteDto>> GetAllAsync(PagedWorkPostResultRequestDto input)
         {
+
+
             var result = await base.GetAllAsync(input);
+
+            var favoritePostIds = new HashSet<long>();
+
+            if (AbpSession.UserId.HasValue)
+                favoritePostIds = await _favoriteWorkPostManager.GetUserFavoriteWorkPostIdsAsync(AbpSession.UserId.Value, result.Items.Select(x => x.Id).ToList());
+
+            foreach (var item in result.Items)
+            {
+                if (AbpSession.UserId.HasValue && favoritePostIds.Count > 0)
+                    item.IsFavorite = favoritePostIds.Contains(item.Id);
+            }
+
             return result;
+
         }
 
         protected override IQueryable<WorkPost> CreateFilteredQuery(PagedWorkPostResultRequestDto input)
@@ -127,10 +178,12 @@ namespace Wazzifni.WorkPosts
                     wp.Company.City.Translations.Any(t => t.Name.Contains(input.Keyword))
                 );
             }
-
+            if (AbpSession.UserId.HasValue && input.IsFavorite.HasValue && input.IsFavorite.Value)
+            {
+                data = _favoriteWorkPostManager.GetFavoriteWorkPostsQueryByUserIdAsync(AbpSession.UserId.Value);
+            }
             if (input.CompanyId.HasValue)
                 data = data.Where(wp => wp.CompanyId == input.CompanyId.Value);
-
             if (input.Status.HasValue)
                 data = data.Where(wp => wp.Status == input.Status.Value);
 
