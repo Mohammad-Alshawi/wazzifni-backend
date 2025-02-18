@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DecreasingRequiredEmployeesNotAllowedException" xml:space="preserve">
+    <value>ژمارەی کرێکارانی داواکراو نابێت کەمبکرێت. تکایە بڕێك بەهەمان یان زیاتر لە بڕی ئێستا داخل بکە.</value>
+  </data>
   <data name="FileSizeExceedsMaxFileSize" xml:space="preserve">
     <value>قەبارەی پەڕگە لە سەر دەچێت لە سنووری پەڕگەی قبوڵکراو</value>
   </data>

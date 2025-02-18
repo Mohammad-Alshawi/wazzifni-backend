@@ -88,6 +88,13 @@ namespace Wazzifni.WorkPosts
         {
             var post = await _workPostManager.GetEntityByIdAsync(input.Id);
 
+            var oldRequiredEmployeesCount = post.RequiredEmployeesCount;
+
+            if (oldRequiredEmployeesCount > input.RequiredEmployeesCount)
+            {
+                throw new UserFriendlyException(Exceptions.DecreasingRequiredEmployeesNotAllowedException);
+            }
+
             var oldCompanyId = post.CompanyId;
 
             _mapper.Map(input, post);
@@ -105,6 +112,13 @@ namespace Wazzifni.WorkPosts
             {
                 post.CompanyId = input.CompanyId.Value;
             }
+
+            if (oldRequiredEmployeesCount < input.RequiredEmployeesCount)
+            {
+                post.IsClosed = false;
+                post.WorkAvailbility = WorkAvailbility.Available;
+            }
+
             await Repository.UpdateAsync(post);
             await UnitOfWorkManager.Current.SaveChangesAsync();
             return _mapper.Map<WorkPostDetailsDto>(post);

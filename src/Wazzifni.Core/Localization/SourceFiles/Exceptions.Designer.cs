@@ -446,5 +446,17 @@ namespace Wazzifni.Localization.SourceFiles {
                 return ResourceManager.GetString("YourPhoneNumberIsntVerified", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string DecreasingRequiredEmployeesNotAllowedException.
+        /// </summary>
+        public static string DecreasingRequiredEmployeesNotAllowedException
+        {
+            get
+            {
+                return ResourceManager.GetString("DecreasingRequiredEmployeesNotAllowedException", resourceCulture);
+            }
+        }
+
     }
 }
