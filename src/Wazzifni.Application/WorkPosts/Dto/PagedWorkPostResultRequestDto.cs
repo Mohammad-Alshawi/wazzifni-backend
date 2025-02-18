@@ -22,5 +22,8 @@ namespace Wazzifni.WorkPosts.Dto
 
         public bool? IsFavorite { get; set; }
 
+        public bool? IsIApply { get; set; }
+
+
     }
 }

@@ -12,6 +12,7 @@ using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Companies;
+using Wazzifni.Domain.WorkApplications;
 using Wazzifni.Domain.WorkPostFaveorites;
 using Wazzifni.Domain.WorkPosts;
 using Wazzifni.Localization.SourceFiles;
@@ -28,18 +29,21 @@ namespace Wazzifni.WorkPosts
         private readonly UserManager _userManager;
         private readonly IWorkPostManager _workPostManager;
         private readonly IFavoriteWorkPostManager _favoriteWorkPostManager;
+        private readonly IWorkApplicationManager _workApplicationManager;
         private readonly ICompanyManager _companyManager;
 
         public WorkPostAppService(IRepository<WorkPost, long> repository,
             IMapper mapper, UserManager userManager,
             IWorkPostManager workPostManager,
             IFavoriteWorkPostManager favoriteWorkPostManager,
+            IWorkApplicationManager workApplicationManager,
             ICompanyManager companyManager) : base(repository)
         {
             _mapper = mapper;
             _userManager = userManager;
             _workPostManager = workPostManager;
             _favoriteWorkPostManager = favoriteWorkPostManager;
+            _workApplicationManager = workApplicationManager;
             _companyManager = companyManager;
         }
 
@@ -157,15 +161,22 @@ namespace Wazzifni.WorkPosts
 
             var result = await base.GetAllAsync(input);
 
+            var ItemsIds = result.Items.Select(x => x.Id).ToList();
             var favoritePostIds = new HashSet<long>();
+            var appliedPostIds = new HashSet<long>();
 
             if (AbpSession.UserId.HasValue)
-                favoritePostIds = await _favoriteWorkPostManager.GetUserFavoriteWorkPostIdsAsync(AbpSession.UserId.Value, result.Items.Select(x => x.Id).ToList());
-
+            {
+                favoritePostIds = await _favoriteWorkPostManager.GetUserFavoriteWorkPostIdsAsync(AbpSession.UserId.Value, ItemsIds);
+                appliedPostIds = await _workApplicationManager.GetUserAppliedWorkPostIdsAsync(AbpSession.UserId.Value, ItemsIds);
+            }
             foreach (var item in result.Items)
             {
                 if (AbpSession.UserId.HasValue && favoritePostIds.Count > 0)
                     item.IsFavorite = favoritePostIds.Contains(item.Id);
+
+                if (AbpSession.UserId.HasValue && appliedPostIds.Count > 0)
+                    item.IsIApply = appliedPostIds.Contains(item.Id);
             }
 
             return result;
@@ -195,6 +206,11 @@ namespace Wazzifni.WorkPosts
             if (AbpSession.UserId.HasValue && input.IsFavorite.HasValue && input.IsFavorite.Value)
             {
                 data = _favoriteWorkPostManager.GetFavoriteWorkPostsQueryByUserIdAsync(AbpSession.UserId.Value);
+            }
+
+            if (AbpSession.UserId.HasValue && input.IsIApply.HasValue && input.IsIApply.Value)
+            {
+                data = _workApplicationManager.GetApplyWorkPostsQueryByUserIdAsync(AbpSession.UserId.Value);
             }
             if (input.CompanyId.HasValue)
                 data = data.Where(wp => wp.CompanyId == input.CompanyId.Value);
