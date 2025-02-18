@@ -47,8 +47,8 @@ namespace Wazzifni.Statistics
         {
             var query = _workPostRepository.GetAll().Where(w => w.CompanyId == companyId);
 
-            var workPostNotHaveApplication = await query.CountAsync(w => w.ApplicantsCount < 0);
-            var workPostCountHaveApplication = await query.CountAsync(w => w.ApplicantsCount > 0);
+            var workPostNotHaveApplication = await query.CountAsync(w => w.ApplicantsCount < 1);
+            var workPostCountHaveApplication = await query.CountAsync(w => w.ApplicantsCount > 0 && !w.IsClosed);
             var workPostCountIsClosed = await query.CountAsync(w => w.IsClosed);
 
             return new WorkPostForCompanyStatsDto
