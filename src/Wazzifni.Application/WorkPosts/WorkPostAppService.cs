@@ -186,10 +186,6 @@ namespace Wazzifni.WorkPosts
         protected override IQueryable<WorkPost> CreateFilteredQuery(PagedWorkPostResultRequestDto input)
         {
             var data = base.CreateFilteredQuery(input);
-            data = data.Include(x => x.Company).ThenInclude(x => x.User);
-            data = data.Include(x => x.Company).ThenInclude(x => x.Translations);
-            data = data.Include(x => x.Company).ThenInclude(x => x.City).ThenInclude(x => x.Translations);
-            data = data.Include(x => x.Applications);
 
             if (!string.IsNullOrEmpty(input.Keyword))
             {
@@ -212,6 +208,7 @@ namespace Wazzifni.WorkPosts
             {
                 data = _workApplicationManager.GetApplyWorkPostsQueryByUserIdAsync(AbpSession.UserId.Value);
             }
+
             if (input.CompanyId.HasValue)
                 data = data.Where(wp => wp.CompanyId == input.CompanyId.Value);
             if (input.Status.HasValue)
@@ -237,6 +234,13 @@ namespace Wazzifni.WorkPosts
 
             if (input.ProfileId.HasValue)
                 data = data.Where(wp => wp.Applications.Any(x => x.ProfileId == input.ProfileId.Value));
+
+
+            data = data.Include(x => x.Company).ThenInclude(x => x.User);
+            data = data.Include(x => x.Company).ThenInclude(x => x.Translations);
+            data = data.Include(x => x.Company).ThenInclude(x => x.City).ThenInclude(x => x.Translations);
+            data = data.Include(x => x.Applications);
+
 
 
             return data;
