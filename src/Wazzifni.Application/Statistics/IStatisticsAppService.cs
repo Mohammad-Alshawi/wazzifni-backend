@@ -7,5 +7,6 @@ namespace Wazzifni.Statistics;
 public interface IStatisticsAppService : IApplicationService
 {
     Task<ApplicationStatsDto> GetWorkApplicationStats(long profileId);
+    Task<WorkPostForCompanyStatsDto> GetWorkPostForCompanyStats(int companyId);
 
 }
