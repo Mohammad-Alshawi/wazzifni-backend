@@ -205,5 +205,11 @@ namespace Wazzifni.Domain.Companies
             return await _companyRepository.GetAll().Where(x => x.UserId == userId).Select(x => x.Id).FirstOrDefaultAsync();
         }
 
+        public async Task<bool> IsUserCompanyOwner(long userId, long companyId)
+        {
+            return await _companyRepository.GetAll()
+                .AnyAsync(c => c.Id == companyId && c.UserId == userId);
+        }
+
     }
 }

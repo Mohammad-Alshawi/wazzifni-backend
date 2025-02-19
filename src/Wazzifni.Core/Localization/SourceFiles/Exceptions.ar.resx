@@ -120,6 +120,9 @@
   <data name="DecreasingRequiredEmployeesNotAllowedException" xml:space="preserve">
     <value>عدد الموظفين المطلوبين لا يمكن تقليله. الرجاء إدخال قيمة مساوية أو أكبر من القيمة الحالية.</value>
   </data>
+  <data name="DeleteApprovedApplication" xml:space="preserve">
+    <value>لا يمكن حذف الطلب الذي تم الموافقة عليه.</value>
+  </data>
   <data name="FileSizeExceedsMaxFileSize" xml:space="preserve">
     <value>حجم الملف يتجاوز الحد الأقصى لحجم الملف المقبول</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="ObjectWasNotFound" xml:space="preserve">
     <value>{0} غير موجود</value>
+  </data>
+  <data name="PendingApplicationCanDeleteByCompany" xml:space="preserve">
+    <value>يرجى اتخاذ قرار (الموافقة أو الرفض) قبل حذف هذا الطلب.</value>
   </data>
   <data name="SignUpNotComplete" xml:space="preserve">
     <value>معلومات التسجيل غير صحيحة</value>

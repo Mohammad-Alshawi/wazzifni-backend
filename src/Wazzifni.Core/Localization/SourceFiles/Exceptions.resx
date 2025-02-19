@@ -120,6 +120,9 @@
   <data name="DecreasingRequiredEmployeesNotAllowedException" xml:space="preserve">
     <value>Required employees count cannot be decreased. Please enter a value equal to or greater than the current count.</value>
   </data>
+  <data name="DeleteApprovedApplication" xml:space="preserve">
+    <value>An approved application cannot be deleted.</value>
+  </data>
   <data name="FileSizeExceedsMaxFileSize" xml:space="preserve">
     <value>File Size Exceeds Max File Size</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="ObjectWasNotFound" xml:space="preserve">
     <value>{0} Not Found</value>
+  </data>
+  <data name="PendingApplicationCanDeleteByCompany" xml:space="preserve">
+    <value>Please make a decision (approve or reject) before deleting this application.</value>
   </data>
   <data name="SignUpNotComplete" xml:space="preserve">
     <value>Your signingup information not correct</value>

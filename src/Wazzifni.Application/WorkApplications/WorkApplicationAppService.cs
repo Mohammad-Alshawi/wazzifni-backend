@@ -15,6 +15,7 @@ using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.IndividualUserProfiles;
 using Wazzifni.Domain.WorkApplications;
 using Wazzifni.Domain.WorkPosts;
+using Wazzifni.Localization.SourceFiles;
 using Wazzifni.WorkApplications.Dto;
 using static Wazzifni.Enums.Enum;
 
@@ -95,10 +96,58 @@ namespace Wazzifni.WorkApplications
             return _mapper.Map<WorkApplicationDetailsDto>(application);
         }
 
-        [HttpDelete, ApiExplorerSettings(IgnoreApi = true), RemoteService(IsEnabled = false)]
+        [HttpDelete, AbpAuthorize(PermissionNames.WorkApplications_Delete)]
         public override async Task DeleteAsync(EntityDto<long> input)
         {
-            throw new UserFriendlyException("");
+            var application = await _workApplicationManager.GetEntityByIdAsTrackingAsync(input.Id);
+            if (application == null)
+                throw new UserFriendlyException("Application not found.");
+
+            var workPost = await _workPostManager.GetEntityByIdAsTrackingAsync(application.WorkPostId);
+            var currentUserId = AbpSession.UserId.Value;
+            var currentProfileId = await _profileManager.GetProfileIdByUserId(currentUserId);
+            var isCompanyOwner = await _companyManager.IsUserCompanyOwner(currentUserId, workPost.CompanyId);
+            var isApplicant = application.ProfileId == currentProfileId;
+
+            if (!(isApplicant || isCompanyOwner))
+                throw new UserFriendlyException("You are not authorized to delete this application.");
+
+            if (application.Status == WorkApplicationStatus.Approved)
+                throw new UserFriendlyException(Exceptions.DeleteApprovedApplication);
+
+            if (application.Status == WorkApplicationStatus.Pending)
+            {
+                if (isApplicant)
+                {
+                    workPost.ApplicantsCount--;
+                    if (workPost.ApplicantsCount < workPost.RequiredEmployeesCount)
+                        workPost.WorkAvailbility = WorkAvailbility.Available;
+                    await Repository.DeleteAsync(application);
+                    await UnitOfWorkManager.Current.SaveChangesAsync();
+                    return;
+                }
+                if (isCompanyOwner)
+                {
+                    throw new UserFriendlyException(Exceptions.PendingApplicationCanDeleteByCompany);
+
+                }
+            }
+            if (application.Status == WorkApplicationStatus.Rejected)
+            {
+                if (isCompanyOwner)
+                {
+                    application.DeletedByCompany = true;
+                    await Repository.UpdateAsync(application);
+                    await UnitOfWorkManager.Current.SaveChangesAsync();
+                    return;
+                }
+                if (isApplicant)
+                {
+                    await Repository.DeleteAsync(application);
+                    await UnitOfWorkManager.Current.SaveChangesAsync();
+                    return;
+                }
+            }
         }
 
         [HttpPost, AbpAuthorize(PermissionNames.WorkApplications_Approve)]
@@ -175,6 +224,9 @@ namespace Wazzifni.WorkApplications
 
                 );
             }
+
+            if (input.DeletedByCompany.HasValue)
+                data = data.Where(wp => wp.DeletedByCompany == input.DeletedByCompany.Value);
 
             if (input.WorkPostId.HasValue)
                 data = data.Where(wp => wp.WorkPostId == input.WorkPostId.Value);

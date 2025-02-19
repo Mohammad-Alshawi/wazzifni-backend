@@ -14,5 +14,7 @@ namespace Wazzifni.Domain.Companies
 
         Task<Company> GetFullEntityByIdAsync(int id);
 
+        Task<bool> IsUserCompanyOwner(long userId, long companyId);
+
     }
 }

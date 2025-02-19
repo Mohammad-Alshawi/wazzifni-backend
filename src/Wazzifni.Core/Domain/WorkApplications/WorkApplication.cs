@@ -18,6 +18,6 @@ namespace Wazzifni.Domain.WorkApplications
         public WorkApplicationStatus Status { get; set; }
         public string RejectReason { get; set; }
 
-
+        public bool DeletedByCompany { get; set; }
     }
 }

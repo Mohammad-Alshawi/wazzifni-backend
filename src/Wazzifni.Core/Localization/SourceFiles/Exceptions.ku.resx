@@ -120,6 +120,9 @@
   <data name="DecreasingRequiredEmployeesNotAllowedException" xml:space="preserve">
     <value>ژمارەی کرێکارانی داواکراو نابێت کەمبکرێت. تکایە بڕێك بەهەمان یان زیاتر لە بڕی ئێستا داخل بکە.</value>
   </data>
+  <data name="DeleteApprovedApplication" xml:space="preserve">
+    <value>ناتوانرێت داواکارییەکی پەسەندکراو بسڕدرێتەوە.</value>
+  </data>
   <data name="FileSizeExceedsMaxFileSize" xml:space="preserve">
     <value>قەبارەی پەڕگە لە سەر دەچێت لە سنووری پەڕگەی قبوڵکراو</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="ObjectWasNotFound" xml:space="preserve">
     <value>{0} نەدۆزرایەوە</value>
+  </data>
+  <data name="PendingApplicationCanDeleteByCompany" xml:space="preserve">
+    <value>تکایە بڕیار بدە (پەسەندکردن یان ڕەتکردن) پێش سڕینەوەی ئەم داواکارییە.</value>
   </data>
   <data name="SignUpNotComplete" xml:space="preserve">
     <value>زانیاری ناو تۆمارکردن هەڵەیە.</value>

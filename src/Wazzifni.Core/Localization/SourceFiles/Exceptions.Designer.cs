@@ -457,6 +457,27 @@ namespace Wazzifni.Localization.SourceFiles {
                 return ResourceManager.GetString("DecreasingRequiredEmployeesNotAllowedException", resourceCulture);
             }
         }
+        /// <summary>
+        ///   Looks up a localized string PendingApplicationCanDeleteByCompany.
+        /// </summary>
+        public static string PendingApplicationCanDeleteByCompany
+        {
+            get
+            {
+                return ResourceManager.GetString("PendingApplicationCanDeleteByCompany", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string DeleteApprovedApplication.
+        /// </summary>
+        public static string DeleteApprovedApplication
+        {
+            get
+            {
+                return ResourceManager.GetString("DeleteApprovedApplication", resourceCulture);
+            }
+        }
+        
 
     }
 }
