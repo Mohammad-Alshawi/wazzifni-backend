@@ -25,5 +25,8 @@ namespace Wazzifni.WorkPosts.Dto
         public DateTime CreationTime { get; set; }
         public bool IsFavorite { get; set; }
         public bool IsIApply { get; set; }
+
+        public string Slug { get; set; }
+
     }
 }

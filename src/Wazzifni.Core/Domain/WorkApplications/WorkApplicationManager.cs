@@ -68,5 +68,13 @@ namespace Wazzifni.Domain.WorkApplications
 
             return WorkPostQuery;
         }
+
+        public async Task<bool> CheckIfWorkPostInApplicationUserAsync(long WorkPostId, long userId)
+        {
+            var profileId = _profileManager.GetProfileIdByUserId(userId).Result;
+
+            return await _repository.GetAll().AnyAsync(x => x.WorkPostId == WorkPostId && x.ProfileId == profileId);
+
+        }
     }
 }

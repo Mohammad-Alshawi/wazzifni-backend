@@ -62,6 +62,14 @@ namespace Wazzifni.WorkPosts
             post.Status = WorkPostStatus.Approved;
             post.WorkAvailbility = WorkAvailbility.Available;
 
+
+
+            var lastPost = await Repository.GetAll().OrderByDescending(wp => wp.Slug).FirstOrDefaultAsync();
+
+            int newSlugNumber = lastPost != null ? int.Parse(lastPost.Slug) + 1 : 1;
+            post.Slug = newSlugNumber.ToString("D6"); // Format as 6 digits (e.g., 000001)
+
+
             await Repository.InsertAndGetIdAsync(post);
             UnitOfWorkManager.Current.SaveChanges();
 
@@ -77,8 +85,11 @@ namespace Wazzifni.WorkPosts
             var result = _mapper.Map<WorkPostDetailsDto>(post);
 
             if (AbpSession.UserId.HasValue)
+            {
                 result.IsFavorite = await _favoriteWorkPostManager.CheckIfWorkPostInFavoritesAsync(result.Id, AbpSession.UserId.Value);
+                result.IsIApply = await _workApplicationManager.CheckIfWorkPostInApplicationUserAsync(result.Id, AbpSession.UserId.Value);
 
+            }
             return result;
 
         }

@@ -17,5 +17,8 @@ namespace Wazzifni.Domain.WorkApplications
 
         IQueryable<WorkPost> GetApplyWorkPostsQueryByUserIdAsync(long userId);
 
+        Task<bool> CheckIfWorkPostInApplicationUserAsync(long WorkPostId, long userId);
+
+
     }
 }

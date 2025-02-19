@@ -8,6 +8,7 @@ using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Domain.WorkPosts
 {
+    [Index(nameof(Slug), IsUnique = true)]
     public class WorkPost : FullAuditedEntity<long>
     {
         public int CompanyId { get; set; }
@@ -33,6 +34,8 @@ namespace Wazzifni.Domain.WorkPosts
 
         public bool IsClosed { get; set; } = false;
         public virtual ICollection<WorkApplication> Applications { get; set; }
+
+        public string Slug { get; set; }
 
     }
 }
