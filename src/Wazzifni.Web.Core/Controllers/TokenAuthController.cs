@@ -337,10 +337,11 @@ namespace Wazzifni.Controllers
                         VerficationCode = registerdUser.VerficationCode
                     });
 
+                long profileId = 0;
+
                 if (input.UserType.HasValue && input.UserType.Value == UserType.CompanyUser)
                     await _userManager.SetRolesAsync(user, new string[] { StaticRoleNames.Tenants.CompanyUser });
 
-                long profileId = 0;
                 else
                 {
                     await _userManager.SetRolesAsync(user, new string[] { StaticRoleNames.Tenants.BasicUser });
