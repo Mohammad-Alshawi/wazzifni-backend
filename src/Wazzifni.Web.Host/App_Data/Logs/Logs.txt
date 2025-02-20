@@ -9835,3 +9835,115 @@ DEBUG 2025-02-19 18:23:09,761 [1    ] Abp.AutoMapper.AbpAutoMapperModule       -
 DEBUG 2025-02-19 18:23:09,762 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
 DEBUG 2025-02-19 18:23:09,762 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
 DEBUG 2025-02-19 18:23:09,763 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+DEBUG 2025-02-20 11:34:59,137 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-02-20 11:34:59,801 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-02-20 11:34:59,960 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:34:59,974 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:34:59,977 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:34:59,980 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:34:59,982 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:34:59,985 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:34:59,987 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:34:59,996 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:34:59,999 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:35:00,001 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:35:00,004 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:35:00,006 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:35:00,008 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:35:00,012 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:35:00,015 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:35:00,038 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-02-20 11:35:00,534 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-20 11:35:00,535 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-20 11:35:00,535 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-20 11:35:00,535 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-02-20 11:35:03,779 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-02-20 11:35:05,631 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-02-20 11:35:05,856 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-02-20 11:35:05,909 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-02-20 11:35:05,916 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-02-20 11:35:05,937 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-02-20 11:35:05,987 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-02-20 11:35:06,017 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-02-20 11:35:06,174 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2025-02-20 11:35:06,174 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-02-20 11:35:06,194 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-02-20 11:35:06,198 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-02-20 11:35:06,203 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-02-20 11:35:06,204 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-02-20 11:35:06,206 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-02-20 11:35:06,207 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-02-20 11:35:06,207 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-02-20 11:35:06,208 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-02-20 11:35:06,208 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-02-20 11:35:06,209 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-02-20 11:35:06,209 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-02-20 11:35:06,210 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-02-20 11:35:06,210 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-02-20 11:35:06,210 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+ERROR 2025-02-20 11:36:58,821 [4    ] oft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (932ms) [Parameters=[@__ef_filter__p_0='?' (DbType = Boolean), @__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__ef_filter__p_1='?' (DbType = Boolean), @__ef_filter__p_2='?' (DbType = Boolean), @__ef_filter__p_3='?' (DbType = Boolean), @__ef_filter__CurrentTenantId_4='?' (DbType = Int32), @__ef_filter__p_5='?' (DbType = Boolean), @__ef_filter__p_6='?' (DbType = Boolean), @__ef_filter__p_7='?' (DbType = Boolean)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreationTime], [t].[CreatorUserId], [t].[DeletedByCompany], [t].[DeleterUserId], [t].[DeletionTime], [t].[Description], [t].[IsDeleted], [t].[LastModificationTime], [t].[LastModifierUserId], [t].[ProfileId], [t].[RejectReason], [t].[Status], [t].[WorkPostId], [t0].[Id], [t0].[About], [t0].[CityId], [t0].[CreationTime], [t0].[CreatorUserId], [t0].[DeleterUserId], [t0].[DeletionTime], [t0].[IsDeleted], [t0].[LastModificationTime], [t0].[LastModifierUserId], [t0].[UserId], [t1].[Id], [t1].[AccessFailedCount], [t1].[AuthenticationSource], [t1].[CompanyId], [t1].[ConcurrencyStamp], [t1].[CreationTime], [t1].[CreatorUserId], [t1].[DeleterUserId], [t1].[DeletionTime], [t1].[DialCode], [t1].[EmailAddress], [t1].[EmailConfirmationCode], [t1].[FcmToken], [t1].[InvitationCode], [t1].[IsActive], [t1].[IsDeleted], [t1].[IsEmailConfirmed], [t1].[IsLockoutEnabled], [t1].[IsPhoneNumberConfirmed], [t1].[IsTwoFactorEnabled], [t1].[LastModificationTime], [t1].[LastModifierUserId], [t1].[LockoutEndDateUtc], [t1].[Name], [t1].[NormalizedEmailAddress], [t1].[NormalizedUserName], [t1].[Password], [t1].[PasswordResetCode], [t1].[PhoneNumber], [t1].[ProfileId], [t1].[RegistrationFullName], [t1].[SecurityStamp], [t1].[Surname], [t1].[TenantId], [t1].[Type], [t1].[UserName], [t2].[Id], [t2].[ApplicantsCount], [t2].[CompanyId], [t2].[CreationTime], [t2].[CreatorUserId], [t2].[DeleterUserId], [t2].[DeletionTime], [t2].[Description], [t2].[EducationLevel], [t2].[ExperienceYearsCount], [t2].[IsClosed], [t2].[IsDeleted], [t2].[LastModificationTime], [t2].[LastModifierUserId], [t2].[MaxSalary], [t2].[MinSalary], [t2].[RequiredEmployeesCount], [t2].[Slug], [t2].[Status], [t2].[Title], [t2].[WorkAvailbility], [t2].[WorkEngagement], [t2].[WorkLevel], [t3].[Id], [t3].[CityId], [t3].[CreationTime], [t3].[CreatorUserId], [t3].[DateOfEstablishment], [t3].[DeleterUserId], [t3].[DeletionTime], [t3].[IsActive], [t3].[IsDeleted], [t3].[JobType], [t3].[LastModificationTime], [t3].[LastModifierUserId], [t3].[NumberOfEmployees], [t3].[ReasonRefuse], [t3].[Status], [t3].[UserId], [t3].[WebSite], [t4].[Id], [t4].[About], [t4].[Address], [t4].[CoreId], [t4].[CreationTime], [t4].[CreatorUserId], [t4].[DeleterUserId], [t4].[DeletionTime], [t4].[IsDeleted], [t4].[Language], [t4].[LastModificationTime], [t4].[LastModifierUserId], [t4].[Name]
+FROM (
+    SELECT [w].[Id], [w].[CreationTime], [w].[CreatorUserId], [w].[DeletedByCompany], [w].[DeleterUserId], [w].[DeletionTime], [w].[Description], [w].[IsDeleted], [w].[LastModificationTime], [w].[LastModifierUserId], [w].[ProfileId], [w].[RejectReason], [w].[Status], [w].[WorkPostId]
+    FROM [WorkApplications] AS [w]
+    WHERE @__ef_filter__p_0 = CAST(1 AS bit) OR [w].[IsDeleted] = CAST(0 AS bit)
+    ORDER BY [w].[CreationTime] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN (
+    SELECT [p].[Id], [p].[About], [p].[CityId], [p].[CreationTime], [p].[CreatorUserId], [p].[DeleterUserId], [p].[DeletionTime], [p].[IsDeleted], [p].[LastModificationTime], [p].[LastModifierUserId], [p].[UserId]
+    FROM [Profiles] AS [p]
+    WHERE @__ef_filter__p_1 = CAST(1 AS bit) OR [p].[IsDeleted] = CAST(0 AS bit)
+) AS [t0] ON [t].[ProfileId] = [t0].[Id]
+INNER JOIN (
+    SELECT [a].[Id], [a].[AccessFailedCount], [a].[AuthenticationSource], [a].[CompanyId], [a].[ConcurrencyStamp], [a].[CreationTime], [a].[CreatorUserId], [a].[DeleterUserId], [a].[DeletionTime], [a].[DialCode], [a].[EmailAddress], [a].[EmailConfirmationCode], [a].[FcmToken], [a].[InvitationCode], [a].[IsActive], [a].[IsDeleted], [a].[IsEmailConfirmed], [a].[IsLockoutEnabled], [a].[IsPhoneNumberConfirmed], [a].[IsTwoFactorEnabled], [a].[LastModificationTime], [a].[LastModifierUserId], [a].[LockoutEndDateUtc], [a].[Name], [a].[NormalizedEmailAddress], [a].[NormalizedUserName], [a].[Password], [a].[PasswordResetCode], [a].[PhoneNumber], [a].[ProfileId], [a].[RegistrationFullName], [a].[SecurityStamp], [a].[Surname], [a].[TenantId], [a].[Type], [a].[UserName]
+    FROM [AbpUsers] AS [a]
+    WHERE (@__ef_filter__p_2 = CAST(1 AS bit) OR [a].[IsDeleted] = CAST(0 AS bit)) AND (@__ef_filter__p_3 = CAST(1 AS bit) OR [a].[TenantId] = @__ef_filter__CurrentTenantId_4)
+) AS [t1] ON [t0].[UserId] = [t1].[Id]
+INNER JOIN (
+    SELECT [w0].[Id], [w0].[ApplicantsCount], [w0].[CompanyId], [w0].[CreationTime], [w0].[CreatorUserId], [w0].[DeleterUserId], [w0].[DeletionTime], [w0].[Description], [w0].[EducationLevel], [w0].[ExperienceYearsCount], [w0].[IsClosed], [w0].[IsDeleted], [w0].[LastModificationTime], [w0].[LastModifierUserId], [w0].[MaxSalary], [w0].[MinSalary], [w0].[RequiredEmployeesCount], [w0].[Slug], [w0].[Status], [w0].[Title], [w0].[WorkAvailbility], [w0].[WorkEngagement], [w0].[WorkLevel]
+    FROM [WorkPosts] AS [w0]
+    WHERE @__ef_filter__p_5 = CAST(1 AS bit) OR [w0].[IsDeleted] = CAST(0 AS bit)
+) AS [t2] ON [t].[WorkPostId] = [t2].[Id]
+INNER JOIN (
+    SELECT [c].[Id], [c].[CityId], [c].[CreationTime], [c].[CreatorUserId], [c].[DateOfEstablishment], [c].[DeleterUserId], [c].[DeletionTime], [c].[IsActive], [c].[IsDeleted], [c].[JobType], [c].[LastModificationTime], [c].[LastModifierUserId], [c].[NumberOfEmployees], [c].[ReasonRefuse], [c].[Status], [c].[UserId], [c].[WebSite]
+    FROM [Companies] AS [c]
+    WHERE @__ef_filter__p_6 = CAST(1 AS bit) OR [c].[IsDeleted] = CAST(0 AS bit)
+) AS [t3] ON [t2].[CompanyId] = [t3].[Id]
+LEFT JOIN (
+    SELECT [c0].[Id], [c0].[About], [c0].[Address], [c0].[CoreId], [c0].[CreationTime], [c0].[CreatorUserId], [c0].[DeleterUserId], [c0].[DeletionTime], [c0].[IsDeleted], [c0].[Language], [c0].[LastModificationTime], [c0].[LastModifierUserId], [c0].[Name]
+    FROM [CompanyTranslations] AS [c0]
+    WHERE @__ef_filter__p_7 = CAST(1 AS bit) OR [c0].[IsDeleted] = CAST(0 AS bit)
+) AS [t4] ON [t3].[Id] = [t4].[CoreId]
+ORDER BY [t].[CreationTime] DESC, [t].[Id], [t0].[Id], [t1].[Id], [t2].[Id], [t3].[Id]
+ERROR 2025-02-20 11:36:59,102 [4    ] Microsoft.EntityFrameworkCore.Query      - An exception occurred while iterating over the results of a query for context type 'Wazzifni.EntityFrameworkCore.WazzifniDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'DeletedByCompany'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:1c4ae97f-05b2-494d-9779-00f547f91a8d
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'DeletedByCompany'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:1c4ae97f-05b2-494d-9779-00f547f91a8d
+Error Number:207,State:1,Class:16
