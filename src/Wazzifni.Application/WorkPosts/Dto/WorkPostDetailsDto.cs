@@ -27,6 +27,7 @@ namespace Wazzifni.WorkPosts.Dto
 
         public string Slug { get; set; }
 
+        public WorkPlace WorkPlace { get; set; }
 
     }
 }

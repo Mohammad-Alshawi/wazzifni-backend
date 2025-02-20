@@ -21,9 +21,11 @@ namespace Wazzifni.WorkPosts.Dto
         public long? ProfileId { get; set; }
 
         public bool? IsFavorite { get; set; }
-
         public bool? IsIApply { get; set; }
 
-
+        public WorkPlace? WorkPlace { get; set; }
+        public int? MinExperience { get; set; }
+        public int? MaxExperience { get; set; }
+        public FilterOnTime? TimeFilter { get; set; }
     }
 }

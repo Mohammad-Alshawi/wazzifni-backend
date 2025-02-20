@@ -5,6 +5,7 @@ using Abp.UI;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -222,8 +223,12 @@ namespace Wazzifni.WorkPosts
 
             if (input.CompanyId.HasValue)
                 data = data.Where(wp => wp.CompanyId == input.CompanyId.Value);
+
             if (input.Status.HasValue)
                 data = data.Where(wp => wp.Status == input.Status.Value);
+
+            if (input.WorkEngagement.HasValue)
+                data = data.Where(wp => wp.WorkEngagement == input.WorkEngagement.Value);
 
             if (input.WorkEngagement.HasValue)
                 data = data.Where(wp => wp.WorkEngagement == input.WorkEngagement.Value);
@@ -246,6 +251,22 @@ namespace Wazzifni.WorkPosts
             if (input.ProfileId.HasValue)
                 data = data.Where(wp => wp.Applications.Any(x => x.ProfileId == input.ProfileId.Value));
 
+            if (input.MinExperience.HasValue)
+            {
+                data = data.Where(j => j.ExperienceYearsCount >= input.MinExperience);
+            }
+
+            if (input.MaxExperience.HasValue)
+            {
+                data = data.Where(j => j.ExperienceYearsCount <= input.MaxExperience);
+            }
+
+
+            if (input.TimeFilter.HasValue)
+            {
+                data = FilterOnTime(input, data);
+            }
+
 
             data = data.Include(x => x.Company).ThenInclude(x => x.User);
             data = data.Include(x => x.Company).ThenInclude(x => x.Translations);
@@ -256,6 +277,29 @@ namespace Wazzifni.WorkPosts
 
             return data;
         }
+
+        private static IQueryable<WorkPost> FilterOnTime(PagedWorkPostResultRequestDto input, IQueryable<WorkPost> data)
+        {
+            var now = DateTime.Now;
+            switch (input.TimeFilter)
+            {
+                case Enums.Enum.FilterOnTime.ThisToday:
+                    data = data.Where(j => j.CreationTime.Date == now.Date);
+                    break;
+
+                case Enums.Enum.FilterOnTime.ThisWeek:
+                    DateTime sevenDaysAgo = now.AddDays(-7);
+                    data = data.Where(j => j.CreationTime >= sevenDaysAgo);
+                    break;
+
+                case Enums.Enum.FilterOnTime.ThisMonth:
+                    data = data.Where(j => j.CreationTime.Year == now.Year && j.CreationTime.Month == now.Month);
+                    break;
+            }
+
+            return data;
+        }
+
         protected override IQueryable<WorkPost> ApplySorting(IQueryable<WorkPost> query, PagedWorkPostResultRequestDto input)
         {
 

@@ -340,10 +340,11 @@ namespace Wazzifni.Controllers
                 if (input.UserType.HasValue && input.UserType.Value == UserType.CompanyUser)
                     await _userManager.SetRolesAsync(user, new string[] { StaticRoleNames.Tenants.CompanyUser });
 
+                long profileId = 0;
                 else
                 {
                     await _userManager.SetRolesAsync(user, new string[] { StaticRoleNames.Tenants.BasicUser });
-                    await _profileManager.InitateProfileForBasicUser(user.Id, input.CityId.Value);
+                    profileId = await _profileManager.InitateProfileForBasicUser(user.Id, input.CityId.Value);
                 }
 
 
@@ -358,7 +359,7 @@ namespace Wazzifni.Controllers
 
                 if (input.UserType == UserType.BasicUser)
                 {
-                    result.ProfileId = await _profileManager.GetProfileIdByUserId(registerdUser.Id);
+                    result.ProfileId = profileId;
                 }
                 return result;
 

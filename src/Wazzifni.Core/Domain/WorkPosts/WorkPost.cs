@@ -18,6 +18,8 @@ namespace Wazzifni.Domain.WorkPosts
         public string Title { get; set; }
         public string Description { get; set; }
         public WorkEngagement WorkEngagement { get; set; }
+        public WorkPlace WorkPlace { get; set; }
+
         public WorkLevel WorkLevel { get; set; }
         public EducationLevel EducationLevel { get; set; }
 

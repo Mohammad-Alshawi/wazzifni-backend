@@ -19,6 +19,7 @@ namespace Wazzifni.WorkPosts.Dto
         public decimal MaxSalary { get; set; }
         public int ExperienceYearsCount { get; set; }
         public int RequiredEmployeesCount { get; set; }
+        public WorkPlace WorkPlace { get; set; }
 
         public void AddValidationErrors(CustomValidationContext context)
         {

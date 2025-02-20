@@ -191,6 +191,16 @@ namespace Wazzifni.Enums
             ProjectOnly = 4,
             StrategicPartnership = 5
         }
+
+
+        public enum WorkPlace : byte
+        {
+            OnSite = 1,
+            HalfRemote = 2,
+            Remote = 3,
+
+        }
+
         public enum WorkLevel : byte
         {
             TeamLeader = 1,
@@ -219,7 +229,12 @@ namespace Wazzifni.Enums
             Rejected = 3
         }
 
-
+        public enum FilterOnTime : byte
+        {
+            ThisToday = 1,
+            ThisWeek = 2,
+            ThisMonth = 3
+        }
     }
 }
 
