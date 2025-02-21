@@ -206,7 +206,7 @@ namespace Wazzifni.WorkApplications
         {
             var result = await base.GetAllAsync(input);
 
-            var attachments = await _attachmentManager.GetListByRefAsync(result.Items.Select(x => (long)x.Id).ToList(), AttachmentRefType.Profile);
+            var attachments = await _attachmentManager.GetListByRefAsync(result.Items.Select(x => (long)x.Profile.Id).ToList(), AttachmentRefType.Profile);
 
             var attachmentsDict = new Dictionary<long, List<Attachment>>();
 
@@ -215,7 +215,7 @@ namespace Wazzifni.WorkApplications
 
             foreach (var item in result.Items)
             {
-                if (attachmentsDict.TryGetValue(item.Id, out var itemAttachments))
+                if (attachmentsDict.TryGetValue(item.Profile.Id, out var itemAttachments))
                 {
                     item.Profile.Image = itemAttachments
                         .Select(A => new LiteAttachmentDto(A.Id, _attachmentManager.GetUrl(A), _attachmentManager.GetLowResolutionPhotoUrl(A), A.Size))
