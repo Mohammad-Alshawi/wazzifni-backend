@@ -199,18 +199,32 @@ namespace Wazzifni.WorkPosts
         {
             var data = base.CreateFilteredQuery(input);
 
+
+
             if (!string.IsNullOrEmpty(input.Keyword))
             {
+                var keyword = input.Keyword.ToLower();
+                var matchingEducationLevels = Enum.GetValues<EducationLevel>()
+                                                  .Where(e => e.ToString().ToLower().Contains(keyword))
+                                                  .ToList();
+                var matchingWorkEngagements = Enum.GetValues<WorkEngagement>()
+                                                  .Where(e => e.ToString().ToLower().Contains(keyword))
+                                                  .ToList();
+                var matchingWorkLevels = Enum.GetValues<WorkLevel>()
+                                                  .Where(e => e.ToString().ToLower().Contains(keyword))
+                                                  .ToList();
+
                 data = data.Where(wp =>
                     wp.Title.Contains(input.Keyword) ||
                     wp.Description.Contains(input.Keyword) ||
-                    wp.EducationLevel.ToString().Contains(input.Keyword) ||
-                    wp.WorkEngagement.ToString().Contains(input.Keyword) ||
-                    wp.WorkLevel.ToString().Contains(input.Keyword) ||
-                    wp.Company.Translations.Any(t => t.Name.Contains(input.Keyword)) ||
-                    wp.Company.City.Translations.Any(t => t.Name.Contains(input.Keyword))
+                    matchingEducationLevels.Contains(wp.EducationLevel) ||
+                    matchingWorkEngagements.Contains(wp.WorkEngagement) ||
+                    matchingWorkLevels.Contains(wp.WorkLevel) ||
+                    wp.Company.Translations.Any(t => EF.Functions.Like(t.Name, $"%{input.Keyword}%")) ||
+                    wp.Company.City.Translations.Any(t => EF.Functions.Like(t.Name, $"%{input.Keyword}%"))
                 );
             }
+
             if (AbpSession.UserId.HasValue && input.IsFavorite.HasValue && input.IsFavorite.Value)
             {
                 data = _favoriteWorkPostManager.GetFavoriteWorkPostsQueryByUserIdAsync(AbpSession.UserId.Value);
