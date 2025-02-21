@@ -10,6 +10,6 @@ namespace Wazzifni.Domain.WorkPosts
 
         Task<WorkPost> GetEntityByIdAsTrackingAsync(long workPostId);
 
-
+        Task<WorkPost> GetEntityWithoutUserByIdAsync(long workPostId);
     }
 }

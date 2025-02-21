@@ -32,5 +32,13 @@ namespace Wazzifni.Domain.WorkPosts
                 .Include(x => x.Applications)
                 .Where(x => x.Id == workPostId).FirstOrDefaultAsync();
         }
+
+        public async Task<WorkPost> GetEntityWithoutUserByIdAsync(long workPostId)
+        {
+            return await _repository
+                .GetAll().Include(x => x.Company).ThenInclude(x => x.Translations)
+                .Include(x => x.Company).ThenInclude(x => x.City).ThenInclude(x => x.Translations)
+                .AsNoTracking().Where(x => x.Id == workPostId).FirstOrDefaultAsync();
+        }
     }
 }

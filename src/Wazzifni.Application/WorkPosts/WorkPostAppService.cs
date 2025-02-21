@@ -102,7 +102,7 @@ namespace Wazzifni.WorkPosts
 
         public override async Task<WorkPostDetailsDto> UpdateAsync(UpdateWorkPostDto input)
         {
-            var post = await _workPostManager.GetEntityByIdAsync(input.Id);
+            var post = await _workPostManager.GetEntityWithoutUserByIdAsync(input.Id);
 
             var oldRequiredEmployeesCount = post.RequiredEmployeesCount;
 
