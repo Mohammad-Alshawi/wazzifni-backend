@@ -112,8 +112,9 @@ namespace Wazzifni.Companies
 
         public override async Task<CompanyDetailsDto> GetAsync(EntityDto<int> input)
         {
-            var company = await _companyManager.GetEntityByIdAsync(input.Id);
-            var result = await base.GetAsync(input);
+            var company = await _companyManager.GetFullEntityByIdAsync(input.Id);
+
+            var result = _mapper.Map<CompanyDetailsDto>(company);
 
             var profile = await _attachmentManager.GetElementByRefAsync(input.Id, AttachmentRefType.CompanyLogo);
             var attachments = await _attachmentManager.GetByRefAsync(input.Id, AttachmentRefType.CompanyImage);
