@@ -5,6 +5,8 @@ namespace Wazzifni.Companies.Dto
 {
     public class SuperLiteUserDto : EntityDto<long>
     {
+        public string RegistrationFullName { get; set; }
+
         public string UserName { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -13,5 +15,7 @@ namespace Wazzifni.Companies.Dto
         public string DialCode { get; set; }
         public string PhoneNumber { get; set; }
         public UserType Type { get; set; }
+
+
     }
 }
