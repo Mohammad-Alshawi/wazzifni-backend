@@ -6,11 +6,13 @@ using Abp.UI;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.CrudAppServiceBase;
+using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.IndividualUserProfiles;
 using Wazzifni.Domain.WorkApplications;
@@ -29,6 +31,7 @@ namespace Wazzifni.WorkApplications
         private readonly UserManager _userManager;
         private readonly IProfileManager _profileManager;
         private readonly IWorkPostManager _workPostManager;
+        private readonly IAttachmentManager _attachmentManager;
         private readonly IWorkApplicationManager _workApplicationManager;
         private readonly ICompanyManager _companyManager;
 
@@ -36,6 +39,7 @@ namespace Wazzifni.WorkApplications
             IMapper mapper, UserManager userManager,
             IProfileManager profileManager,
             IWorkPostManager workPostManager,
+            IAttachmentManager attachmentManager,
             IWorkApplicationManager workApplicationManager,
             ICompanyManager companyManager) : base(repository)
         {
@@ -43,6 +47,7 @@ namespace Wazzifni.WorkApplications
             _userManager = userManager;
             _profileManager = profileManager;
             _workPostManager = workPostManager;
+            _attachmentManager = attachmentManager;
             _workApplicationManager = workApplicationManager;
             _companyManager = companyManager;
         }
@@ -200,6 +205,25 @@ namespace Wazzifni.WorkApplications
         public override async Task<PagedResultDto<WorkApplicationLiteDto>> GetAllAsync(PagedWorkApplicationResultRequestDto input)
         {
             var result = await base.GetAllAsync(input);
+
+            var attachments = await _attachmentManager.GetListByRefAsync(result.Items.Select(x => (long)x.Id).ToList(), AttachmentRefType.Profile);
+
+            var attachmentsDict = new Dictionary<long, List<Attachment>>();
+
+            if (attachments.Count > 0)
+                attachmentsDict = attachments.GroupBy(A => A.RefId.Value).ToDictionary(G => G.Key, G => G.ToList());
+
+            foreach (var item in result.Items)
+            {
+                if (attachmentsDict.TryGetValue(item.Id, out var itemAttachments))
+                {
+                    item.Profile.Image = itemAttachments
+                        .Select(A => new LiteAttachmentDto(A.Id, _attachmentManager.GetUrl(A), _attachmentManager.GetLowResolutionPhotoUrl(A), A.Size))
+                        .FirstOrDefault();
+                }
+
+
+            }
             return result;
         }
 
