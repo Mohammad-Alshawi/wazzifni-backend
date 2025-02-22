@@ -9,6 +9,8 @@ namespace Wazzifni.WorkPosts.Dto
 
         public int? CompanyId { get; set; }
 
+        public int? CityId { get; set; }
+
         public WorkPostStatus? Status { get; set; }
         public WorkEngagement? WorkEngagement { get; set; }
         public WorkLevel? WorkLevel { get; set; }

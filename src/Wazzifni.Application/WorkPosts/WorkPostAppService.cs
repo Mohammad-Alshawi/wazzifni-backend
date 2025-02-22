@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.CrudAppServiceBase;
+using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.WorkApplications;
 using Wazzifni.Domain.WorkPostFaveorites;
@@ -31,6 +32,7 @@ namespace Wazzifni.WorkPosts
         private readonly IWorkPostManager _workPostManager;
         private readonly IFavoriteWorkPostManager _favoriteWorkPostManager;
         private readonly IWorkApplicationManager _workApplicationManager;
+        private readonly IAttachmentManager _attachmentManager;
         private readonly ICompanyManager _companyManager;
 
         public WorkPostAppService(IRepository<WorkPost, long> repository,
@@ -38,6 +40,7 @@ namespace Wazzifni.WorkPosts
             IWorkPostManager workPostManager,
             IFavoriteWorkPostManager favoriteWorkPostManager,
             IWorkApplicationManager workApplicationManager,
+            IAttachmentManager attachmentManager,
             ICompanyManager companyManager) : base(repository)
         {
             _mapper = mapper;
@@ -45,6 +48,7 @@ namespace Wazzifni.WorkPosts
             _workPostManager = workPostManager;
             _favoriteWorkPostManager = favoriteWorkPostManager;
             _workApplicationManager = workApplicationManager;
+            _attachmentManager = attachmentManager;
             _companyManager = companyManager;
         }
 
@@ -91,6 +95,22 @@ namespace Wazzifni.WorkPosts
                 result.IsIApply = await _workApplicationManager.CheckIfWorkPostInApplicationUserAsync(result.Id, AbpSession.UserId.Value);
 
             }
+
+            var profile = await _attachmentManager.GetElementByRefAsync(result.CompanyId, AttachmentRefType.CompanyLogo);
+
+            if (profile is not null)
+            {
+
+                result.Company.Profile = new LiteAttachmentDto
+                {
+                    Id = profile.Id,
+                    Url = _attachmentManager.GetUrl(profile),
+                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(profile),
+                };
+
+
+            }
+
             return result;
 
         }
@@ -238,6 +258,8 @@ namespace Wazzifni.WorkPosts
             if (input.CompanyId.HasValue)
                 data = data.Where(wp => wp.CompanyId == input.CompanyId.Value);
 
+
+
             if (input.Status.HasValue)
                 data = data.Where(wp => wp.Status == input.Status.Value);
 
@@ -287,7 +309,8 @@ namespace Wazzifni.WorkPosts
             data = data.Include(x => x.Company).ThenInclude(x => x.City).ThenInclude(x => x.Translations);
             data = data.Include(x => x.Applications);
 
-
+            if (input.CityId.HasValue)
+                data = data.Where(wp => wp.Company.CityId == input.CityId.Value);
 
             return data;
         }
