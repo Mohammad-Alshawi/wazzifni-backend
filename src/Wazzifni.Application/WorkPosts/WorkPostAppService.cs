@@ -263,8 +263,8 @@ namespace Wazzifni.WorkPosts
             if (input.Status.HasValue)
                 data = data.Where(wp => wp.Status == input.Status.Value);
 
-            if (input.WorkEngagement.HasValue)
-                data = data.Where(wp => wp.WorkEngagement == input.WorkEngagement.Value);
+            if (input.WorkPlace.HasValue)
+                data = data.Where(wp => wp.WorkPlace == input.WorkPlace.Value);
 
             if (input.WorkEngagement.HasValue)
                 data = data.Where(wp => wp.WorkEngagement == input.WorkEngagement.Value);
