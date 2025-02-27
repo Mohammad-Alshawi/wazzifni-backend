@@ -101,13 +101,20 @@ namespace Wazzifni.Companies
             return base.DeleteAsync(input);
         }
 
-        [ApiExplorerSettings(IgnoreApi = true)]
-        [RemoteService(IsEnabled = false)]
         [HttpPut, AbpAuthorize(PermissionNames.Companies_Update)]
 
-        public override Task<CompanyDetailsDto> UpdateAsync(UpdateCompanyDto input)
+        public override async Task<CompanyDetailsDto> UpdateAsync(UpdateCompanyDto input)
         {
-            return base.UpdateAsync(input);
+            var company = await _companyManager.GetFullEntityByIdAsync(input.Id);
+
+            company.Translations.Clear();
+
+            company = _mapper.Map(input, company);
+
+            await Repository.UpdateAsync(company);
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+
+            return _mapper.Map<CompanyDetailsDto>(company);
         }
 
         public override async Task<CompanyDetailsDto> GetAsync(EntityDto<int> input)
