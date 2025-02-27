@@ -105,13 +105,52 @@ namespace Wazzifni.Companies
 
         public override async Task<CompanyDetailsDto> UpdateAsync(UpdateCompanyDto input)
         {
-            var company = await _companyManager.GetFullEntityByIdAsync(input.Id);
+            var company = await _companyManager.GetEntityByIdAsync(input.Id);
+            var oldStaus = company.Status;
+            var oldActivs = company.IsActive;
 
             company.Translations.Clear();
 
             company = _mapper.Map(input, company);
 
+            company.Status = oldStaus;
+            company.IsActive = oldActivs;
             await Repository.UpdateAsync(company);
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+
+            var oldimagesAttachments = await _attachmentManager.GetByRefAsync(company.Id, AttachmentRefType.CompanyImage);
+            var oldimagesAttachmentsIds = oldimagesAttachments.Select(x => x.Id).ToList();
+            var imagesattachmentsToDelete = oldimagesAttachments.Where(x => !input.Attachments.Contains((x.Id)));
+            var imagesattachmentIdsToAdd = input.Attachments.Except(oldimagesAttachments.Select(x => x.Id).ToList());
+            foreach (var attachment in imagesattachmentsToDelete)
+            {
+                await _attachmentManager.DeleteRefIdAsync(attachment);
+            }
+            foreach (var attachmentId in imagesattachmentIdsToAdd)
+            {
+                await _attachmentManager.CheckAndUpdateRefIdAsync(
+                    attachmentId, AttachmentRefType.CompanyImage, company.Id);
+            }
+            var oldAttachment = await _attachmentManager.GetElementByRefAsync(company.Id, AttachmentRefType.CompanyLogo);
+
+            if (input.CompanyProfilePhotoId == 0 && oldAttachment != null)
+            {
+                await _attachmentManager.DeleteRefIdAsync(oldAttachment);
+            }
+            else if (input.CompanyProfilePhotoId != 0 && oldAttachment is not null)
+            {
+                if (oldAttachment.Id != input.CompanyProfilePhotoId)
+                {
+                    await _attachmentManager.DeleteRefIdAsync(oldAttachment);
+                    await _attachmentManager.CheckAndUpdateRefIdAsync(
+                     input.CompanyProfilePhotoId, AttachmentRefType.CompanyLogo, company.Id);
+                }
+            }
+            else if (input.CompanyProfilePhotoId != 0)
+            {
+                await _attachmentManager.CheckAndUpdateRefIdAsync(input.CompanyProfilePhotoId, AttachmentRefType.CompanyLogo, company.Id);
+            }
+
             await UnitOfWorkManager.Current.SaveChangesAsync();
 
             return _mapper.Map<CompanyDetailsDto>(company);
