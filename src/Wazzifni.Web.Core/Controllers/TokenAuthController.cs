@@ -182,6 +182,23 @@ namespace Wazzifni.Controllers
                                     LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(logo),
                                 };
                             }
+                            var attachments = await _attachmentManager.GetByRefAsync(result.CompanyId.Value, AttachmentRefType.CompanyImage);
+                            if (attachments is not null)
+                            {
+                                foreach (var attachment in attachments)
+                                {
+                                    if (attachment != null)
+                                    {
+                                        result.Company.Attachments.Add(new LiteAttachmentDto
+                                        {
+                                            Id = attachment.Id,
+                                            Url = _attachmentManager.GetUrl(attachment),
+                                            LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(attachment),
+                                        });
+                                    }
+                                }
+                            }
+
                         }
                     }
                     if (registerdUser.Type == UserType.BasicUser)
