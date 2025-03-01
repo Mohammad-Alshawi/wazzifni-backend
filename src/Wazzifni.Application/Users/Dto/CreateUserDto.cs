@@ -39,6 +39,12 @@ namespace Wazzifni.Users.Dto
 
         [Required]
         public UserType UserType { get; set; }
+
+
+
+        public string DialCode { get; set; }
+
+        public string PhoneNumber { get; set; }
         public void Normalize()
         {
             if (RoleNames == null)
