@@ -46,7 +46,7 @@ namespace Wazzifni.Domain.Companies
         }
         public async Task<Company> GetSuperLiteEntityByIdAsync(int id)
         {
-            return await _companyRepository.GetAsync(id);
+            return await _companyRepository.GetAll().Include(x => x.Translations).Where(x => x.Id == id).FirstOrDefaultAsync();
         }
         public async Task<Company> GetFullEntityByIdAsync(int id)
         {

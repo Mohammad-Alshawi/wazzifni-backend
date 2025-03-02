@@ -105,7 +105,7 @@ namespace Wazzifni.Companies
 
         public override async Task<CompanyDetailsDto> UpdateAsync(UpdateCompanyDto input)
         {
-            var company = await _companyManager.GetEntityByIdAsync(input.Id);
+            var company = await _companyManager.GetSuperLiteEntityByIdAsync(input.Id);
             var oldStaus = company.Status;
             var oldActivs = company.IsActive;
 
