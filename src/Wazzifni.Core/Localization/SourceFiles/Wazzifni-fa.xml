@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="fa">
+	<texts>
+		<text name="UsersList">لیست کاربران</text>
+		<text name="UserCreate">ایجاد کاربر</text>
+		<text name="UserUpdate">به‌روزرسانی کاربر</text>
+		<text name="UserDelete">حذف کاربر</text>
+
+		<text name="Accounts">دسترسی‌های حساب</text>
+		<text name="AccountsDelete">دسترسی حذف حساب</text>
+		<text name="AccountsRead">دسترسی خواندن اطلاعات حساب</text>
+		<text name="AccountsUpdate">دسترسی به‌روزرسانی اطلاعات حساب</text>
+
+		<text name="RolesList">لیست نقش‌ها</text>
+		<text name="RoleCreate">ایجاد نقش</text>
+		<text name="RoleUpdate">به‌روزرسانی نقش</text>
+		<text name="RoleDelete">حذف نقش</text>
+		<text name="RolesPermission">لیست مجوزها</text>
+		<text name="RoleGet">نمایش نقش</text>
+
+		<text name="Companies">دسترسی‌های شرکت‌ها</text>
+		<text name="CompaniesRead">دسترسی خواندن شرکت‌ها</text>
+		<text name="CompaniesCreate">دسترسی ایجاد شرکت‌ها</text>
+		<text name="CompaniesUpdate">دسترسی به‌روزرسانی شرکت‌ها</text>
+		<text name="CompaniesDelete">دسترسی حذف شرکت‌ها</text>
+
+		<text name="WorkPosts">دسترسی‌های آگهی‌های شغلی</text>
+		<text name="WorkPostsRead">دسترسی خواندن آگهی شغلی</text>
+		<text name="WorkPostsCreate">دسترسی ایجاد آگهی شغلی</text>
+		<text name="WorkPostsUpdate">دسترسی به‌روزرسانی آگهی شغلی</text>
+		<text name="WorkPostsDelete">دسترسی حذف آگهی شغلی</text>
+
+		<text name="WorkApplications">دسترسی‌های درخواست‌های شغلی</text>
+		<text name="WorkApplicationsApprove">دسترسی تأیید درخواست شغلی</text>
+		<text name="WorkApplicationsReject">دسترسی رد درخواست شغلی</text>
+		<text name="WorkApplicationsCreate">دسترسی ایجاد درخواست شغلی</text>
+		<text name="WorkApplicationsUpdate">دسترسی به‌روزرسانی درخواست شغلی</text>
+		<text name="WorkApplicationsDelete">دسترسی حذف درخواست شغلی</text>
+	</texts>
+</localizationDictionary>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="ku">
+	<texts>
+		<text name="UsersList">لیستی بەکارهێنەران</text>
+		<text name="UserCreate">دروستکردنی بەکارهێنەر</text>
+		<text name="UserUpdate">نوێکردنەوەی بەکارهێنەر</text>
+		<text name="UserDelete">سڕینەوەی بەکارهێنەر</text>
+
+		<text name="Accounts">مۆڵەتەکانی هەژمار</text>
+		<text name="AccountsDelete">مۆڵەتی سڕینەوەی هەژمار</text>
+		<text name="AccountsRead">مۆڵەتی خوێندنەوەی زانیاری هەژمار</text>
+		<text name="AccountsUpdate">مۆڵەتی نوێکردنەوەی زانیاری هەژمار</text>
+
+		<text name="RolesList">لیستی رولەکان</text>
+		<text name="RoleCreate">دروستکردنی ڕۆڵ</text>
+		<text name="RoleUpdate">نوێکردنەوەی ڕۆڵ</text>
+		<text name="RoleDelete">سڕینەوەی ڕۆڵ</text>
+		<text name="RolesPermission">لیستی مۆڵەتەکان</text>
+		<text name="RoleGet">پیشاندانی ڕۆڵ</text>
+
+		<text name="Companies">مۆڵەتەکانی کۆمپانیاکان</text>
+		<text name="CompaniesRead">مۆڵەتی خوێندنەوەی کۆمپانیاکان</text>
+		<text name="CompaniesCreate">مۆڵەتی دروستکردنی کۆمپانیاکان</text>
+		<text name="CompaniesUpdate">مۆڵەتی نوێکردنەوەی کۆمپانیاکان</text>
+		<text name="CompaniesDelete">مۆڵەتی سڕینەوەی کۆمپانیاکان</text>
+
+		<text name="WorkPosts">مۆڵەتەکانی بڵاوکردنەوەی کار</text>
+		<text name="WorkPostsRead">مۆڵەتی خوێندنەوەی بڵاوکردنەوەی کار</text>
+		<text name="WorkPostsCreate">مۆڵەتی دروستکردنی بڵاوکردنەوەی کار</text>
+		<text name="WorkPostsUpdate">مۆڵەتی نوێکردنەوەی بڵاوکردنەوەی کار</text>
+		<text name="WorkPostsDelete">مۆڵەتی سڕینەوەی بڵاوکردنەوەی کار</text>
+
+		<text name="WorkApplications">مۆڵەتەکانی داواکاری کار</text>
+		<text name="WorkApplicationsApprove">مۆڵەتی قبوڵکردنی داواکاری کار</text>
+		<text name="WorkApplicationsReject">مۆڵەتی ڕەتکردنەوەی داواکاری کار</text>
+		<text name="WorkApplicationsCreate">مۆڵەتی دروستکردنی داواکاری کار</text>
+		<text name="WorkApplicationsUpdate">مۆڵەتی نوێکردنەوەی داواکاری کار</text>
+		<text name="WorkApplicationsDelete">مۆڵەتی سڕینەوەی داواکاری کار</text>
+	</texts>
+</localizationDictionary>

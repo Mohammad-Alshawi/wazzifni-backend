@@ -2,7 +2,10 @@
 using Abp.Configuration;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
+using Abp.Threading.BackgroundWorkers;
 using AutoMapper;
+using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
 using Wazzifni.Authorization;
 using Wazzifni.Cities.Dto;
 using Wazzifni.Companies.Dto;
@@ -13,6 +16,7 @@ using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.Countries;
 using Wazzifni.Domain.Regions;
 using Wazzifni.Domain.Skills;
+using Wazzifni.NotificationService;
 using Wazzifni.Skills.Dto;
 
 namespace Wazzifni
@@ -22,8 +26,17 @@ namespace Wazzifni
         typeof(AbpAutoMapperModule))]
     public class WazzifniApplicationModule : AbpModule
     {
+        public override void PostInitialize()
+        {
+            var workManager = IocManager.Resolve<IBackgroundWorkerManager>();
+
+            Configuration.Notifications.Notifiers.Add<FirebaseRealTimeNotifier>();
+
+        }
         public override void PreInitialize()
         {
+            FirebaseApp.Create(new AppOptions() { Credential = GoogleCredential.FromFile(@"Firebase/firebasesettings.json") });
+
             Configuration.Authorization.Providers.Add<WazzifniAuthorizationProvider>();
         }
 
