@@ -130,6 +130,13 @@ namespace Wazzifni.Users
 
             CheckErrors(await _userManager.CreateAsync(user, input.Password));
 
+            if (!UserTypeRoleMapping.ContainsKey(user.Type))
+            {
+                throw new UserFriendlyException($"No roles defined for UserType: {user.Type}");
+            }
+
+            var allowedRoles = UserTypeRoleMapping[user.Type];
+
             if (input.RoleNames != null)
             {
                 foreach (var rolename in input.RoleNames)
@@ -137,6 +144,10 @@ namespace Wazzifni.Users
                     if (!roleNames.Contains(rolename))
                     {
                         throw new UserFriendlyException(string.Format(Exceptions.ObjectWasNotFound, Tokens.Role + " " + rolename));
+                    }
+                    if (!allowedRoles.Contains(rolename))
+                    {
+                        throw new UserFriendlyException($"UserType '{user.Type}' is not allowed to have role '{rolename}'.");
                     }
                 }
                 CheckErrors(await _userManager.SetRolesAsync(user, input.RoleNames));
@@ -448,6 +459,14 @@ namespace Wazzifni.Users
 
             return new ListResultDto<string>(ObjectMapper.Map<List<string>>(permissions.OrderBy(p => p.Name).Distinct()));
         }
+
+
+        private static readonly Dictionary<UserType, string[]> UserTypeRoleMapping = new()
+        {
+            { UserType.Admin, new[] { "Admin" } },
+            { UserType.BasicUser, new[] { "BasicUser" } },
+            { UserType.CompanyUser, new[] { "CompanyUser" } }
+        };
 
     }
 }
