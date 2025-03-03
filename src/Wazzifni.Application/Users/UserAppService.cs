@@ -45,6 +45,12 @@ namespace Wazzifni.Users
         private readonly IAttachmentManager _attachmentManager;
         private readonly ISettingManager _settingManager;
 
+        private static readonly Dictionary<UserType, string[]> UserTypeRoleMapping = new()
+        {
+            { UserType.Admin, new[] { StaticRoleNames.Tenants.Admin } },
+            { UserType.BasicUser, new[] { StaticRoleNames.Tenants.BasicUser } },
+            { UserType.CompanyUser, new[] { StaticRoleNames.Tenants.CompanyUser } }
+        };
         public UserAppService(
             IRepository<User, long> repository,
             UserManager userManager,
@@ -461,12 +467,7 @@ namespace Wazzifni.Users
         }
 
 
-        private static readonly Dictionary<UserType, string[]> UserTypeRoleMapping = new()
-        {
-            { UserType.Admin, new[] { "Admin" } },
-            { UserType.BasicUser, new[] { "BasicUser" } },
-            { UserType.CompanyUser, new[] { "CompanyUser" } }
-        };
+
 
     }
 }
