@@ -24,14 +24,7 @@ namespace Wazzifni.Notifications
         private readonly IAbpSession _session;
         private readonly UserManager _userManager;
         private readonly IUnitOfWorkManager _unitOfWorkManager;
-        /// <summary>
-        /// Notification AppService
-        /// </summary>
-        /// <param name="notificationsService"></param>
-        /// <param name="userNotificationManager"></param>
-        /// <param name="session"></param>
-        /// <param name="userManager"></param>
-        /// <param name="unitOfWorkManager"></param>
+
         public NotificationAppService(
             INotificationService notificationsService,
             IUserNotificationManager userNotificationManager,
@@ -46,28 +39,12 @@ namespace Wazzifni.Notifications
             _unitOfWorkManager = unitOfWorkManager;
 
         }
-        /// <summary>
-        /// Synchronize AuthId With LocalId
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public long SynchronizeAuthIdWithLocalId(long id)
-        {
 
-            var authId = (AbpSession.UserId.Value);
-            var localUserId = _userManager.Users.Where(x => x.Id == id).FirstOrDefault().Id;
-            return localUserId;
-        }
-        /// <summary>
-        /// Get User Notification Details
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
+
         public async Task<PagedResultDto<NotificationDto>> GetUserNotificationsAsync(PagedNotificationResultRequestDto input)
         {
             using (_unitOfWorkManager.Current.DisableFilter(AbpDataFilters.MayHaveTenant))
             {
-                // var localUserId = SynchronizeAuthIdWithLocalId((long)AbpSession.UserId);
 
                 try
                 {
@@ -80,8 +57,6 @@ namespace Wazzifni.Notifications
                     var lang = await SettingManager.GetSettingValueForUserAsync(
                         LocalizationSettingNames.DefaultLanguage,
                         userIdentifier);
-
-                    var isArabic = lang.ToUpper().Contains("AR");
 
 
                     foreach (var item in userNotifications)
@@ -98,7 +73,6 @@ namespace Wazzifni.Notifications
                             Message = data.Messages.ContainsKey(preferredLang) ? data.Messages[preferredLang] : data.Messages["ar"],
                             DateTime = item.Notification.CreationTime,
                             DataForNotification = item.Notification.Data.Properties,
-
                             State = item.State,
                         });
                     }
@@ -125,20 +99,13 @@ namespace Wazzifni.Notifications
 
 
         }
-        /// <summary>
-        /// Get The Number Of Un Read User Notification
-        /// </summary>
-        /// <returns></returns>
+
         public async Task<int> GetNumberOfUnReadUserNotificationsAsync()
         {
             var userIdentifier = new UserIdentifier(AbpSession.GetTenantId(), AbpSession.GetUserId());
             return await _userNotificationManager.GetUserNotificationCountAsync(userIdentifier, UserNotificationState.Unread);
         }
-        /// <summary>
-        /// Make Notification As Read
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
+
 
         public async Task MarkNotificationAsReadAsync(EntityDto<Guid> input)
         {
