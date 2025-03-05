@@ -35,9 +35,10 @@ namespace Wazzifni
             AppRoleConfig.Configure(Configuration.Modules.Zero().RoleManagement);
 
             Configuration.Settings.Providers.Add<AppSettingProvider>();
-            
+
             Configuration.Localization.Languages.Add(new LanguageInfo("fa", "فارسی", "famfamfam-flags ir"));
-            
+            Configuration.Localization.Languages.Add(new LanguageInfo("ku", "Kurdî", "famfamfam-flag-icon-ku"));
+
             Configuration.Settings.SettingEncryptionConfiguration.DefaultPassPhrase = WazzifniConsts.DefaultPassPhrase;
             SimpleStringCipher.DefaultPassPhrase = WazzifniConsts.DefaultPassPhrase;
         }

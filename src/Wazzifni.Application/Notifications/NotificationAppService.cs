@@ -1,5 +1,4 @@
 ﻿using Abp;
-using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Domain.Uow;
@@ -88,12 +87,15 @@ namespace Wazzifni.Notifications
                     foreach (var item in userNotifications)
                     {
                         var data = item.Notification.Data.As<TypedMessageNotificationData>();
+
+                        var preferredLang = data.Messages.ContainsKey(lang) ? lang : "ar";
+
                         result.Add(new NotificationDto
                         {
                             Id = item.Id,
                             NotificationName = L(item.Notification.NotificationName),
                             Type = data.NotificationType,
-                            Message = isArabic ? data.ArMessage : data.EnMessage,
+                            Message = data.Messages.ContainsKey(preferredLang) ? data.Messages[preferredLang] : data.Messages["ar"],
                             DateTime = item.Notification.CreationTime,
                             DataForNotification = item.Notification.Data.Properties,
 
@@ -142,17 +144,6 @@ namespace Wazzifni.Notifications
         {
             await _userNotificationManager.UpdateUserNotificationStateAsync(AbpSession.GetTenantId(), input.Id, UserNotificationState.Read);
         }
-        /// <summary>
-        ///// RemindUserOfHisNotSoldOrRentedPropertyBackGroundJob Notify Users
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
 
-        [RemoteService(IsEnabled = false)]
-        public async Task TestNotifyUsersAsync(TestNotificationInputDto input)
-        {
-            var sentNotificationData = new TypedMessageNotificationData(input.Type, input.Message, input.Message, "");
-            await _notificationsService.NotifyUsersAsync(sentNotificationData, input.UserIds, true);
-        }
     }
 }

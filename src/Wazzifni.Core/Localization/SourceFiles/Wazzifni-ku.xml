@@ -36,5 +36,8 @@
 		<text name="WorkApplicationsCreate">مۆڵەتی دروستکردنی داواکاری کار</text>
 		<text name="WorkApplicationsUpdate">مۆڵەتی نوێکردنەوەی داواکاری کار</text>
 		<text name="WorkApplicationsDelete">مۆڵەتی سڕینەوەی داواکاری کار</text>
+
+		<text name="WorkApplicationAccepted">بەڕیز {0}، بە دڵخۆشی پەیوەندیت پێ دەگەیەنین کە داواکاری کارکردنت لە {1} قبووڵ کراوە.</text>
+
 	</texts>
 </localizationDictionary>

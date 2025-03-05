@@ -157,5 +157,9 @@
 	  <text name="WorkApplicationsUpdate">Permission to Update WorkApplication</text>
 	  <text name="WorkApplicationsDelete">Permission to Delete WorkApplication</text>
 
+
+	  <text name="WorkApplicationAccepted">Dear {0}, We are pleased to inform you that your job application at {1} has been accepted.</text>
+
+
   </texts>
 </localizationDictionary>

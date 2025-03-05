@@ -36,5 +36,8 @@
 		<text name="WorkApplicationsCreate">دسترسی ایجاد درخواست شغلی</text>
 		<text name="WorkApplicationsUpdate">دسترسی به‌روزرسانی درخواست شغلی</text>
 		<text name="WorkApplicationsDelete">دسترسی حذف درخواست شغلی</text>
+
+		<text name="WorkApplicationAccepted">کاربر گرامی {0}، خوشحالیم که به اطلاع شما برسانیم که درخواست شغلی شما در {1} پذیرفته شده است.</text>
+
 	</texts>
 </localizationDictionary>

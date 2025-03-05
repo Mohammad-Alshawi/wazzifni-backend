@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<localizationDictionary culture="es">
+<localizationDictionary culture="ar">
   <texts>
 	  <text name="UsersList">قائمة المستخدمين</text>
 	  <text name="UserCreate">إنشاء مستخدم</text>
@@ -39,5 +39,8 @@
 	  <text name="WorkApplicationsCreate">صلاحية انشاء طلب توظيف</text>
 	  <text name="WorkApplicationsUpdate">صلاحية تحديث طلب توظيف</text>
 	  <text name="WorkApplicationsDelete">صلاحية حذف طلب توظيف</text>
+
+	  <text name="WorkApplicationAccepted">عزيزي {0}، يسعدنا إبلاغك بأن طلب التوظيف الخاص بك في {1} قد تم قبوله.</text>
+
   </texts>
 </localizationDictionary>

@@ -27,10 +27,27 @@ public class WorkApplicationNotificationsAppService : IWorkApplicationNotificati
 
     public async Task SendNotificationForAcceptApplication(WorkApplication workApplication)
     {
+        var arCompanyName = workApplication.WorkPost.Company.Translations
+            .Where(x => x.Language == "ar").Select(x => x.Name).FirstOrDefault() ?? workApplication.WorkPost.Company.Translations
+            .Where(x => x.Language == "en").Select(x => x.Name).FirstOrDefault();
+
+        var enCompanyName = workApplication.WorkPost.Company.Translations
+            .Where(x => x.Language == "en").Select(x => x.Name).FirstOrDefault() ?? arCompanyName;
+
+        var faCompanyName = workApplication.WorkPost.Company.Translations
+            .Where(x => x.Language == "fa").Select(x => x.Name).FirstOrDefault() ?? arCompanyName;
+
+        var kuCompanyName = workApplication.WorkPost.Company.Translations
+            .Where(x => x.Language == "ku").Select(x => x.Name).FirstOrDefault() ?? arCompanyName;
+
+
         var messages = new Dictionary<string, string>
         {
-            { "ar", $"تم نشر وظيفة جديدة: {workApplication.WorkPost.Title}" },
-            { "en", $"A new job has been posted: {workApplication.WorkPost.Title}" }
+            { "ar", string.Format(_localizationSource.GetString("WorkApplicationAccepted", CultureInfo.GetCultureInfo("ar")),workApplication.Profile.User.RegistrationFullName,arCompanyName) },
+            { "en", string.Format(_localizationSource.GetString("WorkApplicationAccepted", CultureInfo.GetCultureInfo("en")),workApplication.Profile.User.RegistrationFullName,enCompanyName) },
+            { "ku", string.Format(_localizationSource.GetString("WorkApplicationAccepted", CultureInfo.GetCultureInfo("ku")),workApplication.Profile.User.RegistrationFullName,kuCompanyName) },
+            { "fa", string.Format(_localizationSource.GetString("WorkApplicationAccepted", CultureInfo.GetCultureInfo("fa")),workApplication.Profile.User.RegistrationFullName,faCompanyName) }
+
         };
         var data = new TypedMessageNotificationData(NotificationType.WorkApplicationAccept, messages, "");
         data.Properties.Add("WorkApplicationId", workApplication.Id);
@@ -69,8 +86,12 @@ public class WorkApplicationNotificationsAppService : IWorkApplicationNotificati
         string finalEnMessage = $"{prefixEn}{yourWorkApplicationEn} ({(string.IsNullOrEmpty(locationEn) ? "" : $", {locationEn}")}), {Environment.NewLine}{endMessageEn}";
 
         var notificationType = NotificationType.WorkApplicationAccept;
+        var messages = new Dictionary<string, string>
+        {
 
-        var data = new TypedMessageNotificationData(notificationType, finalArMessage, finalEnMessage, "");
+
+        };
+        var data = new TypedMessageNotificationData(notificationType, messages, "");
         data.Properties.Add("WorkApplicationId", WorkApplication.Id);
         data.Properties.Add("Slug", WorkApplication.WorkPost.Slug);
 

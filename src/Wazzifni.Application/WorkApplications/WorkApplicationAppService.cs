@@ -19,6 +19,7 @@ using Wazzifni.Domain.WorkApplications;
 using Wazzifni.Domain.WorkPosts;
 using Wazzifni.Localization.SourceFiles;
 using Wazzifni.WorkApplications.Dto;
+using Wazzifni.WorkApplicationService.Notifications;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.WorkApplications
@@ -33,6 +34,7 @@ namespace Wazzifni.WorkApplications
         private readonly IWorkPostManager _workPostManager;
         private readonly IAttachmentManager _attachmentManager;
         private readonly IWorkApplicationManager _workApplicationManager;
+        private readonly IWorkApplicationNotificationsAppService _workApplicationNotificationsAppService;
         private readonly ICompanyManager _companyManager;
 
         public WorkApplicationAppService(IRepository<WorkApplication, long> repository,
@@ -41,6 +43,7 @@ namespace Wazzifni.WorkApplications
             IWorkPostManager workPostManager,
             IAttachmentManager attachmentManager,
             IWorkApplicationManager workApplicationManager,
+            IWorkApplicationNotificationsAppService workApplicationNotificationsAppService,
             ICompanyManager companyManager) : base(repository)
         {
             _mapper = mapper;
@@ -49,6 +52,7 @@ namespace Wazzifni.WorkApplications
             _workPostManager = workPostManager;
             _attachmentManager = attachmentManager;
             _workApplicationManager = workApplicationManager;
+            _workApplicationNotificationsAppService = workApplicationNotificationsAppService;
             _companyManager = companyManager;
         }
 
@@ -170,6 +174,8 @@ namespace Wazzifni.WorkApplications
 
             await Repository.UpdateAsync(application);
             await UnitOfWorkManager.Current.SaveChangesAsync();
+
+            await _workApplicationNotificationsAppService.SendNotificationForAcceptApplication(application);
             return _mapper.Map<WorkApplicationDetailsDto>(application);
         }
 
