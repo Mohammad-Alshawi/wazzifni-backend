@@ -7,6 +7,8 @@ namespace Wazzifni.WorkApplicationService.Notifications;
 
 public interface IWorkApplicationNotificationsAppService : IApplicationService
 {
-    Task SendNotificationForAcceptApplication(WorkApplication workApplication);
+    Task SendNotificationForAcceptWorApplicationToOwner(WorkApplication workApplication);
+    Task SendNotificationForRejectWorkApplicationToOwner(WorkApplication workApplication);
+    Task SendNotificationForNewWorkApplication(WorkApplication applicant);
 
 }

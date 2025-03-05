@@ -40,7 +40,11 @@
 	  <text name="WorkApplicationsUpdate">صلاحية تحديث طلب توظيف</text>
 	  <text name="WorkApplicationsDelete">صلاحية حذف طلب توظيف</text>
 
-	  <text name="WorkApplicationAccepted">عزيزي {0}، يسعدنا إبلاغك بأن طلب التوظيف الخاص بك في {1} قد تم قبوله.</text>
-
+	  <text name="WorkApplicationAcceptedToOwner">عزيزي {0}، يسعدنا إبلاغك بأن طلب التوظيف الخاص بك في {1} قد تم قبوله.</text>
+	  <text name="WorkApplicationRejectedToOwner">عزيزي {0}، نأسف لإبلاغك بأن طلب التوظيف الخاص بك في {1} قد تم رفضه. السبب: {2}.</text>
+	  
+	  <text name="NewWorkApplicationSubmitted" lang="ar">
+		  {0} قام بتقديم طلب توظيف لوظيفة {1} في {2}.
+	  </text>
   </texts>
 </localizationDictionary>

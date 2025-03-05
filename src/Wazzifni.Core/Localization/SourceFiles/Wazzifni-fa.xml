@@ -37,7 +37,10 @@
 		<text name="WorkApplicationsUpdate">دسترسی به‌روزرسانی درخواست شغلی</text>
 		<text name="WorkApplicationsDelete">دسترسی حذف درخواست شغلی</text>
 
-		<text name="WorkApplicationAccepted">کاربر گرامی {0}، خوشحالیم که به اطلاع شما برسانیم که درخواست شغلی شما در {1} پذیرفته شده است.</text>
-
+		<text name="WorkApplicationAcceptedToOwner">کاربر گرامی {0}، خوشحالیم که به اطلاع شما برسانیم که درخواست شغلی شما در {1} پذیرفته شده است.</text>
+		<text name="WorkApplicationRejectedToOwner">{0} عزیز، با عرض پوزش به اطلاع می‌رسانیم که درخواست شغلی شما در {1} رد شده است. دلیل: {2}.</text>
+		<text name="NewWorkApplicationSubmitted" lang="fa">
+			{0} برای موقعیت شغلی {1} در {2} درخواست داده است.
+		</text>
 	</texts>
 </localizationDictionary>

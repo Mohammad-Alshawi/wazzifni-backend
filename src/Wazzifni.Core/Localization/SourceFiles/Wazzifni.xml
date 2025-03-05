@@ -158,8 +158,12 @@
 	  <text name="WorkApplicationsDelete">Permission to Delete WorkApplication</text>
 
 
-	  <text name="WorkApplicationAccepted">Dear {0}, We are pleased to inform you that your job application at {1} has been accepted.</text>
-
+	  <text name="WorkApplicationAcceptedToOwner">Dear {0}, We are pleased to inform you that your job application at {1} has been accepted.</text>
+	  <text name="WorkApplicationRejectedToOwner">Dear {0}, We regret to inform you that your job application at {1} has been rejected. Reason: {2}.</text>
+	  
+	  <text name="NewWorkApplicationSubmitted">
+		  {0} has submitted a job application for the position {1} at {2}.
+	  </text>
 
   </texts>
 </localizationDictionary>

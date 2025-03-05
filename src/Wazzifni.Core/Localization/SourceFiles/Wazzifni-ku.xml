@@ -37,7 +37,11 @@
 		<text name="WorkApplicationsUpdate">مۆڵەتی نوێکردنەوەی داواکاری کار</text>
 		<text name="WorkApplicationsDelete">مۆڵەتی سڕینەوەی داواکاری کار</text>
 
-		<text name="WorkApplicationAccepted">بەڕیز {0}، بە دڵخۆشی پەیوەندیت پێ دەگەیەنین کە داواکاری کارکردنت لە {1} قبووڵ کراوە.</text>
-
+		<text name="WorkApplicationAcceptedToOwner">بەڕیز {0}، بە دڵخۆشی پەیوەندیت پێ دەگەیەنین کە داواکاری کارکردنت لە {1} قبووڵ کراوە.</text>
+		<text name="WorkApplicationRejectedToOwner">عزیز {0}، لەبوردنەوە ئاگادارت دەکەین کە داوای کارکردنت لە {1} ڕەت کراوە. هۆکار: {2}.</text>
+		
+		<text name="NewWorkApplicationSubmitted" lang="ku">
+			{0} داوای کارکردن بۆ پۆستە {1} لە {2} کردووە.
+		</text>
 	</texts>
 </localizationDictionary>

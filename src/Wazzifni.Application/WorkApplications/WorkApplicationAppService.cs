@@ -72,8 +72,12 @@ namespace Wazzifni.WorkApplications
             if (workPost.ApplicantsCount >= workPost.RequiredEmployeesCount)
                 workPost.WorkAvailbility = WorkAvailbility.Unavilable;
 
-            await Repository.InsertAndGetIdAsync(application);
+            var id = await Repository.InsertAndGetIdAsync(application);
             UnitOfWorkManager.Current.SaveChanges();
+
+            var workapplication = await _workApplicationManager.GetEntityByIdAsync(id);
+
+            await _workApplicationNotificationsAppService.SendNotificationForNewWorkApplication(workapplication);
 
             return _mapper.Map<WorkApplicationDetailsDto>(application);
         }
@@ -175,7 +179,7 @@ namespace Wazzifni.WorkApplications
             await Repository.UpdateAsync(application);
             await UnitOfWorkManager.Current.SaveChangesAsync();
 
-            await _workApplicationNotificationsAppService.SendNotificationForAcceptApplication(application);
+            await _workApplicationNotificationsAppService.SendNotificationForAcceptWorApplicationToOwner(application);
             return _mapper.Map<WorkApplicationDetailsDto>(application);
         }
 
@@ -202,6 +206,8 @@ namespace Wazzifni.WorkApplications
 
             await Repository.UpdateAsync(application);
             await UnitOfWorkManager.Current.SaveChangesAsync();
+            await _workApplicationNotificationsAppService.SendNotificationForRejectWorkApplicationToOwner(application);
+
             return _mapper.Map<WorkApplicationDetailsDto>(application);
         }
 
