@@ -24,6 +24,7 @@ using Wazzifni.Authorization.Roles;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Domain.Attachments;
 using Wazzifni.Localization.SourceFiles;
+using Wazzifni.NotificationService;
 using Wazzifni.Roles.Dto;
 using Wazzifni.Users.Dto;
 using static Wazzifni.Enums.Enum;
@@ -43,6 +44,7 @@ namespace Wazzifni.Users
         private readonly IRepository<UserLoginAttempt, long> _userLoginAttemptRepository;
         private readonly IRepository<AuditLog, long> _auditLogRepository;
         private readonly IAttachmentManager _attachmentManager;
+        private readonly FirebaseNotificationService _firebaseNotificationService;
         private readonly ISettingManager _settingManager;
 
         private static readonly Dictionary<UserType, string[]> UserTypeRoleMapping = new()
@@ -63,6 +65,7 @@ namespace Wazzifni.Users
             IRepository<UserLoginAttempt, long> userLoginAttemptRepository,
             IRepository<AuditLog, long> auditLogRepository,
             IAttachmentManager attachmentManager,
+            FirebaseNotificationService firebaseNotificationService,
             ISettingManager settingManager
         )
             : base(repository)
@@ -77,6 +80,7 @@ namespace Wazzifni.Users
             _userLoginAttemptRepository = userLoginAttemptRepository;
             _auditLogRepository = auditLogRepository;
             _attachmentManager = attachmentManager;
+            _firebaseNotificationService = firebaseNotificationService;
             _settingManager = settingManager;
         }
         [AbpAuthorize(PermissionNames.Users_List)]
@@ -367,12 +371,20 @@ namespace Wazzifni.Users
         {
             var user = await GetEntityByIdAsync(AbpSession.UserId.Value);
 
-            // Update user fcm token
             user.FcmToken = input;
             if (!input.IsNullOrWhiteSpace())
-                // await _firebaseNotificationService.SubscribeToTopic(new List<string> { user.FcmToken }, TopicType.All);
+                await _firebaseNotificationService.SubscribeToTopic(new List<string> { user.FcmToken }, TopicType.All);
 
-                await Repository.UpdateAsync(user);
+            if (await _userManager.IsBasicUser(user.Id))
+                await _firebaseNotificationService.SubscribeToTopic(new List<string> { user.FcmToken }, TopicType.BasicUser);
+
+            if (await _userManager.IsCompany(user.Id))
+                await _firebaseNotificationService.SubscribeToTopic(new List<string> { user.FcmToken }, TopicType.CompanyUser);
+
+            if (user.Type == UserType.Admin)
+                await _firebaseNotificationService.SubscribeToTopic(new List<string> { user.FcmToken }, TopicType.Admin);
+
+            await Repository.UpdateAsync(user);
         }
 
 

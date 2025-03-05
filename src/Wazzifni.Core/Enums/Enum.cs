@@ -235,6 +235,15 @@ namespace Wazzifni.Enums
             ThisWeek = 2,
             ThisMonth = 3
         }
+
+        public enum TopicType : byte
+        {
+            All = 0,
+            Admin = 1,
+            BasicUser = 2,
+            CompanyUser = 3,
+
+        }
     }
 }
 
