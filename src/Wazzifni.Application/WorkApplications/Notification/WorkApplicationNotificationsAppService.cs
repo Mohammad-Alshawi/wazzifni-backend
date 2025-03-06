@@ -132,6 +132,28 @@ public class WorkApplicationNotificationsAppService : IWorkApplicationNotificati
         await _InotificationService.NotifyUsersAsync(data, userIds.ToArray(), true);
     }
 
+
+
+    public async Task SendNotificationForSendWorkApplicationToOwner(WorkApplication applicant)
+    {
+
+        var messages = new Dictionary<string, string>
+                    {
+                        { "ar", string.Format(_localizationSource.GetString("WorkApplicationSentForOwner", CultureInfo.GetCultureInfo("ar"))) },
+                        { "en", string.Format(_localizationSource.GetString("WorkApplicationSentForOwner", CultureInfo.GetCultureInfo("en"))) },
+                        { "ku", string.Format(_localizationSource.GetString("WorkApplicationSentForOwner", CultureInfo.GetCultureInfo("ku"))) },
+                        { "fa", string.Format(_localizationSource.GetString("WorkApplicationSentForOwner", CultureInfo.GetCultureInfo("fa"))) }
+                    };
+
+        var data = new TypedMessageNotificationData(NotificationType.WorkApplicationSent, messages, "");
+
+        data.Properties.Add("WorkApplicationId", applicant.Id);
+        data.Properties.Add("WorkPostId", applicant.WorkPostId);
+        data.Properties.Add("Slug", applicant.WorkPost.Slug);
+
+        List<long> userIds = new List<long> { applicant.Profile.UserId };
+        await _InotificationService.NotifyUsersAsync(data, userIds.ToArray(), true);
+    }
     ////////////////////////////////////////Help Method ////////////////////////////////////////////////////
 
     private async Task NotifyUser(WorkApplication WorkApplication)

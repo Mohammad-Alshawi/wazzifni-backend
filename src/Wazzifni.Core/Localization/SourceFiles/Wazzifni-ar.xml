@@ -46,5 +46,12 @@
 	  <text name="NewWorkApplicationSubmitted" lang="ar">
 		  {0} قام بتقديم طلب توظيف لوظيفة {1} في {2}.
 	  </text>
+
+	  <text name="WorkApplicationSentForOwner">تم إرسال طلب التوظيف بنجاح</text>
+	  
+	  <text name="WorkPostSentForCompany">تم إرسال منشور الوظيفة بنجاح وهو قيد المراجعة قبل النشر.</text>
+	  
+
+
   </texts>
 </localizationDictionary>

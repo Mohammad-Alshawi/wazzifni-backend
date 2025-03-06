@@ -164,6 +164,11 @@
 	  <text name="NewWorkApplicationSubmitted">
 		  {0} has submitted a job application for the position {1} at {2}.
 	  </text>
+	  
+	  <text name="WorkApplicationSentForOwner">The work application has been sent successfully</text>
+
+	  <text name="WorkPostSentForCompany">The work post has been sent successfully and is under review before being published.</text>
+
 
   </texts>
 </localizationDictionary>

@@ -78,6 +78,7 @@ namespace Wazzifni.WorkApplications
             var workapplication = await _workApplicationManager.GetEntityByIdAsync(id);
 
             await _workApplicationNotificationsAppService.SendNotificationForNewWorkApplication(workapplication);
+            await _workApplicationNotificationsAppService.SendNotificationForSendWorkApplicationToOwner(workapplication);
 
             return _mapper.Map<WorkApplicationDetailsDto>(application);
         }

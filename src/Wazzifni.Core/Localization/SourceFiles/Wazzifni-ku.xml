@@ -43,5 +43,10 @@
 		<text name="NewWorkApplicationSubmitted" lang="ku">
 			{0} داوای کارکردن بۆ پۆستە {1} لە {2} کردووە.
 		</text>
+
+		<text name="WorkApplicationSentForOwner">داواکردنی کار بە سەرکەوتووی نێردرا</text>
+		
+		<text name="WorkPostSentForCompany">پەیامی کار بە سەرکەوتوویی ناردرا و ئێستا لە تاقیکردنەوەی پێش ڕوونکردنەوەیە.</text>
+
 	</texts>
 </localizationDictionary>

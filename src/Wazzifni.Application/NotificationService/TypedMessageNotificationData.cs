@@ -54,7 +54,8 @@ namespace Wazzifni.NotificationService
         PushNotification = 1,
         WorkApplicationAccept = 2,
         WorkApplicationReject = 3,
-        NewWorkApplication = 4
+        NewWorkApplication = 4,
+        WorkApplicationSent = 5
 
     }
 }

@@ -42,5 +42,10 @@
 		<text name="NewWorkApplicationSubmitted" lang="fa">
 			{0} برای موقعیت شغلی {1} در {2} درخواست داده است.
 		</text>
+
+		<text name="WorkApplicationSentForOwner">درخواست استخدام با موفقیت ارسال شد</text>
+		
+		<text name="WorkPostSentForCompany">آگهی کاری با موفقیت ارسال شد و در حال بررسی قبل از انتشار است.</text>
+
 	</texts>
 </localizationDictionary>

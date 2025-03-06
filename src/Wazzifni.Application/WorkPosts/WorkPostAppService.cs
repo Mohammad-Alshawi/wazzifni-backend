@@ -19,6 +19,7 @@ using Wazzifni.Domain.WorkPostFaveorites;
 using Wazzifni.Domain.WorkPosts;
 using Wazzifni.Localization.SourceFiles;
 using Wazzifni.WorkPosts.Dto;
+using Wazzifni.WorkPosts.Notifications;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.WorkPosts
@@ -33,6 +34,7 @@ namespace Wazzifni.WorkPosts
         private readonly IFavoriteWorkPostManager _favoriteWorkPostManager;
         private readonly IWorkApplicationManager _workApplicationManager;
         private readonly IAttachmentManager _attachmentManager;
+        private readonly IWorkPostNotificationService _workPostNotificationService;
         private readonly ICompanyManager _companyManager;
 
         public WorkPostAppService(IRepository<WorkPost, long> repository,
@@ -41,6 +43,7 @@ namespace Wazzifni.WorkPosts
             IFavoriteWorkPostManager favoriteWorkPostManager,
             IWorkApplicationManager workApplicationManager,
             IAttachmentManager attachmentManager,
+            IWorkPostNotificationService workPostNotificationService,
             ICompanyManager companyManager) : base(repository)
         {
             _mapper = mapper;
@@ -49,6 +52,7 @@ namespace Wazzifni.WorkPosts
             _favoriteWorkPostManager = favoriteWorkPostManager;
             _workApplicationManager = workApplicationManager;
             _attachmentManager = attachmentManager;
+            _workPostNotificationService = workPostNotificationService;
             _companyManager = companyManager;
         }
 
@@ -77,6 +81,8 @@ namespace Wazzifni.WorkPosts
 
             await Repository.InsertAndGetIdAsync(post);
             UnitOfWorkManager.Current.SaveChanges();
+
+            await _workPostNotificationService.SendNotificationForSendWorkPostToCompany(post);
 
             return _mapper.Map<WorkPostDetailsDto>(post);
         }
