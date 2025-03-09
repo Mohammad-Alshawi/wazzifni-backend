@@ -47,5 +47,13 @@
 		
 		<text name="WorkPostSentForCompany">آگهی کاری با موفقیت ارسال شد و در حال بررسی قبل از انتشار است.</text>
 
+		<text name="NewWorkApplicationSubmittedToAdmin">{0} برای شغل {1} در شرکت {2} درخواست داده است.</text>
+		<text name="WorkApplicationAcceptedByAdmin">درخواست {0} برای شغل {1} در شرکت {2} پذیرفته شد.</text>
+		<text name="WorkApplicationRejectedByAdmin">درخواست {0} برای شغل {1} در شرکت {2} رد شد.</text>
+		
+		<text name="WorkPostCreateToAdmin">شرکت {0} یک موقعیت شغلی با عنوان {1} منتشر کرده است.</text>
+		<text name="WorkPostAcceptedToAdmin">آگهی شغلی {0} برای شرکت {1} تأیید شد.</text>
+		<text name="WorkPostAcceptedToCompany">آگهی شغلی شما {0} برای انتشار تأیید شد.</text>
+
 	</texts>
 </localizationDictionary>

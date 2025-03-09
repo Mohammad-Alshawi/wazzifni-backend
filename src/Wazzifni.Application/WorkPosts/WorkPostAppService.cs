@@ -68,6 +68,9 @@ namespace Wazzifni.WorkPosts
             }
             else post.CompanyId = input.CompanyId.Value;
 
+            var company = await _companyManager.GetLiteCompanyByIdAsync(post.CompanyId);
+
+            post.Company = company;
             post.Status = WorkPostStatus.Approved;
             post.WorkAvailbility = WorkAvailbility.Available;
 
@@ -83,6 +86,7 @@ namespace Wazzifni.WorkPosts
             UnitOfWorkManager.Current.SaveChanges();
 
             await _workPostNotificationService.SendNotificationForSendWorkPostToCompany(post);
+            await _workPostNotificationService.SendNotificationForCreateWorkPostToAdmin(post);
 
             return _mapper.Map<WorkPostDetailsDto>(post);
         }

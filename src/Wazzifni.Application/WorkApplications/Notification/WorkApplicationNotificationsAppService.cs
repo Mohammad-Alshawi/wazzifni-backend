@@ -93,20 +93,10 @@ public class WorkApplicationNotificationsAppService : IWorkApplicationNotificati
 
 
 
-    public async Task SendNotificationForNewWorkApplication(WorkApplication applicant)
+    public async Task SendNotificationForNewWorkApplicationToCompany(WorkApplication applicant)
     {
-        var arCompanyName = applicant.WorkPost.Company.Translations
-            .Where(x => x.Language == "ar").Select(x => x.Name).FirstOrDefault() ?? applicant.WorkPost.Company.Translations
-            .Where(x => x.Language == "en").Select(x => x.Name).FirstOrDefault();
-
-        var enCompanyName = applicant.WorkPost.Company.Translations
-            .Where(x => x.Language == "en").Select(x => x.Name).FirstOrDefault() ?? arCompanyName;
-
-        var faCompanyName = applicant.WorkPost.Company.Translations
-            .Where(x => x.Language == "fa").Select(x => x.Name).FirstOrDefault() ?? arCompanyName;
-
-        var kuCompanyName = applicant.WorkPost.Company.Translations
-            .Where(x => x.Language == "ku").Select(x => x.Name).FirstOrDefault() ?? arCompanyName;
+        string arCompanyName, enCompanyName, faCompanyName, kuCompanyName;
+        GetCompanyNameWithLocalization(applicant, out arCompanyName, out enCompanyName, out faCompanyName, out kuCompanyName);
 
         var jobTitle = applicant.WorkPost.Title;
 
@@ -127,12 +117,22 @@ public class WorkApplicationNotificationsAppService : IWorkApplicationNotificati
         data.Properties.Add("Slug", applicant.WorkPost.Slug);
 
         List<long> userIds = new List<long> { applicant.WorkPost.Company.UserId.Value };
-        var admins = await _userManager.Users.Where(x => x.Type == UserType.Admin).Select(x => x.Id).ToArrayAsync();
-        userIds.AddRange(admins);
+
         await _InotificationService.NotifyUsersAsync(data, userIds.ToArray(), true);
     }
 
-
+    private static void GetCompanyNameWithLocalization(WorkApplication applicant, out string arCompanyName, out string enCompanyName, out string faCompanyName, out string kuCompanyName)
+    {
+        arCompanyName = applicant.WorkPost.Company.Translations
+            .Where(x => x.Language == "ar").Select(x => x.Name).FirstOrDefault() ?? applicant.WorkPost.Company.Translations
+            .Where(x => x.Language == "en").Select(x => x.Name).FirstOrDefault();
+        enCompanyName = applicant.WorkPost.Company.Translations
+            .Where(x => x.Language == "en").Select(x => x.Name).FirstOrDefault() ?? arCompanyName;
+        faCompanyName = applicant.WorkPost.Company.Translations
+            .Where(x => x.Language == "fa").Select(x => x.Name).FirstOrDefault() ?? arCompanyName;
+        kuCompanyName = applicant.WorkPost.Company.Translations
+            .Where(x => x.Language == "ku").Select(x => x.Name).FirstOrDefault() ?? arCompanyName;
+    }
 
     public async Task SendNotificationForSendWorkApplicationToOwner(WorkApplication applicant)
     {
@@ -191,6 +191,88 @@ public class WorkApplicationNotificationsAppService : IWorkApplicationNotificati
         await _InotificationService.NotifyUsersAsync(data, new[] { WorkApplication.Profile.UserId }, true);
     }
 
+
+    public async Task SendNotificationForNewWorkApplicationToAdmin(WorkApplication applicant)
+    {
+
+        string arCompanyName, enCompanyName, faCompanyName, kuCompanyName;
+        GetCompanyNameWithLocalization(applicant, out arCompanyName, out enCompanyName, out faCompanyName, out kuCompanyName);
+
+        var jobTitle = applicant.WorkPost.Title;
+
+        var messages = new Dictionary<string, string>
+                    {
+                        { "ar", string.Format(_localizationSource.GetString("NewWorkApplicationSubmittedToAdmin", CultureInfo.GetCultureInfo("ar")), applicant.Profile.User.RegistrationFullName, jobTitle, arCompanyName) },
+                        { "en", string.Format(_localizationSource.GetString("NewWorkApplicationSubmittedToAdmin", CultureInfo.GetCultureInfo("en")), applicant.Profile.User.RegistrationFullName, jobTitle, enCompanyName) },
+                        { "ku", string.Format(_localizationSource.GetString("NewWorkApplicationSubmittedToAdmin", CultureInfo.GetCultureInfo("ku")), applicant.Profile.User.RegistrationFullName, jobTitle, kuCompanyName) },
+                        { "fa", string.Format(_localizationSource.GetString("NewWorkApplicationSubmittedToAdmin", CultureInfo.GetCultureInfo("fa")), applicant.Profile.User.RegistrationFullName, jobTitle, faCompanyName) }
+                    };
+
+        var data = new TypedMessageNotificationData(NotificationType.NewWorkApplication, messages, "");
+
+        data.Properties.Add("WorkApplicationId", applicant.Id);
+        data.Properties.Add("WorkPostId", applicant.WorkPostId);
+        data.Properties.Add("Slug", applicant.WorkPost.Slug);
+
+        List<long> userIds = new List<long> { };
+        var admins = await _userManager.Users.Where(x => x.Type == UserType.Admin).Select(x => x.Id).ToArrayAsync();
+        userIds.AddRange(admins);
+        await _InotificationService.NotifyUsersAsync(data, userIds.ToArray(), true);
+    }
+
+    public async Task SendNotificationForAcceptWorApplicationToAdmin(WorkApplication applicant)
+    {
+        string arCompanyName, enCompanyName, faCompanyName, kuCompanyName;
+        GetCompanyNameWithLocalization(applicant, out arCompanyName, out enCompanyName, out faCompanyName, out kuCompanyName);
+
+        var jobTitle = applicant.WorkPost.Title;
+
+        var messages = new Dictionary<string, string>
+                    {
+                        { "ar", string.Format(_localizationSource.GetString("WorkApplicationAcceptedByAdmin", CultureInfo.GetCultureInfo("ar")), applicant.Profile.User.RegistrationFullName, jobTitle, arCompanyName) },
+                        { "en", string.Format(_localizationSource.GetString("WorkApplicationAcceptedByAdmin", CultureInfo.GetCultureInfo("en")), applicant.Profile.User.RegistrationFullName, jobTitle, enCompanyName) },
+                        { "ku", string.Format(_localizationSource.GetString("WorkApplicationAcceptedByAdmin", CultureInfo.GetCultureInfo("ku")), applicant.Profile.User.RegistrationFullName, jobTitle, kuCompanyName) },
+                        { "fa", string.Format(_localizationSource.GetString("WorkApplicationAcceptedByAdmin", CultureInfo.GetCultureInfo("fa")), applicant.Profile.User.RegistrationFullName, jobTitle, faCompanyName) }
+                    };
+
+        var data = new TypedMessageNotificationData(NotificationType.WorkApplicationAccept, messages, "");
+
+        data.Properties.Add("WorkApplicationId", applicant.Id);
+        data.Properties.Add("WorkPostId", applicant.WorkPostId);
+        data.Properties.Add("Slug", applicant.WorkPost.Slug);
+
+        List<long> userIds = new List<long> { };
+        var admins = await _userManager.Users.Where(x => x.Type == UserType.Admin).Select(x => x.Id).ToArrayAsync();
+        userIds.AddRange(admins);
+        await _InotificationService.NotifyUsersAsync(data, userIds.ToArray(), true);
+    }
+
+    public async Task SendNotificationForRejectWorkApplicationToAdmin(WorkApplication applicant)
+    {
+        string arCompanyName, enCompanyName, faCompanyName, kuCompanyName;
+        GetCompanyNameWithLocalization(applicant, out arCompanyName, out enCompanyName, out faCompanyName, out kuCompanyName);
+
+        var jobTitle = applicant.WorkPost.Title;
+
+        var messages = new Dictionary<string, string>
+                    {
+                        { "ar", string.Format(_localizationSource.GetString("WorkApplicationRejectedByAdmin", CultureInfo.GetCultureInfo("ar")), applicant.Profile.User.RegistrationFullName, jobTitle, arCompanyName) },
+                        { "en", string.Format(_localizationSource.GetString("WorkApplicationRejectedByAdmin", CultureInfo.GetCultureInfo("en")), applicant.Profile.User.RegistrationFullName, jobTitle, enCompanyName) },
+                        { "ku", string.Format(_localizationSource.GetString("WorkApplicationRejectedByAdmin", CultureInfo.GetCultureInfo("ku")), applicant.Profile.User.RegistrationFullName, jobTitle, kuCompanyName) },
+                        { "fa", string.Format(_localizationSource.GetString("WorkApplicationRejectedByAdmin", CultureInfo.GetCultureInfo("fa")), applicant.Profile.User.RegistrationFullName, jobTitle, faCompanyName) }
+                    };
+
+        var data = new TypedMessageNotificationData(NotificationType.WorkApplicationReject, messages, "");
+
+        data.Properties.Add("WorkApplicationId", applicant.Id);
+        data.Properties.Add("WorkPostId", applicant.WorkPostId);
+        data.Properties.Add("Slug", applicant.WorkPost.Slug);
+
+        List<long> userIds = new List<long> { };
+        var admins = await _userManager.Users.Where(x => x.Type == UserType.Admin).Select(x => x.Id).ToArrayAsync();
+        userIds.AddRange(admins);
+        await _InotificationService.NotifyUsersAsync(data, userIds.ToArray(), true);
+    }
 
     private (string, string) GetYourWorkApplicationMessage(WorkApplication workApplication)
     {

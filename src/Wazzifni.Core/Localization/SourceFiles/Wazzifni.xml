@@ -168,7 +168,14 @@
 	  <text name="WorkApplicationSentForOwner">The work application has been sent successfully</text>
 
 	  <text name="WorkPostSentForCompany">The work post has been sent successfully and is under review before being published.</text>
+	 
+	  <text name="NewWorkApplicationSubmittedToAdmin">{0} applied for a {1} job at {2} Company.</text>
+	  <text name="WorkApplicationAcceptedByAdmin">{0}'s application for the {1} job at {2} Company has been accepted.</text>
+	  <text name="WorkApplicationRejectedByAdmin">{0}'s application for the {1} job at {2} Company has been rejected.</text>
 
-
+	  <text name="WorkPostCreateToAdmin">{0} Company has posted a job title for {1}.</text>
+	  <text name="WorkPostAcceptedToAdmin">{0} post job has been approved for {1} Company.</text>
+	  <text name="WorkPostAcceptedToCompany">Your job {0} has been approved for publication.</text>
+	  
   </texts>
 </localizationDictionary>

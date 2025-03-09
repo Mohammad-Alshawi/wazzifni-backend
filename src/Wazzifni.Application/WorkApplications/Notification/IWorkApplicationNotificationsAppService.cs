@@ -9,6 +9,13 @@ public interface IWorkApplicationNotificationsAppService : IApplicationService
 {
     Task SendNotificationForAcceptWorApplicationToOwner(WorkApplication workApplication);
     Task SendNotificationForRejectWorkApplicationToOwner(WorkApplication workApplication);
-    Task SendNotificationForNewWorkApplication(WorkApplication applicant);
+    Task SendNotificationForNewWorkApplicationToCompany(WorkApplication applicant);
     Task SendNotificationForSendWorkApplicationToOwner(WorkApplication applicant);
+
+    Task SendNotificationForNewWorkApplicationToAdmin(WorkApplication applicant);
+    Task SendNotificationForAcceptWorApplicationToAdmin(WorkApplication workApplication);
+    Task SendNotificationForRejectWorkApplicationToAdmin(WorkApplication workApplication);
+
+
+
 }

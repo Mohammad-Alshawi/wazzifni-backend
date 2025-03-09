@@ -77,8 +77,10 @@ namespace Wazzifni.WorkApplications
 
             var workapplication = await _workApplicationManager.GetEntityByIdAsync(id);
 
-            await _workApplicationNotificationsAppService.SendNotificationForNewWorkApplication(workapplication);
+            await _workApplicationNotificationsAppService.SendNotificationForNewWorkApplicationToCompany(workapplication);
             await _workApplicationNotificationsAppService.SendNotificationForSendWorkApplicationToOwner(workapplication);
+            await _workApplicationNotificationsAppService.SendNotificationForNewWorkApplicationToAdmin(workapplication);
+
 
             return _mapper.Map<WorkApplicationDetailsDto>(application);
         }
@@ -181,6 +183,9 @@ namespace Wazzifni.WorkApplications
             await UnitOfWorkManager.Current.SaveChangesAsync();
 
             await _workApplicationNotificationsAppService.SendNotificationForAcceptWorApplicationToOwner(application);
+            await _workApplicationNotificationsAppService.SendNotificationForAcceptWorApplicationToAdmin(application);
+
+
             return _mapper.Map<WorkApplicationDetailsDto>(application);
         }
 
@@ -207,7 +212,9 @@ namespace Wazzifni.WorkApplications
 
             await Repository.UpdateAsync(application);
             await UnitOfWorkManager.Current.SaveChangesAsync();
+
             await _workApplicationNotificationsAppService.SendNotificationForRejectWorkApplicationToOwner(application);
+            await _workApplicationNotificationsAppService.SendNotificationForRejectWorkApplicationToAdmin(application);
 
             return _mapper.Map<WorkApplicationDetailsDto>(application);
         }

@@ -50,7 +50,14 @@
 	  <text name="WorkApplicationSentForOwner">تم إرسال طلب التوظيف بنجاح</text>
 	  
 	  <text name="WorkPostSentForCompany">تم إرسال منشور الوظيفة بنجاح وهو قيد المراجعة قبل النشر.</text>
-	  
+
+	  <text name="NewWorkApplicationSubmittedToAdmin">{0} تقدم بطلب للحصول على وظيفة {1} لدى شركة {2}.</text>
+	  <text name="WorkApplicationAcceptedByAdmin">تم قبول طلب {0} لوظيفة {1} لدى شركة {2}.</text>
+	  <text name="WorkApplicationRejectedByAdmin">تم رفض طلب {0} لوظيفة {1} لدى شركة {2}.</text>
+
+	  <text name="WorkPostCreateToAdmin">شركة {0} قامت بنشر وظيفة بعنوان {1}.</text>
+	  <text name="WorkPostAcceptedToAdmin">تمت الموافقة على نشر وظيفة {0} لشركة {1}.</text>
+	  <text name="WorkPostAcceptedToCompany">تمت الموافقة على نشر وظيفتك {0}.</text>
 
 
   </texts>
