@@ -59,6 +59,13 @@
 	  <text name="WorkPostAcceptedToAdmin">تمت الموافقة على نشر وظيفة {0} لشركة {1}.</text>
 	  <text name="WorkPostAcceptedToCompany">تمت الموافقة على نشر وظيفتك {0}.</text>
 
+	  <text name="WorkApplicationAccept">قبول طلب التوظيف</text>
+	  <text name="WorkApplicationReject">رفض طلب التوظيف</text>
+	  <text name="NewWorkApplication">طلب توظيف جديد</text>
+	  <text name="WorkApplicationSent">إرسال طلب التوظيف</text>
+	  <text name="WorkPostAccept">قبول منشور الوظيفة</text>
+	  <text name="NewWorkPost">وظيفة جديدة</text>
+	  <text name="WorkPostSent">إرسال منشور الوظيفة</text>
 
   </texts>
 </localizationDictionary>

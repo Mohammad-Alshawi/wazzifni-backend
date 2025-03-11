@@ -57,5 +57,13 @@
 		<text name="WorkPostAcceptedToAdmin">ڕاگەیاندنی کارەکەی {0} بۆ کۆمپانیای {1} قبووڵ کرا.</text>
 		<text name="WorkPostAcceptedToCompany">ڕاگەیاندنی کارەکەت {0} بۆ بڵاوکردنەوە قبووڵ کرا.</text>
 
+		<text name="WorkApplicationAccept">قبوونەوەی داوای کار</text>
+		<text name="WorkApplicationReject">ڕەتکردنەوەی داوای کار</text>
+		<text name="NewWorkApplication">داوای کاری نوێ</text>
+		<text name="WorkApplicationSent">ناردنی داوای کار</text>
+		<text name="WorkPostAccept">قبوونەوەی پۆستی کار</text>
+		<text name="NewWorkPost">پۆستی کاری نوێ</text>
+		<text name="WorkPostSent">ناردنی پۆستی کار</text>
+
 	</texts>
 </localizationDictionary>

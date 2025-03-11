@@ -176,6 +176,15 @@
 	  <text name="WorkPostCreateToAdmin">{0} Company has posted a job title for {1}.</text>
 	  <text name="WorkPostAcceptedToAdmin">{0} post job has been approved for {1} Company.</text>
 	  <text name="WorkPostAcceptedToCompany">Your job {0} has been approved for publication.</text>
-	  
+
+
+	  <text name="WorkApplicationAccept">Work Application Accepted</text>
+	  <text name="WorkApplicationReject">Work Application Rejected</text>
+	  <text name="NewWorkApplication">New Work Application</text>
+	  <text name="WorkApplicationSent">Work Application Sent</text>
+	  <text name="WorkPostAccept">Work Post Accepted</text>
+	  <text name="NewWorkPost">New Work Post</text>
+	  <text name="WorkPostSent">Work Post Sent</text>
+
   </texts>
 </localizationDictionary>

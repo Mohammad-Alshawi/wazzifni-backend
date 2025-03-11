@@ -56,6 +56,10 @@ public class WorkApplicationNotificationsAppService : IWorkApplicationNotificati
         var data = new TypedMessageNotificationData(NotificationType.WorkApplicationAccept, messages, "");
         data.Properties.Add("WorkApplicationId", workApplication.Id);
         data.Properties.Add("Slug", workApplication.WorkPost.Slug);
+        data.Properties.Add("CompanyId", workApplication.WorkPost.CompanyId);
+        data.Properties.Add("ProfileId", workApplication.ProfileId);
+        data.Properties.Add("WorkPostId", workApplication.WorkPostId);
+
         List<long> userIds = new List<long> { workApplication.Profile.UserId };
         await _InotificationService.NotifyUsersAsync(data, userIds.ToArray(), true);
     }
@@ -86,6 +90,9 @@ public class WorkApplicationNotificationsAppService : IWorkApplicationNotificati
         var data = new TypedMessageNotificationData(NotificationType.WorkApplicationReject, messages, "");
         data.Properties.Add("WorkApplicationId", workApplication.Id);
         data.Properties.Add("Slug", workApplication.WorkPost.Slug);
+        data.Properties.Add("CompanyId", workApplication.WorkPost.CompanyId);
+        data.Properties.Add("ProfileId", workApplication.ProfileId);
+        data.Properties.Add("WorkPostId", workApplication.WorkPostId);
 
         List<long> userIds = new List<long> { workApplication.Profile.UserId };
         await _InotificationService.NotifyUsersAsync(data, userIds.ToArray(), true);
@@ -115,6 +122,8 @@ public class WorkApplicationNotificationsAppService : IWorkApplicationNotificati
         data.Properties.Add("WorkApplicationId", applicant.Id);
         data.Properties.Add("WorkPostId", applicant.WorkPostId);
         data.Properties.Add("Slug", applicant.WorkPost.Slug);
+        data.Properties.Add("CompanyId", applicant.WorkPost.CompanyId);
+        data.Properties.Add("ProfileId", applicant.ProfileId);
 
         List<long> userIds = new List<long> { applicant.WorkPost.Company.UserId.Value };
 
@@ -150,6 +159,8 @@ public class WorkApplicationNotificationsAppService : IWorkApplicationNotificati
         data.Properties.Add("WorkApplicationId", applicant.Id);
         data.Properties.Add("WorkPostId", applicant.WorkPostId);
         data.Properties.Add("Slug", applicant.WorkPost.Slug);
+        data.Properties.Add("CompanyId", applicant.WorkPost.CompanyId);
+        data.Properties.Add("ProfileId", applicant.ProfileId);
 
         List<long> userIds = new List<long> { applicant.Profile.UserId };
         await _InotificationService.NotifyUsersAsync(data, userIds.ToArray(), true);
@@ -213,6 +224,8 @@ public class WorkApplicationNotificationsAppService : IWorkApplicationNotificati
         data.Properties.Add("WorkApplicationId", applicant.Id);
         data.Properties.Add("WorkPostId", applicant.WorkPostId);
         data.Properties.Add("Slug", applicant.WorkPost.Slug);
+        data.Properties.Add("CompanyId", applicant.WorkPost.CompanyId);
+        data.Properties.Add("ProfileId", applicant.ProfileId);
 
         List<long> userIds = new List<long> { };
         var admins = await _userManager.Users.Where(x => x.Type == UserType.Admin).Select(x => x.Id).ToArrayAsync();
@@ -240,6 +253,8 @@ public class WorkApplicationNotificationsAppService : IWorkApplicationNotificati
         data.Properties.Add("WorkApplicationId", applicant.Id);
         data.Properties.Add("WorkPostId", applicant.WorkPostId);
         data.Properties.Add("Slug", applicant.WorkPost.Slug);
+        data.Properties.Add("CompanyId", applicant.WorkPost.CompanyId);
+        data.Properties.Add("ProfileId", applicant.ProfileId);
 
         List<long> userIds = new List<long> { };
         var admins = await _userManager.Users.Where(x => x.Type == UserType.Admin).Select(x => x.Id).ToArrayAsync();
@@ -267,6 +282,8 @@ public class WorkApplicationNotificationsAppService : IWorkApplicationNotificati
         data.Properties.Add("WorkApplicationId", applicant.Id);
         data.Properties.Add("WorkPostId", applicant.WorkPostId);
         data.Properties.Add("Slug", applicant.WorkPost.Slug);
+        data.Properties.Add("CompanyId", applicant.WorkPost.CompanyId);
+        data.Properties.Add("ProfileId", applicant.ProfileId);
 
         List<long> userIds = new List<long> { };
         var admins = await _userManager.Users.Where(x => x.Type == UserType.Admin).Select(x => x.Id).ToArrayAsync();

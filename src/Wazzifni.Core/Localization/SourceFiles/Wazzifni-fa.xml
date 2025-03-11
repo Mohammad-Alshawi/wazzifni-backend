@@ -55,5 +55,13 @@
 		<text name="WorkPostAcceptedToAdmin">آگهی شغلی {0} برای شرکت {1} تأیید شد.</text>
 		<text name="WorkPostAcceptedToCompany">آگهی شغلی شما {0} برای انتشار تأیید شد.</text>
 
+		<text name="WorkApplicationAccept">پذیرش درخواست کار</text>
+		<text name="WorkApplicationReject">رد درخواست کار</text>
+		<text name="NewWorkApplication">درخواست کار جدید</text>
+		<text name="WorkApplicationSent">ارسال درخواست کار</text>
+		<text name="WorkPostAccept">پذیرش پست کاری</text>
+		<text name="NewWorkPost">پست کاری جدید</text>
+		<text name="WorkPostSent">ارسال پست کاری</text>
+
 	</texts>
 </localizationDictionary>

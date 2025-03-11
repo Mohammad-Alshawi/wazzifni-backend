@@ -52,12 +52,15 @@ namespace Wazzifni.NotificationService
     public enum NotificationType : byte
     {
         PushNotification = 1,
+
         WorkApplicationAccept = 2,
         WorkApplicationReject = 3,
         NewWorkApplication = 4,
         WorkApplicationSent = 5,
-        AcceptWorkPost = 6,
-        CreateWorkPost = 7
+
+        WorkPostAccept = 6,
+        NewWorkPost = 7,
+        WorkPostSent = 8
 
     }
 }

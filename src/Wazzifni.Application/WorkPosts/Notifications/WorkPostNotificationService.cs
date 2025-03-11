@@ -39,10 +39,11 @@ namespace Wazzifni.WorkPosts.Notifications
                         { "fa", string.Format(_localizationSource.GetString("WorkPostAcceptedToAdmin", CultureInfo.GetCultureInfo("fa"),work.Title,faCompanyName)) }
                     };
 
-            var data = new TypedMessageNotificationData(NotificationType.AcceptWorkPost, messages, "");
+            var data = new TypedMessageNotificationData(NotificationType.WorkPostAccept, messages, "");
 
             data.Properties.Add("WorkPostId", work.Id);
             data.Properties.Add("Slug", work.Slug);
+            data.Properties.Add("CompanyId", work.CompanyId);
 
             List<long> userIds = new List<long> { };
 
@@ -62,10 +63,12 @@ namespace Wazzifni.WorkPosts.Notifications
                         { "fa", string.Format(_localizationSource.GetString("WorkPostAcceptedToCompany", CultureInfo.GetCultureInfo("fa"),work.Title)) }
                     };
 
-            var data = new TypedMessageNotificationData(NotificationType.AcceptWorkPost, messages, "");
+            var data = new TypedMessageNotificationData(NotificationType.WorkPostAccept, messages, "");
 
             data.Properties.Add("WorkPostId", work.Id);
             data.Properties.Add("Slug", work.Slug);
+            data.Properties.Add("CompanyId", work.CompanyId);
+
             List<long> userIds = new List<long> { work.Company.UserId.Value };
             await _InotificationService.NotifyUsersAsync(data, userIds.ToArray(), true);
         }
@@ -83,10 +86,11 @@ namespace Wazzifni.WorkPosts.Notifications
                         { "fa", string.Format(_localizationSource.GetString("WorkPostCreateToAdmin", CultureInfo.GetCultureInfo("fa"),faCompanyName,work.Title)) }
                     };
 
-            var data = new TypedMessageNotificationData(NotificationType.CreateWorkPost, messages, "");
+            var data = new TypedMessageNotificationData(NotificationType.NewWorkPost, messages, "");
 
             data.Properties.Add("WorkPostId", work.Id);
             data.Properties.Add("Slug", work.Slug);
+            data.Properties.Add("CompanyId", work.CompanyId);
 
             List<long> userIds = new List<long> { };
             var adminsIds = await _userManager.Users.Where(x => x.Type == UserType.Admin).Select(x => x.Id).ToArrayAsync();
@@ -117,10 +121,12 @@ namespace Wazzifni.WorkPosts.Notifications
                         { "fa", string.Format(_localizationSource.GetString("WorkPostSentForCompany", CultureInfo.GetCultureInfo("fa"))) }
                     };
 
-            var data = new TypedMessageNotificationData(NotificationType.WorkApplicationSent, messages, "");
+            var data = new TypedMessageNotificationData(NotificationType.WorkPostSent, messages, "");
 
             data.Properties.Add("WorkPostId", work.Id);
             data.Properties.Add("Slug", work.Slug);
+            data.Properties.Add("CompanyId", work.CompanyId);
+
 
             List<long> userIds = new List<long> { work.Company.UserId.Value };
             await _InotificationService.NotifyUsersAsync(data, userIds.ToArray(), true);
