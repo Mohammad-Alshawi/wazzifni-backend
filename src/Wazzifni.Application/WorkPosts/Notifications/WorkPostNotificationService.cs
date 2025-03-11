@@ -1,5 +1,7 @@
-﻿using Abp.Localization;
+﻿using Abp.Application.Services;
+using Abp.Localization;
 using Abp.Localization.Sources;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Globalization;
@@ -12,6 +14,8 @@ using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.WorkPosts.Notifications
 {
+    [RemoteService(IsEnabled = false)]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class WorkPostNotificationService : IWorkPostNotificationService
     {
         private readonly IWorkPostManager _workPostManager;
