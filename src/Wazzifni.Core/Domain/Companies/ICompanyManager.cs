@@ -19,5 +19,7 @@ namespace Wazzifni.Domain.Companies
 
         Task<Company> GetLiteCompanyByIdAsync(int id);
 
+        Task DeleteCompanyByUserId(long userId);
+
     }
 }

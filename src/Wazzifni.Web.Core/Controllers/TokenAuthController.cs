@@ -307,83 +307,63 @@ namespace Wazzifni.Controllers
         [HttpPost]
         public async Task<VerifyLoginByPhoneNumberOutput> CreateAccountAfterSignUpAsync([FromBody] VerifySignUpByPhoneNumberInput input)
         {
-            if (!input.UserType.HasValue)
-                input.UserType = UserType.BasicUser;
-            var registerdUser = await _registerdPhoneNumberManager.GetRegisteredPhoneNumberAsync(input.DialCode, input.PhoneNumber);
-            if (registerdUser is not null)
+            input.UserType ??= UserType.BasicUser;
+
+            var registeredUser = await _registerdPhoneNumberManager.GetRegisteredPhoneNumberAsync(input.DialCode, input.PhoneNumber)
+                    ?? throw new UserFriendlyException(Exceptions.SignUpNotComplete);
+
+            if (!await _registerdPhoneNumberManager.CheckPhoneNumberIsVerifiedAsync(input.DialCode, input.PhoneNumber))
             {
-                if (!await _registerdPhoneNumberManager.CheckPhoneNumberIsVerifiedAsync(input.DialCode, input.PhoneNumber))
-                {
-                    throw new UserFriendlyException(string.Format(Exceptions.YourPhoneNumberIsntVerified + "Or it was verified a while ago. Re-verify the number"));
-                }
-                if (string.IsNullOrEmpty(input.Email))
-                {
-                    Random random = new Random();
-                    int randomNumber = random.Next(100, 100000);
-                    input.Email = input.FullName + randomNumber.ToString() + "@EntityFrameWorkCore.net";
-                }
-                var userName = input.PhoneNumber;
-                var type = UserType.BasicUser;
-                if (input.UserType.HasValue && input.UserType.Value == UserType.CompanyUser)
-                {
-                    type = UserType.CompanyUser;
-                    userName = userName + "C";
-                }
-
-
-                var user = await _userRegistrationManager.RegisterAsync(string.Empty,
-                  string.Empty,
-                  input.Email,
-                  userName,
-                 "Msjofiho$kjsdh*7",
-                  true,
-                  input.PhoneNumber,
-                  input.DialCode,
-                  type,
-                  input.FullName);
-
-                var loginResult = await GetLoginResultAsync(
-                userName,
-                "Msjofiho$kjsdh*7",
-                GetTenancyNameOrNull());
-                await _userVerficationCodeManager.AddUserVerficationCodeAsync(
-                    new UserVerficationCode
-                    {
-                        ConfirmationCodeType = Enums.Enum.ConfirmationCodeType.ConfirmPhoneNumber,
-                        UserId = user.Id,
-                        VerficationCode = registerdUser.VerficationCode
-                    });
-
-                long profileId = 0;
-
-                if (input.UserType.HasValue && input.UserType.Value == UserType.CompanyUser)
-                    await _userManager.SetRolesAsync(user, new string[] { StaticRoleNames.Tenants.CompanyUser });
-
-                else
-                {
-                    await _userManager.SetRolesAsync(user, new string[] { StaticRoleNames.Tenants.BasicUser });
-                    profileId = await _profileManager.InitateProfileForBasicUser(user.Id, input.CityId.Value);
-                }
-
-
-
-                var result = new VerifyLoginByPhoneNumberOutput
-                {
-                    AccessToken = CreateAccessToken(CreateJwtClaims(loginResult.Identity)),
-                    UserId = user.Id,
-                    UserName = user.UserName,
-                    UserType = user.Type,
-                };
-
-                if (input.UserType == UserType.BasicUser)
-                {
-                    result.ProfileId = profileId;
-                }
-                return result;
-
+                throw new UserFriendlyException(string.Format(Exceptions.YourPhoneNumberIsntVerified + "Or it was verified a while ago. Re-verify the number"));
             }
+
+            input.Email ??= $"{input.FullName}{new Random().Next(100, 100000)}@EntityFrameWorkCore.net";
+
+            var userName = input.PhoneNumber;
+            var type = UserType.BasicUser;
+            if (input.UserType.HasValue && input.UserType.Value == UserType.CompanyUser)
+            {
+                type = UserType.CompanyUser;
+                userName = userName + "C";
+            }
+
+            var user = await _userRegistrationManager.RegisterAsync(string.Empty,
+              string.Empty,
+              input.Email,
+              userName,
+             "Msjofiho$kjsdh*7",
+              true,
+              input.PhoneNumber,
+              input.DialCode,
+              type,
+              input.FullName);
+
+            await _userVerficationCodeManager.AddUserVerficationCodeAsync(new UserVerficationCode
+            {
+                ConfirmationCodeType = Enums.Enum.ConfirmationCodeType.ConfirmPhoneNumber,
+                UserId = user.Id,
+                VerficationCode = registeredUser.VerficationCode
+            });
+
+            if (input.UserType == UserType.CompanyUser)
+                await _userManager.SetRolesAsync(user, new[] { StaticRoleNames.Tenants.CompanyUser });
             else
-                throw new UserFriendlyException(string.Format(Exceptions.SignUpNotComplete));
+            {
+                await _userManager.SetRolesAsync(user, new string[] { StaticRoleNames.Tenants.BasicUser });
+                user.ProfileId = await _profileManager.InitateProfileForBasicUser(user.Id, input.CityId.Value);
+            }
+
+            await _userManager.UpdateAsync(user);
+
+            return new VerifyLoginByPhoneNumberOutput
+            {
+                AccessToken = CreateAccessToken(CreateJwtClaims((await GetLoginResultAsync(userName, "Msjofiho$kjsdh*7", GetTenancyNameOrNull())).Identity)),
+                UserId = user.Id,
+                UserName = user.UserName,
+                UserType = user.Type,
+                ProfileId = input.UserType == UserType.BasicUser ? user.ProfileId : (long?)null
+            };
+
         }
 
 

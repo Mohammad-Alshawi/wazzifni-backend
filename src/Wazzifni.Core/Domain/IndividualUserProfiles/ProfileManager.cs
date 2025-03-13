@@ -60,5 +60,26 @@ namespace Wazzifni.Domain.IndividualUserProfiles
         {
             return await repository.GetAll().Where(x => x.UserId == userId).Select(x => x.Id).FirstOrDefaultAsync();
         }
+
+        public async Task DeleteProfileByUserId(long userId)
+        {
+            var profile = await repository.GetAll()
+                           .Include(x => x.Awards)
+                           .Include(x => x.Educations)
+                           .Include(x => x.SpokenLanguages)
+                           .Include(x => x.Skills)
+                           .Include(x => x.WorkExperiences)
+                           .Include(x => x.Applications)
+                           .Where(x => x.UserId == userId).FirstOrDefaultAsync();
+
+            profile.Awards.Clear();
+            profile.Educations.Clear();
+            profile.SpokenLanguages.Clear();
+            profile.Skills.Clear();
+            profile.WorkExperiences.Clear();
+            profile.Applications.Clear();
+
+            await repository.DeleteAsync(profile);
+        }
     }
 }

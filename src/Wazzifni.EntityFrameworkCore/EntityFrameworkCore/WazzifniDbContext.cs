@@ -10,6 +10,7 @@ using Wazzifni.Domain.Cities;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.Countries;
 using Wazzifni.Domain.Educations;
+using Wazzifni.Domain.Feedbacks;
 using Wazzifni.Domain.IndividualUserProfiles;
 using Wazzifni.Domain.Regions;
 using Wazzifni.Domain.RegisterdPhoneNumbers;
@@ -56,6 +57,9 @@ namespace Wazzifni.EntityFrameworkCore
         public virtual DbSet<WorkApplication> WorkApplications { get; set; }
 
         public virtual DbSet<FavoriteWorkPost> FavoriteWorkPosts { get; set; }
+        public virtual DbSet<Feedback> Feedbacks { get; set; }
+
+
         public WazzifniDbContext(DbContextOptions<WazzifniDbContext> options)
             : base(options)
         {

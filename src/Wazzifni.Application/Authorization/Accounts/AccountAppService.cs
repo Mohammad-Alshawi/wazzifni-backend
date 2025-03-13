@@ -5,13 +5,14 @@ using Abp.Runtime.Session;
 using Abp.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Wazzifni.Authorization.Accounts.Dto;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.ChangedPhoneNumber;
+using Wazzifni.Domain.Companies;
+using Wazzifni.Domain.IndividualUserProfiles;
 using Wazzifni.Domain.RegisterdPhoneNumbers;
 using Wazzifni.Domains.UserVerficationCodes;
 using Wazzifni.Localization.SourceFiles;
@@ -30,6 +31,8 @@ namespace Wazzifni.Authorization.Accounts
         private readonly IRepository<Domain.Attachments.Attachment, long> _attachmentRepository;
         private readonly IUserVerficationCodeManager _userVerficationCodeManager;
         private readonly IRegisterdPhoneNumberManager _registerdPhoneNumberManager;
+        private readonly IProfileManager _profileManager;
+        private readonly ICompanyManager _companyManager;
         private readonly IRepository<ChangedPhoneNumberForUser> _changedPhoneNumberForUserRepository;
 
 
@@ -39,6 +42,8 @@ namespace Wazzifni.Authorization.Accounts
             IRepository<Domain.Attachments.Attachment, long> attachmentRepository,
             IUserVerficationCodeManager userVerficationCodeManager,
             IRegisterdPhoneNumberManager registerdPhoneNumberManager,
+            IProfileManager profileManager,
+            ICompanyManager companyManager,
             IRepository<ChangedPhoneNumberForUser> changedPhoneNumberForUserRepository)
         {
             _userManager = userManager;
@@ -46,6 +51,8 @@ namespace Wazzifni.Authorization.Accounts
             _attachmentRepository = attachmentRepository;
             _userVerficationCodeManager = userVerficationCodeManager;
             _registerdPhoneNumberManager = registerdPhoneNumberManager;
+            _profileManager = profileManager;
+            _companyManager = companyManager;
             _changedPhoneNumberForUserRepository = changedPhoneNumberForUserRepository;
 
         }
@@ -77,71 +84,6 @@ namespace Wazzifni.Authorization.Accounts
 
 
 
-
-        [HttpPut, AbpAuthorize(PermissionNames.Accounts_Update), ApiExplorerSettings(IgnoreApi = true)]
-        public async Task UpdateProfile(UpdateProfileDto input)
-        {
-            var user = await _userManager.GetUserByIdAsync(AbpSession.UserId.Value);
-            user.Name = input.Name;
-            if (string.IsNullOrEmpty(input.EmailAddress))
-            {
-                if (!user.EmailAddress.Contains("@EntityFrameWorkCore.net"))
-                {
-                    Random random = new Random();
-                    int randomNumber = random.Next(100, 100000);
-                    input.EmailAddress = input.Name + randomNumber.ToString() + "@EntityFrameWorkCore.net";
-                }
-                else
-                    input.EmailAddress = user.EmailAddress;
-            }
-            user.EmailAddress = input.EmailAddress;
-            user.IsEmailConfirmed = false;
-            user.RegistrationFullName = input.Name;
-            user.LastModificationTime = DateTime.UtcNow;
-            Attachment oldAttachments = await _attachmentManager.GetElementByRefAsync((long)user.Id, AttachmentRefType.Profile);
-            if (input.ProfilePhoto != 0)
-            {
-                if (oldAttachments is not null)
-                {
-                    if (input.ProfilePhoto != oldAttachments.Id)
-                    {
-                        if (oldAttachments is not null)
-                            await _attachmentManager.DeleteRefIdAsync(oldAttachments);
-
-                        await _attachmentManager.CheckAndUpdateRefIdAsync(
-                                  (long)input.ProfilePhoto, AttachmentRefType.Profile, user.Id);
-                    }
-                }
-                else
-                {
-                    await _attachmentManager.CheckAndUpdateRefIdAsync(
-                              (long)input.ProfilePhoto, AttachmentRefType.Profile, user.Id);
-                }
-            }
-            if (input.ProfilePhoto == 0)
-            {
-                if (oldAttachments is not null)
-                {
-                    await _attachmentRepository.HardDeleteAsync(oldAttachments);
-                }
-            }
-            await UnitOfWorkManager.Current.SaveChangesAsync();
-            await _userManager.UpdateAsync(user);
-
-        }
-
-        [HttpPost, AbpAuthorize(PermissionNames.Accounts_Update), ApiExplorerSettings(IgnoreApi = true)]
-        public async Task AddOrEditUserProfilePhoto(AddUserProfilePhotoDto input)
-        {
-            var oldAttachment = await _attachmentManager.GetElementByRefAsync(AbpSession.UserId.Value, Enums.Enum.AttachmentRefType.Profile);
-            if (oldAttachment is not null)
-            {
-                await _attachmentManager.DeleteRefIdAsync(oldAttachment);
-            }
-            Attachment attachment = await _attachmentManager.GetByIdAsync(input.PhotoId);
-            await _attachmentManager.UpdateRefIdAsync(attachment, AbpSession.UserId.Value);
-        }
-
         [HttpPut, AbpAuthorize(PermissionNames.Accounts_Update), ApiExplorerSettings(IgnoreApi = true)]
         public async Task<SignInWithPhoneNumberOutput> ChangePhoneNumber(ChangePhoneNumberDto input)
         {
@@ -158,30 +100,7 @@ namespace Wazzifni.Authorization.Accounts
             var phoneNumber = input.DialCode.Replace("+", "") + input.PhoneNumber;
             var userLanguage = await SettingManager.GetSettingValueForUserAsync(
             LocalizationSettingNames.DefaultLanguage, AbpSession.ToUserIdentifier());
-            // var provider = SettingManager.GetSettingValue(AppSettingNames.SMSSenderProvider);
-            /*switch (provider)
-            {
-                case "Syriatel":
-                    await _otpSenderAppService.OtpSyriatelAsync(phoneNumber, userVerificationCode.VerficationCode, userLanguage);
-                    break;
-                case "MTN":
-                    await _otpSenderAppService.OtpMtnAsync(phoneNumber, userVerificationCode.VerficationCode, userLanguage);
-                    break;
-                case "AccordingUserNumber":
-                    await _otpSenderAppService.SendOtpAccordingToUserNumberAsync(phoneNumber, userVerificationCode.VerficationCode, userLanguage);
-                    break;
-                default:
-                    await _otpSenderAppService.OtpSyriatelAsync(phoneNumber, userVerificationCode.VerficationCode, userLanguage);
-                    break;
-            }*/
-            //if (phoneNumber.StartsWith("963"))
-            //{
-            //    return new SignInWithPhoneNumberOutput
-            //    {
-            //        Code = GenerateRandomCode()
-            //    };
-
-            //}
+            //Send Otp
             return new SignInWithPhoneNumberOutput { Code = changedPhone.NewDialCode };
         }
 
@@ -197,8 +116,7 @@ namespace Wazzifni.Authorization.Accounts
             {
                 throw new UserFriendlyException(string.Format(Exceptions.ObjectWasNotFound, Tokens.PhoneNumber));
             }
-            //if (RegexStore.SyrianPhonNumberRegex().IsMatch(phoneNumber))
-            //{
+
             if (!await _registerdPhoneNumberManager.CheckVerificationCodeIsValidAsync(input.DialCode, input.PhoneNumber, input.Code))
             {
                 throw new UserFriendlyException(string.Format(Exceptions.VerificationCodeIsnotValid));
@@ -212,7 +130,7 @@ namespace Wazzifni.Authorization.Accounts
                 }
                 throw new UserFriendlyException(string.Format(Exceptions.VerificationCodeIsnotCorrect));
             }
-            // }
+
 
         }
 
@@ -227,30 +145,8 @@ namespace Wazzifni.Authorization.Accounts
                 var phoneNumber = input.DialCode.Replace("+", "") + input.PhoneNumber;
 
 
-                //var provider = SettingManager.GetSettingValue(AppSettingNames.SMSSenderProvider);
-                /* switch (provider)
-				 {
-					 case "Syriatel":
-						 await _otpSenderAppService.OtpSyriatelAsync(phoneNumber, phoneNumberWithVerificationCode.VerficationCode, input.Language);
-						 break;
-					 case "MTN":
-						 await _otpSenderAppService.OtpMtnAsync(phoneNumber, phoneNumberWithVerificationCode.VerficationCode, input.Language);
-						 break;
-					 case "AccordingUserNumber":
-						 await _otpSenderAppService.SendOtpAccordingToUserNumberAsync(phoneNumber, phoneNumberWithVerificationCode.VerficationCode, input.Language);
-						 break;
-					 default:
-						 await _otpSenderAppService.OtpSyriatelAsync(phoneNumber, phoneNumberWithVerificationCode.VerficationCode, input.Language);
-						 break;
-				 }*/
-                //if (phoneNumber.StartsWith("963"))
-                //{
-                //    return new SignInWithPhoneNumberOutput
-                //    {
-                //        Code = GenerateRandomCode()
-                //    };
+                //Send Otp;
 
-                //}
                 return new SignInWithPhoneNumberOutput { Code = phoneNumberWithVerificationCode.VerficationCode };
 
             }
@@ -279,43 +175,28 @@ namespace Wazzifni.Authorization.Accounts
                 RegisterdPhoneNumber registeredPhoneNumber = await _registerdPhoneNumberManager.AddOrUpdatePhoneNumberAsync(input.DialCode, input.PhoneNumber);
                 var phoneNumber = input.DialCode.Replace("+", "") + input.PhoneNumber;
 
-                //var provider = SettingManager.GetSettingValue(AppSettingNames.SMSSenderProvider);
-                /* switch (provider)
-				 {
-					 case "Syriatel":
-						 await _otpSenderAppService.OtpSyriatelAsync(phoneNumber, registeredPhoneNumber.VerficationCode, input.Language);
-						 break;
-					 case "MTN":
-						 await _otpSenderAppService.OtpMtnAsync(phoneNumber, registeredPhoneNumber.VerficationCode, input.Language);
-						 break;
-					 case "AccordingUserNumber":
-						 await _otpSenderAppService.SendOtpAccordingToUserNumberAsync(phoneNumber, registeredPhoneNumber.VerficationCode, input.Language);
-						 break;
-					 default:
-						 await _otpSenderAppService.OtpSyriatelAsync(phoneNumber, registeredPhoneNumber.VerficationCode, input.Language);
-						 break;
-				 }*/
-                //if (phoneNumber.StartsWith("963"))
-                //{
-                //    return new SignInWithPhoneNumberOutput
-                //    {
-                //        Code = GenerateRandomCode()
-                //    };
+                //Send Otp;
 
-                //}
                 return new SignInWithPhoneNumberOutput { Code = registeredPhoneNumber.VerficationCode };
             }
 
         }
 
         /// <summary> Allows the user to delete his account, Except ADMINS </summary>
-        [HttpDelete, AbpAuthorize(PermissionNames.Accounts_Delete), ApiExplorerSettings(IgnoreApi = true)]
+        [HttpDelete]
         public async Task DeleteAccount()
         {
             var user = await _userManager.GetUserByIdAsync(AbpSession.UserId.Value);
             if (user.Type != UserType.Admin)
             {
+                if (await _userManager.IsBasicUser())
+                    await _profileManager.DeleteProfileByUserId(user.Id);
+
+                if (await _userManager.IsCompany())
+                    await _companyManager.DeleteCompanyByUserId(user.Id);
+
                 await _userManager.DeleteAsync(user);
+                await UnitOfWorkManager.Current.SaveChangesAsync();
             }
             else throw new UserFriendlyException(403, Exceptions.YouCannotDoThisAction);
         }
@@ -335,31 +216,8 @@ namespace Wazzifni.Authorization.Accounts
                 var userVerificationCode = await _userVerficationCodeManager.UpdateVerificationCodeAsync(user.Id, ConfirmationCodeType.ConfirmPhoneNumber);
                 verificationCode = userVerificationCode.VerficationCode;
                 var phoneNumber = input.DialCode.Replace("+", "") + input.PhoneNumber;
-                // var provider = SettingManager.GetSettingValue(AppSettingNames.SMSSenderProvider);
-                /*switch (provider)
-                {
-                    case "Syriatel":
-                        await _otpSenderAppService.OtpSyriatelAsync(phoneNumber, verificationCode, input.Language);
-                        break;
-                    case "MTN":
-                        await _otpSenderAppService.OtpMtnAsync(phoneNumber, verificationCode, input.Language);
-                        break;
-                    case "AccordingUserNumber":
-                        await _otpSenderAppService.SendOtpAccordingToUserNumberAsync(phoneNumber, verificationCode, input.Language);
-                        break;
-                    default:
-                        await _otpSenderAppService.OtpSyriatelAsync(phoneNumber, verificationCode, input.Language);
-                        break;
-                }*/
+                // Send Otp;
 
-                //if (phoneNumber.StartsWith("963"))
-                //{
-                //    return new SignInWithPhoneNumberOutput
-                //    {
-                //        Code = GenerateRandomCode()
-                //    };
-
-                //}
             }
             return new SignInWithPhoneNumberOutput { Code = verificationCode };
         }

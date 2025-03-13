@@ -200,7 +200,6 @@ namespace Wazzifni.WorkPosts
         public override async Task<PagedResultDto<WorkPostLiteDto>> GetAllAsync(PagedWorkPostResultRequestDto input)
         {
 
-
             var result = await base.GetAllAsync(input);
 
             var ItemsIds = result.Items.Select(x => x.Id).ToList();

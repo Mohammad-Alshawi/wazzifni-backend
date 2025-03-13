@@ -211,5 +211,16 @@ namespace Wazzifni.Domain.Companies
                 .AnyAsync(c => c.Id == companyId && c.UserId == userId);
         }
 
+        public async Task DeleteCompanyByUserId(long userId)
+        {
+            var company = await _companyRepository.GetAll()
+                .Include(x => x.Translations)
+                .Include(x => x.WorkPosts).ThenInclude(x => x.Applications)
+                .Where(x => x.UserId == userId).FirstOrDefaultAsync();
+
+            company.Translations.Clear();
+            company.WorkPosts.Clear();
+            await _companyRepository.DeleteAsync(company);
+        }
     }
 }

@@ -7,7 +7,6 @@ using Abp.UI;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -53,44 +52,38 @@ namespace Wazzifni.Companies
         [HttpPost, AbpAuthorize(PermissionNames.Companies_Create)]
         public override async Task<CompanyDetailsDto> CreateAsync(CreateCompanyDto input)
         {
-            var Company = _mapper.Map<Company>(input);
-            Company.CreationTime = DateTime.UtcNow;
 
-            if (AbpSession.UserId.HasValue)
-            {
-                var userLogin = await _userManager.GetUserByIdAsync(AbpSession.UserId.Value);
+            var userLogin = await _userManager.GetUserByIdAsync(AbpSession.UserId.Value);
 
-                if (userLogin.Type == UserType.CompanyUser)
-                {
-                    if (await Repository.GetAll().AnyAsync(x => x.UserId == userLogin.Id))
-                        throw new UserFriendlyException(Exceptions.ObjectIsAlreadyExist, "Company" + " User Already Has Company");
-                    Company.User = userLogin;
-                    Company.Status = CompanyStatus.Checking;
-                }
+            if (userLogin.Type != UserType.CompanyUser)
+                throw new UserFriendlyException(Exceptions.YouCannotDoThisAction);
 
-                else
-                    throw new UserFriendlyException(Exceptions.YouCannotDoThisAction);
-            }
+            if (await Repository.GetAll().AnyAsync(x => x.UserId == userLogin.Id))
+                throw new UserFriendlyException(Exceptions.ObjectIsAlreadyExist, "Company User Already Has Company");
 
-            // var Contacts = _mapper.Map<List<CreateCompanyContactDto>, List<CompanyContact>>(input.CompanyContactDtos);
-            // Company.CompanyContact = Contacts;
+            var company = _mapper.Map<Company>(input);
+            company.User = userLogin;
+            company.Status = CompanyStatus.Approved;
 
-            await Repository.InsertAndGetIdAsync(Company);
+            var companyId = await Repository.InsertAndGetIdAsync(company);
+            userLogin.CompanyId = companyId;
+            await _userManager.UpdateAsync(userLogin);
+
             UnitOfWorkManager.Current.SaveChanges();
 
             if (input.CompanyProfilePhotoId != 0)
                 await _attachmentManager.CheckAndUpdateRefIdAsync(
-                       input.CompanyProfilePhotoId, AttachmentRefType.CompanyLogo, Company.Id);
+                       input.CompanyProfilePhotoId, AttachmentRefType.CompanyLogo, company.Id);
 
             if (input.Attachments is not null && input.Attachments.Count > 0)
             {
                 foreach (var attachmentId in input.Attachments)
                 {
                     await _attachmentManager.CheckAndUpdateRefIdAsync(
-                        attachmentId, AttachmentRefType.CompanyImage, Company.Id);
+                        attachmentId, AttachmentRefType.CompanyImage, company.Id);
                 }
             }
-            return _mapper.Map<CompanyDetailsDto>(Company);
+            return _mapper.Map<CompanyDetailsDto>(company);
         }
 
 
