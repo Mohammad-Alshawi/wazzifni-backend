@@ -51,6 +51,8 @@ namespace Wazzifni.Authorization
             context.CreatePermission(PermissionNames.WorkApplications_Delete, L("WorkApplicationsDelete"));
             context.CreatePermission(PermissionNames.WorkApplications_Update, L("WorkApplicationsUpdate"));
 
+            context.CreatePermission(PermissionNames.Advertisements_CUD, L("Advertisements_CUD"));
+
         }
 
         private static ILocalizableString L(string name)

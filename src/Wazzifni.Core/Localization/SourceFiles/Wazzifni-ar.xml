@@ -67,5 +67,7 @@
 	  <text name="NewWorkPost">وظيفة جديدة</text>
 	  <text name="WorkPostSent">إرسال منشور الوظيفة</text>
 
+	  <text name="Advertisements_CUD">الصلاحيات لإنشاء الإعلانات وتعديلها وحذفها</text>
+
   </texts>
 </localizationDictionary>

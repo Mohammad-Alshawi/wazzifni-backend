@@ -46,6 +46,8 @@
         public const string WorkApplications_Reject = WorkApplications + "." + "Reject";
         public const string WorkApplications_Update = WorkApplications + "." + "Update";
 
+        public const string Advertisements_CUD = "Advertisements_CUD";
+
 
     }
 }

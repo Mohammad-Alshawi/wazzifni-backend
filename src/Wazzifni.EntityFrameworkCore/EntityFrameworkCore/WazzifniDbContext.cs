@@ -4,6 +4,7 @@ using Wazzifni.Authorization.Roles;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Awards;
 using Wazzifni.Countries;
+using Wazzifni.Domain.Advertisiments;
 using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.ChangedPhoneNumber;
 using Wazzifni.Domain.Cities;
@@ -58,7 +59,7 @@ namespace Wazzifni.EntityFrameworkCore
 
         public virtual DbSet<FavoriteWorkPost> FavoriteWorkPosts { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
-
+        public virtual DbSet<Advertisiment> Advertisiments { get; set; }
 
         public WazzifniDbContext(DbContextOptions<WazzifniDbContext> options)
             : base(options)

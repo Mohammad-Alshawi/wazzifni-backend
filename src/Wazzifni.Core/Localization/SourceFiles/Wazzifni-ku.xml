@@ -64,6 +64,8 @@
 		<text name="WorkPostAccept">قبوونەوەی پۆستی کار</text>
 		<text name="NewWorkPost">پۆستی کاری نوێ</text>
 		<text name="WorkPostSent">ناردنی پۆستی کار</text>
+		
+		<text name="Advertisements_CUD">مۆڵەت بۆ دروستکردن، دەستکاری و سڕینەوەی ڕیکلامەکان</text>
 
 	</texts>
 </localizationDictionary>

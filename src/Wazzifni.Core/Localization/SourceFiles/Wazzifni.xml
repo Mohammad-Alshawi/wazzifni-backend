@@ -185,6 +185,10 @@
 	  <text name="WorkPostAccept">Work Post Accepted</text>
 	  <text name="NewWorkPost">New Work Post</text>
 	  <text name="WorkPostSent">Work Post Sent</text>
+	  
+	  <text name="Advertisements_CUD">Permission to CUD Advertisements</text>
+
+  
 
   </texts>
 </localizationDictionary>

@@ -63,5 +63,8 @@
 		<text name="NewWorkPost">پست کاری جدید</text>
 		<text name="WorkPostSent">ارسال پست کاری</text>
 
+		<text name="Advertisements_CUD">مجوز ایجاد، ویرایش و حذف تبلیغات</text>
+
+
 	</texts>
 </localizationDictionary>
