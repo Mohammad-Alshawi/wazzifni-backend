@@ -1,5 +1,6 @@
 ﻿using Abp.Domain.Entities.Auditing;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using Wazzifni.Domain.Companies;
@@ -38,6 +39,12 @@ namespace Wazzifni.Domain.WorkPosts
         public virtual ICollection<WorkApplication> Applications { get; set; }
 
         public string Slug { get; set; }
+
+        public DateTime? ApprovedDate { get; set; }
+
+        public string ReasonRefuse { get; set; }
+
+
 
     }
 }

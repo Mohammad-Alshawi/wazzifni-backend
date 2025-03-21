@@ -213,7 +213,8 @@ namespace Wazzifni.Enums
         public enum WorkPostStatus : byte
         {
             Checking = 1,
-            Approved = 2
+            Approved = 2,
+            Rejected = 3
         }
 
 

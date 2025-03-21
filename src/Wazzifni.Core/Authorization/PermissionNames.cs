@@ -31,12 +31,17 @@
         public const string Companies_Create = Companies + "." + "Create";
         public const string Companies_Delete = Companies + "." + "Delete";
         public const string Companies_Update = Companies + "." + "Update";
+        public const string Companies_Approve = Companies + "." + "Approve";
+        public const string Companies_Reject = Companies + "." + "Reject";
+
 
         public const string WorkPosts = "WorkPosts";
         public const string WorkPosts_Read = WorkPosts + "." + "Read";
         public const string WorkPosts_Create = WorkPosts + "." + "Create";
         public const string WorkPosts_Delete = WorkPosts + "." + "Delete";
         public const string WorkPosts_Update = WorkPosts + "." + "Update";
+        public const string WorkPosts_Approve = WorkPosts + "." + "Approve";
+        public const string WorkPosts_Reject = WorkPosts + "." + "Reject";
 
 
         public const string WorkApplications = "WorkApplications";

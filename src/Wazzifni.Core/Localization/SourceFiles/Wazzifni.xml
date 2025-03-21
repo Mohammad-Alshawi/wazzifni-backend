@@ -141,6 +141,8 @@
 	  <text name="CompaniesCreate">Permission to Create Company</text>
 	  <text name="CompaniesUpdate">Permission to Update Company</text>
 	  <text name="CompaniesDelete">Permission to Delete Company</text>
+	  <text name="CompaniesApprove">Permission to Approve Company</text>
+	  <text name="CompaniesReject">Permission to Reject Company</text>
 
 
 	  <text name="WorkPosts">Permission for WorkPosts</text>

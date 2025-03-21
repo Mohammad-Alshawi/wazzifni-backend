@@ -7,6 +7,7 @@ using Abp.UI;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -63,7 +64,7 @@ namespace Wazzifni.Companies
 
             var company = _mapper.Map<Company>(input);
             company.User = userLogin;
-            company.Status = CompanyStatus.Approved;
+            company.Status = CompanyStatus.Checking;
 
             var companyId = await Repository.InsertAndGetIdAsync(company);
             userLogin.CompanyId = companyId;
@@ -186,7 +187,33 @@ namespace Wazzifni.Companies
             }
             return result;
         }
-        //
+
+
+        [HttpPost, AbpAuthorize(PermissionNames.Companies_Approve)]
+        public async Task<bool> ApproveAsync(EntityDto<int> input)
+        {
+            var company = await _companyManager.GetLiteCompanyByIdAsync(input.Id);
+            company.Status = CompanyStatus.Approved;
+            company.ApprovedDate = DateTime.Now;
+            await Repository.UpdateAsync(company);
+            return true;
+        }
+
+
+        [HttpPost, AbpAuthorize(PermissionNames.Companies_Reject)]
+        public async Task<bool> RejectAsync(CompanyRejectInputDto input)
+        {
+            var company = await _companyManager.GetLiteCompanyByIdAsync(input.CompanyId);
+            company.Status = CompanyStatus.Rejected;
+            company.ReasonRefuse = input.ReasonRefuse;
+            await Repository.UpdateAsync(company);
+            return true;
+        }
+
+
+
+
+
         public override async Task<PagedResultDto<LiteCompanyDto>> GetAllAsync(PagedCompanyResultRequestDto input)
         {
             var result = await base.GetAllAsync(input);

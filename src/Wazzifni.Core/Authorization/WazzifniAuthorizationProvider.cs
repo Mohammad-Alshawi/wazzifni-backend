@@ -35,12 +35,16 @@ namespace Wazzifni.Authorization
             context.CreatePermission(PermissionNames.Companies_Create, L("CompaniesCreate"));
             context.CreatePermission(PermissionNames.Companies_Update, L("CompaniesUpdate"));
             context.CreatePermission(PermissionNames.Companies_Delete, L("CompaniesDelete"));
+            context.CreatePermission(PermissionNames.Companies_Approve, L("CompaniesApprove"));
+            context.CreatePermission(PermissionNames.Companies_Reject, L("CompaniesReject"));
 
             context.CreatePermission(PermissionNames.WorkPosts, L("WorkPosts"));
             context.CreatePermission(PermissionNames.WorkPosts_Read, L("WorkPostsRead"));
             context.CreatePermission(PermissionNames.WorkPosts_Create, L("WorkPostsCreate"));
             context.CreatePermission(PermissionNames.WorkPosts_Update, L("WorkPostsUpdate"));
             context.CreatePermission(PermissionNames.WorkPosts_Delete, L("WorkPostsDelete"));
+            context.CreatePermission(PermissionNames.WorkPosts_Approve, L("WorkPostsApprove"));
+            context.CreatePermission(PermissionNames.WorkPosts_Reject, L("WorkPostsReject"));
 
 
 

@@ -24,7 +24,8 @@
 	  <text name="CompaniesCreate">صلاحية انشاء الشركات</text>
 	  <text name="CompaniesUpdate">صلاحية تحديث الشركات</text>
 	  <text name="CompaniesDelete">صلاحية حذف الشركات</text>
-
+	  <text name="CompaniesApprove">صلاحية قبول الشركات</text>
+	  <text name="CompaniesReject">صلاحية رفض الشركات</text>
 
 	  <text name="WorkPosts">صلاحيات منشورات الوظائف</text>
 	  <text name="WorkPostsRead">صلاحية قراءة منشور وظبفة</text>

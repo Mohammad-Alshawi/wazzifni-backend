@@ -33,6 +33,8 @@ namespace Wazzifni.Domain.Companies
         public int? NumberOfEmployees { get; set; }
         public string WebSite { get; set; }
 
+        public DateTime? ApprovedDate { get; set; }
+
 
         public virtual ICollection<WorkPost> WorkPosts { get; set; }
 

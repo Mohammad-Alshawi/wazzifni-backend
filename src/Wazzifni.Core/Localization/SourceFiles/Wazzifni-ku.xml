@@ -23,6 +23,8 @@
 		<text name="CompaniesCreate">مۆڵەتی دروستکردنی کۆمپانیاکان</text>
 		<text name="CompaniesUpdate">مۆڵەتی نوێکردنەوەی کۆمپانیاکان</text>
 		<text name="CompaniesDelete">مۆڵەتی سڕینەوەی کۆمپانیاکان</text>
+		<text name="CompaniesApprove">مۆڵەتی پەسندکردنی کۆمپانیاکان</text>
+		<text name="CompaniesReject">مۆڵەتی ڕەتکردنەوەی کۆمپانیاکان</text>
 
 		<text name="WorkPosts">مۆڵەتەکانی بڵاوکردنەوەی ئیش</text>
 		<text name="WorkPostsRead">مۆڵەتی خوێندنەوەی بڵاوکردنەوەی ئیش</text>

@@ -28,6 +28,9 @@ namespace Wazzifni.WorkPosts.Dto
         public WorkPlace WorkPlace { get; set; }
 
         public string Slug { get; set; }
+        public DateTime? ApprovedDate { get; set; }
+        public string ReasonRefuse { get; set; }
+
 
     }
 }

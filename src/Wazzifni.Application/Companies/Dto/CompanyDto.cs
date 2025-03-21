@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services.Dto;
+using System;
 using System.Collections.Generic;
 
 namespace Wazzifni.Companies.Dto
@@ -14,6 +15,9 @@ namespace Wazzifni.Companies.Dto
         // public List<ReviewDetailsDto> Reviews { get; set; }
         public int NumberOfTransfers { get; set; }
         public string CommissionGroup { get; set; }
+
+        public DateTime? ApprovedDate { get; set; }
+
 
     }
 }

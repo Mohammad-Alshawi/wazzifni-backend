@@ -33,5 +33,8 @@ namespace Wazzifni.Companies.Dto
 
         public DateTime CreationTime { get; set; }
 
+        public DateTime? ApprovedDate { get; set; }
+
+
     }
 }

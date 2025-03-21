@@ -65,15 +65,20 @@ namespace Wazzifni.WorkPosts
             {
                 var companyId = await _companyManager.GetCompanyIdByUserId(AbpSession.UserId.Value);
                 post.CompanyId = companyId;
+                post.Status = WorkPostStatus.Checking;
+
             }
-            else post.CompanyId = input.CompanyId.Value;
+            else if (await _userManager.IsAdminSession())
+            {
+                post.CompanyId = input.CompanyId.Value;
+                post.Status = WorkPostStatus.Approved;
+
+            }
 
             var company = await _companyManager.GetLiteCompanyByIdAsync(post.CompanyId);
 
             post.Company = company;
-            post.Status = WorkPostStatus.Approved;
             post.WorkAvailbility = WorkAvailbility.Available;
-
 
 
             var lastPost = await Repository.GetAll().OrderByDescending(wp => wp.Slug).FirstOrDefaultAsync();
@@ -129,7 +134,6 @@ namespace Wazzifni.WorkPosts
 
         [HttpPut, AbpAuthorize(PermissionNames.WorkPosts_Update)]
 
-
         public override async Task<WorkPostDetailsDto> UpdateAsync(UpdateWorkPostDto input)
         {
             var post = await _workPostManager.GetEntityWithoutUserByIdAsync(input.Id);
@@ -143,6 +147,8 @@ namespace Wazzifni.WorkPosts
 
             var oldCompanyId = post.CompanyId;
 
+            var oldStatus = post.Status;
+
             _mapper.Map(input, post);
 
             if (await _userManager.IsCompany())
@@ -153,11 +159,20 @@ namespace Wazzifni.WorkPosts
                     throw new UserFriendlyException("Denied");
                 }
                 post.CompanyId = companyId;
+
+                if (oldStatus == WorkPostStatus.Rejected || oldStatus == WorkPostStatus.Checking)
+                    post.Status = WorkPostStatus.Checking;
+
+                else post.Status = oldStatus;
+
             }
-            else
+            else if (await _userManager.IsAdminSession())
             {
-                post.CompanyId = input.CompanyId.Value;
+                post.CompanyId = oldCompanyId;
+                post.Status = WorkPostStatus.Approved;
             }
+
+
 
             if (oldRequiredEmployeesCount < input.RequiredEmployeesCount)
             {
@@ -171,6 +186,31 @@ namespace Wazzifni.WorkPosts
         }
 
 
+        [HttpPost, AbpAuthorize(PermissionNames.WorkPosts_Approve)]
+        public async Task<bool> ApproveAsync(EntityDto<long> input)
+        {
+            var workPost = await _workPostManager.GetEntityByIdAsync(input.Id);
+            workPost.Status = WorkPostStatus.Approved;
+            workPost.ApprovedDate = DateTime.Now;
+
+            await Repository.UpdateAsync(workPost);
+            UnitOfWorkManager.Current.SaveChanges();
+            await _workPostNotificationService.SendNotificationForAcceptWorkPostToCompany(workPost);
+            await _workPostNotificationService.SendNotificationForAcceptWorkPostToAdmin(workPost);
+
+            return true;
+        }
+
+        [HttpPost, AbpAuthorize(PermissionNames.WorkPosts_Reject)]
+        public async Task<bool> RejectAsync(WorkPostRejectInputDto input)
+        {
+            var workPost = await _workPostManager.GetEntityByIdAsync(input.WorkPostId);
+            workPost.Status = WorkPostStatus.Rejected;
+            workPost.ReasonRefuse = input.ReasonRefuse;
+            await Repository.UpdateAsync(workPost);
+
+            return true;
+        }
 
 
 
