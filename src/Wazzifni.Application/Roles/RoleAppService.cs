@@ -13,7 +13,9 @@ using System.Threading.Tasks;
 using Wazzifni.Authorization;
 using Wazzifni.Authorization.Roles;
 using Wazzifni.Authorization.Users;
+using Wazzifni.Domain.Companies;
 using Wazzifni.Roles.Dto;
+using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Roles
 {
@@ -21,12 +23,14 @@ namespace Wazzifni.Roles
     public class RoleAppService : AsyncCrudAppService<Role, RoleDto, int, PagedRoleResultRequestDto, CreateRoleDto, RoleDto>, IRoleAppService
     {
         private readonly RoleManager _roleManager;
+        private readonly ICompanyManager _companyManager;
         private readonly UserManager _userManager;
 
-        public RoleAppService(IRepository<Role> repository, RoleManager roleManager, UserManager userManager)
+        public RoleAppService(IRepository<Role> repository, RoleManager roleManager, ICompanyManager companyManager, UserManager userManager)
             : base(repository)
         {
             _roleManager = roleManager;
+            _companyManager = companyManager;
             _userManager = userManager;
         }
         [AbpAuthorize(PermissionNames.Roles_Create)]
@@ -100,6 +104,7 @@ namespace Wazzifni.Roles
 
             CheckErrors(await _roleManager.DeleteAsync(role));
         }
+
         [AbpAuthorize(PermissionNames.Roles_GetAllPermission)]
 
         public Task<ListResultDto<PermissionDto>> GetAllPermissions(string? Keyword)
@@ -166,8 +171,8 @@ namespace Wazzifni.Roles
             {
                 if (user.Type == Enums.Enum.UserType.BasicUser)
                     user_roles.AddRange(await _userManager.GetRolesAsync(user));
-                // if (user.Type == Enums.Enum.UserType.BrokerUser && await _brokerManager.GetBrokerStatusByUserIdAsync(user.Id) == Enums.BrokerStatus.Approved)
-                //    user_roles.AddRange(await _userManager.GetRolesAsync(user));
+                if (user.Type == Enums.Enum.UserType.CompanyUser && await _companyManager.GetCompanyStatusByUserIdAsync(user.Id) == CompanyStatus.Approved)
+                    user_roles.AddRange(await _userManager.GetRolesAsync(user));
 
             }
 
