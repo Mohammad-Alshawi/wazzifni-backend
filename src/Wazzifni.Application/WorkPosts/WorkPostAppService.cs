@@ -75,7 +75,7 @@ namespace Wazzifni.WorkPosts
 
             }
 
-            var company = await _companyManager.GetLiteCompanyByIdAsync(post.CompanyId);
+            var company = await _companyManager.GetSuperLiteEntityByIdAsync(post.CompanyId);
 
             post.Company = company;
             post.WorkAvailbility = WorkAvailbility.Available;
