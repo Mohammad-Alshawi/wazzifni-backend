@@ -5,6 +5,7 @@ namespace Wazzifni.Profiles.Dto
     public class PagedProfileResultRequestDto : PagedResultRequestDto
     {
         public string Keyword { get; set; }
+        public int? CityId { get; set; }
 
     }
 }

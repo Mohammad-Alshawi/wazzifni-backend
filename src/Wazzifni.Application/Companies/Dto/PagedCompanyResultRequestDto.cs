@@ -10,6 +10,7 @@ namespace Wazzifni.Domain.Companies.Dto
         public CompanyStatus? Status { get; set; }
 
 
+        public int? CityId { get; set; }
 
     }
 }

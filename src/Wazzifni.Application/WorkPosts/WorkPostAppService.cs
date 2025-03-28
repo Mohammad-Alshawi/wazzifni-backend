@@ -361,6 +361,9 @@ namespace Wazzifni.WorkPosts
             if (input.CityId.HasValue)
                 data = data.Where(wp => wp.Company.CityId == input.CityId.Value);
 
+            if (input.ItWasAppliedToday.HasValue && input.ItWasAppliedToday.Value)
+                data = data.Where(wp => wp.Applications.Any(x => x.CreationTime.Date == DateTime.Today));
+
             return data;
         }
 

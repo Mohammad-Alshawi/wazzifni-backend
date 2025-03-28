@@ -235,6 +235,9 @@ namespace Wazzifni.Profiles
             if (!input.Keyword.IsNullOrEmpty())
                 data = data.Where(x => x.User.FullName.ToString().Contains(input.Keyword));
 
+            if (input.CityId.HasValue)
+                data = data.Where(x => x.CityId == input.CityId.Value);
+
 
             return data;
         }

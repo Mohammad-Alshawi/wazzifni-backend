@@ -250,6 +250,9 @@ namespace Wazzifni.Companies
             if (!input.Keyword.IsNullOrEmpty())
                 data = data.Where(x => x.JobType.ToString().Contains(input.Keyword));
 
+            if (input.CityId.HasValue)
+                data = data.Where(x => x.CityId == input.CityId.Value);
+
             return data;
         }
         protected override IQueryable<Company> ApplySorting(IQueryable<Company> query, PagedCompanyResultRequestDto input)

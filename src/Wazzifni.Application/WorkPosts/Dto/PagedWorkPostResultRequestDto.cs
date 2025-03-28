@@ -29,5 +29,7 @@ namespace Wazzifni.WorkPosts.Dto
         public int? MinExperience { get; set; }
         public int? MaxExperience { get; set; }
         public FilterOnTime? TimeFilter { get; set; }
+
+        public bool? ItWasAppliedToday { get; set; }
     }
 }
