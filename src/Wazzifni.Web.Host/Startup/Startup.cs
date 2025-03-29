@@ -3,6 +3,7 @@ using Abp.AspNetCore.Mvc.Antiforgery;
 using Abp.AspNetCore.SignalR.Hubs;
 using Abp.Castle.Logging.Log4Net;
 using Abp.Dependency;
+using Abp.Extensions;
 using Abp.Json;
 using Castle.Facilities.Logging;
 using Microsoft.AspNetCore.Builder;
@@ -15,6 +16,7 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Wazzifni.Authentication;
 using Wazzifni.Configuration;
@@ -58,22 +60,22 @@ namespace Wazzifni.Web.Host.Startup
             services.AddSignalR();
 
             // Configure CORS for angular2 UI
-            /* services.AddCors(
-                 options => options.AddPolicy(
-                     _defaultCorsPolicyName,
-                     builder => builder
-                         .WithOrigins(
-                             // App:CorsOrigins in appsettings.json can contain more than one address separated by comma.
-                             _appConfiguration["App:CorsOrigins"]
-                                 .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                                 .Select(o => o.RemovePostFix("/"))
-                                 .ToArray()
-                         )
-                         .AllowAnyHeader()
-                         .AllowAnyMethod()
-                         .AllowCredentials()
-                 )
-             );*/
+            services.AddCors(
+                options => options.AddPolicy(
+                    _defaultCorsPolicyName,
+                    builder => builder
+                        .WithOrigins(
+                            // App:CorsOrigins in appsettings.json can contain more than one address separated by comma.
+                            _appConfiguration["App:CorsOrigins"]
+                                .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                                .Select(o => o.RemovePostFix("/"))
+                                .ToArray()
+                        )
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials()
+                )
+            );
 
             // Swagger - Enable this line and the related lines in Configure method to enable swagger UI
             ConfigureSwagger(services);
@@ -94,7 +96,7 @@ namespace Wazzifni.Web.Host.Startup
         {
             app.UseAbp(options => { options.UseAbpRequestLocalization = false; }); // Initializes ABP framework.
 
-            //app.UseCors(_defaultCorsPolicyName); // Enable CORS!
+            app.UseCors(_defaultCorsPolicyName); // Enable CORS!
 
             app.UseStaticFiles();
 
