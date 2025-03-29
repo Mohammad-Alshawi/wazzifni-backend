@@ -18,6 +18,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Wazzifni.Authentication;
 using Wazzifni.Configuration;
 using Wazzifni.Identity;
 
@@ -40,6 +41,8 @@ namespace Wazzifni.Web.Host.Startup
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<DeactivatedUsersMiddleware>();
+
             //MVC
             services.AddControllersWithViews(
                 options => { options.Filters.Add(new AbpAutoValidateAntiforgeryTokenAttribute()); }
@@ -96,6 +99,9 @@ namespace Wazzifni.Web.Host.Startup
             app.UseCors(_defaultCorsPolicyName); // Enable CORS!
 
             app.UseStaticFiles();
+
+            app.UseMiddleware<DeactivatedUsersMiddleware>();
+
 
             app.UseRouting();
 

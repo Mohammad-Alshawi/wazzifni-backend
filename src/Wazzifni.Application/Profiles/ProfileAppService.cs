@@ -2,6 +2,7 @@
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Collections.Extensions;
+using Abp.Domain.Entities;
 using Abp.Domain.Repositories;
 using Abp.UI;
 using AutoMapper;
@@ -11,6 +12,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Awards;
 using Wazzifni.CrudAppServiceBase;
@@ -40,6 +42,7 @@ namespace Wazzifni.Profiles
         private readonly IRepository<Education, long> _educationRepo;
         private readonly IRepository<WorkExperience, long> _workExperienceRepo;
         private readonly IRepository<SpokenLanguageValue, long> _spLanRepo;
+        private readonly DeactivatedUsersSet _deactivatedUsersSet;
         private readonly IMapper _mapper;
 
         public ProfileAppService(IRepository<Profile, long> repository, IAttachmentManager attachmentManager, UserManager userManager,
@@ -49,6 +52,7 @@ namespace Wazzifni.Profiles
             IRepository<Education, long> educationRepo,
             IRepository<WorkExperience, long> workExperienceRepo,
             IRepository<SpokenLanguageValue, long> spLanRepo,
+            DeactivatedUsersSet deactivatedUsersSet,
             IMapper mapper) : base(repository)
         {
             _repository = repository;
@@ -61,6 +65,7 @@ namespace Wazzifni.Profiles
             _educationRepo = educationRepo;
             _workExperienceRepo = workExperienceRepo;
             _spLanRepo = spLanRepo;
+            _deactivatedUsersSet = deactivatedUsersSet;
             _mapper = mapper;
         }
 
@@ -197,6 +202,26 @@ namespace Wazzifni.Profiles
             await UnitOfWorkManager.Current.SaveChangesAsync();
             var result = MapToEntityDto(profile);
             return result;
+        }
+
+
+
+        public async Task ToggleActiveStatusAsync(int profileId)
+        {
+            var profile = await _profileManager.GetEntityByIdAsync(profileId);
+            if (profile == null)
+            {
+                throw new EntityNotFoundException($"Profile with ID {profileId} not found.");
+            }
+
+            profile.User.IsActive = !profile.User.IsActive;
+
+            await Repository.UpdateAsync(profile);
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+
+            if (!profile.User.IsActive)
+                _deactivatedUsersSet.Add(profile.UserId);
+            else _deactivatedUsersSet.Remove(profile.UserId);
         }
 
         public override async Task<PagedResultDto<ProfileLiteDto>> GetAllAsync(PagedProfileResultRequestDto input)
