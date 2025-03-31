@@ -54,6 +54,8 @@ namespace Wazzifni.Authorization
             context.CreatePermission(PermissionNames.WorkApplications_Reject, L("WorkApplicationsReject"));
             context.CreatePermission(PermissionNames.WorkApplications_Delete, L("WorkApplicationsDelete"));
             context.CreatePermission(PermissionNames.WorkApplications_Update, L("WorkApplicationsUpdate"));
+            context.CreatePermission(PermissionNames.WorkApplications_AcceptToSendToCompany, L("WorkApplicationsAcceptToSendToCompany"));
+
 
             context.CreatePermission(PermissionNames.Advertisements_CUD, L("Advertisements_CUD"));
 

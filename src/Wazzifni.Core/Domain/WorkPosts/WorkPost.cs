@@ -36,6 +36,9 @@ namespace Wazzifni.Domain.WorkPosts
         public WorkAvailbility WorkAvailbility { get; set; } = WorkAvailbility.Available;
 
         public bool IsClosed { get; set; } = false;
+
+        public DateTime? ClosedDate { get; set; }
+
         public virtual ICollection<WorkApplication> Applications { get; set; }
 
         public string Slug { get; set; }

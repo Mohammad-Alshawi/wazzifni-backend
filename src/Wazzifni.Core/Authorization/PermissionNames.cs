@@ -50,6 +50,8 @@
         public const string WorkApplications_Approve = WorkApplications + "." + "Approve";
         public const string WorkApplications_Reject = WorkApplications + "." + "Reject";
         public const string WorkApplications_Update = WorkApplications + "." + "Update";
+        public const string WorkApplications_AcceptToSendToCompany = WorkApplications + "." + "AcceptToSendToCompany";
+
 
         public const string Advertisements_CUD = "Advertisements_CUD";
 

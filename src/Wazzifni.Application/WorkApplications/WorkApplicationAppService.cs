@@ -6,6 +6,7 @@ using Abp.UI;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -63,14 +64,16 @@ namespace Wazzifni.WorkApplications
             var currentProfileId = await _profileManager.GetProfileIdByUserId(AbpSession.UserId.Value);
             var workPost = await _workPostManager.GetEntityByIdAsTrackingAsync(input.WorkPostId);
 
-            application.Status = WorkApplicationStatus.Pending;
+            application.Status = WorkApplicationStatus.CheckingByAdmin;
             application.Description = input.Description;
             application.ProfileId = currentProfileId;
 
             workPost.ApplicantsCount++;
 
-            if (workPost.ApplicantsCount >= workPost.RequiredEmployeesCount)
-                workPost.WorkAvailbility = WorkAvailbility.Unavilable;
+            /*if (workPost.ApplicantsCount >= workPost.RequiredEmployeesCount)
+                workPost.WorkAvailbility = WorkAvailbility.Unavilable;*/
+
+            workPost.WorkAvailbility = WorkAvailbility.Available;
 
             var id = await Repository.InsertAndGetIdAsync(application);
             UnitOfWorkManager.Current.SaveChanges();
@@ -131,7 +134,7 @@ namespace Wazzifni.WorkApplications
             if (application.Status == WorkApplicationStatus.Approved)
                 throw new UserFriendlyException(Exceptions.DeleteApprovedApplication);
 
-            if (application.Status == WorkApplicationStatus.Pending)
+            if (application.Status == WorkApplicationStatus.CheckingByAdmin)
             {
                 if (isApplicant)
                 {
@@ -166,6 +169,26 @@ namespace Wazzifni.WorkApplications
             }
         }
 
+        [HttpPost, AbpAuthorize(PermissionNames.WorkApplications_AcceptToSendToCompany)]
+
+        public async Task<WorkApplicationDetailsDto> AcceptAndSendToCompany(ApproveWorkApplicationDto input)
+        {
+            var application = await _workApplicationManager.GetEntityByIdAsTrackingAsync(input.Id);
+            var workPost = await _workPostManager.GetEntityByIdAsTrackingAsync(application.WorkPostId);
+
+            application.Status = WorkApplicationStatus.CheckingByCompany;
+            workPost.Applications.Where(x => x.Id == input.Id).FirstOrDefault().Status = WorkApplicationStatus.CheckingByCompany;
+
+            await Repository.UpdateAsync(application);
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+
+            //edit
+            await _workApplicationNotificationsAppService.SendNotificationForSendWorkApplicationToOwner(application);
+            await _workApplicationNotificationsAppService.SendNotificationForNewWorkApplicationToCompany(application);
+
+            return _mapper.Map<WorkApplicationDetailsDto>(application);
+        }
+
         [HttpPost, AbpAuthorize(PermissionNames.WorkApplications_Approve)]
 
         public async Task<WorkApplicationDetailsDto> Approve(ApproveWorkApplicationDto input)
@@ -177,7 +200,11 @@ namespace Wazzifni.WorkApplications
             workPost.Applications.Where(x => x.Id == input.Id).FirstOrDefault().Status = WorkApplicationStatus.Approved;
 
             if (workPost.ApplicantsCount >= workPost.RequiredEmployeesCount && workPost.Applications.Where(x => x.Status == WorkApplicationStatus.Approved).Count() == workPost.RequiredEmployeesCount)
+            {
                 workPost.IsClosed = true;
+                workPost.ClosedDate = DateTime.Now;
+            }
+
 
             await Repository.UpdateAsync(application);
             await UnitOfWorkManager.Current.SaveChangesAsync();

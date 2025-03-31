@@ -1,6 +1,8 @@
 ﻿using Abp.Domain.Repositories;
 using Abp.Domain.Services;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -40,5 +42,24 @@ namespace Wazzifni.Domain.WorkPosts
                 .Include(x => x.Company).ThenInclude(x => x.City).ThenInclude(x => x.Translations)
                 .AsNoTracking().Where(x => x.Id == workPostId).FirstOrDefaultAsync();
         }
+
+
+        public async Task<List<WorkPost>> GetAllWorkPostInAvaibiltyStatuesAndClosed()
+        {
+            var daysForMarkWorkPostAsUnavailable = 3;
+            var workPosts = await _repository.GetAll().Where(x => x.WorkAvailbility == Enums.Enum.WorkAvailbility.Available
+                                && x.IsClosed == true
+                                && x.ClosedDate.Value.Date.AddDays(daysForMarkWorkPostAsUnavailable) <= DateTime.Now.Date)
+                               .ToListAsync();
+
+
+            foreach (var post in workPosts)
+            {
+                post.WorkAvailbility = Enums.Enum.WorkAvailbility.Unavilable;
+                post.LastModificationTime = DateTime.Now;
+            }
+            return workPosts;
+        }
+
     }
 }

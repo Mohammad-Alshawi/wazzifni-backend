@@ -226,9 +226,11 @@ namespace Wazzifni.Enums
 
         public enum WorkApplicationStatus : byte
         {
-            Pending = 1,
+            CheckingByAdmin = 1,
             Approved = 2,
-            Rejected = 3
+            Rejected = 3,
+            CheckingByCompany = 4,
+
         }
 
         public enum FilterOnTime : byte
