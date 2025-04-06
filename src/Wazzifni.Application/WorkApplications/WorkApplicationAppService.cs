@@ -305,6 +305,9 @@ namespace Wazzifni.WorkApplications
             if (input.Status.HasValue)
                 data = data.Where(wp => wp.Status == input.Status.Value);
 
+            if (input.FilterStatusForCompany.HasValue)
+                data = data.Where(wp => wp.Status != WorkApplicationStatus.CheckingByAdmin);
+
             if (input.CompanyId.HasValue)
                 data = data.Where(wp => wp.WorkPost.CompanyId == input.CompanyId.Value);
 

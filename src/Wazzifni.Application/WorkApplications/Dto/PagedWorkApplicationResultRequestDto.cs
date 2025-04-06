@@ -16,5 +16,7 @@ namespace Wazzifni.WorkApplications.Dto
         public long? ProfileId { get; set; }
         public bool? DeletedByCompany { get; set; }
 
+        public bool? FilterStatusForCompany { get; set; }
+
     }
 }
