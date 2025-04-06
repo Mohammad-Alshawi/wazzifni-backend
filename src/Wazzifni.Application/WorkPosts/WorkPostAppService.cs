@@ -81,7 +81,7 @@ namespace Wazzifni.WorkPosts
             post.WorkAvailbility = WorkAvailbility.Available;
 
 
-            var lastPost = await Repository.GetAll().OrderByDescending(wp => wp.Slug).FirstOrDefaultAsync();
+            var lastPost = await Repository.GetAll().IgnoreQueryFilters().OrderByDescending(wp => wp.Slug).FirstOrDefaultAsync();
 
             int newSlugNumber = lastPost != null ? int.Parse(lastPost.Slug) + 1 : 1;
             post.Slug = newSlugNumber.ToString("D6"); // Format as 6 digits (e.g., 000001)
