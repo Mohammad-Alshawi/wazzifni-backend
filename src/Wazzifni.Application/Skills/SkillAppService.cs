@@ -77,7 +77,6 @@ namespace Wazzifni.Skills
             await CurrentUnitOfWork.SaveChangesAsync();
             return MapToEntityDto(Skill);
         }
-        //rebuild
         public override async Task<SkillDetailsDto> UpdateAsync(UpdateSkillDto input)
         {
             var Skill = await _SkillRepository.GetAll().Include(c => c.Translations).Where(SL => SL.Id == input.Id).FirstOrDefaultAsync(); ;
