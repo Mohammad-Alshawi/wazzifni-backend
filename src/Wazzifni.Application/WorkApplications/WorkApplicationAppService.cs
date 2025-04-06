@@ -151,7 +151,7 @@ namespace Wazzifni.WorkApplications
 
                 }
             }
-            if (application.Status == WorkApplicationStatus.Rejected)
+            if (application.Status == WorkApplicationStatus.RejectedByCompany)
             {
                 if (isCompanyOwner)
                 {
@@ -225,11 +225,14 @@ namespace Wazzifni.WorkApplications
 
             var workPost = await _workPostManager.GetEntityByIdAsTrackingAsync(application.WorkPostId);
 
+            if(await _userManager.IsCompany())
+                application.Status = WorkApplicationStatus.RejectedByCompany;
+            else if (await _userManager.IsAdminSession())
+                application.Status = WorkApplicationStatus.RejectedByAdmin;
 
-            application.Status = WorkApplicationStatus.Rejected;
             application.RejectReason = input.RejectReason;
 
-            workPost.Applications.Where(x => x.Id == input.Id).FirstOrDefault().Status = WorkApplicationStatus.Rejected;
+            workPost.Applications.Where(x => x.Id == input.Id).FirstOrDefault().Status = WorkApplicationStatus.RejectedByCompany;
 
             workPost.ApplicantsCount--;
 
@@ -306,7 +309,7 @@ namespace Wazzifni.WorkApplications
                 data = data.Where(wp => wp.Status == input.Status.Value);
 
             if (input.FilterStatusForCompany.HasValue)
-                data = data.Where(wp => wp.Status != WorkApplicationStatus.CheckingByAdmin);
+                data = data.Where(wp => wp.Status != WorkApplicationStatus.CheckingByAdmin && wp.Status != WorkApplicationStatus.RejectedByAdmin);
 
             if (input.CompanyId.HasValue)
                 data = data.Where(wp => wp.WorkPost.CompanyId == input.CompanyId.Value);

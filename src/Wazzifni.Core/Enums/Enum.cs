@@ -228,8 +228,9 @@ namespace Wazzifni.Enums
         {
             CheckingByAdmin = 1,
             Approved = 2,
-            Rejected = 3,
+            RejectedByCompany = 3,
             CheckingByCompany = 4,
+            RejectedByAdmin = 5
 
         }
 
