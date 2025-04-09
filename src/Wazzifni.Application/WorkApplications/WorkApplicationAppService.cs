@@ -21,6 +21,7 @@ using Wazzifni.Domain.WorkPosts;
 using Wazzifni.Localization.SourceFiles;
 using Wazzifni.WorkApplications.Dto;
 using Wazzifni.WorkApplicationService.Notifications;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.WorkApplications
@@ -283,13 +284,19 @@ namespace Wazzifni.WorkApplications
             data = data.Include(x => x.Profile).ThenInclude(x => x.User);
             data = data.Include(x => x.WorkPost).ThenInclude(x => x.Company).ThenInclude(x => x.Translations);
 
+            var keyword = input.Keyword.ToLower();
+
+            var matchingStatus = Enum.GetValues<WorkApplicationStatus>()
+                                                 .Where(e => e.ToString().ToLower().Contains(keyword))
+                                                 .ToList();
+          
             if (!string.IsNullOrEmpty(input.Keyword))
             {
                 data = data.Where(wp =>
 
                     wp.Description.Contains(input.Keyword) ||
                     wp.RejectReason.Contains(input.Keyword) ||
-                    wp.Status.ToString().Contains(input.Keyword) ||
+                    matchingStatus.Contains(wp.Status) ||
                     wp.WorkPost.Company.Translations.Any(t => t.Name.Contains(input.Keyword)) ||
                     wp.WorkPost.Title.Contains(input.Keyword) ||
                     wp.WorkPost.Description.Contains(input.Keyword) ||

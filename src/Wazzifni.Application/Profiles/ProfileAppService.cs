@@ -257,8 +257,17 @@ namespace Wazzifni.Profiles
             data = data.Include(x => x.City).ThenInclude(x => x.Country).ThenInclude(x => x.Translations);
 
 
-            if (!input.Keyword.IsNullOrEmpty())
-                data = data.Where(x => x.User.FullName.ToString().Contains(input.Keyword));
+            var keyword = input.Keyword.ToLower();
+
+
+            if (!string.IsNullOrEmpty(input.Keyword))
+            {
+                data = data.Where(p =>
+
+                    p.User.RegistrationFullName.Contains(keyword) ||
+                    p.About.Contains(keyword) 
+                );
+            }
 
             if (input.CityId.HasValue)
                 data = data.Where(x => x.CityId == input.CityId.Value);

@@ -247,8 +247,23 @@ namespace Wazzifni.Companies
             data = data.Include(x => x.City).ThenInclude(x => x.Country).ThenInclude(x => x.Translations);
             data = data.Include(x => x.Translations);
 
-            if (!input.Keyword.IsNullOrEmpty())
-                data = data.Where(x => x.JobType.ToString().Contains(input.Keyword));
+            var keyword = input.Keyword.ToLower();
+
+            var matchingStatus = Enum.GetValues<CompanyStatus>()
+                                                 .Where(e => e.ToString().ToLower().Contains(keyword))
+                                                 .ToList();
+
+            if (!string.IsNullOrEmpty(input.Keyword))
+            {
+                data = data.Where(c =>
+
+                    c.User.RegistrationFullName.Contains(keyword) ||
+                    matchingStatus.Contains(c.Status) ||
+                    c.Translations.Any(t => t.Name.Contains(keyword)) ||
+                    c.Translations.Any(t => t.About.Contains(keyword))                    
+
+                );
+            }
 
             if (input.CityId.HasValue)
                 data = data.Where(x => x.CityId == input.CityId.Value);
