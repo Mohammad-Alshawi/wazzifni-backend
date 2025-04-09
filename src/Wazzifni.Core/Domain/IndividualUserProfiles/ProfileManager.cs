@@ -81,5 +81,11 @@ namespace Wazzifni.Domain.IndividualUserProfiles
 
             await repository.DeleteAsync(profile);
         }
+
+        public async Task<Profile> GetEntityByIdWithUserAsync(long ProfileId)
+        {
+            return await repository
+                .GetAllIncluding(x => x.User).Where(x => x.Id == ProfileId).FirstOrDefaultAsync();
+        }
     }
 }

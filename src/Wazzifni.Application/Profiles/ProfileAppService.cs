@@ -208,20 +208,28 @@ namespace Wazzifni.Profiles
 
         public async Task ToggleActiveStatusAsync(int profileId)
         {
-            var profile = await _profileManager.GetEntityByIdAsync(profileId);
-            if (profile == null)
+            try
             {
-                throw new EntityNotFoundException($"Profile with ID {profileId} not found.");
+                var profile = await _profileManager.GetEntityByIdWithUserAsync(profileId);
+                if (profile == null)
+                {
+                    throw new EntityNotFoundException($"Profile with ID {profileId} not found.");
+                }
+
+                profile.User.IsActive = !profile.User.IsActive;
+
+                await _userManager.UpdateAsync(profile.User);
+                await UnitOfWorkManager.Current.SaveChangesAsync();
+
+                if (!profile.User.IsActive)
+                    _deactivatedUsersSet.Add(profile.UserId);
+                else _deactivatedUsersSet.Remove(profile.UserId);
             }
+            catch (Exception ex)
+            {
 
-            profile.User.IsActive = !profile.User.IsActive;
-
-            await Repository.UpdateAsync(profile);
-            await UnitOfWorkManager.Current.SaveChangesAsync();
-
-            if (!profile.User.IsActive)
-                _deactivatedUsersSet.Add(profile.UserId);
-            else _deactivatedUsersSet.Remove(profile.UserId);
+                throw ex;
+            }
         }
 
         public override async Task<PagedResultDto<ProfileLiteDto>> GetAllAsync(PagedProfileResultRequestDto input)
