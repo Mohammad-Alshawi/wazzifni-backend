@@ -46,6 +46,8 @@ namespace Wazzifni.Domain.WorkPosts
 
         public string ReasonRefuse { get; set; }
 
+        public bool IsFeatured { get; set; }
+        public DateTime? IsFeaturedAt { get; set; }
 
 
     }

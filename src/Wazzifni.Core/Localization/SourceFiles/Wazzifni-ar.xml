@@ -32,6 +32,7 @@
 	  <text name="WorkPostsCreate">صلاحية انشاء منشور وظبفة</text>
 	  <text name="WorkPostsUpdate">صلاحية تحديث منشور وظبفة</text>
 	  <text name="WorkPostsDelete">صلاحية حذف منشور وظبفة</text>
+	  <text name="WorkPostsSwitchFeatured">صلاحيات تمييز منشور وظيفة</text>
 
 
 	  <text name="WorkApplications">صلاحيات طلبات التوظيف</text>

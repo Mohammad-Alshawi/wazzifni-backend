@@ -150,9 +150,11 @@
 	  <text name="WorkPostsCreate">Permission to Create WorkPost</text>
 	  <text name="WorkPostsUpdate">Permission to Update WorkPost</text>
 	  <text name="WorkPostsDelete">Permission to Delete WorkPost</text>
+	  <text name="WorkPostsSwitchFeatured">Permission to Switch Feature WorkPost</text>
+
 	  
-	  
-      <text name="WorkApplications">Permission for WorkApplications</text>
+
+	  <text name="WorkApplications">Permission for WorkApplications</text>
 	  <text name="WorkApplicationsApprove">Permission to Approve WorkApplication</text>
 	  <text name="WorkApplicationsReject">Permission to Reject WorkApplication</text>
 	  <text name="WorkApplicationsCreate">Permission to Create WorkApplication</text>

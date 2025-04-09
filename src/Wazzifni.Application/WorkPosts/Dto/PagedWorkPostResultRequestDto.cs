@@ -1,4 +1,5 @@
-﻿using Abp.Application.Services.Dto;
+﻿using System;
+using Abp.Application.Services.Dto;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.WorkPosts.Dto
@@ -31,5 +32,7 @@ namespace Wazzifni.WorkPosts.Dto
         public FilterOnTime? TimeFilter { get; set; }
 
         public bool? ItWasAppliedToday { get; set; }
+
+        public bool? IsFeatured { get; set; }
     }
 }

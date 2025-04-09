@@ -30,7 +30,8 @@ namespace Wazzifni.WorkPosts.Dto
         public WorkPlace WorkPlace { get; set; }
         public DateTime? ApprovedDate { get; set; }
         public string ReasonRefuse { get; set; }
-
+        public bool IsFeatured { get; set; }
+        public DateTime? IsFeaturedAt { get; set; }
 
     }
 }

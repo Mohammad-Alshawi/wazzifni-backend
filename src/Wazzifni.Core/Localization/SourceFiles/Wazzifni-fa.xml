@@ -32,6 +32,8 @@
 		<text name="WorkPostsCreate">دسترسی ایجاد آگهی شغلی</text>
 		<text name="WorkPostsUpdate">دسترسی به‌روزرسانی آگهی شغلی</text>
 		<text name="WorkPostsDelete">دسترسی حذف آگهی شغلی</text>
+		<text name="WorkPostsSwitchFeatured">مجوز تغییر ویژگی پست کاری</text>
+
 
 		<text name="WorkApplications">دسترسی‌های درخواست‌های شغلی</text>
 		<text name="WorkApplicationsApprove">دسترسی تأیید درخواست شغلی</text>

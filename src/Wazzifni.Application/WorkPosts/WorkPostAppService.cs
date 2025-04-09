@@ -236,6 +236,29 @@ namespace Wazzifni.WorkPosts
 
 
 
+
+        [HttpPost, AbpAuthorize(PermissionNames.WorkPosts_SwitchFeatured)]
+        public async Task SwitchIsFeatured(EntityDto<long> input)
+        {
+            var WorkPost = await _workPostManager.GetEntityByIdAsync(input.Id);
+
+            if (WorkPost is null)
+                throw new UserFriendlyException(string.Format(Exceptions.ObjectWasNotFound, "Tokens.WorkPost"));
+           
+            WorkPost.IsFeatured = ! WorkPost.IsFeatured;
+
+            if (WorkPost.IsFeatured) WorkPost.IsFeaturedAt = DateTime.Now; else WorkPost.IsFeaturedAt = null;
+
+            await Repository.UpdateAsync(WorkPost);
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+
+        }
+
+
+
+
+
+
         [AbpAllowAnonymous]
         public override async Task<PagedResultDto<WorkPostLiteDto>> GetAllAsync(PagedWorkPostResultRequestDto input)
         {
@@ -363,6 +386,10 @@ namespace Wazzifni.WorkPosts
 
             if (input.ItWasAppliedToday.HasValue && input.ItWasAppliedToday.Value)
                 data = data.Where(wp => wp.Applications.Any(x => x.CreationTime.Date == DateTime.Today));
+
+
+            if (input.IsFeatured.HasValue )
+                data = data.Where(wp => wp.IsFeatured == input.IsFeatured.Value);
 
             return data;
         }

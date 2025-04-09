@@ -45,7 +45,9 @@ namespace Wazzifni.Authorization
             context.CreatePermission(PermissionNames.WorkPosts_Delete, L("WorkPostsDelete"));
             context.CreatePermission(PermissionNames.WorkPosts_Approve, L("WorkPostsApprove"));
             context.CreatePermission(PermissionNames.WorkPosts_Reject, L("WorkPostsReject"));
+            context.CreatePermission(PermissionNames.WorkPosts_SwitchFeatured, L("WorkPostsSwitchFeatured"));
 
+            
 
 
             context.CreatePermission(PermissionNames.WorkApplications, L("WorkApplications"));

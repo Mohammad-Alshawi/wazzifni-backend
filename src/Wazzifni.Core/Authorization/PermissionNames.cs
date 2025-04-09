@@ -43,6 +43,9 @@
         public const string WorkPosts_Approve = WorkPosts + "." + "Approve";
         public const string WorkPosts_Reject = WorkPosts + "." + "Reject";
 
+        public const string WorkPosts_SwitchFeatured = WorkPosts + "." + "SwitchFeatured";
+
+        
 
         public const string WorkApplications = "WorkApplications";
         public const string WorkApplications_Create = WorkApplications + "." + "Create";

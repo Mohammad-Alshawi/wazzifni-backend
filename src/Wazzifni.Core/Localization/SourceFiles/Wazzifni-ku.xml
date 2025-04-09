@@ -31,6 +31,8 @@
 		<text name="WorkPostsCreate">مۆڵەتی دروستکردنی بڵاوکردنەوەی ئیش</text>
 		<text name="WorkPostsUpdate">مۆڵەتی نوێکردنەوەی بڵاوکردنەوەی ئیش</text>
 		<text name="WorkPostsDelete">مۆڵەتی سڕینەوەی بڵاوکردنەوەی ئیش</text>
+		<text name="WorkPostsSwitchFeatured">مۆڵەت بۆ گۆڕینی تایبەتمەندی پەیامی کار</text>
+
 
 		<text name="WorkApplications">مۆڵەتەکانی داواکاریی کار</text>
 		<text name="WorkApplicationsApprove">مۆڵەتی پەسندکردنی داواکاریی کار</text>
