@@ -247,14 +247,15 @@ namespace Wazzifni.Companies
             data = data.Include(x => x.City).ThenInclude(x => x.Country).ThenInclude(x => x.Translations);
             data = data.Include(x => x.Translations);
 
-            var keyword = input.Keyword.ToLower();
+            if (!string.IsNullOrEmpty(input.Keyword))
+            {
+                var keyword = input.Keyword.ToLower();
 
-            var matchingStatus = Enum.GetValues<CompanyStatus>()
+                var matchingStatus = Enum.GetValues<CompanyStatus>()
                                                  .Where(e => e.ToString().ToLower().Contains(keyword))
                                                  .ToList();
 
-            if (!string.IsNullOrEmpty(input.Keyword))
-            {
+           
                 data = data.Where(c =>
 
                     c.User.RegistrationFullName.Contains(keyword) ||

@@ -284,14 +284,15 @@ namespace Wazzifni.WorkApplications
             data = data.Include(x => x.Profile).ThenInclude(x => x.User);
             data = data.Include(x => x.WorkPost).ThenInclude(x => x.Company).ThenInclude(x => x.Translations);
 
-            var keyword = input.Keyword.ToLower();
-
-            var matchingStatus = Enum.GetValues<WorkApplicationStatus>()
-                                                 .Where(e => e.ToString().ToLower().Contains(keyword))
-                                                 .ToList();
+           
           
             if (!string.IsNullOrEmpty(input.Keyword))
             {
+                var keyword = input.Keyword.ToLower();
+
+                var matchingStatus = Enum.GetValues<WorkApplicationStatus>()
+                                                     .Where(e => e.ToString().ToLower().Contains(keyword))
+                                                     .ToList();
                 data = data.Where(wp =>
 
                     wp.Description.Contains(input.Keyword) ||

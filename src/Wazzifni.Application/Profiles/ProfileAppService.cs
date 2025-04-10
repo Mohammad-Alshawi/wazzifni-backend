@@ -265,11 +265,12 @@ namespace Wazzifni.Profiles
             data = data.Include(x => x.City).ThenInclude(x => x.Country).ThenInclude(x => x.Translations);
 
 
-            var keyword = input.Keyword.ToLower();
 
 
             if (!string.IsNullOrEmpty(input.Keyword))
             {
+                var keyword = input.Keyword.ToLower();
+
                 data = data.Where(p =>
 
                     p.User.RegistrationFullName.Contains(keyword) ||
