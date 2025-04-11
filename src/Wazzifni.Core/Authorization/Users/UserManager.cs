@@ -89,8 +89,11 @@ namespace Wazzifni.Authorization.Users
         public async Task<bool> IsAdminSession() => await CheckUserTypeFromSession(UserType.Admin);
         public async Task<bool> IsBasicUser() => await CheckUserTypeFromSession(UserType.BasicUser);
 
+        public async Task<bool> IsTrainee() => await CheckUserTypeFromSession(UserType.Trainee);
 
         public async Task<bool> IsCompany(long UserId) => await CheckUserTypeByUserId(UserType.CompanyUser, UserId);
         public async Task<bool> IsBasicUser(long UserId) => await CheckUserTypeByUserId(UserType.BasicUser, UserId);
+        public async Task<bool> IsTrainee(long UserId) => await CheckUserTypeByUserId(UserType.Trainee, UserId);
+
     }
 }

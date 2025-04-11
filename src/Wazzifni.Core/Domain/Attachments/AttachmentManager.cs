@@ -154,6 +154,8 @@ namespace Wazzifni.Domain.Attachments
                     return AllAcceptedTypes;
                 case AttachmentRefType.Advertisiment:
                     return ImagesAcceptedTypes;
+                case AttachmentRefType.Trainee:
+                    return ImagesAcceptedTypes;
             }
 
             return new AttachmentType[] { };

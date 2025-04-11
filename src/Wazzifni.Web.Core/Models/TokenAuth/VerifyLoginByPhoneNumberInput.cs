@@ -1,5 +1,6 @@
 ﻿using Abp.Runtime.Validation;
 using System.ComponentModel.DataAnnotations;
+using Wazzifni.Models.TokenAuth.Dto;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Models.TokenAuth
@@ -34,6 +35,8 @@ namespace Wazzifni.Models.TokenAuth
         public UserType? UserType { get; set; }
 
         public int? CityId { get; set; }
+
+        public  TraineeCreate TraineeCreate { get; set; } = new TraineeCreate();
 
         public void AddValidationErrors(CustomValidationContext context)
         {

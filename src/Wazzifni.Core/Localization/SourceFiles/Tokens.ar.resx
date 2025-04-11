@@ -117,26 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Admin" xml:space="preserve">
-    <value>مدير</value>
-  </data>
-  <data name="BasicUser" xml:space="preserve">
-    <value>مستخدم أساسي</value>
-  </data>
   <data name="City" xml:space="preserve">
     <value>المدينة</value>
   </data>
-  <data name="ConfirmEmail" xml:space="preserve">
-    <value>تأكيد البريد الاكتروني</value>
-  </data>
   <data name="Country" xml:space="preserve">
     <value>الدولة</value>
-  </data>
-  <data name="EmailAddress" xml:space="preserve">
-    <value>البريدالإلكتروني</value>
-  </data>
-  <data name="ForgetPassword" xml:space="preserve">
-    <value>نسيان رقم الهاتف</value>
   </data>
   <data name="Offer" xml:space="preserve">
     <value>العرض</value>
@@ -149,6 +134,24 @@
   </data>
   <data name="Region" xml:space="preserve">
     <value>منطقة</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>البريدالإلكتروني</value>
+  </data>
+  <data name="ConfirmEmail" xml:space="preserve">
+    <value>تأكيد البريد الاكتروني</value>
+  </data>
+  <data name="ConfirmPhoneNumber" xml:space="preserve">
+    <value>تأكيد رقم الهاتف</value>
+  </data>
+  <data name="ForgetPassword" xml:space="preserve">
+    <value>نسيان رقم الهاتف</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>مدير</value>
+  </data>
+  <data name="BasicUser" xml:space="preserve">
+    <value>مستخدم أساسي</value>
   </data>
   <data name="Date" xml:space="preserve">
     <value>تاريخ</value>
@@ -171,13 +174,16 @@
   <data name="OwnerAvailableTime" xml:space="preserve">
     <value>وقت المالك المتاح</value>
   </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>سياسة الخصوصية</value>
+  </data>
   <data name="ContactUsRequest" xml:space="preserve">
     <value>طلب تواصل</value>
   </data>
   <data name="CompanyUser" xml:space="preserve">
     <value>مستخدم شركة</value>
   </data>
-  <data name="ConfirmPhoneNumber" xml:space="preserve">
-    <value>تأكيد رقم الهاتف</value>
+  <data name="Trainee" xml:space="preserve">
+    <value>متدرب</value>
   </data>
 </root>

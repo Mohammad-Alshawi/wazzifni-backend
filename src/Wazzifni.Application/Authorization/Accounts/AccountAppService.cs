@@ -14,6 +14,7 @@ using Wazzifni.Domain.ChangedPhoneNumber;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.IndividualUserProfiles;
 using Wazzifni.Domain.RegisterdPhoneNumbers;
+using Wazzifni.Domain.Trainees;
 using Wazzifni.Domains.UserVerficationCodes;
 using Wazzifni.Localization.SourceFiles;
 using static Wazzifni.Enums.Enum;
@@ -33,6 +34,7 @@ namespace Wazzifni.Authorization.Accounts
         private readonly IRegisterdPhoneNumberManager _registerdPhoneNumberManager;
         private readonly IProfileManager _profileManager;
         private readonly ICompanyManager _companyManager;
+        private readonly ITraineeManager _traineeManager;
         private readonly IRepository<ChangedPhoneNumberForUser> _changedPhoneNumberForUserRepository;
 
 
@@ -44,6 +46,7 @@ namespace Wazzifni.Authorization.Accounts
             IRegisterdPhoneNumberManager registerdPhoneNumberManager,
             IProfileManager profileManager,
             ICompanyManager companyManager,
+            ITraineeManager traineeManager,
             IRepository<ChangedPhoneNumberForUser> changedPhoneNumberForUserRepository)
         {
             _userManager = userManager;
@@ -53,6 +56,7 @@ namespace Wazzifni.Authorization.Accounts
             _registerdPhoneNumberManager = registerdPhoneNumberManager;
             _profileManager = profileManager;
             _companyManager = companyManager;
+            _traineeManager = traineeManager;
             _changedPhoneNumberForUserRepository = changedPhoneNumberForUserRepository;
 
         }
@@ -194,6 +198,9 @@ namespace Wazzifni.Authorization.Accounts
 
                 if (await _userManager.IsCompany())
                     await _companyManager.DeleteCompanyByUserId(user.Id);
+
+                if (await _userManager.IsTrainee())
+                    await _traineeManager.DeleteTraineeByUserId(user.Id);
 
                 await _userManager.DeleteAsync(user);
                 await UnitOfWorkManager.Current.SaveChangesAsync();

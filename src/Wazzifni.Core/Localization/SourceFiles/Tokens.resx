@@ -183,4 +183,7 @@
   <data name="CompanyUser" xml:space="preserve">
     <value>CompanyUser</value>
   </data>
+  <data name="Trainee" xml:space="preserve">
+    <value>Trainee</value>
+  </data>
 </root>

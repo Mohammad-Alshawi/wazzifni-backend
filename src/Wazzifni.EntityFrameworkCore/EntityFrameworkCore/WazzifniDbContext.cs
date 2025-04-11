@@ -10,6 +10,8 @@ using Wazzifni.Domain.ChangedPhoneNumber;
 using Wazzifni.Domain.Cities;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.Countries;
+using Wazzifni.Domain.CourseCategories;
+using Wazzifni.Domain.CourseTags;
 using Wazzifni.Domain.Educations;
 using Wazzifni.Domain.Feedbacks;
 using Wazzifni.Domain.IndividualUserProfiles;
@@ -17,6 +19,8 @@ using Wazzifni.Domain.Regions;
 using Wazzifni.Domain.RegisterdPhoneNumbers;
 using Wazzifni.Domain.Skills;
 using Wazzifni.Domain.SpokenLanguages;
+using Wazzifni.Domain.Trainees;
+using Wazzifni.Domain.Universities;
 using Wazzifni.Domain.WorkApplications;
 using Wazzifni.Domain.WorkExperiences;
 using Wazzifni.Domain.WorkPostFaveorites;
@@ -60,6 +64,14 @@ namespace Wazzifni.EntityFrameworkCore
         public virtual DbSet<FavoriteWorkPost> FavoriteWorkPosts { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Advertisiment> Advertisiments { get; set; }
+
+        public virtual DbSet<Trainee>  Trainees { get; set; }
+        public virtual DbSet<University>  Universities { get; set; }
+        public virtual DbSet<UniversityTranslation>  UniversityTranslations { get; set; }
+        public virtual DbSet<CourseCategory>  CourseCategories { get; set; }
+        public virtual DbSet<CourseCategoryTranslation>  CourseCategoryTranslations { get; set; }
+        public virtual DbSet<CourseTag> CourseTags { get; set; }
+        public virtual DbSet<CourseTagTranslation> CourseTagTranslations { get; set; }
 
         public WazzifniDbContext(DbContextOptions<WazzifniDbContext> options)
             : base(options)

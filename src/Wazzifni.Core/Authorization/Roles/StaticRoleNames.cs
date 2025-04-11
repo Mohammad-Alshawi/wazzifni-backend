@@ -13,6 +13,9 @@ namespace Wazzifni.Authorization.Roles
             public const string BasicUser = "BasicUser";
 
             public const string CompanyUser = "CompanyUser";
+
+            public const string Trainee = "Trainee";
+
         }
     }
 }

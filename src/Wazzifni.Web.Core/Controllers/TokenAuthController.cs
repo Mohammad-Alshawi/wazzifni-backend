@@ -26,11 +26,13 @@ using Wazzifni.Domain.ChangedPhoneNumber;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.IndividualUserProfiles;
 using Wazzifni.Domain.RegisterdPhoneNumbers;
+using Wazzifni.Domain.Trainees;
 using Wazzifni.Domains.UserVerficationCodes;
 using Wazzifni.Localization.SourceFiles;
 using Wazzifni.Models.TokenAuth;
 using Wazzifni.MultiTenancy;
 using Wazzifni.Profiles.Dto;
+using Wazzifni.Trainees.Dto;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Controllers
@@ -50,6 +52,7 @@ namespace Wazzifni.Controllers
         private readonly IRepository<ChangedPhoneNumberForUser> _changedPhoneNumberForUserRepository;
         private readonly IProfileManager _profileManager;
         private readonly ICompanyManager _companyManager;
+        private readonly ITraineeManager _traineeManager;
         private readonly IMapper _mapper;
         private readonly AttachmentManager _attachmentManager;
         private readonly TokenAuthConfiguration _configuration;
@@ -67,6 +70,7 @@ namespace Wazzifni.Controllers
             IRepository<ChangedPhoneNumberForUser> changedPhoneNumberForUserRepository,
             IProfileManager profileManager,
             ICompanyManager companyManager,
+            ITraineeManager traineeManager,
             IMapper mapper,
             AttachmentManager attachmentManager,
             TokenAuthConfiguration configuration)
@@ -83,6 +87,7 @@ namespace Wazzifni.Controllers
             _changedPhoneNumberForUserRepository = changedPhoneNumberForUserRepository;
             _profileManager = profileManager;
             _companyManager = companyManager;
+            _traineeManager = traineeManager;
             _mapper = mapper;
             _attachmentManager = attachmentManager;
             _configuration = configuration;
@@ -123,124 +128,134 @@ namespace Wazzifni.Controllers
         [HttpPost]
         public async Task<VerifyLoginByPhoneNumberOutput> VerifySignInWithPhoneNumberAsync([FromBody] VerifyLoginByPhoneNumberInput input)
         {
-            if (!input.UserType.HasValue)
-                input.UserType = UserType.BasicUser;
-            var registerdUser = await _userManager.Users.FirstOrDefaultAsync(x => x.PhoneNumber == input.PhoneNumber && x.DialCode == input.DialCode && x.Type == input.UserType);
-            if (registerdUser is not null)
-            {
-                var phoneNumber = input.DialCode.Replace("+", "") + input.PhoneNumber;
+            input.UserType ??= UserType.BasicUser;
 
-                var userCode = await _userVerficationCodeManager.GetUserWithVerificationCodeAsync(registerdUser.Id, Enums.Enum.ConfirmationCodeType.ConfirmPhoneNumber);
-                if (RegexStore.SyrianPhonNumberRegex().IsMatch(phoneNumber))
-                {
-                    if (!await _userVerficationCodeManager.CheckVerificationCodeIsValidAsync(registerdUser.Id, Enums.Enum.ConfirmationCodeType.ConfirmPhoneNumber))
-                    {
-                        throw new UserFriendlyException(string.Format(Exceptions.VerificationCodeIsnotValid));
-                    }
-                }
+            var user = await _userManager.Users.FirstOrDefaultAsync(x =>
+                x.PhoneNumber == input.PhoneNumber &&
+                x.DialCode == input.DialCode &&
+                x.Type == input.UserType);
 
-                if (userCode.VerficationCode.Equals(input.Code) || input.Code == "365289" || !RegexStore.SyrianPhonNumberRegex().IsMatch(phoneNumber))
-                {
-                    await _userVerficationCodeManager.ClearCodeAfterVerify(userCode.Id);
+            if (user == null)
+                throw new UserFriendlyException(Exceptions.VerificationCodeIsnotCorrect);
 
-                    registerdUser.IsEmailConfirmed = true;
-                    registerdUser.IsPhoneNumberConfirmed = true;
-                    var user = await _userManager.UpdateAsync(registerdUser);
-                    await _unitOfWork.SaveChangesAsync();
+            var phoneNumber = input.DialCode.Replace("+", "") + input.PhoneNumber;
+            var userCode = await _userVerficationCodeManager.GetUserWithVerificationCodeAsync(user.Id, Enums.Enum.ConfirmationCodeType.ConfirmPhoneNumber);
 
-                    var loginResult = await GetLoginResultAsync(
-                        registerdUser.UserName,
-                        "Msjofiho$kjsdh*7",
-                        GetTenancyNameOrNull()
-                    );
+            if (!await _userVerficationCodeManager.CheckVerificationCodeIsValidAsync(user.Id, Enums.Enum.ConfirmationCodeType.ConfirmPhoneNumber))
+                throw new UserFriendlyException(Exceptions.VerificationCodeIsnotValid);
 
-                    /// await _userManager.SetRolesAsync(registerdUser, new string[] { StaticRoleNames.Tenants.BasicUser });
-                    var result = new VerifyLoginByPhoneNumberOutput
-                    {
-                        AccessToken = CreateAccessToken(CreateJwtClaims(loginResult.Identity)),
-                        UserId = registerdUser.Id,
-                        UserName = registerdUser.UserName,
-                        UserType = registerdUser.Type
-                    };
-                    if (registerdUser.Type == UserType.CompanyUser)
-                    {
-                        result.CompanyStatus = await _companyManager.GetCompanyStatusByUserIdAsync(registerdUser.Id);
-
-                        result.CompanyId = await _companyManager.GetCompanyIdByUserId(registerdUser.Id);
-                        if (result.CompanyId.HasValue)
-                        {
-                            var company = await _companyManager.GetFullEntityByIdAsync(result.CompanyId.Value);
-                            result.Company = _mapper.Map<CompanyDetailsDto>(company);
-                            result.CompanyStatus = company.Status;
-                            var logo = await _attachmentManager.GetElementByRefAsync(result.CompanyId.Value, AttachmentRefType.CompanyLogo);
-                            if (logo is not null)
-                            {
-
-                                result.Company.Profile = new LiteAttachmentDto
-                                {
-                                    Id = logo.Id,
-                                    Url = _attachmentManager.GetUrl(logo),
-                                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(logo),
-                                };
-                            }
-                            var attachments = await _attachmentManager.GetByRefAsync(result.CompanyId.Value, AttachmentRefType.CompanyImage);
-                            if (attachments is not null)
-                            {
-                                foreach (var attachment in attachments)
-                                {
-                                    if (attachment != null)
-                                    {
-                                        result.Company.Attachments.Add(new LiteAttachmentDto
-                                        {
-                                            Id = attachment.Id,
-                                            Url = _attachmentManager.GetUrl(attachment),
-                                            LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(attachment),
-                                        });
-                                    }
-                                }
-                            }
-
-                        }
-                    }
-                    if (registerdUser.Type == UserType.BasicUser)
-                    {
-                        result.ProfileId = await _profileManager.GetProfileIdByUserId(registerdUser.Id);
-                        if (result.ProfileId.HasValue)
-                        {
-                            var profile = await _profileManager.GetEntityByIdAsync(result.ProfileId.Value);
-                            result.Profile = _mapper.Map<ProfileDetailsDto>(profile);
-                            var profileImage = await _attachmentManager.GetElementByRefAsync(result.ProfileId.Value, AttachmentRefType.Profile);
-                            if (profileImage is not null)
-                            {
-
-                                result.Profile.Image = new LiteAttachmentDto
-                                {
-                                    Id = profile.Id,
-                                    Url = _attachmentManager.GetUrl(profileImage),
-                                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(profileImage),
-                                };
-                            }
-
-                            var cv = await _attachmentManager.GetElementByRefAsync(result.ProfileId.Value, AttachmentRefType.CV);
-                            if (cv is not null)
-                            {
-
-                                result.Profile.Image = new LiteAttachmentDto
-                                {
-                                    Id = profile.Id,
-                                    Url = _attachmentManager.GetUrl(cv),
-                                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(cv),
-                                };
-                            }
-                        }
-                    }
-                    return result;
-
-                }
+            var isValidCode = userCode.VerficationCode == input.Code || input.Code == "365289";
+            if (!isValidCode)
                 throw new UserFriendlyException(string.Format(Exceptions.ObjectWasNotFound, Tokens.User));
+
+            await _userVerficationCodeManager.ClearCodeAfterVerify(userCode.Id);
+
+            user.IsEmailConfirmed = user.IsPhoneNumberConfirmed = true;
+            await _userManager.UpdateAsync(user);
+            await _unitOfWork.SaveChangesAsync();
+
+            var loginResult = await GetLoginResultAsync(user.UserName, "Msjofiho$kjsdh*7", GetTenancyNameOrNull());
+            var result = new VerifyLoginByPhoneNumberOutput
+            {
+                AccessToken = CreateAccessToken(CreateJwtClaims(loginResult.Identity)),
+                UserId = user.Id,
+                UserName = user.UserName,
+                UserType = user.Type
+            };
+
+            switch (user.Type)
+            {
+                case UserType.CompanyUser:
+                    await PopulateCompanyDataAsync(result, user.Id);
+                    break;
+                case UserType.BasicUser:
+                    await PopulateProfileDataAsync(result, user.Id);
+                    break;
+                case UserType.Trainee:
+                    await PopulateTraineeDataAsync(result, user.Id);
+                    break;
             }
-            throw new UserFriendlyException(string.Format(Exceptions.VerificationCodeIsnotCorrect));
+
+            return result;
         }
+
+        private async Task PopulateCompanyDataAsync(VerifyLoginByPhoneNumberOutput result, long userId)
+        {
+            result.CompanyStatus = await _companyManager.GetCompanyStatusByUserIdAsync(userId);
+            result.CompanyId = await _companyManager.GetCompanyIdByUserId(userId);
+
+            if (result.CompanyId == null) return;
+
+            var company = await _companyManager.GetFullEntityByIdAsync(result.CompanyId.Value);
+            result.Company = _mapper.Map<CompanyDetailsDto>(company);
+            result.CompanyStatus = company.Status;
+
+            var logo = await _attachmentManager.GetElementByRefAsync(result.CompanyId.Value, AttachmentRefType.CompanyLogo);
+            if (logo != null)
+            {
+                result.Company.Profile = new LiteAttachmentDto
+                {
+                    Id = logo.Id,
+                    Url = _attachmentManager.GetUrl(logo),
+                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(logo),
+                };
+            }
+
+            var attachments = await _attachmentManager.GetByRefAsync(result.CompanyId.Value, AttachmentRefType.CompanyImage);
+            foreach (var attachment in attachments.Where(a => a != null))
+            {
+                result.Company.Attachments.Add(new LiteAttachmentDto
+                {
+                    Id = attachment.Id,
+                    Url = _attachmentManager.GetUrl(attachment),
+                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(attachment),
+                });
+            }
+        }
+
+        private async Task PopulateProfileDataAsync(VerifyLoginByPhoneNumberOutput result, long userId)
+        {
+            result.ProfileId = await _profileManager.GetProfileIdByUserId(userId);
+            if (result.ProfileId == null) return;
+
+            var profile = await _profileManager.GetEntityByIdAsync(result.ProfileId.Value);
+            result.Profile = _mapper.Map<ProfileDetailsDto>(profile);
+
+            var profileImage = await _attachmentManager.GetElementByRefAsync(result.ProfileId.Value, AttachmentRefType.Profile);
+            var cv = await _attachmentManager.GetElementByRefAsync(result.ProfileId.Value, AttachmentRefType.CV);
+
+            var attachment = profileImage ?? cv;
+            if (attachment != null)
+            {
+                result.Profile.Image = new LiteAttachmentDto
+                {
+                    Id = profile.Id,
+                    Url = _attachmentManager.GetUrl(attachment),
+                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(attachment),
+                };
+            }
+        }
+
+        private async Task PopulateTraineeDataAsync(VerifyLoginByPhoneNumberOutput result, long userId)
+        {
+            result.TraineeId = await _traineeManager.GetTraineeIdByUserId(userId);
+            if (result.TraineeId == null) return;
+
+            var trainee = await _traineeManager.GetEntityByIdAsync(result.TraineeId.Value);
+            result.Trainee = _mapper.Map<TraineeDetailsDto>(trainee);
+
+            var profileImage = await _attachmentManager.GetElementByRefAsync(result.TraineeId.Value, AttachmentRefType.Trainee);
+            if (profileImage != null)
+            {
+                result.Trainee.Image = new LiteAttachmentDto
+                {
+                    Id = trainee.Id,
+                    Url = _attachmentManager.GetUrl(profileImage),
+                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(profileImage),
+                };
+            }
+        }
+
 
 
 
@@ -272,7 +287,9 @@ namespace Wazzifni.Controllers
                         case "C":
                             registerdUser.UserName = input.PhoneNumber + "C";
                             break;
-
+                        case "T":
+                            registerdUser.UserName = input.PhoneNumber + "T";
+                            break;
                         default:
                             registerdUser.UserName = input.PhoneNumber;
                             break;
@@ -327,6 +344,11 @@ namespace Wazzifni.Controllers
                 type = UserType.CompanyUser;
                 userName = userName + "C";
             }
+            if (input.UserType.HasValue && input.UserType.Value == UserType.Trainee)
+            {
+                type = UserType.Trainee;
+                userName = userName + "T";
+            }
 
             var user = await _userRegistrationManager.RegisterAsync(string.Empty,
               string.Empty,
@@ -347,7 +369,15 @@ namespace Wazzifni.Controllers
             });
 
             if (input.UserType == UserType.CompanyUser)
+            {
                 await _userManager.SetRolesAsync(user, new[] { StaticRoleNames.Tenants.CompanyUser });
+            }
+            if (input.UserType == UserType.Trainee)
+            {
+                await _userManager.SetRolesAsync(user, new[] { StaticRoleNames.Tenants.Trainee });
+                user.TraineeId = await _traineeManager.InitateTrainee(user.Id, input.TraineeCreate.UniversityId , input.TraineeCreate.UniversityMajor , input.TraineeCreate.TraineePhotoId);
+
+            }
             else
             {
                 await _userManager.SetRolesAsync(user, new string[] { StaticRoleNames.Tenants.BasicUser });

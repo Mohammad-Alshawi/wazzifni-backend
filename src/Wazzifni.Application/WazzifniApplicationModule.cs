@@ -16,8 +16,10 @@ using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.Countries;
 using Wazzifni.Domain.Regions;
 using Wazzifni.Domain.Skills;
+using Wazzifni.Domain.Universities;
 using Wazzifni.NotificationService;
 using Wazzifni.Skills.Dto;
+using Wazzifni.Universities.Dto;
 
 namespace Wazzifni
 {
@@ -121,6 +123,20 @@ namespace Wazzifni
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
 
                 #endregion
+
+
+                #region University
+                // University Translation Configuration
+                configuration.CreateMultiLingualMap<University, UniversityTranslation, LiteUniversityDto>(context).TranslationMap
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                configuration.CreateMultiLingualMap<University, UniversityTranslation, UniversityDetailsDto>(context).TranslationMap
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                configuration.CreateMultiLingualMap<University, UniversityTranslation, UniversityDto>(context).TranslationMap
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+
+                #endregion
+
+
             }
         }
     }

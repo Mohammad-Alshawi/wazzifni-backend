@@ -51,7 +51,8 @@ namespace Wazzifni.Users
         {
             { UserType.Admin, new[] { StaticRoleNames.Tenants.Admin } },
             { UserType.BasicUser, new[] { StaticRoleNames.Tenants.BasicUser } },
-            { UserType.CompanyUser, new[] { StaticRoleNames.Tenants.CompanyUser } }
+            { UserType.CompanyUser, new[] { StaticRoleNames.Tenants.CompanyUser } },
+            { UserType.Trainee, new[] { StaticRoleNames.Tenants.Trainee }}
         };
         public UserAppService(
             IRepository<User, long> repository,
@@ -380,6 +381,9 @@ namespace Wazzifni.Users
 
             if (await _userManager.IsCompany(user.Id))
                 await _firebaseNotificationService.SubscribeToTopic(new List<string> { user.FcmToken }, TopicType.CompanyUser);
+
+            if (await _userManager.IsTrainee(user.Id))
+                await _firebaseNotificationService.SubscribeToTopic(new List<string> { user.FcmToken }, TopicType.Trainee);
 
             if (user.Type == UserType.Admin)
                 await _firebaseNotificationService.SubscribeToTopic(new List<string> { user.FcmToken }, TopicType.Admin);

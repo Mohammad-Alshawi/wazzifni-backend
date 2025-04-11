@@ -28,7 +28,8 @@ namespace Wazzifni.Enums
             City = 4,
             SpokenLanguage = 5,
             CV = 6,
-            Advertisiment = 7
+            Advertisiment = 7,
+            Trainee = 8,
 
         }
         public enum AttachmentType : byte
@@ -76,6 +77,8 @@ namespace Wazzifni.Enums
             BasicUser = 2,
             [Display(ResourceType = typeof(Tokens), Name = nameof(Tokens.CompanyUser))]
             CompanyUser = 3,
+            [Display(ResourceType = typeof(Tokens), Name = nameof(Tokens.Trainee))]
+            Trainee = 4,
 
 
         }
@@ -247,6 +250,7 @@ namespace Wazzifni.Enums
             Admin = 1,
             BasicUser = 2,
             CompanyUser = 3,
+            Trainee = 4
 
         }
     }

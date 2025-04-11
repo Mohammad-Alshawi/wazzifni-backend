@@ -48,11 +48,19 @@ namespace Wazzifni.EntityFrameworkCore.Seed.Tenants
                 _context.SaveChanges();
             }
 
+            var TraineeUserRole = _context.Roles.IgnoreQueryFilters().FirstOrDefault(r => r.TenantId == _tenantId && r.Name == StaticRoleNames.Tenants.Trainee);
+            if (TraineeUserRole == null)
+            {
+                TraineeUserRole = _context.Roles.Add(new Role(_tenantId, StaticRoleNames.Tenants.Trainee, StaticRoleNames.Tenants.Trainee) { IsStatic = true }).Entity;
+                _context.SaveChanges();
+            }
+
 
             CheckAdminRoles(adminRole);
 
             CheckBasicUserRoles(basicUserRole);
             CheckCompanyUserRoles(CompanyUserRole);
+            CheckTraineeUserRoles(TraineeUserRole);
 
 
         }
@@ -120,6 +128,30 @@ namespace Wazzifni.EntityFrameworkCore.Seed.Tenants
                 role: CompanyUserRole,
                 alreadyIncludedPermissions: CompanyUserPermissionInDB,
                 actualPermissions: allCompanyUserPermissions
+            );
+        }
+
+
+        private void CheckTraineeUserRoles(Role traineeUserRole)
+        {
+            var traineeUserPermissionInDB = _context
+                .Permissions
+                .IgnoreQueryFilters()
+                .OfType<RolePermissionSetting>()
+                .Where(p => p.TenantId == _tenantId && p.RoleId == traineeUserRole.Id)
+                .Select(x => x.Name)
+                .ToList();
+
+            var allTraineeUserPermissions = new List<string>
+            {
+                PermissionNames.Pages_Users,            
+
+            };
+
+            GrantPermissionToRole(
+                role: traineeUserRole,
+                alreadyIncludedPermissions: traineeUserPermissionInDB,
+                actualPermissions: allTraineeUserPermissions
             );
         }
         private void CheckAdminRoles(Role adminRole)
