@@ -11,9 +11,13 @@ using Wazzifni.Cities.Dto;
 using Wazzifni.Companies.Dto;
 using Wazzifni.Countries;
 using Wazzifni.Countries.Dto;
+using Wazzifni.CourseCategories.Dto;
+using Wazzifni.CourseTags.Dto;
 using Wazzifni.Domain.Cities;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.Countries;
+using Wazzifni.Domain.CourseCategories;
+using Wazzifni.Domain.CourseTags;
 using Wazzifni.Domain.Regions;
 using Wazzifni.Domain.Skills;
 using Wazzifni.Domain.Universities;
@@ -136,7 +140,29 @@ namespace Wazzifni
 
                 #endregion
 
+                #region CourseCategory
+                // CourseCategory Translation Configuration
+                configuration.CreateMultiLingualMap<CourseCategory, CourseCategoryTranslation, LiteCourseCategoryDto>(context).TranslationMap
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                configuration.CreateMultiLingualMap<CourseCategory, CourseCategoryTranslation, CourseCategoryDetailsDto>(context).TranslationMap
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                configuration.CreateMultiLingualMap<CourseCategory, CourseCategoryTranslation, CourseCategoryDto>(context).TranslationMap
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                configuration.CreateMultiLingualMap<CourseCategory, CourseCategoryTranslation, LiteCourseCategory>(context).TranslationMap
+               .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                #endregion
 
+                #region CourseTag
+                // CourseTag Translation Configuration
+                configuration.CreateMultiLingualMap<CourseTag, CourseTagTranslation, LiteCourseTagDto>(context).TranslationMap
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                configuration.CreateMultiLingualMap<CourseTag, CourseTagTranslation, CourseTagDetailsDto>(context).TranslationMap
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                configuration.CreateMultiLingualMap<CourseTag, CourseTagTranslation, CourseTagDto>(context).TranslationMap
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                configuration.CreateMultiLingualMap<CourseTag, CourseTagTranslation, LiteCourseTagDto>(context).TranslationMap
+               .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                #endregion
             }
         }
     }
