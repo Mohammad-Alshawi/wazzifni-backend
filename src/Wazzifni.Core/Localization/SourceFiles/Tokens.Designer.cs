@@ -1145,5 +1145,16 @@ namespace Wazzifni.Localization.SourceFiles {
                 return ResourceManager.GetString("Trainee", resourceCulture);
             }
         }
+        /// <summary>
+        ///   Looks up a localized string similar to CourseCategory.
+        /// </summary>
+        public static string CourseCategory
+        {
+            get
+            {
+                return ResourceManager.GetString("CourseCategory", resourceCulture);
+            }
+        }
+        
     }
 }

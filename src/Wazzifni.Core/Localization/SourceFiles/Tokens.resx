@@ -186,4 +186,7 @@
   <data name="Trainee" xml:space="preserve">
     <value>Trainee</value>
   </data>
+  <data name="CourseCategory" xml:space="preserve">
+    <value>CourseCategory</value>
+  </data>
 </root>

@@ -186,4 +186,7 @@
   <data name="Trainee" xml:space="preserve">
     <value>متدرب</value>
   </data>
+  <data name="CourseCategory" xml:space="preserve">
+    <value>فئة الكورس</value>
+  </data>
 </root>

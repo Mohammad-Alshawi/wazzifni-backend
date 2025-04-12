@@ -30,6 +30,7 @@ namespace Wazzifni.Enums
             CV = 6,
             Advertisiment = 7,
             Trainee = 8,
+            CourseCategory = 9,
 
         }
         public enum AttachmentType : byte
