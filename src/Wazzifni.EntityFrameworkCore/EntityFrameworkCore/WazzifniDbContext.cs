@@ -19,6 +19,7 @@ using Wazzifni.Domain.Regions;
 using Wazzifni.Domain.RegisterdPhoneNumbers;
 using Wazzifni.Domain.Skills;
 using Wazzifni.Domain.SpokenLanguages;
+using Wazzifni.Domain.Teachers;
 using Wazzifni.Domain.Trainees;
 using Wazzifni.Domain.Universities;
 using Wazzifni.Domain.WorkApplications;
@@ -72,6 +73,7 @@ namespace Wazzifni.EntityFrameworkCore
         public virtual DbSet<CourseCategoryTranslation>  CourseCategoryTranslations { get; set; }
         public virtual DbSet<CourseTag> CourseTags { get; set; }
         public virtual DbSet<CourseTagTranslation> CourseTagTranslations { get; set; }
+        public virtual DbSet<Teacher> Teachers { get; set; }
 
         public WazzifniDbContext(DbContextOptions<WazzifniDbContext> options)
             : base(options)

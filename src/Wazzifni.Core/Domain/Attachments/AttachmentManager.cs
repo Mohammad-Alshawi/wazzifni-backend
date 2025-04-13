@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Wazzifni.Domain.Teachers;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Domain.Attachments
@@ -158,6 +159,9 @@ namespace Wazzifni.Domain.Attachments
                     return ImagesAcceptedTypes;
                 case AttachmentRefType.CourseCategory:
                     return ImagesAcceptedTypes;
+                case AttachmentRefType.Teacher:
+                    return ImagesAcceptedTypes;
+                    
             }
 
             return new AttachmentType[] { };
