@@ -21,5 +21,9 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
+**/src/Wazzifni.Web.Host/wwwroot
+**/app/wwwroot
+/src/Wazzifni.Web.Host/wwwroot
+/app/wwwroot
 LICENSE
 README.md
