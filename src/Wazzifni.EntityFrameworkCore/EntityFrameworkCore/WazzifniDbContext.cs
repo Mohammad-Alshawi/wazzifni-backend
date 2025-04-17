@@ -11,6 +11,8 @@ using Wazzifni.Domain.Cities;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.Countries;
 using Wazzifni.Domain.CourseCategories;
+using Wazzifni.Domain.CourseComments;
+using Wazzifni.Domain.Courses;
 using Wazzifni.Domain.CourseTags;
 using Wazzifni.Domain.Educations;
 using Wazzifni.Domain.Feedbacks;
@@ -75,6 +77,10 @@ namespace Wazzifni.EntityFrameworkCore
         public virtual DbSet<CourseTagTranslation> CourseTagTranslations { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
 
+        public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<CourseTranslation> CourseTranslations { get; set; }
+
+        public virtual DbSet<CourseComment>  CourseComments { get; set; }
         public WazzifniDbContext(DbContextOptions<WazzifniDbContext> options)
             : base(options)
         {

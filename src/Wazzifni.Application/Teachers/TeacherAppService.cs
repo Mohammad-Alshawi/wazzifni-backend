@@ -29,7 +29,7 @@ namespace ITLand.StemCells.Teachers
         private readonly IMapper _mapper;
         private readonly IAttachmentManager _attachmentManager;
 
-        public TeacherAppService(IRepository<Teacher> repository, IMapper mapper , IAttachmentManager attachmentManager)
+        public TeacherAppService(IRepository<Teacher> repository, IMapper mapper, IAttachmentManager attachmentManager)
         {
             _repository = repository;
             _mapper = mapper;
@@ -41,7 +41,7 @@ namespace ITLand.StemCells.Teachers
         {
             var Teacher = _mapper.Map<Teacher>(input);
 
-          
+
             await _repository.InsertAndGetIdAsync(Teacher);
             await UnitOfWorkManager.Current.SaveChangesAsync();
 
@@ -68,7 +68,7 @@ namespace ITLand.StemCells.Teachers
                 .Select(x => _mapper.Map<LiteTeacherDto>(x))
                 .ToListAsync();
 
-           var result = new PagedResultDto<LiteTeacherDto>(totalCount, items);
+            var result = new PagedResultDto<LiteTeacherDto>(totalCount, items);
 
             var attachments = await _attachmentManager.GetListByRefAsync(result.Items.Select(x => (long)x.Id).ToList(), AttachmentRefType.Teacher);
 
@@ -92,7 +92,7 @@ namespace ITLand.StemCells.Teachers
         public async Task<bool> Update(UpdateTeacherDto input)
         {
 
-            var teacher = await _repository.GetAll().Where(x=>x.Id == input.Id).FirstOrDefaultAsync();
+            var teacher = await _repository.GetAll().Where(x => x.Id == input.Id).FirstOrDefaultAsync();
 
             if (teacher is null)
             {
@@ -169,6 +169,21 @@ namespace ITLand.StemCells.Teachers
         private IQueryable<Teacher> ApplyPaging(IQueryable<Teacher> query, PagedTeachersResultRequestDto input)
         {
             return query.Skip(input.SkipCount).Take(input.MaxResultCount);
+        }
+
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [RemoteService(IsEnabled = false)]
+        public async Task DeleteAsync(EntityDto<int> input)
+        {
+            var teacher = await _repository.GetAll().Where(x => x.Id == input.Id).FirstOrDefaultAsync();
+
+            if (teacher is null)
+            {
+                throw new UserFriendlyException(string.Format(Exceptions.ObjectWasNotFound, "Tokens.Teacher"));
+            }
+
+            
+            await _repository.DeleteAsync(input.Id);
         }
     }
 }

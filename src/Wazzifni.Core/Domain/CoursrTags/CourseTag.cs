@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Abp.Domain.Entities.Auditing;
 using Abp.Domain.Entities;
 using Wazzifni.Domain.Universities;
+using Wazzifni.Domain.Courses;
 
 namespace Wazzifni.Domain.CourseTags
 {
@@ -13,6 +14,9 @@ namespace Wazzifni.Domain.CourseTags
     {
         public bool IsActive { get; set; }
         public ICollection<CourseTagTranslation> Translations { get; set; }
+
+        public ICollection<Course> Courses { get; set; }
+
     }
-   
+
 }

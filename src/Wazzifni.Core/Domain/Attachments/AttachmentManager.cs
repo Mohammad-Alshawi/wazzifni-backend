@@ -161,7 +161,9 @@ namespace Wazzifni.Domain.Attachments
                     return ImagesAcceptedTypes;
                 case AttachmentRefType.Teacher:
                     return ImagesAcceptedTypes;
-                    
+                case AttachmentRefType.Course:
+                    return ImagesAcceptedTypes;
+
             }
 
             return new AttachmentType[] { };

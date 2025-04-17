@@ -12,11 +12,13 @@ using Wazzifni.Companies.Dto;
 using Wazzifni.Countries;
 using Wazzifni.Countries.Dto;
 using Wazzifni.CourseCategories.Dto;
+using Wazzifni.Courses.Dto;
 using Wazzifni.CourseTags.Dto;
 using Wazzifni.Domain.Cities;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.Countries;
 using Wazzifni.Domain.CourseCategories;
+using Wazzifni.Domain.Courses;
 using Wazzifni.Domain.CourseTags;
 using Wazzifni.Domain.Regions;
 using Wazzifni.Domain.Skills;
@@ -162,6 +164,17 @@ namespace Wazzifni
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
                 configuration.CreateMultiLingualMap<CourseTag, CourseTagTranslation, LiteCourseTagDto>(context).TranslationMap
                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                #endregion
+
+
+
+                #region Course
+                // Course Translation Configuration
+                configuration.CreateMultiLingualMap<Course, CourseTranslation, CourseLiteDto>(context).TranslationMap
+                .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title));
+                configuration.CreateMultiLingualMap<Course, CourseTranslation, CourseDetailsDto>(context).TranslationMap
+                .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title));
+
                 #endregion
             }
         }

@@ -32,6 +32,7 @@ namespace Wazzifni.Enums
             Trainee = 8,
             CourseCategory = 9,
             Teacher = 10,
+            Course = 11,
 
         }
         public enum AttachmentType : byte
@@ -255,6 +256,20 @@ namespace Wazzifni.Enums
             Trainee = 4
 
         }
+
+        public enum CourseMode : byte
+        {
+            Online = 1,
+            InPerson = 2
+        }
+
+        public enum CourseDifficulty : byte
+        {
+            Beginner = 1,
+            Intermediate = 2,
+            Advanced = 3
+        }
+
     }
 }
 
