@@ -41,13 +41,15 @@ namespace ITLand.StemCells.Teachers
         {
             var Teacher = _mapper.Map<Teacher>(input);
 
+          
+            await _repository.InsertAndGetIdAsync(Teacher);
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+
             if (input.AttachmentId != 0)
             {
                 await _attachmentManager.CheckAndUpdateRefIdAsync(input.AttachmentId, AttachmentRefType.Teacher, Teacher.Id);
             }
 
-            await _repository.InsertAndGetIdAsync(Teacher);
-            await UnitOfWorkManager.Current.SaveChangesAsync();
             return true;
         }
 
