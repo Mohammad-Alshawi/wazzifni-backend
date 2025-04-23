@@ -57,13 +57,24 @@ namespace Wazzifni.Roles
 
         public async Task<ListResultDto<RoleListDto>> GetRolesAsync(GetRolesInput input)
         {
-            var roles = await _roleManager
-                .Roles
-                .WhereIf(
-                    !input.Permission.IsNullOrWhiteSpace(),
-                    r => r.Permissions.Any(rp => rp.Name == input.Permission && rp.IsGranted)
-                )
-                .ToListAsync();
+            var excludedRoleNames = new[]
+                        {
+                            StaticRoleNames.Tenants.BasicUser,
+                            StaticRoleNames.Tenants.CompanyUser,
+                            StaticRoleNames.Tenants.Trainee
+                        };
+            var rolesQuery = _roleManager
+                            .Roles
+                            .WhereIf(
+                                !input.Permission.IsNullOrWhiteSpace(),
+                                r => r.Permissions.Any(rp => rp.Name == input.Permission && rp.IsGranted)
+                            )
+                            .WhereIf(
+                                input.ForCreateUser.HasValue && input.ForCreateUser.Value,
+                                r => !excludedRoleNames.Contains(r.Name)
+                            );
+
+            var roles = await rolesQuery.ToListAsync();
 
             return new ListResultDto<RoleListDto>(ObjectMapper.Map<List<RoleListDto>>(roles));
         }
