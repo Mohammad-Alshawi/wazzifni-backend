@@ -1,6 +1,7 @@
 ﻿using Abp.Application.Services.Dto;
 using Wazzifni.Cities.Dto;
 using Wazzifni.Companies.Dto;
+using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Profiles.Dto
 {
@@ -11,6 +12,8 @@ namespace Wazzifni.Profiles.Dto
         public SuperLiteUserDto User { get; set; }
 
         public LiteAttachmentDto Image { get; set; }
+
+        public Gender? Gender { get; set; }
 
     }
 }

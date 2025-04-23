@@ -9,6 +9,7 @@ using Wazzifni.Domain.Skills;
 using Wazzifni.Domain.SpokenLanguages;
 using Wazzifni.Domain.WorkApplications;
 using Wazzifni.Domain.WorkExperiences;
+using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Domain.IndividualUserProfiles
 {
@@ -30,6 +31,8 @@ namespace Wazzifni.Domain.IndividualUserProfiles
         public virtual ICollection<SpokenLanguageValue> SpokenLanguages { get; set; }
 
         public virtual ICollection<WorkApplication> Applications { get; set; }
+
+        public Gender? Gender { get; set; } = null;
 
     }
 }

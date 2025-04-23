@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Wazzifni.Cities.Dto;
 using Wazzifni.Companies.Dto;
 using Wazzifni.Skills.Dto;
+using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Profiles.Dto
 {
@@ -24,6 +25,8 @@ namespace Wazzifni.Profiles.Dto
         public LiteAttachmentDto Image { get; set; }
 
         public LiteAttachmentDto Cv { get; set; }
+
+        public Gender? Gender { get; set; }
 
     }
 }

@@ -270,6 +270,12 @@ namespace Wazzifni.Enums
             Advanced = 3
         }
 
+        public enum Gender : byte 
+        { 
+          Male = 1,
+          Female = 2
+        }
+
     }
 }
 

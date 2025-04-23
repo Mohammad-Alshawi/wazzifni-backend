@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Profiles.Dto
 {
@@ -19,5 +20,7 @@ namespace Wazzifni.Profiles.Dto
 
         public long? ProfilePhotoId { get; set; }
         public long CvId { get; set; }
+
+        public Gender? Gender { get; set; }
     }
 }
