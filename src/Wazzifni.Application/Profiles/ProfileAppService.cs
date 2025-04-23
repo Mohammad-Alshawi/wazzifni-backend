@@ -158,24 +158,35 @@ namespace Wazzifni.Profiles
 
 
             var logo = await _attachmentManager.GetElementByRefAsync(profile.Id, AttachmentRefType.Profile);
-            if (logo is not null && logo.Id != input.ProfilePhotoId && input.ProfilePhotoId != 0)
-            {
-                await _attachmentManager.DeleteRefIdAsync(logo);
-                await _attachmentManager.CheckAndUpdateRefIdAsync(input.ProfilePhotoId, AttachmentRefType.Profile, profile.Id);
 
+            if (input.ProfilePhotoId is null || input.ProfilePhotoId == 0)
+            {
+                if (logo is not null)
+                    await _attachmentManager.DeleteRefIdAsync(logo);
             }
-            else if (logo is null && input.ProfilePhotoId != 0)
-                await _attachmentManager.CheckAndUpdateRefIdAsync(input.ProfilePhotoId, AttachmentRefType.Profile, profile.Id);
+            else
+            {
+                if (logo is not null && logo.Id != input.ProfilePhotoId)
+                    await _attachmentManager.DeleteRefIdAsync(logo);
+
+                await _attachmentManager.CheckAndUpdateRefIdAsync(input.ProfilePhotoId.Value, AttachmentRefType.Profile, profile.Id);
+            }
 
             var cv = await _attachmentManager.GetElementByRefAsync(profile.Id, AttachmentRefType.CV);
-            if (cv is not null && cv.Id != input.CvId && input.CvId != 0)
-            {
-                await _attachmentManager.DeleteRefIdAsync(cv);
-                await _attachmentManager.CheckAndUpdateRefIdAsync(input.CvId, AttachmentRefType.CV, profile.Id);
 
+            if (input.CvId == 0)
+            {
+                if (cv is not null)
+                    await _attachmentManager.DeleteRefIdAsync(cv);
             }
-            else if (cv is null && input.CvId != 0)
+            else
+            {
+                if (cv is not null && cv.Id != input.CvId)
+                    await _attachmentManager.DeleteRefIdAsync(cv);
+
                 await _attachmentManager.CheckAndUpdateRefIdAsync(input.CvId, AttachmentRefType.CV, profile.Id);
+            }
+
 
             await Repository.UpdateAsync(profile);
             UnitOfWorkManager.Current.SaveChanges();
