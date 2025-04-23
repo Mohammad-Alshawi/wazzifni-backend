@@ -49,7 +49,6 @@ namespace Wazzifni.Users
 
         private static readonly Dictionary<UserType, string[]> UserTypeRoleMapping = new()
         {
-            { UserType.Admin, new[] { StaticRoleNames.Tenants.Admin } },
             { UserType.BasicUser, new[] { StaticRoleNames.Tenants.BasicUser } },
             { UserType.CompanyUser, new[] { StaticRoleNames.Tenants.CompanyUser } },
             { UserType.Trainee, new[] { StaticRoleNames.Tenants.Trainee }}
@@ -141,12 +140,8 @@ namespace Wazzifni.Users
 
             CheckErrors(await _userManager.CreateAsync(user, input.Password));
 
-            if (!UserTypeRoleMapping.ContainsKey(user.Type))
-            {
-                throw new UserFriendlyException($"No roles defined for UserType: {user.Type}");
-            }
 
-            var allowedRoles = UserTypeRoleMapping[user.Type];
+          
 
             if (input.RoleNames != null)
             {
@@ -156,8 +151,12 @@ namespace Wazzifni.Users
                     {
                         throw new UserFriendlyException(string.Format(Exceptions.ObjectWasNotFound, Tokens.Role + " " + rolename));
                     }
-                    if (!allowedRoles.Contains(rolename))
+                    if (input.UserType != UserType.Admin)
                     {
+                        var allowedRoles = UserTypeRoleMapping[user.Type];
+
+                        if(!allowedRoles.Contains(rolename))
+
                         throw new UserFriendlyException($"UserType '{user.Type}' is not allowed to have role '{rolename}'.");
                     }
                 }
