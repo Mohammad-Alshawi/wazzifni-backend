@@ -21,6 +21,7 @@ using Wazzifni.Domain.Educations;
 using Wazzifni.Domain.IndividualUserProfiles;
 using Wazzifni.Domain.Skills;
 using Wazzifni.Domain.SpokenLanguages;
+using Wazzifni.Domain.WorkApplications;
 using Wazzifni.Domain.WorkExperiences;
 using Wazzifni.Profiles.Dto;
 using static Wazzifni.Enums.Enum;
@@ -42,6 +43,7 @@ namespace Wazzifni.Profiles
         private readonly IRepository<Education, long> _educationRepo;
         private readonly IRepository<WorkExperience, long> _workExperienceRepo;
         private readonly IRepository<SpokenLanguageValue, long> _spLanRepo;
+        private readonly IRepository<WorkApplication, long> _workApplicationRepo;
         private readonly DeactivatedUsersSet _deactivatedUsersSet;
         private readonly IMapper _mapper;
 
@@ -52,6 +54,7 @@ namespace Wazzifni.Profiles
             IRepository<Education, long> educationRepo,
             IRepository<WorkExperience, long> workExperienceRepo,
             IRepository<SpokenLanguageValue, long> spLanRepo,
+            IRepository<WorkApplication, long> workApplicationRepo,
             DeactivatedUsersSet deactivatedUsersSet,
             IMapper mapper) : base(repository)
         {
@@ -65,6 +68,7 @@ namespace Wazzifni.Profiles
             _educationRepo = educationRepo;
             _workExperienceRepo = workExperienceRepo;
             _spLanRepo = spLanRepo;
+            _workApplicationRepo = workApplicationRepo;
             _deactivatedUsersSet = deactivatedUsersSet;
             _mapper = mapper;
         }
@@ -106,12 +110,15 @@ namespace Wazzifni.Profiles
             return base.CreateAsync(input);
         }
 
-
-        [ApiExplorerSettings(IgnoreApi = true)]
-        [RemoteService(IsEnabled = false)]
-        public override Task DeleteAsync(EntityDto<long> input)
+        [AbpAuthorize(PermissionNames.Users_Delete)]
+        public override async Task DeleteAsync(EntityDto<long> input)
         {
-            return base.DeleteAsync(input);
+            var profile = await _profileManager.GetEntityByIdASTrackingAsync(input.Id);
+            await BulkHardDeleteOldEntities(profile.Id);
+            await _workApplicationRepo.DeleteAsync(x => x.ProfileId == input.Id);
+            var user = await _userManager.GetUserByIdAsync(profile.UserId);
+            await _userManager.DeleteAsync(user);
+            await base.DeleteAsync(input);
         }
 
 

@@ -14,6 +14,7 @@ using Abp.Notifications;
 using Abp.Runtime.Session;
 using Abp.UI;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -190,6 +191,8 @@ namespace Wazzifni.Users
         }
 
         [AbpAuthorize(PermissionNames.Users_Delete)]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [RemoteService(IsEnabled = false)]
         public override async Task DeleteAsync(EntityDto<long> input)
         {
             var user = await _userManager.GetUserByIdAsync(input.Id);

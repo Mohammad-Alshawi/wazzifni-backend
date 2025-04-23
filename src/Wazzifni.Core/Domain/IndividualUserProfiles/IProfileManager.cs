@@ -15,6 +15,7 @@ namespace Wazzifni.Domain.IndividualUserProfiles
 
         Task DeleteProfileByUserId(long userId);
         Task<Profile> GetEntityByIdWithUserAsync(long ProfileId);
+        Task<Profile> GetEntityByIdASTrackingAsync(long ProfileId);
 
     }
 }
