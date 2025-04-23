@@ -18,6 +18,7 @@ using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.Companies.Dto;
+using Wazzifni.Domain.IndividualUserProfiles;
 using Wazzifni.Localization.SourceFiles;
 using static Wazzifni.Enums.Enum;
 
@@ -110,6 +111,10 @@ namespace Wazzifni.Companies
             company.Status = oldStaus;
             company.IsActive = oldActivs;
             await Repository.UpdateAsync(company);
+
+            company.User.RegistrationFullName = input.RegistrationFullName;
+            await _userManager.UpdateAsync(company.User);
+
             await UnitOfWorkManager.Current.SaveChangesAsync();
 
             var oldimagesAttachments = await _attachmentManager.GetByRefAsync(company.Id, AttachmentRefType.CompanyImage);

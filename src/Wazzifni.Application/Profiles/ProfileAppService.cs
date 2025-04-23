@@ -164,13 +164,14 @@ namespace Wazzifni.Profiles
                 if (logo is not null)
                     await _attachmentManager.DeleteRefIdAsync(logo);
             }
-            else
+            else if (logo?.Id != input.ProfilePhotoId)
             {
-                if (logo is not null && logo.Id != input.ProfilePhotoId)
+                if (logo is not null)
                     await _attachmentManager.DeleteRefIdAsync(logo);
 
                 await _attachmentManager.CheckAndUpdateRefIdAsync(input.ProfilePhotoId.Value, AttachmentRefType.Profile, profile.Id);
             }
+
 
             var cv = await _attachmentManager.GetElementByRefAsync(profile.Id, AttachmentRefType.CV);
 
@@ -179,16 +180,21 @@ namespace Wazzifni.Profiles
                 if (cv is not null)
                     await _attachmentManager.DeleteRefIdAsync(cv);
             }
-            else
+            else if (cv?.Id != input.CvId)
             {
-                if (cv is not null && cv.Id != input.CvId)
+                if (cv is not null)
                     await _attachmentManager.DeleteRefIdAsync(cv);
 
                 await _attachmentManager.CheckAndUpdateRefIdAsync(input.CvId, AttachmentRefType.CV, profile.Id);
             }
 
 
+
             await Repository.UpdateAsync(profile);
+
+            profile.User.RegistrationFullName = input.RegistrationFullName;
+            await _userManager.UpdateAsync(profile.User);
+
             UnitOfWorkManager.Current.SaveChanges();
 
 

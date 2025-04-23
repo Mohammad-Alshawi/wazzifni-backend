@@ -29,6 +29,9 @@ namespace Wazzifni.Companies.Dto
 
         public string WebSite { get; set; }
 
+        public string RegistrationFullName { get; set; }
+
+
         public void AddValidationErrors(CustomValidationContext context)
         {
             if (CityId == 0)

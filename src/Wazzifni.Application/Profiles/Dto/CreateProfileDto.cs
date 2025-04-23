@@ -22,5 +22,8 @@ namespace Wazzifni.Profiles.Dto
         public long CvId { get; set; }
 
         public Gender? Gender { get; set; }
+
+        public string RegistrationFullName { get; set; }
+
     }
 }
