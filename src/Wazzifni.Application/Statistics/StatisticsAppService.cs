@@ -94,7 +94,7 @@ namespace Wazzifni.Statistics
 
 
 
-        public async Task<List<WorkApplicationsChartDto>> GetWorkApplicationsChart(int? month = null, int? year = null)
+        public async Task<dynamic> GetWorkApplicationsChart(int? month = null, int? year = null)
         {
             var today = DateTime.Today;
             int targetMonth = month ?? today.Month;
@@ -115,7 +115,8 @@ namespace Wazzifni.Statistics
                 .OrderBy(a => a.Date)
                 .ToListAsync();
 
-            return applications;
+            return new { Applications = applications };
+
         }
 
 
