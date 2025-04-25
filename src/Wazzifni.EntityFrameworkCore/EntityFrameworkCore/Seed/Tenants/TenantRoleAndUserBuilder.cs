@@ -150,6 +150,8 @@ namespace Wazzifni.EntityFrameworkCore.Seed.Tenants
                  PermissionNames.CourseRegistrationRequests_Create,
                  PermissionNames.CourseRegistrationRequests_Update,
                  PermissionNames.CourseRegistrationRequests_Delete,
+                 PermissionNames.Courses,
+                 PermissionNames.Courses_Rate
 
             };
 

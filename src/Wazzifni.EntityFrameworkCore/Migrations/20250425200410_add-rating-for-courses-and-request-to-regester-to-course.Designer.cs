@@ -12,8 +12,8 @@ using Wazzifni.EntityFrameworkCore;
 namespace Wazzifni.Migrations
 {
     [DbContext(typeof(WazzifniDbContext))]
-    [Migration("20250425191836_add-request-to-regesrtation-to-request")]
-    partial class addrequesttoregesrtationtorequest
+    [Migration("20250425200410_add-rating-for-courses-and-request-to-regester-to-course")]
+    partial class addratingforcoursesandrequesttoregestertocourse
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -2302,7 +2302,7 @@ namespace Wazzifni.Migrations
 
                     b.HasIndex("TraineeId");
 
-                    b.ToTable("CourseRegistrationRequest");
+                    b.ToTable("CourseRegistrationRequests");
                 });
 
             modelBuilder.Entity("Wazzifni.Domain.CourseTags.CourseTag", b =>
@@ -2395,6 +2395,9 @@ namespace Wazzifni.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<double?>("AverageRating")
+                        .HasColumnType("float");
+
                     b.Property<int>("CityId")
                         .HasColumnType("int");
 
@@ -2449,9 +2452,6 @@ namespace Wazzifni.Migrations
                     b.Property<decimal?>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<double>("Rating")
-                        .HasColumnType("float");
-
                     b.Property<int>("RegisteredTraineesCount")
                         .HasColumnType("int");
 
@@ -2473,6 +2473,58 @@ namespace Wazzifni.Migrations
                     b.HasIndex("TeacherId");
 
                     b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("Wazzifni.Domain.Courses.CourseRate", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<int?>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long?>("CreatorUserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("DeleterUserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long?>("LastModifierUserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<double>("Rate")
+                        .HasColumnType("float");
+
+                    b.Property<long?>("TraineeId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("TraineeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CourseRates");
                 });
 
             modelBuilder.Entity("Wazzifni.Domain.Courses.CourseTranslation", b =>
@@ -3936,6 +3988,29 @@ namespace Wazzifni.Migrations
                     b.Navigation("CourseCategory");
 
                     b.Navigation("Teacher");
+                });
+
+            modelBuilder.Entity("Wazzifni.Domain.Courses.CourseRate", b =>
+                {
+                    b.HasOne("Wazzifni.Domain.Courses.Course", "Course")
+                        .WithMany()
+                        .HasForeignKey("CourseId");
+
+                    b.HasOne("Wazzifni.Domain.Trainees.Trainee", "Trainee")
+                        .WithMany()
+                        .HasForeignKey("TraineeId");
+
+                    b.HasOne("Wazzifni.Authorization.Users.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Trainee");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Wazzifni.Domain.Courses.CourseTranslation", b =>

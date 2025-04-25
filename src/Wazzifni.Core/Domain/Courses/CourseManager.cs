@@ -15,6 +15,7 @@ using static Wazzifni.Enums.Enum;
 using Wazzifni.Localization.SourceFiles;
 using Microsoft.EntityFrameworkCore;
 using Abp.Domain.Entities;
+using Wazzifni.Domain.Trainees;
 
 namespace Wazzifni.Domain.Courses
 {
@@ -24,14 +25,17 @@ namespace Wazzifni.Domain.Courses
         private readonly IMapper _mapper;
 
         private readonly IRepository<CourseTranslation> _CourseTranslationsRepository;
+        private readonly IRepository<CourseRate, long> _courseRateRepository;
         private readonly IAttachmentManager _attachmentManager;
         private readonly ICityManager _cityManager;
-
+        private readonly ITraineeManager _traineeManager;
         private readonly UserManager _userManager;
         public CourseManager(
             IRepository<CourseTranslation> CourseTranslationsRepository,
+            IRepository<CourseRate,long> CourseRateRepository,
             IAttachmentManager attachmentManager,
             ICityManager cityManager,
+            ITraineeManager traineeManager,
             IRepository<Course> CourseRepository,
             IMapper mapper,
             UserManager userManager)
@@ -39,8 +43,10 @@ namespace Wazzifni.Domain.Courses
             _CourseRepository = CourseRepository;
             _mapper = mapper;
             _CourseTranslationsRepository = CourseTranslationsRepository;
+            _courseRateRepository = CourseRateRepository;
             _attachmentManager = attachmentManager;
             _cityManager = cityManager;
+            _traineeManager = traineeManager;
             _userManager = userManager;
         }
 
@@ -144,5 +150,51 @@ namespace Wazzifni.Domain.Courses
         {
             return await _CourseRepository.GetAll().AsNoTracking().Where(x => x.IsDeleted == false).CountAsync();
         }
+
+        public async Task<CourseRate> RateForCourseByUserId(long userId, int CourseId, double rate)
+        {
+            var userRate = await _courseRateRepository.FirstOrDefaultAsync(x => x.UserId == userId && x.CourseId == CourseId);
+
+            var traineeId = await _traineeManager.GetTraineeIdByUserId(userId);
+            if (userRate is null)
+            {
+                return await _courseRateRepository.InsertAsync(new CourseRate
+                {
+                    CourseId = CourseId,
+                    UserId = userId,
+                    TraineeId = traineeId,
+                    Rate = rate
+                });
+            }
+            else
+            {
+                userRate.Rate = rate;
+                return await _courseRateRepository.UpdateAsync(userRate);
+            }
+        }
+
+        public async Task<double?> GetCourseRateForUser(long userId, int CourseId)
+        {
+            var userRate = await _courseRateRepository.FirstOrDefaultAsync(x => x.UserId == userId && x.CourseId == CourseId);
+            if (userRate is not null)
+                return userRate.Rate;
+            return null;
+        }
+
+        public async Task<double?> GetAverageRatingForCourse(int CourseId)
+        {
+
+            var evaluations = await _courseRateRepository.GetAll()
+                              .Where(x => x.CourseId == CourseId)
+                              .Select(x => x.Rate)
+                              .ToListAsync();
+
+            if (evaluations.Any())
+                return evaluations.Average();
+
+            return null;
+        }
+
+
     }
 }

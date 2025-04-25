@@ -67,6 +67,9 @@ namespace Wazzifni.Authorization
             context.CreatePermission(PermissionNames.CourseRegistrationRequests_Reject, L("CourseRegistrationRequestsReject"));
             context.CreatePermission(PermissionNames.CourseRegistrationRequests_Delete, L("CourseRegistrationRequestsDelete"));
             context.CreatePermission(PermissionNames.CourseRegistrationRequests_Update, L("CourseRegistrationRequestsUpdate"));
+           
+            context.CreatePermission(PermissionNames.Courses, L("Courses"));
+            context.CreatePermission(PermissionNames.Courses_Rate, L("CoursesRate"));
 
         }
 

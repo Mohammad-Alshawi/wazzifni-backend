@@ -65,6 +65,9 @@
         public const string CourseRegistrationRequests_Reject = CourseRegistrationRequests + "." + "Reject";
         public const string CourseRegistrationRequests_Update = CourseRegistrationRequests + "." + "Update";
 
+        public const string Courses = "Courses";
+        public const string Courses_Rate = Courses + "." + "Rate";
+
 
     }
 }

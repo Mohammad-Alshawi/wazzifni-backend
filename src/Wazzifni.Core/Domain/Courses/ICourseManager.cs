@@ -14,5 +14,8 @@ namespace Wazzifni.Domain.Courses
         Task<Course> GetEntityByIdAsync(int id);
         Task<Course> GetLiteCourseByIdAsync(int id);
         Task<Course> GetEntityByAsTrackingIdAsync(int id);
+        Task<CourseRate> RateForCourseByUserId(long userId, int CourseId, double rate);
+        Task<double?> GetAverageRatingForCourse(int CourseId);
+        Task<double?> GetCourseRateForUser(long userId, int CourseId);
     }
 }

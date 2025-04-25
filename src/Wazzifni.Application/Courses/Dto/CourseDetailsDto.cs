@@ -41,6 +41,7 @@ namespace Wazzifni.Courses.Dto
         public List<LiteAttachmentDto> Images { get; set; } = new List<LiteAttachmentDto>();
         public DateTime? ClosedDate { get; set; }
 
+        public double? OldRate { get; set; }
 
     }
 }

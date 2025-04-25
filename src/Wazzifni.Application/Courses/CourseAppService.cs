@@ -162,6 +162,10 @@ namespace Wazzifni.Courses
 
             var result = _mapper.Map<CourseDetailsDto>(Course);
 
+            if(await _userManager.IsTrainee())
+            {
+                result.OldRate = await _courseManager.GetCourseRateForUser(AbpSession.UserId.Value, Course.Id);
+            }
             var attachments = await _attachmentManager.GetByRefAsync(input.Id, AttachmentRefType.Course);
             if (attachments is not null)
             {
@@ -182,8 +186,20 @@ namespace Wazzifni.Courses
             return result;
         }
 
+        [HttpPost, AbpAuthorize(PermissionNames.Courses_Rate)]
+        public async Task<dynamic> Rate(RateCourseDto input)
+        {
+            var user = await _userManager.GetUserByIdAsync(AbpSession.UserId.Value);
+            var Course = await _courseManager.GetLiteCourseByIdAsync(input.CourseId);
 
-       
+            await _courseManager.RateForCourseByUserId(user.Id, Course.Id, input.Rate);
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+
+            Course.AverageRating = await _courseManager.GetAverageRatingForCourse(Course.Id);
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+            return new { Result = true };
+        }
+
         public override async Task<PagedResultDto<CourseLiteDto>> GetAllAsync(PagedCourseResultRequestDto input)
         {
             var result = await base.GetAllAsync(input);

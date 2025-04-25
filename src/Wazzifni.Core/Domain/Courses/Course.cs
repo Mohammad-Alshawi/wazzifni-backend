@@ -40,7 +40,7 @@ namespace Wazzifni.Domain.Courses
         public ICollection<CourseTag> Tags { get; set; }
         public bool IsFeatured { get; set; }
         public decimal? Price { get; set; }
-        public double Rating { get; set; }
+        public double? AverageRating { get; set; }
         public ICollection<CourseComment> Comments { get; set; }
 
         public ICollection<CourseRegistrationRequest> CourseRegistrationRequests { get; set; }
