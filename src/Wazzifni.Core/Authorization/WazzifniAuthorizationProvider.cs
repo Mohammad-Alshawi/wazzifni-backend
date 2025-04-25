@@ -61,6 +61,13 @@ namespace Wazzifni.Authorization
 
             context.CreatePermission(PermissionNames.Advertisements_CUD, L("Advertisements_CUD"));
 
+            context.CreatePermission(PermissionNames.CourseRegistrationRequests, L("CourseRegistrationRequests"));
+            context.CreatePermission(PermissionNames.CourseRegistrationRequests_Approve, L("CourseRegistrationRequestsApprove"));
+            context.CreatePermission(PermissionNames.CourseRegistrationRequests_Create, L("CourseRegistrationRequestsCreate"));
+            context.CreatePermission(PermissionNames.CourseRegistrationRequests_Reject, L("CourseRegistrationRequestsReject"));
+            context.CreatePermission(PermissionNames.CourseRegistrationRequests_Delete, L("CourseRegistrationRequestsDelete"));
+            context.CreatePermission(PermissionNames.CourseRegistrationRequests_Update, L("CourseRegistrationRequestsUpdate"));
+
         }
 
         private static ILocalizableString L(string name)

@@ -53,6 +53,8 @@ namespace Wazzifni.Courses.Dto
         public DateTime CreationTime { get; set; }
 
         public LiteAttachmentDto Image { get; set; }
+        public DateTime? ClosedDate { get; set; }
+
 
     }
 }

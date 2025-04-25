@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using static Wazzifni.Enums.Enum;
 using Wazzifni.Cities.Dto;
@@ -42,6 +39,8 @@ namespace Wazzifni.Courses.Dto
         public bool IsClosed { get; set; }
 
         public List<LiteAttachmentDto> Images { get; set; } = new List<LiteAttachmentDto>();
+        public DateTime? ClosedDate { get; set; }
+
 
     }
 }

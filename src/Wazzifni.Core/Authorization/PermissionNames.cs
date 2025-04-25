@@ -58,6 +58,13 @@
 
         public const string Advertisements_CUD = "Advertisements_CUD";
 
+        public const string CourseRegistrationRequests = "CourseRegistrationRequests";
+        public const string CourseRegistrationRequests_Create = CourseRegistrationRequests + "." + "Create";
+        public const string CourseRegistrationRequests_Delete = CourseRegistrationRequests + "." + "Delete";
+        public const string CourseRegistrationRequests_Approve = CourseRegistrationRequests + "." + "Approve";
+        public const string CourseRegistrationRequests_Reject = CourseRegistrationRequests + "." + "Reject";
+        public const string CourseRegistrationRequests_Update = CourseRegistrationRequests + "." + "Update";
+
 
     }
 }

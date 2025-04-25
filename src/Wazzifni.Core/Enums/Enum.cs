@@ -276,6 +276,13 @@ namespace Wazzifni.Enums
           Female = 2
         }
 
+        public enum CourseRegistrationRequestStatus : byte 
+        {
+            Checking = 1,
+            Approved = 2,
+            Rejected = 3
+        }
+
     }
 }
 

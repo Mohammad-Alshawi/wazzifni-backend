@@ -6,6 +6,7 @@ using Abp.Domain.Entities.Auditing;
 using Wazzifni.Domain.Cities;
 using Wazzifni.Domain.CourseCategories;
 using Wazzifni.Domain.CourseComments;
+using Wazzifni.Domain.CourseRegistrationRequests;
 using Wazzifni.Domain.CourseTags;
 using Wazzifni.Domain.Teachers;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -40,7 +41,9 @@ namespace Wazzifni.Domain.Courses
         public bool IsFeatured { get; set; }
         public decimal? Price { get; set; }
         public double Rating { get; set; }
-        public List<CourseComment> Comments { get; set; } = new();
+        public ICollection<CourseComment> Comments { get; set; }
+
+        public ICollection<CourseRegistrationRequest> CourseRegistrationRequests { get; set; }
         public ICollection<CourseTranslation> Translations { get; set; }
 
         [NotMapped]
@@ -49,6 +52,8 @@ namespace Wazzifni.Domain.Courses
         public bool IsClosed { get; set; }
 
         public int NumberOfSeats { get; set; }
+
+        public DateTime? ClosedDate { get; set; }   
     }
 
 }

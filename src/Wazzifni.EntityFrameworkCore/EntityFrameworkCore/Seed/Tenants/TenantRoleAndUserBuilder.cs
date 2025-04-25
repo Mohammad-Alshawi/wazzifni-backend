@@ -144,7 +144,12 @@ namespace Wazzifni.EntityFrameworkCore.Seed.Tenants
 
             var allTraineeUserPermissions = new List<string>
             {
-                PermissionNames.Pages_Users,            
+                PermissionNames.Pages_Users,
+
+                 PermissionNames.CourseRegistrationRequests,
+                 PermissionNames.CourseRegistrationRequests_Create,
+                 PermissionNames.CourseRegistrationRequests_Update,
+                 PermissionNames.CourseRegistrationRequests_Delete,
 
             };
 

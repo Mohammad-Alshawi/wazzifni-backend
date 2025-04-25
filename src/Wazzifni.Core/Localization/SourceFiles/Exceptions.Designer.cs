@@ -477,6 +477,17 @@ namespace Wazzifni.Localization.SourceFiles {
                 return ResourceManager.GetString("DeleteApprovedApplication", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string DeleteApprovedregistrationRequest
+        /// </summary>
+        public static string DeleteApprovedregistrationRequest
+        {
+            get
+            {
+                return ResourceManager.GetString("DeleteApprovedregistrationRequest", resourceCulture);
+            }
+        }
         
 
     }
