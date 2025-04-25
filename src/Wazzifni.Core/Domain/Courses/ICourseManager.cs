@@ -13,5 +13,6 @@ namespace Wazzifni.Domain.Courses
         Task<Course> GetFullEntityByIdAsync(int id);
         Task<Course> GetEntityByIdAsync(int id);
         Task<Course> GetLiteCourseByIdAsync(int id);
+        Task<Course> GetEntityByAsTrackingIdAsync(int id);
     }
 }

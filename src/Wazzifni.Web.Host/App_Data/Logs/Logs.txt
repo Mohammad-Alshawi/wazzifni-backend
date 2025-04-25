@@ -22173,3 +22173,73 @@ DEBUG 2025-04-23 19:45:44,941 [1    ] Abp.AutoMapper.AbpAutoMapperModule       -
 DEBUG 2025-04-23 19:45:44,941 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
 DEBUG 2025-04-23 19:45:44,941 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
 DEBUG 2025-04-23 19:45:44,941 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+DEBUG 2025-04-25 20:57:16,551 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-04-25 20:57:16,846 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-04-25 20:57:16,854 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,855 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,855 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,855 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,856 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,856 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,856 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,857 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,857 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,857 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,857 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,857 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,858 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,858 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,858 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:16,859 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-04-25 20:57:17,372 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-04-25 20:57:17,372 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-04-25 20:57:17,372 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-04-25 20:57:17,372 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-04-25 20:57:17,600 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-04-25 20:57:17,785 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-04-25 20:57:17,809 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-04-25 20:57:17,817 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-04-25 20:57:17,818 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-04-25 20:57:17,820 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-04-25 20:57:17,825 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-04-25 20:57:17,831 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-04-25 20:57:17,843 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 20 classes define auto mapping attributes
+DEBUG 2025-04-25 20:57:17,844 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-04-25 20:57:17,846 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Universities.Dto.UniversityTranslationDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.PushNotifications.Dto.PushNotificationTranslationDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.CourseTags.Dto.CourseTagTranslationDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Courses.Dto.CourseTranslationDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.CourseCategories.Dto.CourseCategoryTranslationDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-04-25 20:57:17,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-04-25 20:57:17,848 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-04-25 20:57:17,848 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+WARN  2025-04-25 21:01:42,874 [29   ] naries.DictionaryBasedLocalizationSource - Can not find 'AttachmentAlreadyRelatedToEntity' in localization source 'Wazzifni'!
+WARN  2025-04-25 21:01:44,172 [21   ] Mvc.ExceptionHandling.AbpExceptionFilter - [Attachment already related to entity]
+Abp.UI.UserFriendlyException: [Attachment already related to entity]
+   at Wazzifni.Domain.Attachments.AttachmentManager.UpdateRefIdAsync(Attachment attachment, Int64 refId) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Core\Domain\Attachments\AttachmentManager.cs:line 62
+   at Wazzifni.Domain.Attachments.AttachmentManager.CheckAndUpdateRefIdAsync(Int64 id, AttachmentRefType refType, Int64 refId, String name) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Core\Domain\Attachments\AttachmentManager.cs:line 78
+   at Wazzifni.Courses.CourseAppService.CreateAsync(CreateCourseDto input) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Application\Courses\CourseAppService.cs:line 87
+   at lambda_method1907(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+INFO  2025-04-25 21:02:39,089 [27   ] ifni.FileUploadService.FileUploadService - Base Attachment File was saved to (C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Host\wwwroot\Uploads\Attachments\afbd5637-259a-4cc5-9e67-486ed965ec2d_638812117584119174.png) successfully.
+INFO  2025-04-25 21:02:40,614 [37   ] ifni.FileUploadService.FileUploadService - Base Attachment File was saved to (C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Host\wwwroot\Uploads\Attachments\e9fa4de7-9af3-4d5d-83b3-52bfd69c9472_638812117603743564.png) successfully.
+INFO  2025-04-25 21:02:41,694 [38   ] ifni.FileUploadService.FileUploadService - Base Attachment File was saved to (C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Host\wwwroot\Uploads\Attachments\bee7f1bb-1b7c-490c-9b6f-bbeec6abe8b2_638812117615364243.png) successfully.
+INFO  2025-04-25 21:02:42,438 [37   ] ifni.FileUploadService.FileUploadService - Base Attachment File was saved to (C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Host\wwwroot\Uploads\Attachments\62692e77-c87c-460f-b126-5b73c35d9092_638812117622643588.png) successfully.
+INFO  2025-04-25 21:02:43,223 [39   ] ifni.FileUploadService.FileUploadService - Base Attachment File was saved to (C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Host\wwwroot\Uploads\Attachments\24ebb8e9-a211-496d-ba32-bb375013c8c4_638812117630693795.png) successfully.

@@ -14,6 +14,7 @@ using Wazzifni.Domain.Companies;
 using static Wazzifni.Enums.Enum;
 using Wazzifni.Localization.SourceFiles;
 using Microsoft.EntityFrameworkCore;
+using Abp.Domain.Entities;
 
 namespace Wazzifni.Domain.Courses
 {
@@ -54,7 +55,7 @@ namespace Wazzifni.Domain.Courses
                 .GetAllIncluding(x => x.Translations)
                 .Include(x => x.City)
                 .ThenInclude(x => x.Translations)
-                .Include(c => c.Tags)
+                .Include(c => c.Tags).ThenInclude(x=>x.Translations)
                 .Include(x=>x.CourseCategory).ThenInclude(x=>x.Translations)
                 .Include(x=>x.Teacher)
                 .AsNoTracking().Where(x => x.Id == id).FirstOrDefaultAsync();
@@ -75,7 +76,17 @@ namespace Wazzifni.Domain.Courses
         }
 
 
-
+        public async Task<Course> GetEntityByAsTrackingIdAsync(int id)
+        {
+            var entity = await _CourseRepository
+                  .GetAll().Include(x => x.Translations)
+                           .Include(x => x.Tags).ThenInclude(x => x.Translations)
+                           .Where(x => x.Id == id)
+                           .FirstOrDefaultAsync();
+            if (entity == null)
+                throw new EntityNotFoundException(typeof(Course), id);
+            return entity;
+        }
 
 
 

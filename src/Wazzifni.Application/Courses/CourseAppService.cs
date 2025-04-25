@@ -28,6 +28,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Wazzifni.Configuration;
 using Abp.Collections.Extensions;
 using Wazzifni.Domain.CourseTags;
+using Castle.MicroKernel;
 
 namespace Wazzifni.Courses
 {
@@ -38,18 +39,21 @@ namespace Wazzifni.Courses
         private readonly UserManager _userManager;
         private readonly IMapper _mapper;
         private readonly ICourseManager _courseManager;
+        private readonly ICourseTagManager _courseTagManager;
         private readonly IRepository<CourseTag> _courseTagRepository;
         private readonly IAttachmentManager _attachmentManager;
 
         public CourseAppService(IRepository<Course, int> repository,UserManager userManager,
             IMapper mapper,
             ICourseManager courseManager,
+            ICourseTagManager courseTagManager,
             IRepository<CourseTag> courseTagRepository,
             IAttachmentManager attachmentManager) : base(repository)
         {
             _userManager = userManager;
             _mapper = mapper;
             _courseManager = courseManager;
+            _courseTagManager = courseTagManager;
             _courseTagRepository = courseTagRepository;
             _attachmentManager = attachmentManager;
         }
@@ -96,17 +100,40 @@ namespace Wazzifni.Courses
         }
 
         [HttpPut]
-        [ApiExplorerSettings(IgnoreApi = true)]
-        [RemoteService(IsEnabled = false)]
+
         public override async Task<CourseDetailsDto> UpdateAsync(UpdateCourseDto input)
         {
-            var Course = await _courseManager.GetSuperLiteEntityByIdAsync(input.Id);
+            var Course = await _courseManager.GetEntityByAsTrackingIdAsync(input.Id);
             
-
             Course.Translations.Clear();
 
             Course = _mapper.Map(input, Course);
 
+            if (!input.TagsIds.IsNullOrEmpty())
+            {
+                var oldTags = Course.Tags.ToList();
+                var newTags = new List<CourseTag>();
+                foreach (var i in input.TagsIds)
+                {
+                    newTags.Add(await _courseTagManager.GetLiteEntityByIdAsync(i));
+                }
+                var TagsIdsToDelete = oldTags.Except(newTags).ToList();
+                foreach (var CourseTag in TagsIdsToDelete)
+                {
+                    Course.Tags.Remove(CourseTag);
+                    await _courseTagManager.UpdateCourseTag(CourseTag);
+                }
+                foreach (var CourseTag in newTags)
+                {
+                    if (!Course.Tags.Contains(CourseTag))
+                    {
+                        Course.Tags.Add(CourseTag);
+                        await _courseTagManager.UpdateCourseTag(CourseTag);
+
+                    }
+
+                }
+            }
             await Repository.UpdateAsync(Course);
             await UnitOfWorkManager.Current.SaveChangesAsync();
 
