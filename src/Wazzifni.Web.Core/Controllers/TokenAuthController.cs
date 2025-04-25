@@ -372,7 +372,7 @@ namespace Wazzifni.Controllers
             {
                 await _userManager.SetRolesAsync(user, new[] { StaticRoleNames.Tenants.CompanyUser });
             }
-            if (input.UserType == UserType.Trainee)
+            else if (input.UserType == UserType.Trainee)
             {
                 await _userManager.SetRolesAsync(user, new[] { StaticRoleNames.Tenants.Trainee });
                 user.TraineeId = await _traineeManager.InitateTrainee(user.Id, input.TraineeCreate.UniversityId , input.TraineeCreate.UniversityMajor , input.TraineeCreate.TraineePhotoId);
