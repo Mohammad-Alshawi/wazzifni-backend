@@ -48,6 +48,7 @@
         
 
         public const string WorkApplications = "WorkApplications";
+        public const string WorkApplications_Read = WorkApplications + "." + "Read";
         public const string WorkApplications_Create = WorkApplications + "." + "Create";
         public const string WorkApplications_Delete = WorkApplications + "." + "Delete";
         public const string WorkApplications_Approve = WorkApplications + "." + "Approve";
@@ -68,6 +69,8 @@
         public const string Courses = "Courses";
         public const string Courses_Rate = Courses + "." + "Rate";
 
+        public const string AppManagement = "AppManagement";
+        public const string AppManagement_Read = WorkPosts + "." + "AppManagement";
 
     }
 }

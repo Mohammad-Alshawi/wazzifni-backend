@@ -51,6 +51,7 @@ namespace Wazzifni.Authorization
 
 
             context.CreatePermission(PermissionNames.WorkApplications, L("WorkApplications"));
+            context.CreatePermission(PermissionNames.WorkApplications_Read, L("WorkApplicationsRead"));
             context.CreatePermission(PermissionNames.WorkApplications_Approve, L("WorkApplicationsApprove"));
             context.CreatePermission(PermissionNames.WorkApplications_Create, L("WorkApplicationsCreate"));
             context.CreatePermission(PermissionNames.WorkApplications_Reject, L("WorkApplicationsReject"));
@@ -71,6 +72,8 @@ namespace Wazzifni.Authorization
             context.CreatePermission(PermissionNames.Courses, L("Courses"));
             context.CreatePermission(PermissionNames.Courses_Rate, L("CoursesRate"));
 
+            context.CreatePermission(PermissionNames.AppManagement, L("AppManagement"));
+            context.CreatePermission(PermissionNames.AppManagement_Read, L("AppManagementRead"));
         }
 
         private static ILocalizableString L(string name)
