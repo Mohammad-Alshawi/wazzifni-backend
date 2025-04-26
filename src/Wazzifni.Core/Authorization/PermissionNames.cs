@@ -68,9 +68,10 @@
 
         public const string Courses = "Courses";
         public const string Courses_Rate = Courses + "." + "Rate";
+        public const string Courses_Read = Courses + "." + "Read";
 
         public const string AppManagement = "AppManagement";
-        public const string AppManagement_Read = WorkPosts + "." + "AppManagement";
+        public const string AppManagement_Read = AppManagement + "." + "Read";
 
     }
 }

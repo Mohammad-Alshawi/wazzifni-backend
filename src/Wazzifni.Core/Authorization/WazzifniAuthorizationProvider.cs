@@ -71,6 +71,7 @@ namespace Wazzifni.Authorization
            
             context.CreatePermission(PermissionNames.Courses, L("Courses"));
             context.CreatePermission(PermissionNames.Courses_Rate, L("CoursesRate"));
+            context.CreatePermission(PermissionNames.Courses_Read, L("CoursesRead"));
 
             context.CreatePermission(PermissionNames.AppManagement, L("AppManagement"));
             context.CreatePermission(PermissionNames.AppManagement_Read, L("AppManagementRead"));
