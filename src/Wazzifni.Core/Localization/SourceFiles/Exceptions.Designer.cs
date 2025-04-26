@@ -488,7 +488,17 @@ namespace Wazzifni.Localization.SourceFiles {
                 return ResourceManager.GetString("DeleteApprovedregistrationRequest", resourceCulture);
             }
         }
-        
+        /// <summary>
+        ///   Looks up a localized string CannotDeleteDueToLinkWithAnotherEntity
+        /// </summary>
+        public static string CannotDeleteDueToLinkWithAnotherEntity
+        {
+            get
+            {
+                return ResourceManager.GetString("CannotDeleteDueToLinkWithAnotherEntity", resourceCulture);
+            }
+        }
 
+        
     }
 }

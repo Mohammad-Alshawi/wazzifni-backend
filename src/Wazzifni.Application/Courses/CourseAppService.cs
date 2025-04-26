@@ -92,11 +92,30 @@ namespace Wazzifni.Courses
         }
 
 
-        [ApiExplorerSettings(IgnoreApi = true)]
-        [RemoteService(IsEnabled = false)]
-        public override Task DeleteAsync(EntityDto<int> input)
+     
+        public async override Task DeleteAsync(EntityDto<int> input)
         {
-            return base.DeleteAsync(input);
+            var course = await Repository.GetAllIncluding(
+                c => c.Comments,
+                c => c.CourseRegistrationRequests,
+                c => c.Translations,
+                c => c.Tags,
+                c => c.CourseCategory,
+                c => c.Teacher,
+                c => c.City
+            ).FirstOrDefaultAsync(c => c.Id == input.Id);
+
+            if (course == null)
+            {
+                throw new UserFriendlyException("Not Found");
+            }
+
+            course.Comments.Clear();
+            course.CourseRegistrationRequests.Clear();
+            course.Translations.Clear();
+            course.Tags.Clear();
+            await Repository.DeleteAsync(course);
+            await UnitOfWorkManager.Current.SaveChangesAsync();
         }
 
         [HttpPut]

@@ -162,9 +162,6 @@
   <data name="ThisPositionIsAlreadyExist" xml:space="preserve">
     <value>هذا الموقع موجود بالفعل</value>
   </data>
-  <data name="UserNameTakenForRecoverBrokerUser" xml:space="preserve">
-    <value>عذرا لا يمكن استرجاع المستخدم لأنه يوجد مستخدم حالي بنفس اسم المستخدم</value>
-  </data>
   <data name="UserNotFoundPleasCreateNewAccount" xml:space="preserve">
     <value>المستخدم غير موجود. يُرجى إنشاء حساب باستخدام رقم الموبايل.</value>
   </data>
@@ -182,5 +179,11 @@
   </data>
   <data name="YourPhoneNumberIsntVerified" xml:space="preserve">
     <value>لم يتم التحقق من رقم هاتفك</value>
+  </data>
+  <data name="UserNameTakenForRecoverBrokerUser" xml:space="preserve">
+    <value>عذرا لا يمكن استرجاع المستخدم لأنه يوجد مستخدم حالي بنفس اسم المستخدم</value>
+  </data>
+  <data name="CannotDeleteDueToLinkWithAnotherEntity" xml:space="preserve">
+    <value>لا يمكن الحذف مربوط بكيان اخر</value>
   </data>
 </root>

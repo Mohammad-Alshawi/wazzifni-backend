@@ -159,9 +159,6 @@
   <data name="ThisPositionIsAlreadyExist" xml:space="preserve">
     <value>ئەم شوێنە پێشتر هەیە</value>
   </data>
-  <data name="UserNameTakenForRecoverBrokerUser" xml:space="preserve">
-    <value>ببورە، بەکارهێنەرەکە ناتوانرێت وەربگیرێتەوە چونکە بەکارهێنەرێکی هەبوو هەیە بە هەمان ناوی بەکارهێنەر.</value>
-  </data>
   <data name="UserNotFoundPleasCreateNewAccount" xml:space="preserve">
     <value>بەکارهێنەر بوونی نییە. تکایە بە بەکارهێنانی ژمارەی مۆبایل ئەکاونتێک دروست بکەن.</value>
   </data>
@@ -179,5 +176,11 @@
   </data>
   <data name="YourPhoneNumberIsntVerified" xml:space="preserve">
     <value>ژمارەی تەلەفۆنت پشتڕاست نەکراوە</value>
+  </data>
+  <data name="UserNameTakenForRecoverBrokerUser" xml:space="preserve">
+    <value>ببورە، بەکارهێنەرەکە ناتوانرێت وەربگیرێتەوە چونکە بەکارهێنەرێکی هەبوو هەیە بە هەمان ناوی بەکارهێنەر.</value>
+  </data>
+  <data name="CannotDeleteDueToLinkWithAnotherEntity" xml:space="preserve">
+    <value />
   </data>
 </root>

@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using Wazzifni;
 using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.Cities;
+using Wazzifni.Domain.CourseCategories;
+using Wazzifni.Domain.Courses;
 using Wazzifni.Domain.Teachers;
 using Wazzifni.Localization.SourceFiles;
 using Wazzifni.Teachers.Dto;
@@ -26,12 +28,14 @@ namespace ITLand.StemCells.Teachers
     public class TeacherAppService : ApplicationService, ITeacherAppService
     {
         private readonly IRepository<Teacher> _repository;
+        private readonly ICourseManager _courseManager;
         private readonly IMapper _mapper;
         private readonly IAttachmentManager _attachmentManager;
 
-        public TeacherAppService(IRepository<Teacher> repository, IMapper mapper, IAttachmentManager attachmentManager)
+        public TeacherAppService(IRepository<Teacher> repository,ICourseManager courseManager, IMapper mapper, IAttachmentManager attachmentManager)
         {
             _repository = repository;
+            _courseManager = courseManager;
             _mapper = mapper;
             _attachmentManager = attachmentManager;
         }
@@ -171,8 +175,7 @@ namespace ITLand.StemCells.Teachers
             return query.Skip(input.SkipCount).Take(input.MaxResultCount);
         }
 
-        [ApiExplorerSettings(IgnoreApi = true)]
-        [RemoteService(IsEnabled = false)]
+
         public async Task DeleteAsync(EntityDto<int> input)
         {
             var teacher = await _repository.GetAll().Where(x => x.Id == input.Id).FirstOrDefaultAsync();
@@ -182,7 +185,21 @@ namespace ITLand.StemCells.Teachers
                 throw new UserFriendlyException(string.Format(Exceptions.ObjectWasNotFound, "Tokens.Teacher"));
             }
 
-            
+            bool hasCourses = await _courseManager.IsTeacherHasCoursesAsync(input.Id);
+
+            if (hasCourses)
+            {
+                throw new UserFriendlyException(Exceptions.CannotDeleteDueToLinkWithAnotherEntity);
+            }
+
+
+            var oldAttachment = await _attachmentManager.GetElementByRefAsync(teacher.Id, AttachmentRefType.Teacher);
+
+            if (oldAttachment != null)
+            {
+                await _attachmentManager.DeleteRefIdAsync(oldAttachment);
+            }
+
             await _repository.DeleteAsync(input.Id);
         }
     }

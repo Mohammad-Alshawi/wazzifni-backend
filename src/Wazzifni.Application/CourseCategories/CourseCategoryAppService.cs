@@ -20,6 +20,7 @@ using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.Cities;
 using Wazzifni.Domain.Countries;
 using Wazzifni.Domain.CourseCategories;
+using Wazzifni.Domain.Courses;
 using Wazzifni.Localization.SourceFiles;
 using static Wazzifni.Enums.Enum;
 
@@ -37,6 +38,7 @@ namespace Wazzifni.CourseCategories
         private readonly ICacheManager _cacheManager;
         private readonly CountryManager _countryManager;
         private readonly IRepository<CourseCategory> _CourseCategoryRepository;
+        private readonly ICourseManager _courseManager;
         private readonly IAttachmentManager _attachmentManager;
         private readonly IRepository<CourseCategoryTranslation> _CourseCategoryTranslationRepository;
 
@@ -48,6 +50,7 @@ namespace Wazzifni.CourseCategories
             IRepository<CourseCategory> repository,
             CountryManager countryManager,
             IRepository<CourseCategory> CourseCategoryRepository,
+            ICourseManager courseManager,
             IAttachmentManager attachmentManager,
             IRepository<CourseCategoryTranslation> CourseCategoryTranslationRepository
         ) : base(repository)
@@ -57,6 +60,7 @@ namespace Wazzifni.CourseCategories
             _cacheManager = cacheManager;
             _countryManager = countryManager;
             _CourseCategoryRepository = CourseCategoryRepository;
+            _courseManager = courseManager;
             _attachmentManager = attachmentManager;
             _CourseCategoryTranslationRepository = CourseCategoryTranslationRepository;
         }
@@ -158,8 +162,13 @@ namespace Wazzifni.CourseCategories
             {
                 throw new UserFriendlyException(string.Format(Exceptions.ObjectWasNotFound, Tokens.CourseCategory));
             }
+            bool hasCourses = await _courseManager.IsCategoryHasCoursesAsync(input.Id);
 
-         
+            if (hasCourses)
+            {
+                throw new UserFriendlyException(Exceptions.CannotDeleteDueToLinkWithAnotherEntity);
+            }
+
             foreach (var translation in CourseCategory.Translations.ToList())
             {
                 await _CourseCategoryTranslationRepository.DeleteAsync(translation);

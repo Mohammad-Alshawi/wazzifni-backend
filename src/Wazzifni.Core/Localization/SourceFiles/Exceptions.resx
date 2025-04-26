@@ -183,4 +183,7 @@
   <data name="YourPhoneNumberIsntVerified" xml:space="preserve">
     <value>Your phone number is not verified</value>
   </data>
+  <data name="CannotDeleteDueToLinkWithAnotherEntity" xml:space="preserve">
+    <value>Cannot Delete Due To Link With Another Entity</value>
+  </data>
 </root>

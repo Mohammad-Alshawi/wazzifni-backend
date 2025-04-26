@@ -16,6 +16,7 @@ using Wazzifni.Localization.SourceFiles;
 using Microsoft.EntityFrameworkCore;
 using Abp.Domain.Entities;
 using Wazzifni.Domain.Trainees;
+using Wazzifni.Domain.CourseComments;
 
 namespace Wazzifni.Domain.Courses
 {
@@ -23,7 +24,7 @@ namespace Wazzifni.Domain.Courses
     {
         private readonly IRepository<Course> _CourseRepository;
         private readonly IMapper _mapper;
-
+        private readonly IRepository<CourseComment, long> _courseCommentRepository;
         private readonly IRepository<CourseTranslation> _CourseTranslationsRepository;
         private readonly IRepository<CourseRate, long> _courseRateRepository;
         private readonly IAttachmentManager _attachmentManager;
@@ -38,10 +39,12 @@ namespace Wazzifni.Domain.Courses
             ITraineeManager traineeManager,
             IRepository<Course> CourseRepository,
             IMapper mapper,
+            IRepository<CourseComment,long> courseCommentRepository,
             UserManager userManager)
         {
             _CourseRepository = CourseRepository;
             _mapper = mapper;
+            _courseCommentRepository = courseCommentRepository;
             _CourseTranslationsRepository = CourseTranslationsRepository;
             _courseRateRepository = CourseRateRepository;
             _attachmentManager = attachmentManager;
@@ -195,6 +198,22 @@ namespace Wazzifni.Domain.Courses
             return null;
         }
 
+        public async Task DeleteCourseComment(CourseComment comment)
+        {
+            await _courseCommentRepository.DeleteAsync(comment);
+        }
+
+        public async Task<bool> IsCategoryHasCoursesAsync(int courseCategoryId)
+        {
+            return await _CourseRepository.GetAll()
+                .AnyAsync(c => c.CourseCategoryId == courseCategoryId); 
+        }
+
+        public async Task<bool> IsTeacherHasCoursesAsync(int teacherId)
+        {
+            return await _CourseRepository.GetAll()
+                .AnyAsync(c => c.TeacherId == teacherId);
+        }
 
     }
 }
