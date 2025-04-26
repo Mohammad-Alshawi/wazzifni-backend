@@ -122,15 +122,22 @@ namespace Wazzifni.Courses
 
         public override async Task<CourseDetailsDto> UpdateAsync(UpdateCourseDto input)
         {
-            var Course = await _courseManager.GetEntityByAsTrackingIdAsync(input.Id);
+            var course = await _courseManager.GetEntityByAsTrackingIdAsync(input.Id);
             
-            Course.Translations.Clear();
+            var oldSeatsNumber = course.NumberOfSeats;
 
-            Course = _mapper.Map(input, Course);
+            course.Translations.Clear();
 
+            course = _mapper.Map(input, course);
+
+            if (course.NumberOfSeats > oldSeatsNumber && course.IsClosed)
+            {
+                course.IsClosed = false;
+                course.ClosedDate = null;
+            }
             if (!input.TagsIds.IsNullOrEmpty())
             {
-                var oldTags = Course.Tags.ToList();
+                var oldTags = course.Tags.ToList();
                 var newTags = new List<CourseTag>();
                 foreach (var i in input.TagsIds)
                 {
@@ -139,24 +146,24 @@ namespace Wazzifni.Courses
                 var TagsIdsToDelete = oldTags.Except(newTags).ToList();
                 foreach (var CourseTag in TagsIdsToDelete)
                 {
-                    Course.Tags.Remove(CourseTag);
+                    course.Tags.Remove(CourseTag);
                     await _courseTagManager.UpdateCourseTag(CourseTag);
                 }
                 foreach (var CourseTag in newTags)
                 {
-                    if (!Course.Tags.Contains(CourseTag))
+                    if (!course.Tags.Contains(CourseTag))
                     {
-                        Course.Tags.Add(CourseTag);
+                        course.Tags.Add(CourseTag);
                         await _courseTagManager.UpdateCourseTag(CourseTag);
 
                     }
 
                 }
             }
-            await Repository.UpdateAsync(Course);
+            await Repository.UpdateAsync(course);
             await UnitOfWorkManager.Current.SaveChangesAsync();
 
-            var oldimagesAttachments = await _attachmentManager.GetByRefAsync(Course.Id, AttachmentRefType.Course);
+            var oldimagesAttachments = await _attachmentManager.GetByRefAsync(course.Id, AttachmentRefType.Course);
             var oldimagesAttachmentsIds = oldimagesAttachments.Select(x => x.Id).ToList();
             var imagesattachmentsToDelete = oldimagesAttachments.Where(x => !input.Attachments.Contains((x.Id)));
             var imagesattachmentIdsToAdd = input.Attachments.Except(oldimagesAttachments.Select(x => x.Id).ToList());
@@ -167,12 +174,12 @@ namespace Wazzifni.Courses
             foreach (var attachmentId in imagesattachmentIdsToAdd)
             {
                 await _attachmentManager.CheckAndUpdateRefIdAsync(
-                    attachmentId, AttachmentRefType.Course, Course.Id);
+                    attachmentId, AttachmentRefType.Course, course.Id);
             }      
 
             await UnitOfWorkManager.Current.SaveChangesAsync();
 
-            return _mapper.Map<CourseDetailsDto>(Course);
+            return _mapper.Map<CourseDetailsDto>(course);
         }
 
         public override async Task<CourseDetailsDto> GetAsync(EntityDto<int> input)
