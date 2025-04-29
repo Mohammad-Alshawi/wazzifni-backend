@@ -469,8 +469,8 @@ namespace Wazzifni.Users
             return UserCountsByMonth;
         }
 
-[        [AbpAllowAnonymous]
-]        public async Task<ListResultDto<string>> GetCurrentUserPermissionsAsync()
+        [AbpAllowAnonymous]
+        public async Task<ListResultDto<string>> GetCurrentUserPermissionsAsync()
         {
             if (AbpSession.UserId == null)
             {
