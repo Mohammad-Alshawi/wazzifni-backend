@@ -469,7 +469,7 @@ namespace Wazzifni.Users
             return UserCountsByMonth;
         }
 
-
+        [AbpAuthorize]
         public async Task<ListResultDto<string>> GetCurrentUserPermissionsAsync()
         {
             if (AbpSession.UserId == null)

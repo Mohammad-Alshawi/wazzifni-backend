@@ -61,7 +61,7 @@ namespace Wazzifni.Domain.Courses
         public async Task<Course> GetFullEntityByIdAsync(int id)
         {
             return await _CourseRepository
-                .GetAllIncluding(x => x.Translations)
+                .GetAll().Include(x => x.Translations)
                 .Include(x => x.City)
                 .ThenInclude(x => x.Translations)
                 .Include(c => c.Tags).ThenInclude(x=>x.Translations)
