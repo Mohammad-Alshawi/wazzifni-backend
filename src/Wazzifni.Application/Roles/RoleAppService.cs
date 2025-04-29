@@ -198,6 +198,29 @@ namespace Wazzifni.Roles
 
             return new ListResultDto<RoleListDto>(ObjectMapper.Map<List<RoleListDto>>(roles));
         }
+
+        [AbpAllowAnonymous]
+        public async Task<ListResultDto<RoleListDto>> GetRolesCuurenAsync()
+        {
+            var user = await _userManager.Users.Where(x => x.Id == AbpSession.UserId.Value).FirstOrDefaultAsync();
+            var user_roles = new List<string>();
+        
+            if (user.Type == Enums.Enum.UserType.BasicUser)
+                user_roles.AddRange(await _userManager.GetRolesAsync(user));
+            if (user.Type == Enums.Enum.UserType.CompanyUser && await _companyManager.GetCompanyStatusByUserIdAsync(user.Id) == CompanyStatus.Approved)
+                user_roles.AddRange(await _userManager.GetRolesAsync(user));
+
+           
+            var roles = await _roleManager
+                .Roles
+                .Where(
+
+                    r => user_roles.Contains(r.Name)
+                )
+                .ToListAsync();
+
+            return new ListResultDto<RoleListDto>(ObjectMapper.Map<List<RoleListDto>>(roles));
+        }
         protected override void CheckCreatePermission()
         {
             base.CheckCreatePermission();
