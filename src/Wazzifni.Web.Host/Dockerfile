@@ -1,23 +1,42 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 
+# Set the working directory
 WORKDIR /src
 
-# Copy and restore all projects in one step
-COPY src/*.sln ./
-COPY src/**/*.csproj ./src/
-RUN find ./src -name '*.csproj' -exec cp --parents {} . \;
-RUN dotnet restore src/Wazzifni.Web.Host/Wazzifni.Web.Host.csproj
+# Copy the .csproj files into the container
+COPY ["src/Wazzifni.Web.Host/Wazzifni.Web.Host.csproj", "src/Wazzifni.Web.Host/"]
+COPY ["src/Wazzifni.Web.Core/Wazzifni.Web.Core.csproj", "src/Wazzifni.Web.Core/"]
+COPY ["src/Wazzifni.Application/Wazzifni.Application.csproj", "src/Wazzifni.Application/"]
+COPY ["src/Wazzifni.Core/Wazzifni.Core.csproj", "src/Wazzifni.Core/"]
+COPY ["src/Wazzifni.EntityFrameworkCore/Wazzifni.EntityFrameworkCore.csproj", "src/Wazzifni.EntityFrameworkCore/"]
 
-# Copy the rest of the source code
-COPY src/ ./src/
+# Restore the dependencies
+WORKDIR "/src/src/Wazzifni.Web.Host"
+RUN dotnet restore
 
-WORKDIR /src/src/Wazzifni.Web.Host
-RUN dotnet publish -c Release -o /app --no-restore
+# Copy all the application code to the container
+WORKDIR /src
+COPY ["src/Wazzifni.Web.Host", "src/Wazzifni.Web.Host"]
+COPY ["src/Wazzifni.Web.Core", "src/Wazzifni.Web.Core"]
+COPY ["src/Wazzifni.Application", "src/Wazzifni.Application"]
+COPY ["src/Wazzifni.Core", "src/Wazzifni.Core"]
+COPY ["src/Wazzifni.EntityFrameworkCore", "src/Wazzifni.EntityFrameworkCore"]
 
-# Final image
+# Build and publish the application
+WORKDIR "/src/src/Wazzifni.Web.Host"
+RUN dotnet publish -c Release -o /publish --no-restore
+
+# Use the official ASP.NET runtime image for running the app
 FROM mcr.microsoft.com/dotnet/aspnet:7.0
-WORKDIR /app
-COPY --from=build /app .
 
+# Expose port 80
 EXPOSE 80
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the build output from the build stage
+COPY --from=build /publish .
+
+# Define the entry point for the application
 ENTRYPOINT ["dotnet", "Wazzifni.Web.Host.dll"]
