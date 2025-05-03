@@ -59,7 +59,7 @@ namespace Wazzifni.Courses
         }
 
 
-
+        [AbpAuthorize]
         [HttpPost]
         public override async Task<CourseDetailsDto> CreateAsync(CreateCourseDto input)
         {
