@@ -259,6 +259,7 @@ namespace Wazzifni.Courses
             data = data.Include(x => x.Teacher);
             data = data.Include(x => x.Tags).ThenInclude(x => x.Translations);
             data = data.Include(x => x.CourseCategory).ThenInclude(x=>x.Translations);
+            data = data.Include(x => x.CourseRegistrationRequests);
 
             if (!string.IsNullOrWhiteSpace(input.Keyword))
             {
@@ -283,6 +284,27 @@ namespace Wazzifni.Courses
 
             if (input.TagsId != null && input.TagsId.Any())
                 data = data.Where(x => x.Tags.Any(tag => input.TagsId.Contains(tag.Id)));
+
+            if (input.Mode.HasValue)
+                data = data.Where(x => x.Mode == input.Mode.Value);
+
+            if (input.Difficulty.HasValue)
+                data = data.Where(x => x.Difficulty == input.Difficulty.Value);
+
+            if (input.IsFree.HasValue)
+                data = data.Where(x => x.IsFree == input.IsFree.Value);
+
+            if (input.IsFeatured.HasValue)
+                data = data.Where(x => x.IsFeatured == input.IsFeatured.Value);
+
+            if (input.TraineeId.HasValue)
+                data = data.Where(x => x.CourseRegistrationRequests.Any(cr => input.TraineeId == cr.Id));
+
+            if (input.MinPrice.HasValue)
+                data = data.Where(x => x.Price.HasValue && x.Price.Value >= input.MinPrice.Value);
+
+            if (input.MaxPrice.HasValue)
+                data = data.Where(x => x.Price.HasValue && x.Price.Value <= input.MaxPrice.Value);
 
             return data;
         }
