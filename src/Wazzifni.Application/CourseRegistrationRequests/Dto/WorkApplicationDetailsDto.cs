@@ -10,7 +10,6 @@ namespace Wazzifni.CourseRegistrationRequests.Dto
     {
         public CourseLiteDto Course { get; set; }
         public CourseRegistrationRequestStatus Status { get; set; }
-        public string Description { get; set; }
 
         public TraineeLiteDto Trainee { get; set; }
         public string RejectReason { get; set; }

@@ -6,7 +6,6 @@ namespace Wazzifni.CourseRegistrationRequests.Dto
     public class CreateCourseRegistrationRequestDto : ICustomValidate
     {
         public int CourseId { get; set; }
-        public string Description { get; set; }
 
         public void AddValidationErrors(CustomValidationContext context)
         {
