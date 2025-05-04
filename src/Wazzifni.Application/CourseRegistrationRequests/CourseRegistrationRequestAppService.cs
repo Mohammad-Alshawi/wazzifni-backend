@@ -157,6 +157,7 @@ namespace Wazzifni.CourseRegistrationRequests
             {
                 Course.IsClosed = true;
                 Course.ClosedDate = DateTime.Now;
+                Course.RegisteredTraineesCount++;
             }
 
 

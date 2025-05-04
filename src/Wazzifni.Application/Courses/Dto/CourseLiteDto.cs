@@ -30,17 +30,17 @@ namespace Wazzifni.Courses.Dto
         public int RegisteredTraineesCount { get; set; }
         public CourseMode Mode { get; set; }
 
-        public  LiteCity City { get; set; }
+        public LiteCity City { get; set; }
         public string LocationAddress { get; set; }
 
         public DateTime StartDate { get; set; }
         public CourseDifficulty Difficulty { get; set; }
 
-        public  LiteTeacherDto Teacher { get; set; }
+        public LiteTeacherDto Teacher { get; set; }
 
         public string DailyCommitment { get; set; }
- 
-        public  LiteCourseCategoryDto CourseCategory { get; set; }
+
+        public LiteCourseCategoryDto CourseCategory { get; set; }
         public List<LiteCourseTagDto> Tags { get; set; }
         public bool IsFeatured { get; set; }
         public decimal? Price { get; set; }
@@ -55,6 +55,22 @@ namespace Wazzifni.Courses.Dto
         public LiteAttachmentDto Image { get; set; }
         public DateTime? ClosedDate { get; set; }
 
+        public CourseRegistrationType PossibilityOfRegistration
+        {
+            get
+            {
+                if (IsClosed || StartDate > DateTime.Now)
+                    return CourseRegistrationType.Special;
+
+                if (!IsClosed || StartDate > DateTime.Now)
+                    return CourseRegistrationType.Normal;
+
+                if (IsClosed || StartDate <= DateTime.Now)
+                    return CourseRegistrationType.Non;
+
+                return CourseRegistrationType.Non;
+            }
+        }
 
     }
 }

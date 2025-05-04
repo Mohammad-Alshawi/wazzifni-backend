@@ -270,18 +270,27 @@ namespace Wazzifni.Enums
             Advanced = 3
         }
 
-        public enum Gender : byte 
-        { 
-          Male = 1,
-          Female = 2
+        public enum Gender : byte
+        {
+            Male = 1,
+            Female = 2
         }
 
-        public enum CourseRegistrationRequestStatus : byte 
+        public enum CourseRegistrationRequestStatus : byte
         {
             Checking = 1,
             Approved = 2,
             Rejected = 3
         }
+
+
+        public enum CourseRegistrationType : byte
+        {
+            Non = 1,
+            Normal = 2,
+            Special = 3
+        }
+
 
     }
 }
