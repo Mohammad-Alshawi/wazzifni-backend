@@ -7,6 +7,8 @@ namespace Wazzifni.CourseRegistrationRequests.Dto
     {
         public int CourseId { get; set; }
 
+        public bool IsSpecial { get; set; }
+
         public void AddValidationErrors(CustomValidationContext context)
         {
             if (CourseId < 1)

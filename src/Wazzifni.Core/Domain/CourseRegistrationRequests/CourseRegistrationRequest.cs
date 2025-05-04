@@ -22,7 +22,10 @@ namespace Wazzifni.Domain.CourseRegistrationRequests
         [ForeignKey(nameof(TraineeId))]
         public virtual Trainee Trainee { get; set; }
 
-        public CourseRegistrationRequestStatus Status { get; set; }
+        public CourseRegistrationRequestStatus? Status { get; set; }
+
+
+        public bool IsSpecial { get; set; }
 
         public string RejectReason { get; set;}
     }

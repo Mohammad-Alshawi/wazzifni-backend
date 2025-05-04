@@ -64,7 +64,9 @@ namespace Wazzifni.CourseRegistrationRequests
             var currentTraineeId = await _TraineeManager.GetTraineeIdByUserId(AbpSession.UserId.Value);
             var Course = await _CourseManager.GetLiteCourseByIdAsync(input.CourseId);
 
-            registrationRequest.Status = CourseRegistrationRequestStatus.Checking;
+            if(!input.IsSpecial) registrationRequest.Status = CourseRegistrationRequestStatus.Checking;
+            registrationRequest.IsSpecial = input.IsSpecial;
+
             registrationRequest.TraineeId = currentTraineeId;
 
 
@@ -225,11 +227,11 @@ namespace Wazzifni.CourseRegistrationRequests
         protected override IQueryable<CourseRegistrationRequest> CreateFilteredQuery(PagedCourseRegistrationRequestResultRequestDto input)
         {
             var data = base.CreateFilteredQuery(input);
+
+            
             data = data.Include(x => x.Trainee).ThenInclude(x => x.User);
             data = data.Include(x => x.Course).ThenInclude(x => x.Translations);
 
-           
-          
             if (!string.IsNullOrEmpty(input.Keyword))
             {
                 var keyword = input.Keyword.ToLower();
@@ -238,17 +240,20 @@ namespace Wazzifni.CourseRegistrationRequests
                                                      .Where(e => e.ToString().ToLower().Contains(keyword))
                                                      .ToList();
                 data = data.Where(crr =>
-                  
+
                     crr.RejectReason.Contains(input.Keyword) ||
-                    matchingStatus.Contains(crr.Status) ||
-                    crr.Course.Translations.Any(t => t.Title.Contains(input.Keyword)) ||        
+                    (matchingStatus.Contains(crr.Status.Value) && crr.Status.HasValue) ||
+                    crr.Course.Translations.Any(t => t.Title.Contains(input.Keyword)) ||
                     crr.Trainee.User.Name.Contains(input.Keyword) ||
                     crr.Trainee.User.Surname.Contains(input.Keyword)
 
                 );
             }
+            if (input.IsSpecial.HasValue && input.IsSpecial.Value)
+                data = data.Where(crr => crr.IsSpecial == input.IsSpecial.Value);
 
-  
+            if (!input.IsSpecial.HasValue)
+                data = data.Where(crr => crr.IsSpecial != input.IsSpecial.Value);
 
             if (input.CourseId.HasValue)
                 data = data.Where(crr => crr.CourseId == input.CourseId.Value);

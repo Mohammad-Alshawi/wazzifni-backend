@@ -13,6 +13,9 @@ namespace Wazzifni.CourseRegistrationRequests.Dto
 
         public long? TraineeId { get; set; }
 
+        public bool? IsSpecial { get; set; }
+
+
 
     }
 }

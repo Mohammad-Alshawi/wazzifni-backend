@@ -9,10 +9,11 @@ namespace Wazzifni.CourseRegistrationRequests.Dto
     public class CourseRegistrationRequestDetailsDto : EntityDto<long>
     {
         public CourseLiteDto Course { get; set; }
-        public CourseRegistrationRequestStatus Status { get; set; }
+        public CourseRegistrationRequestStatus? Status { get; set; }
 
         public TraineeLiteDto Trainee { get; set; }
         public string RejectReason { get; set; }
+        public bool IsSpecial { get; set; }
 
         public DateTime CreationTime { get; set; }
 
