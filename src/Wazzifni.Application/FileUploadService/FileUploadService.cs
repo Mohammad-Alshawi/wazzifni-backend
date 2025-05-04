@@ -54,6 +54,11 @@ namespace Wazzifni.FileUploadService
 
             var fileName = GenerateUniqueFileName(file);
 
+            if (!Directory.Exists(AttachmentsFolder))
+            {
+                Directory.CreateDirectory(AttachmentsFolder);
+            }
+
             var pathToSaveAttacment = GetPathToSaveAttachment(fileName, AttachmentsFolder);
 
             fileInfo.RelativePath = GetAttachmentRelativePath(fileName, AttachmentsFolder);
