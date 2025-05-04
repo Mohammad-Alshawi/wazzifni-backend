@@ -54,10 +54,7 @@ namespace Wazzifni.FileUploadService
 
             var fileName = GenerateUniqueFileName(file);
 
-            if (!Directory.Exists(AttachmentsFolder))
-            {
-                Directory.CreateDirectory(AttachmentsFolder);
-            }
+           
 
             var pathToSaveAttacment = GetPathToSaveAttachment(fileName, AttachmentsFolder);
 
@@ -89,6 +86,11 @@ namespace Wazzifni.FileUploadService
             }
             else
             {
+                var directory = Path.GetDirectoryName(pathToSaveAttacment);
+                if (!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
                 using (var stream = new FileStream(pathToSaveAttacment, FileMode.Create))
                 {
                     await file.CopyToAsync(stream);
