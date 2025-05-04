@@ -142,7 +142,7 @@ namespace Wazzifni.Users
             CheckErrors(await _userManager.CreateAsync(user, input.Password));
 
 
-          
+
 
             if (input.RoleNames != null)
             {
@@ -156,13 +156,15 @@ namespace Wazzifni.Users
                     {
                         var allowedRoles = UserTypeRoleMapping[user.Type];
 
-                        if(!allowedRoles.Contains(rolename))
+                        if (!allowedRoles.Contains(rolename))
 
-                        throw new UserFriendlyException($"UserType '{user.Type}' is not allowed to have role '{rolename}'.");
+                            throw new UserFriendlyException($"UserType '{user.Type}' is not allowed to have role '{rolename}'.");
                     }
                 }
                 CheckErrors(await _userManager.SetRolesAsync(user, input.RoleNames));
             }
+
+            await _userManager.UpdateAsync(user);
 
             CurrentUnitOfWork.SaveChanges();
 

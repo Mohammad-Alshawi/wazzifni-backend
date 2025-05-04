@@ -202,13 +202,11 @@ namespace Wazzifni.Roles
         [AbpAllowAnonymous]
         public async Task<ListResultDto<RoleListDto>> GetRolesCuurenAsync()
         {
-            var user = await _userManager.Users.Where(x => x.Id == AbpSession.UserId.Value).FirstOrDefaultAsync();
+            var user = await _userManager.Users.Where(x => x.Id == AbpSession.UserId.Value).Include(x=>x.Roles).FirstOrDefaultAsync();
             var user_roles = new List<string>();
         
-            if (user.Type == Enums.Enum.UserType.BasicUser)
-                user_roles.AddRange(await _userManager.GetRolesAsync(user));
-            if (user.Type == Enums.Enum.UserType.CompanyUser && await _companyManager.GetCompanyStatusByUserIdAsync(user.Id) == CompanyStatus.Approved)
-                user_roles.AddRange(await _userManager.GetRolesAsync(user));
+
+            user_roles.AddRange(await _userManager.GetRolesAsync(user));
 
            
             var roles = await _roleManager
