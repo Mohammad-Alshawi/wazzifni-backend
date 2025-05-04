@@ -15,5 +15,7 @@ namespace Wazzifni.Domain.Teachers
         public string Name { get; set; }
         public string About { get; set; }
 
+        public int AssignedCourseCount { get; set; }
+
     }
 }

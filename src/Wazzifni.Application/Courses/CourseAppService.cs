@@ -29,6 +29,7 @@ using Wazzifni.Configuration;
 using Abp.Collections.Extensions;
 using Wazzifni.Domain.CourseTags;
 using Castle.MicroKernel;
+using Wazzifni.Domain.Teachers;
 
 namespace Wazzifni.Courses
 {
@@ -41,6 +42,7 @@ namespace Wazzifni.Courses
         private readonly ICourseManager _courseManager;
         private readonly ICourseTagManager _courseTagManager;
         private readonly IRepository<CourseTag> _courseTagRepository;
+        private readonly IRepository<Teacher> _teacherRepository;
         private readonly IAttachmentManager _attachmentManager;
 
         public CourseAppService(IRepository<Course, int> repository,UserManager userManager,
@@ -48,6 +50,7 @@ namespace Wazzifni.Courses
             ICourseManager courseManager,
             ICourseTagManager courseTagManager,
             IRepository<CourseTag> courseTagRepository,
+            IRepository<Teacher> teacherRepository,
             IAttachmentManager attachmentManager) : base(repository)
         {
             _userManager = userManager;
@@ -55,6 +58,7 @@ namespace Wazzifni.Courses
             _courseManager = courseManager;
             _courseTagManager = courseTagManager;
             _courseTagRepository = courseTagRepository;
+            _teacherRepository = teacherRepository;
             _attachmentManager = attachmentManager;
         }
 
@@ -79,14 +83,20 @@ namespace Wazzifni.Courses
             }
 
             var CourseId = await Repository.InsertAndGetIdAsync(course);
-    
+
+            var teacher = await _teacherRepository.GetAll()
+               .Where(t => t.Id == input.TeacherId)
+               .FirstOrDefaultAsync();
+
+            teacher.AssignedCourseCount++;
+
             UnitOfWorkManager.Current.SaveChanges();
 
             foreach (var attachmentId in input.Attachments)
             {
-                await _attachmentManager.CheckAndUpdateRefIdAsync( 
+                await _attachmentManager.CheckAndUpdateRefIdAsync(
                     attachmentId, AttachmentRefType.Course, CourseId);
-            }
+            }          
 
             return _mapper.Map<CourseDetailsDto>(course);
         }
@@ -115,6 +125,13 @@ namespace Wazzifni.Courses
             course.Translations.Clear();
             course.Tags.Clear();
             await Repository.DeleteAsync(course);
+
+            var teacher = await _teacherRepository.GetAll()
+              .Where(t => t.Id == course.TeacherId)
+              .FirstOrDefaultAsync();
+
+            teacher.AssignedCourseCount--;
+
             await UnitOfWorkManager.Current.SaveChangesAsync();
         }
 
@@ -125,6 +142,7 @@ namespace Wazzifni.Courses
             var course = await _courseManager.GetEntityByAsTrackingIdAsync(input.Id);
             
             var oldSeatsNumber = course.NumberOfSeats;
+            var oldTeacherId = course.TeacherId;
 
             course.Translations.Clear();
 
@@ -159,6 +177,17 @@ namespace Wazzifni.Courses
                     }
 
                 }
+            }
+
+
+            if (input.TeacherId != oldTeacherId)
+            {
+                var oldTeacher = await _teacherRepository.GetAsync(oldTeacherId);
+                if (oldTeacher.AssignedCourseCount > 0)
+                    oldTeacher.AssignedCourseCount--;
+
+                var newTeacher = await _teacherRepository.GetAsync(input.TeacherId);
+                newTeacher.AssignedCourseCount++;
             }
             await Repository.UpdateAsync(course);
             await UnitOfWorkManager.Current.SaveChangesAsync();

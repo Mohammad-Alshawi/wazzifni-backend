@@ -9,6 +9,6 @@ namespace Wazzifni.Teachers.Dto
         public string About { get; set; }
         public LiteAttachmentDto Image { get; set; }
 
-        //public UserDto User { get; set; }
+        public int AssignedCourseCount { get; set; }
     }
 }
