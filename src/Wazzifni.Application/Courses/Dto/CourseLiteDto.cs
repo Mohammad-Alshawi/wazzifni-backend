@@ -59,13 +59,13 @@ namespace Wazzifni.Courses.Dto
         {
             get
             {
-                if (IsClosed || StartDate > DateTime.Now)
+                if (IsClosed && StartDate > DateTime.Now)
                     return CourseRegistrationType.Special;
 
-                if (!IsClosed || StartDate > DateTime.Now)
+                if (!IsClosed && StartDate > DateTime.Now)
                     return CourseRegistrationType.Normal;
 
-                if (IsClosed || StartDate <= DateTime.Now)
+                if (IsClosed && StartDate <= DateTime.Now)
                     return CourseRegistrationType.Non;
 
                 return CourseRegistrationType.Non;
