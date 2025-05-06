@@ -237,7 +237,20 @@ namespace Wazzifni.Courses
                     }
                 }
             }
-           
+            var attachmentsTeacher = await _attachmentManager.GetElementByRefAsync(result.Teacher.Id, AttachmentRefType.Teacher);
+            if (attachmentsTeacher is not null)
+            {
+                                 
+                result.Teacher.Image = new LiteAttachmentDto
+                {
+                    Id = attachmentsTeacher.Id,
+                    Url = _attachmentManager.GetUrl(attachmentsTeacher),
+                    LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(attachmentsTeacher),
+                };              
+                
+            }
+
+
             return result;
         }
 
