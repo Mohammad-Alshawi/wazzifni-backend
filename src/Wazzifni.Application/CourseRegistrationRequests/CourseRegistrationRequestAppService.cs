@@ -250,11 +250,14 @@ namespace Wazzifni.CourseRegistrationRequests
 
                 );
             }
-            if (input.IsSpecial.HasValue && input.IsSpecial.Value)
-                data = data.Where(crr => crr.IsSpecial == input.IsSpecial.Value);
+            if (input.IsSpecial.HasValue)
+            {
+                if(input.IsSpecial.Value)
+                     data = data.Where(crr => crr.IsSpecial == input.IsSpecial.Value);
+            }
 
             if (!input.IsSpecial.HasValue)
-                data = data.Where(crr => crr.IsSpecial != input.IsSpecial.Value);
+                data = data.Where(crr => !crr.IsSpecial);
 
             if (input.CourseId.HasValue)
                 data = data.Where(crr => crr.CourseId == input.CourseId.Value);
