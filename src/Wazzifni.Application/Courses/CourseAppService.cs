@@ -334,7 +334,7 @@ namespace Wazzifni.Courses
                 data = data.Where(x => x.Difficulty == input.Difficulty.Value);
 
             if (input.IsFree.HasValue)
-                data = data.Where(x => x.IsFree == input.IsFree.Value);
+                data = data.Where(x => !x.Price.HasValue == input.IsFree.Value);
 
             if (input.IsFeatured.HasValue)
                 data = data.Where(x => x.IsFeatured == input.IsFeatured.Value);
