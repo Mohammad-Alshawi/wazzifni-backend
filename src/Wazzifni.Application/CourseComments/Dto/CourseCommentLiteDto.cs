@@ -9,11 +9,13 @@ using Wazzifni.Trainees.Dto;
 
 namespace Wazzifni.CourseComments.Dto
 {
-    public class CourseCommentLiteDto :EntityDto<long>
+    public class CourseCommentLiteDto : EntityDto<long>
     {
         public TraineeLiteDto Trainee { get; set; }
         public CourseLiteDto Course { get; set; }
         public string Content { get; set; }
         public DateTime CreationTime { get; set; }
+
+        public bool IsForMe {  get; set; }  
     }
 }

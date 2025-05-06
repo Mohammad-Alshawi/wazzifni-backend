@@ -165,7 +165,21 @@ namespace Wazzifni.CourseComments
         private async Task<PagedResultDto<CourseCommentLiteDto>> GetAllFromDatabase(PagedCourseCommentResultRequestDto input)
         {
             var result = await base.GetAllAsync(input);
-           
+
+            var ItemsIds = result.Items.Select(x => x.Id).ToList();
+
+            long  traineeId = 0; 
+
+            if (AbpSession.UserId.HasValue)  traineeId = await _traineeManager.GetTraineeIdByUserId(AbpSession.UserId.Value);
+
+            foreach (var item in result.Items)
+            {
+                if (AbpSession.UserId.HasValue && await _userManager.IsTrainee() && traineeId is not 0)
+                {
+                    item.IsForMe = item.Trainee.Id == traineeId;
+                }
+            }
+
 
             return result;
         }
