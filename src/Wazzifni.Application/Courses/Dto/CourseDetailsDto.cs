@@ -43,6 +43,9 @@ namespace Wazzifni.Courses.Dto
 
         public double? OldRate { get; set; }
 
+
+        public bool IRegistered { get; set; }
+
         public CourseRegistrationType PossibilityOfRegistration
         {
             get

@@ -30,6 +30,7 @@ using Abp.Collections.Extensions;
 using Wazzifni.Domain.CourseTags;
 using Castle.MicroKernel;
 using Wazzifni.Domain.Teachers;
+using Wazzifni.Domain.Trainees;
 
 namespace Wazzifni.Courses
 {
@@ -43,6 +44,7 @@ namespace Wazzifni.Courses
         private readonly ICourseTagManager _courseTagManager;
         private readonly IRepository<CourseTag> _courseTagRepository;
         private readonly IRepository<Teacher> _teacherRepository;
+        private readonly ITraineeManager _traineeManager;
         private readonly IAttachmentManager _attachmentManager;
 
         public CourseAppService(IRepository<Course, int> repository,UserManager userManager,
@@ -51,6 +53,7 @@ namespace Wazzifni.Courses
             ICourseTagManager courseTagManager,
             IRepository<CourseTag> courseTagRepository,
             IRepository<Teacher> teacherRepository,
+            ITraineeManager traineeManager ,
             IAttachmentManager attachmentManager) : base(repository)
         {
             _userManager = userManager;
@@ -59,6 +62,7 @@ namespace Wazzifni.Courses
             _courseTagManager = courseTagManager;
             _courseTagRepository = courseTagRepository;
             _teacherRepository = teacherRepository;
+            _traineeManager = traineeManager;
             _attachmentManager = attachmentManager;
         }
 
@@ -215,11 +219,21 @@ namespace Wazzifni.Courses
         {
             var Course = await _courseManager.GetFullEntityByIdAsync(input.Id);
 
+            var courseRigsteredIds = new HashSet<int>();
+
+            long traineeId = 0;
             var result = _mapper.Map<CourseDetailsDto>(Course);
 
-            if(await _userManager.IsTrainee())
+            if (await _userManager.IsTrainee())
             {
+                traineeId = await _traineeManager.GetTraineeIdByUserId(AbpSession.UserId.Value);
+
                 result.OldRate = await _courseManager.GetCourseRateForUser(AbpSession.UserId.Value, Course.Id);
+
+                courseRigsteredIds = await _courseManager.GetCourseIdsTraineeIsRigesteredAsync(traineeId, new List<int> { result.Id});
+
+                result.IRegistered = courseRigsteredIds.Contains(result.Id);
+
             }
             var attachments = await _attachmentManager.GetByRefAsync(input.Id, AttachmentRefType.Course);
             if (attachments is not null)

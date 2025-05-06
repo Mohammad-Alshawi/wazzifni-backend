@@ -17,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 using Abp.Domain.Entities;
 using Wazzifni.Domain.Trainees;
 using Wazzifni.Domain.CourseComments;
+using Wazzifni.Domain.CourseRegistrationRequests;
 
 namespace Wazzifni.Domain.Courses
 {
@@ -25,6 +26,7 @@ namespace Wazzifni.Domain.Courses
         private readonly IRepository<Course> _CourseRepository;
         private readonly IMapper _mapper;
         private readonly IRepository<CourseComment, long> _courseCommentRepository;
+        private readonly IRepository<CourseRegistrationRequest, long> _courseRegistrationRequestRepository;
         private readonly IRepository<CourseTranslation> _CourseTranslationsRepository;
         private readonly IRepository<CourseRate, long> _courseRateRepository;
         private readonly IAttachmentManager _attachmentManager;
@@ -40,11 +42,13 @@ namespace Wazzifni.Domain.Courses
             IRepository<Course> CourseRepository,
             IMapper mapper,
             IRepository<CourseComment,long> courseCommentRepository,
+            IRepository<CourseRegistrationRequest, long> courseRegistrationRequestRepository,
             UserManager userManager)
         {
             _CourseRepository = CourseRepository;
             _mapper = mapper;
             _courseCommentRepository = courseCommentRepository;
+            _courseRegistrationRequestRepository = courseRegistrationRequestRepository;
             _CourseTranslationsRepository = CourseTranslationsRepository;
             _courseRateRepository = CourseRateRepository;
             _attachmentManager = attachmentManager;
@@ -214,6 +218,16 @@ namespace Wazzifni.Domain.Courses
             return await _CourseRepository.GetAll()
                 .AnyAsync(c => c.TeacherId == teacherId);
         }
+        public async Task<HashSet<int>> GetCourseIdsTraineeIsRigesteredAsync(long traineeId, List<int> courseIds)
+        {
 
+            var coursesIds = _courseRegistrationRequestRepository
+                    .GetAll()
+                    .Where(f => f.TraineeId == traineeId && courseIds.Contains(f.CourseId))
+                    .Select(f => f.CourseId)
+                    .ToHashSet();
+
+            return coursesIds;
+        }
     }
 }

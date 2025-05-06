@@ -24,8 +24,11 @@ namespace Wazzifni.Domain.Courses
         Task<bool> IsCategoryHasCoursesAsync(int courseCategoryId);
         Task<bool> IsTeacherHasCoursesAsync(int teacherId);
 
+        Task<HashSet<int>> GetCourseIdsTraineeIsRigesteredAsync(long traineeId, List<int> courseIds);
 
-        
+
+
+
 
     }
 }
