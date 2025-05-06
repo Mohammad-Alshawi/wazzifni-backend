@@ -13,6 +13,7 @@ using Wazzifni.Authentication.JwtBearer;
 using Wazzifni.Configuration;
 using Wazzifni.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
+using Abp.Configuration.Startup;
 
 namespace Wazzifni
 {
@@ -35,6 +36,9 @@ namespace Wazzifni
 
         public override void PreInitialize()
         {
+            // TODO enable for development
+            Configuration.Modules.AbpWebCommon().SendAllExceptionsToClients = true;
+
             Configuration.DefaultNameOrConnectionString = _appConfiguration.GetConnectionString(
                 WazzifniConsts.ConnectionStringName
             );
