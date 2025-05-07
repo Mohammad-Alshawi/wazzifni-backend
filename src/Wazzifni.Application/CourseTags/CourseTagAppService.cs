@@ -17,6 +17,7 @@ using Wazzifni.Domain.Countries;
 using Wazzifni.Domain.CourseTags;
 using Wazzifni.Localization.SourceFiles;
 using Wazzifni.CourseTags.Dto;
+using Wazzifni.Authorization;
 
 namespace Wazzifni.CourseTags
 {
@@ -66,6 +67,8 @@ namespace Wazzifni.CourseTags
 
         }
 
+        [AbpAuthorize(PermissionNames.CourseTag_Create)]
+
         public override async Task<CourseTagDetailsDto> CreateAsync(CreateCourseTagDto input)
         {
 
@@ -75,6 +78,9 @@ namespace Wazzifni.CourseTags
             await CurrentUnitOfWork.SaveChangesAsync();
             return MapToEntityDto(CourseTag);
         }
+
+        [AbpAuthorize(PermissionNames.CourseTag_Update)]
+
         public override async Task<CourseTagDetailsDto> UpdateAsync(UpdateCourseTagDto input)
         {
             var CourseTag = await _CourseTagRepository.GetAll().Include(c => c.Translations).Where(SL => SL.Id == input.Id).FirstOrDefaultAsync(); ;
@@ -94,6 +100,8 @@ namespace Wazzifni.CourseTags
 
         }
 
+        [AbpAuthorize(PermissionNames.CourseTag_Update)]
+
         public async Task<CourseTagDetailsDto> SwitchActivationAsync(SwitchActivationInputDto input)
         {
             var CourseTag = await _CourseTagRepository.GetAll().Where(SL => SL.Id == input.Id).FirstOrDefaultAsync();
@@ -101,6 +109,8 @@ namespace Wazzifni.CourseTags
             await _CourseTagRepository.UpdateAsync(CourseTag);
             return MapToEntityDto(CourseTag);
         }
+
+        [AbpAuthorize(PermissionNames.CourseTag_Delete)]
 
         public override async Task DeleteAsync(EntityDto<int> input)
         {

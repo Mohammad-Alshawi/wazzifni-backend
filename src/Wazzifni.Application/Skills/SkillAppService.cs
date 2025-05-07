@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Attachments;
@@ -68,6 +69,8 @@ namespace Wazzifni.Skills
 
         }
 
+        [AbpAuthorize(PermissionNames.Skill_Create)]
+
         public override async Task<SkillDetailsDto> CreateAsync(CreateSkillDto input)
         {
 
@@ -77,6 +80,9 @@ namespace Wazzifni.Skills
             await CurrentUnitOfWork.SaveChangesAsync();
             return MapToEntityDto(Skill);
         }
+       
+        [AbpAuthorize(PermissionNames.Skill_Update)]
+
         public override async Task<SkillDetailsDto> UpdateAsync(UpdateSkillDto input)
         {
             var Skill = await _SkillRepository.GetAll().Include(c => c.Translations).Where(SL => SL.Id == input.Id).FirstOrDefaultAsync(); ;
@@ -96,6 +102,7 @@ namespace Wazzifni.Skills
 
         }
 
+        [AbpAuthorize(PermissionNames.Skill_Update)]
         public async Task<SkillDetailsDto> SwitchActivationAsync(SwitchActivationInputDto input)
         {
             var Skill = await _SkillRepository.GetAll().Where(SL => SL.Id == input.Id).FirstOrDefaultAsync();
@@ -104,6 +111,9 @@ namespace Wazzifni.Skills
             await _cacheManager.GetCache(CacheName_GetCities).ClearAsync();
             return MapToEntityDto(Skill);
         }
+
+
+        [AbpAuthorize(PermissionNames.Skill_Delete)]
 
         public override async Task DeleteAsync(EntityDto<int> input)
         {

@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Services;
 using Abp.Application.Services.Dto;
+using Abp.Authorization;
 using Abp.Domain.Repositories;
 using Abp.Runtime.Caching;
 using Abp.UI;
@@ -11,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Wazzifni;
+using Wazzifni.Authorization;
 using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.Cities;
 using Wazzifni.Domain.CourseCategories;
@@ -40,6 +42,7 @@ namespace ITLand.StemCells.Teachers
             _attachmentManager = attachmentManager;
         }
 
+        [AbpAuthorize(PermissionNames.Teacher_Create)]
 
         public async Task<bool> Create(CreateTeacherDto input)
         {
@@ -56,6 +59,9 @@ namespace ITLand.StemCells.Teachers
 
             return true;
         }
+
+
+        [AbpAuthorize(PermissionNames.Teacher_Read)]
 
         public async Task<PagedResultDto<LiteTeacherDto>> GetAll(PagedTeachersResultRequestDto input)
         {
@@ -92,6 +98,8 @@ namespace ITLand.StemCells.Teachers
             }
             return result;
         }
+
+        [AbpAuthorize(PermissionNames.Teacher_Update)]
 
         public async Task<bool> Update(UpdateTeacherDto input)
         {
@@ -175,6 +183,8 @@ namespace ITLand.StemCells.Teachers
             return query.Skip(input.SkipCount).Take(input.MaxResultCount);
         }
 
+
+        [AbpAuthorize(PermissionNames.Teacher_Delete)]
 
         public async Task DeleteAsync(EntityDto<int> input)
         {

@@ -7,6 +7,7 @@ using KeyFinder;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using Wazzifni.Authorization;
 using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.SpokenLanguages;
@@ -29,7 +30,7 @@ public class SpokenLanguagesAppService :
         _attachmentManager = attachmentManager;
     }
 
-    //[AbpAuthorize(PermissionNames.SpokenLanguageCUD)]
+    [AbpAuthorize(PermissionNames.SpokenLanguage_Create)]
     public override async Task<SpokenLanguageDetailsDto> CreateAsync(CreateSpokenLanguageDto input)
     {
         var lan = new SpokenLanguage { Name = input.Name, DisplayName = input.DisplayName, IsActive = true };
@@ -42,7 +43,7 @@ public class SpokenLanguagesAppService :
         return _mapper.Map<SpokenLanguageDetailsDto>(lan);
     }
 
-    //[AbpAuthorize(PermissionNames.SpokenLanguageCUD)]
+    [AbpAuthorize(PermissionNames.SpokenLanguage_Update)]
     public override async Task<SpokenLanguageDetailsDto> UpdateAsync(UpdateSpokenLanguageDto input)
     {
         var lan = await _mainRepository.GetAll().Where(SL => SL.Id == input.Id).FirstOrDefaultAsync();
@@ -111,6 +112,7 @@ public class SpokenLanguagesAppService :
         return result;
     }
 
+    [AbpAuthorize(PermissionNames.SpokenLanguage_Update)]
     public async Task<SpokenLanguageDetailsDto> SwitchActivationAsync(SwitchActivationInputDto input)
     {
         var SpokenLanguage = await _mainRepository.GetAll().Where(SL => SL.Id == input.Id).FirstOrDefaultAsync();

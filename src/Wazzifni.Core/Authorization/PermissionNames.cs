@@ -45,7 +45,7 @@
 
         public const string WorkPosts_SwitchFeatured = WorkPosts + "." + "SwitchFeatured";
 
-        
+
 
         public const string WorkApplications = "WorkApplications";
         public const string WorkApplications_Read = WorkApplications + "." + "Read";
@@ -70,8 +70,49 @@
         public const string Courses_Rate = Courses + "." + "Rate";
         public const string Courses_Read = Courses + "." + "Read";
 
+
         public const string AppManagement = "AppManagement";
         public const string AppManagement_Read = AppManagement + "." + "Read";
 
+
+        public const string CourseTag = "CourseTag";
+        public const string CourseTag_Read = CourseTag + "." + "Read";
+        public const string CourseTag_Create = CourseTag + "." + "Create";
+        public const string CourseTag_Delete = CourseTag + "." + "Delete";
+        public const string CourseTag_Update = CourseTag + "." + "Update";
+
+        public const string CourseCategory = "CourseCategory";
+        public const string CourseCategory_Read = CourseCategory + "." + "Read";
+        public const string CourseCategory_Create = CourseCategory + "." + "Create";
+        public const string CourseCategory_Delete = CourseCategory + "." + "Delete";
+        public const string CourseCategory_Update = CourseCategory + "." + "Update";
+
+        public const string Teacher = "Teacher";
+        public const string Teacher_Read = Teacher + "." + "Read";
+        public const string Teacher_Create = Teacher + "." + "Create";
+        public const string Teacher_Delete = Teacher + "." + "Delete";
+        public const string Teacher_Update = Teacher + "." + "Update";
+
+
+        public const string CourseComment = "CourseComment";
+        public const string CourseComment_Read = CourseComment + "." + "Read";
+        public const string CourseComment_Create = CourseComment + "." + "Create";
+        public const string CourseComment_Delete = CourseComment + "." + "Delete";
+        public const string CourseComment_Update = CourseComment + "." + "Update";
+
+        public const string Skill = "Skill";
+        public const string Skill_Create = Skill + "." + "Create";
+        public const string Skill_Delete = Skill + "." + "Delete";
+        public const string Skill_Update = Skill + "." + "Update";
+
+        public const string SpokenLanguage = "SpokenLanguage";
+        public const string SpokenLanguage_Create = SpokenLanguage + "." + "Create";
+        public const string SpokenLanguage_Delete = SpokenLanguage + "." + "Delete";
+        public const string SpokenLanguage_Update = SpokenLanguage + "." + "Update";
+
+        public const string University = "University";
+        public const string University_Create = University + "." + "Create";
+        public const string University_Delete = University + "." + "Delete";
+        public const string University_Update = University + "." + "Update";
     }
 }

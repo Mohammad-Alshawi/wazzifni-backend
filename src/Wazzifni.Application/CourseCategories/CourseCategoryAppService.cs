@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Cities.Dto;
 using Wazzifni.CourseCategories.Dto;
@@ -79,6 +80,8 @@ namespace Wazzifni.CourseCategories
 
         }
 
+        [AbpAuthorize(PermissionNames.CourseCategory_Create)]
+
         public override async Task<CourseCategoryDetailsDto> CreateAsync(CreateCourseCategoryDto input)
         {
         
@@ -104,7 +107,8 @@ namespace Wazzifni.CourseCategories
 
             return MapToEntityDto(CourseCategory);
         }
-        //rebuild
+
+        [AbpAuthorize(PermissionNames.CourseCategory_Update)]
         public override async Task<CourseCategoryDetailsDto> UpdateAsync(UpdateCourseCategoryDto input)
         {
             var CourseCategory = await _CourseCategoryManager.GetCourseCategoryByIdAsync(input.Id);
@@ -146,6 +150,8 @@ namespace Wazzifni.CourseCategories
 
         }
 
+        [AbpAuthorize(PermissionNames.CourseCategory_Update)]
+
         public async Task<CourseCategoryDetailsDto> SwitchActivationAsync(SwitchActivationInputDto input)
         {
             var CourseCategory = await _CourseCategoryManager.GetLiteEntityByIdAsync(input.Id);
@@ -153,6 +159,8 @@ namespace Wazzifni.CourseCategories
             await _CourseCategoryRepository.UpdateAsync(CourseCategory);
             return MapToEntityDto(CourseCategory);
         }
+
+        [AbpAuthorize(PermissionNames.CourseCategory_Delete)]
 
         public override async Task DeleteAsync(EntityDto<int> input)
         {

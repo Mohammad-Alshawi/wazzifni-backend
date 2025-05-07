@@ -47,7 +47,7 @@ namespace Wazzifni.Authorization
             context.CreatePermission(PermissionNames.WorkPosts_Reject, L("WorkPostsReject"));
             context.CreatePermission(PermissionNames.WorkPosts_SwitchFeatured, L("WorkPostsSwitchFeatured"));
 
-            
+
 
 
             context.CreatePermission(PermissionNames.WorkApplications, L("WorkApplications"));
@@ -68,13 +68,55 @@ namespace Wazzifni.Authorization
             context.CreatePermission(PermissionNames.CourseRegistrationRequests_Reject, L("CourseRegistrationRequestsReject"));
             context.CreatePermission(PermissionNames.CourseRegistrationRequests_Delete, L("CourseRegistrationRequestsDelete"));
             context.CreatePermission(PermissionNames.CourseRegistrationRequests_Update, L("CourseRegistrationRequestsUpdate"));
-           
+
             context.CreatePermission(PermissionNames.Courses, L("Courses"));
             context.CreatePermission(PermissionNames.Courses_Rate, L("CoursesRate"));
             context.CreatePermission(PermissionNames.Courses_Read, L("CoursesRead"));
 
             context.CreatePermission(PermissionNames.AppManagement, L("AppManagement"));
             context.CreatePermission(PermissionNames.AppManagement_Read, L("AppManagementRead"));
+
+
+
+
+            context.CreatePermission(PermissionNames.CourseTag, L("CourseTag"));
+            context.CreatePermission(PermissionNames.CourseTag_Read, L("CourseTagRead"));
+            context.CreatePermission(PermissionNames.CourseTag_Create, L("CourseTagCreate"));
+            context.CreatePermission(PermissionNames.CourseTag_Update, L("CourseTagUpdate"));
+            context.CreatePermission(PermissionNames.CourseTag_Delete, L("CourseTagDelete"));
+
+            context.CreatePermission(PermissionNames.CourseCategory, L("CourseCategory"));
+            context.CreatePermission(PermissionNames.CourseCategory_Read, L("CourseCategoryRead"));
+            context.CreatePermission(PermissionNames.CourseCategory_Create, L("CourseCategoryCreate"));
+            context.CreatePermission(PermissionNames.CourseCategory_Update, L("CourseCategoryUpdate"));
+            context.CreatePermission(PermissionNames.CourseCategory_Delete, L("CourseCategoryDelete"));
+
+            context.CreatePermission(PermissionNames.Teacher, L("Teacher"));
+            context.CreatePermission(PermissionNames.Teacher_Read, L("TeacherRead"));
+            context.CreatePermission(PermissionNames.Teacher_Create, L("TeacherCreate"));
+            context.CreatePermission(PermissionNames.Teacher_Update, L("TeacherUpdate"));
+            context.CreatePermission(PermissionNames.Teacher_Delete, L("TeacherDelete"));
+
+            context.CreatePermission(PermissionNames.Skill, L("Skill"));
+            context.CreatePermission(PermissionNames.Skill_Create, L("SkillCreate"));
+            context.CreatePermission(PermissionNames.Skill_Update, L("SkillUpdate"));
+            context.CreatePermission(PermissionNames.Skill_Delete, L("SkillDelete"));
+
+            context.CreatePermission(PermissionNames.CourseComment, L("CourseComment"));
+            context.CreatePermission(PermissionNames.CourseComment_Read, L("CourseCommentRead"));
+            context.CreatePermission(PermissionNames.CourseComment_Create, L("CourseCommentCreate"));
+            context.CreatePermission(PermissionNames.CourseComment_Update, L("CourseCommentUpdate"));
+            context.CreatePermission(PermissionNames.CourseComment_Delete, L("CourseCommentDelete"));
+
+            context.CreatePermission(PermissionNames.SpokenLanguage, L("SpokenLanguage"));
+            context.CreatePermission(PermissionNames.SpokenLanguage_Create, L("SpokenLanguageCreate"));
+            context.CreatePermission(PermissionNames.SpokenLanguage_Update, L("SpokenLanguageUpdate"));
+            context.CreatePermission(PermissionNames.SpokenLanguage_Delete, L("SpokenLanguageDelete"));
+
+            context.CreatePermission(PermissionNames.University, L("University"));
+            context.CreatePermission(PermissionNames.University_Create, L("UniversityCreate"));
+            context.CreatePermission(PermissionNames.University_Update, L("UniversityUpdate"));
+            context.CreatePermission(PermissionNames.University_Delete, L("UniversityDelete"));
         }
 
         private static ILocalizableString L(string name)

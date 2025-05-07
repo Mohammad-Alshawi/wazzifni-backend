@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Cities.Dto;
 using Wazzifni.CourseCategories.Dto;
@@ -78,7 +79,7 @@ namespace Wazzifni.CourseComments
 
         }
 
-        [AbpAuthorize]
+        [AbpAuthorize(PermissionNames.CourseComment_Create)]
         public override async Task<CourseCommentDetailsDto> CreateAsync(CreateCourseCommentDto input)
         {
 
@@ -103,7 +104,7 @@ namespace Wazzifni.CourseComments
         }
 
 
-        [AbpAuthorize]       
+        [AbpAuthorize(PermissionNames.CourseComment_Update)]
         public override async Task<CourseCommentDetailsDto> UpdateAsync(UpdateCourseCommentDto input)
         {
             var CourseComment = await _CourseCommentRepository.GetAll().Where(x=>x.Id == input.Id).FirstOrDefaultAsync();
@@ -129,7 +130,7 @@ namespace Wazzifni.CourseComments
 
         }
 
-        [AbpAuthorize]
+        [AbpAuthorize(PermissionNames.CourseComment_Delete)]
         public override async Task DeleteAsync(EntityDto<long> input)
         {
             var CourseComment = await _CourseCommentRepository.GetAll().Where(x => x.Id == input.Id).FirstOrDefaultAsync();

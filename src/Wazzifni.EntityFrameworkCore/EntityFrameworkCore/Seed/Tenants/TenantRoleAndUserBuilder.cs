@@ -83,6 +83,11 @@ namespace Wazzifni.EntityFrameworkCore.Seed.Tenants
                  PermissionNames.WorkApplications_Update,
                  PermissionNames.WorkApplications_Delete,
 
+
+                 PermissionNames.Skill,
+                 PermissionNames.SpokenLanguage,
+                
+
             };
 
             GrantPermissionToRole(
@@ -151,7 +156,24 @@ namespace Wazzifni.EntityFrameworkCore.Seed.Tenants
                  PermissionNames.CourseRegistrationRequests_Update,
                  PermissionNames.CourseRegistrationRequests_Delete,
                  PermissionNames.Courses,
-                 PermissionNames.Courses_Rate
+                 PermissionNames.Courses_Rate,
+                 PermissionNames.CourseTag,
+                 PermissionNames.Courses_Read,
+                 PermissionNames.CourseComment,
+                 PermissionNames.CourseComment_Read,
+                 PermissionNames.CourseComment_Create,
+                 PermissionNames.CourseComment_Update,
+                 PermissionNames.CourseComment_Delete,
+
+                 PermissionNames.CourseCategory,
+                 PermissionNames.CourseCategory_Read,
+
+                 PermissionNames.University,
+                 PermissionNames.Teacher,
+                 PermissionNames.Teacher_Read,
+
+
+
 
             };
 

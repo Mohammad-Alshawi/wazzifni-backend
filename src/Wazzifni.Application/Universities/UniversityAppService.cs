@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Attachments;
@@ -66,6 +67,8 @@ namespace Wazzifni.Universitys
 
         }
 
+        [AbpAuthorize(PermissionNames.University_Create)]
+
         public override async Task<UniversityDetailsDto> CreateAsync(CreateUniversityDto input)
         {
 
@@ -75,6 +78,8 @@ namespace Wazzifni.Universitys
             await CurrentUnitOfWork.SaveChangesAsync();
             return MapToEntityDto(University);
         }
+        
+        [AbpAuthorize(PermissionNames.University_Update)]
         public override async Task<UniversityDetailsDto> UpdateAsync(UpdateUniversityDto input)
         {
             var University = await _UniversityRepository.GetAll().Include(c => c.Translations).Where(SL => SL.Id == input.Id).FirstOrDefaultAsync(); ;
@@ -94,6 +99,7 @@ namespace Wazzifni.Universitys
 
         }
 
+        [AbpAuthorize(PermissionNames.University_Update)]
         public async Task<UniversityDetailsDto> SwitchActivationAsync(SwitchActivationInputDto input)
         {
             var University = await _UniversityRepository.GetAll().Where(SL => SL.Id == input.Id).FirstOrDefaultAsync();
@@ -101,6 +107,8 @@ namespace Wazzifni.Universitys
             await _UniversityRepository.UpdateAsync(University);
             return MapToEntityDto(University);
         }
+
+        [AbpAuthorize(PermissionNames.University_Delete)]
 
         public override async Task DeleteAsync(EntityDto<int> input)
         {
