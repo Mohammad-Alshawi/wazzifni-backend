@@ -71,5 +71,59 @@
 
 	  <text name="Advertisements_CUD">الصلاحيات لإنشاء الإعلانات وتعديلها وحذفها</text>
 
+	  <text name="CourseRegistrationRequests">صلاحية إدارة طلبات التسجيل في الدورات</text>
+	  <text name="CourseRegistrationRequestsApprove">صلاحية الموافقة على طلبات التسجيل في الدورات</text>
+	  <text name="CourseRegistrationRequestsCreate">صلاحية إنشاء طلبات التسجيل في الدورات</text>
+	  <text name="CourseRegistrationRequestsReject">صلاحية رفض طلبات التسجيل في الدورات</text>
+	  <text name="CourseRegistrationRequestsDelete">صلاحية حذف طلبات التسجيل في الدورات</text>
+	  <text name="CourseRegistrationRequestsUpdate">صلاحية تعديل طلبات التسجيل في الدورات</text>
+
+	  <text name="Courses">صلاحية إدارة الدورات</text>
+	  <text name="CoursesRate">صلاحية تقييم الدورات</text>
+	  <text name="CoursesRead">صلاحية عرض معلومات الدورات</text>
+
+	  <text name="AppManagement">صلاحية إدارة التطبيق</text>
+	  <text name="AppManagementRead">صلاحية عرض إعدادات التطبيق</text>
+
+	  <text name="CourseTag">صلاحية إدارة وسوم الدورات</text>
+	  <text name="CourseTagRead">صلاحية عرض وسوم الدورات</text>
+	  <text name="CourseTagCreate">صلاحية إنشاء وسوم الدورات</text>
+	  <text name="CourseTagUpdate">صلاحية تعديل وسوم الدورات</text>
+	  <text name="CourseTagDelete">صلاحية حذف وسوم الدورات</text>
+
+	  <text name="CourseCategory">صلاحية إدارة تصنيفات الدورات</text>
+	  <text name="CourseCategoryRead">صلاحية عرض تصنيفات الدورات</text>
+	  <text name="CourseCategoryCreate">صلاحية إنشاء تصنيفات الدورات</text>
+	  <text name="CourseCategoryUpdate">صلاحية تعديل تصنيفات الدورات</text>
+	  <text name="CourseCategoryDelete">صلاحية حذف تصنيفات الدورات</text>
+
+	  <text name="Teacher">صلاحية إدارة المحاضرين</text>
+	  <text name="TeacherRead">صلاحية عرض معلومات المحاضرين</text>
+	  <text name="TeacherCreate">صلاحية إضافة محاضرين جدد</text>
+	  <text name="TeacherUpdate">صلاحية تعديل بيانات المحاضرين</text>
+	  <text name="TeacherDelete">صلاحية حذف المحاضرين</text>
+
+	  <text name="Skill">صلاحية إدارة المهارات</text>
+	  <text name="SkillCreate">صلاحية إضافة مهارات جديدة</text>
+	  <text name="SkillUpdate">صلاحية تعديل المهارات</text>
+	  <text name="SkillDelete">صلاحية حذف المهارات</text>
+
+	  <text name="CourseComment">صلاحية إدارة تعليقات الدورات</text>
+	  <text name="CourseCommentRead">صلاحية عرض تعليقات الدورات</text>
+	  <text name="CourseCommentCreate">صلاحية إضافة تعليقات على الدورات</text>
+	  <text name="CourseCommentUpdate">صلاحية تعديل تعليقات الدورات</text>
+	  <text name="CourseCommentDelete">صلاحية حذف تعليقات الدورات</text>
+
+	  <text name="SpokenLanguage">صلاحية إدارة اللغات المحكية</text>
+	  <text name="SpokenLanguageCreate">صلاحية إضافة لغات محكية</text>
+	  <text name="SpokenLanguageUpdate">صلاحية تعديل اللغات المحكية</text>
+	  <text name="SpokenLanguageDelete">صلاحية حذف اللغات المحكية</text>
+
+	  <text name="University">صلاحية إدارة الجامعات</text>
+	  <text name="UniversityCreate">صلاحية إضافة جامعات</text>
+	  <text name="UniversityUpdate">صلاحية تعديل معلومات الجامعات</text>
+	  <text name="UniversityDelete">صلاحية حذف الجامعات</text>
+
+
   </texts>
 </localizationDictionary>

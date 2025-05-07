@@ -192,7 +192,61 @@
 	  
 	  <text name="Advertisements_CUD">Permission to CUD Advertisements</text>
 
-  
+
+	  <text name="CourseRegistrationRequests">Permission to manage course registration requests</text>
+	  <text name="CourseRegistrationRequestsApprove">Permission to approve course registration requests</text>
+	  <text name="CourseRegistrationRequestsCreate">Permission to create course registration requests</text>
+	  <text name="CourseRegistrationRequestsReject">Permission to reject course registration requests</text>
+	  <text name="CourseRegistrationRequestsDelete">Permission to delete course registration requests</text>
+	  <text name="CourseRegistrationRequestsUpdate">Permission to update course registration requests</text>
+
+	  <text name="Courses">Permission to manage courses</text>
+	  <text name="CoursesRate">Permission to rate courses</text>
+	  <text name="CoursesRead">Permission to read course details</text>
+
+	  <text name="AppManagement">Permission to manage the application</text>
+	  <text name="AppManagementRead">Permission to view application settings</text>
+
+	  <text name="CourseTag">Permission to manage course tags</text>
+	  <text name="CourseTagRead">Permission to view course tags</text>
+	  <text name="CourseTagCreate">Permission to create course tags</text>
+	  <text name="CourseTagUpdate">Permission to update course tags</text>
+	  <text name="CourseTagDelete">Permission to delete course tags</text>
+
+	  <text name="CourseCategory">Permission to manage course categories</text>
+	  <text name="CourseCategoryRead">Permission to view course categories</text>
+	  <text name="CourseCategoryCreate">Permission to create course categories</text>
+	  <text name="CourseCategoryUpdate">Permission to update course categories</text>
+	  <text name="CourseCategoryDelete">Permission to delete course categories</text>
+
+	  <text name="Teacher">Permission to manage teachers</text>
+	  <text name="TeacherRead">Permission to view teacher information</text>
+	  <text name="TeacherCreate">Permission to add new teachers</text>
+	  <text name="TeacherUpdate">Permission to update teacher details</text>
+	  <text name="TeacherDelete">Permission to remove teachers</text>
+
+	  <text name="Skill">Permission to manage skills</text>
+	  <text name="SkillCreate">Permission to add new skills</text>
+	  <text name="SkillUpdate">Permission to update skills</text>
+	  <text name="SkillDelete">Permission to delete skills</text>
+
+	  <text name="CourseComment">Permission to manage course comments</text>
+	  <text name="CourseCommentRead">Permission to view course comments</text>
+	  <text name="CourseCommentCreate">Permission to add course comments</text>
+	  <text name="CourseCommentUpdate">Permission to edit course comments</text>
+	  <text name="CourseCommentDelete">Permission to delete course comments</text>
+
+	  <text name="SpokenLanguage">Permission to manage spoken languages</text>
+	  <text name="SpokenLanguageCreate">Permission to add spoken languages</text>
+	  <text name="SpokenLanguageUpdate">Permission to update spoken languages</text>
+	  <text name="SpokenLanguageDelete">Permission to delete spoken languages</text>
+
+	  <text name="University">Permission to manage universities</text>
+	  <text name="UniversityCreate">Permission to add universities</text>
+	  <text name="UniversityUpdate">Permission to update universities</text>
+	  <text name="UniversityDelete">Permission to delete universities</text>
+
+
 
   </texts>
 </localizationDictionary>
