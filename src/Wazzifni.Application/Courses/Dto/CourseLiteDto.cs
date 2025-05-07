@@ -1,22 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using static Wazzifni.Enums.Enum;
-using Wazzifni.Domain.Cities;
-using Wazzifni.Domain.CourseCategories;
-using Wazzifni.Domain.CourseComments;
-using Wazzifni.Domain.Courses;
-using Wazzifni.Domain.CourseTags;
-using Wazzifni.Domain.Teachers;
 using Wazzifni.Cities.Dto;
 using Wazzifni.Teachers.Dto;
 using Wazzifni.CourseCategories.Dto;
 using Wazzifni.CourseTags.Dto;
-using System.ComponentModel.DataAnnotations;
 
 namespace Wazzifni.Courses.Dto
 {

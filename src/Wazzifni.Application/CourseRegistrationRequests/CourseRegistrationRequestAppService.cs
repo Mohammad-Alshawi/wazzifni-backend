@@ -120,24 +120,25 @@ namespace Wazzifni.CourseRegistrationRequests
             var Course = await _CourseManager.GetLiteCourseByIdAsync(registrationRequest.CourseId);
             var currentUserId = AbpSession.UserId.Value;
             var currentTraineeId = await _TraineeManager.GetTraineeIdByUserId(currentUserId);
-            var isApplicant = registrationRequest.TraineeId == currentTraineeId;
+            var isOwner = registrationRequest.TraineeId == currentTraineeId;
 
-            if (!(isApplicant))
+            if (!(isOwner) && await _userManager.IsTrainee())
                 throw new UserFriendlyException("You are not authorized to delete this registrationRequest.");
 
             if (registrationRequest.Status == CourseRegistrationRequestStatus.Approved)
                 throw new UserFriendlyException(Exceptions.DeleteApprovedregistrationRequest);
 
+            if (registrationRequest.Status == CourseRegistrationRequestStatus.Rejected)
+                throw new UserFriendlyException(Exceptions.ObjectCantBeDelete);
+
             if (registrationRequest.Status == CourseRegistrationRequestStatus.Checking)
             {
-                if (isApplicant)
-                {
+                
                     Course.RegisteredTraineesCount--;
                     await Repository.DeleteAsync(registrationRequest);
                     await UnitOfWorkManager.Current.SaveChangesAsync();
                     return;
-                }
-             
+                             
             }               
             
         }
