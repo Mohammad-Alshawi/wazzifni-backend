@@ -18,6 +18,7 @@ using Wazzifni.Domain.CourseTags;
 using Wazzifni.Domain.Educations;
 using Wazzifni.Domain.Feedbacks;
 using Wazzifni.Domain.IndividualUserProfiles;
+using Wazzifni.Domain.Messages;
 using Wazzifni.Domain.Regions;
 using Wazzifni.Domain.RegisterdPhoneNumbers;
 using Wazzifni.Domain.Skills;
@@ -87,7 +88,8 @@ namespace Wazzifni.EntityFrameworkCore
 
         public virtual DbSet<CourseRate> CourseRates { get; set; }
 
-        
+        public virtual DbSet<Message> Messages { get; set; }
+
         public WazzifniDbContext(DbContextOptions<WazzifniDbContext> options)
             : base(options)
         {
