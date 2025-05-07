@@ -83,11 +83,34 @@ namespace Wazzifni.Trainees
         }
 
 
-        [ApiExplorerSettings(IgnoreApi = true)]
-        [RemoteService(IsEnabled = false)]
-        public override Task DeleteAsync(EntityDto<long> input)
+      
+        public override async Task DeleteAsync(EntityDto<long> input)
         {
-            return base.DeleteAsync(input);
+            var trainee = await Repository.GetAllIncluding(
+                           c => c.User,
+                           c => c.CourseRates,
+                           c => c.CourseRegistrationRequests,
+                           c => c.CourseComments
+                       ).FirstOrDefaultAsync(c => c.Id == input.Id);
+
+            if (trainee == null)
+            {
+                throw new UserFriendlyException("Not Found");
+            }
+
+            trainee.CourseRates.Clear();
+            trainee.CourseRegistrationRequests.Clear();
+            trainee.CourseComments.Clear();
+
+            await Repository.DeleteAsync(trainee);
+
+            var user = await _userManager.Users
+              .Where(t => t.Id == trainee.UserId)
+              .FirstOrDefaultAsync();
+
+            await _userManager.DeleteAsync(user);
+
+            await UnitOfWorkManager.Current.SaveChangesAsync();
         }
 
 
