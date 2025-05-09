@@ -17,5 +17,9 @@ namespace Wazzifni.Companies.Dto
         public UserType Type { get; set; }
 
 
+        public  string EmailAddress { get; set; }
+
+
+
     }
 }
