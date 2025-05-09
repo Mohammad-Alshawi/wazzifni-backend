@@ -20,7 +20,4 @@
   <ItemGroup>
     <ProjectReference Include="..\Wazzifni.Core\Wazzifni.Core.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Chats\" />
-  </ItemGroup>
 </Project>
