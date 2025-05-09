@@ -47,6 +47,7 @@ namespace ITLand.Wazzifni.Chats
             var items = await pagedQuery
                 .Select(x => new LiteChatDto
                 {
+                    Id = x.Id,
                     User = _mapper.Map<UserDto>(x.User),
                     LastMessage = x.Messages
                         .OrderByDescending(m => m.CreationTime)
@@ -59,6 +60,7 @@ namespace ITLand.Wazzifni.Chats
                             IReceive = m.UserReceiverId == AbpSession.UserId.Value,
                         })
                         .FirstOrDefault()
+                     
                 })
                 .ToListAsync();
 
