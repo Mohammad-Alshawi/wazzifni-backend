@@ -42,6 +42,7 @@ namespace Wazzifni.Messages
         private readonly IRepository<Message,Guid> _MessageRepository;
         private readonly ICourseManager _courseManager;
         private readonly ITraineeManager _traineeManager;
+        private readonly IRepository<Chat, long> _chatRepository;
         private readonly IAttachmentManager _attachmentManager;
 
 
@@ -52,6 +53,7 @@ namespace Wazzifni.Messages
             IRepository<Message, Guid> MessageRepository,
             ICourseManager courseManager,
             ITraineeManager traineeManager,
+            IRepository<Chat,long> chatRepository,
             IAttachmentManager attachmentManager
         ) : base(MessageRepository)
         {
@@ -61,6 +63,7 @@ namespace Wazzifni.Messages
             _MessageRepository = MessageRepository;
             _courseManager = courseManager;
             _traineeManager = traineeManager;
+            _chatRepository = chatRepository;
             _attachmentManager = attachmentManager;
         }
 
@@ -93,9 +96,21 @@ namespace Wazzifni.Messages
                 {
                     throw new UserFriendlyException("Reciver Id Required");
                 }
+                var chat = await _chatRepository.GetAll().Where(x => x.UserId == input.UserReceiverId.Value).FirstOrDefaultAsync();
+                Message.ChatId = chat.Id;
                 Message.OwnerIsAdmin = true;
             }
 
+            if (!await _userManager.IsAdminSession())
+            {
+                var chat = await _chatRepository.GetAll().Where(x=>x.UserId == AbpSession.UserId.Value).FirstOrDefaultAsync();
+                if (chat is null)
+                {
+                    var chatId = await _chatRepository.InsertAndGetIdAsync(new Chat { UserId = AbpSession.UserId.Value });
+                    Message.ChatId = chatId;
+                }
+                else Message.ChatId = chat.Id;
+            }
             await Repository.InsertAsync(Message);
             await CurrentUnitOfWork.SaveChangesAsync();
 
@@ -127,7 +142,20 @@ namespace Wazzifni.Messages
                 {
                     throw new UserFriendlyException("Reciver Id Required");
                 }
+                var chat = await _chatRepository.GetAll().Where(x => x.UserId == input.UserReceiverId.Value).FirstOrDefaultAsync();
+                Message.ChatId = chat.Id;
                 Message.OwnerIsAdmin = true;
+            }
+
+            if (!await _userManager.IsAdminSession())
+            {
+                var chat = await _chatRepository.GetAll().Where(x => x.UserId == AbpSession.UserId.Value).FirstOrDefaultAsync();
+                if (chat is null)
+                {
+                    var chatId = await _chatRepository.InsertAndGetIdAsync(new Chat { UserId = AbpSession.UserId.Value });
+                    Message.ChatId = chatId;
+                }
+                else Message.ChatId = chat.Id;
             }
             await _MessageRepository.UpdateAsync(Message);
             await UnitOfWorkManager.Current.SaveChangesAsync();
@@ -225,7 +253,9 @@ namespace Wazzifni.Messages
             if (!input.Keyword.IsNullOrEmpty())
                 data = data.Where(x => x.Content.Contains(input.Keyword));
 
-            
+            if (input.ChatId.HasValue)
+                data = data.Where(x => x.ChatId == input.ChatId.Value);
+
             return data;
         }
 

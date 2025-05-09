@@ -16,6 +16,9 @@ namespace Wazzifni.Messages.Dto
 
         public bool? MessagesReceiveAndSent { get; set; }
 
+        public long? ChatId { get; set; }
+
+
 
 
     }

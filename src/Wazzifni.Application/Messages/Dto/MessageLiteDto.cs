@@ -28,5 +28,8 @@ namespace Wazzifni.Messages.Dto
 
         public bool OwnerIsAdmin { get; set; }
 
+        public long ChatId { get; set; }
+
+
     }
 }

@@ -90,6 +90,8 @@ namespace Wazzifni.EntityFrameworkCore
 
         public virtual DbSet<Message> Messages { get; set; }
 
+        public virtual DbSet<Chat> Chats { get; set; }
+
         public WazzifniDbContext(DbContextOptions<WazzifniDbContext> options)
             : base(options)
         {

@@ -22,5 +22,9 @@ namespace Wazzifni.Domain.Messages
 
         public bool OwnerIsAdmin { get; set; }
         public string Content { get; set; }
+
+        public long? ChatId { get; set; }
+        [ForeignKey(nameof(ChatId))]
+        public virtual Chat? Chat { get; set; }
     }
 }
