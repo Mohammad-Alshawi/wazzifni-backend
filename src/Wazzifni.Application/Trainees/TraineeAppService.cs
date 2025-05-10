@@ -165,8 +165,12 @@ namespace Wazzifni.Trainees
 
             var result = _mapper.Map<TraineeDetailsDto>(Trainee);
 
-            result.Image = _mapper.Map<LiteAttachmentDto>(image);
-
+            result.Image = new LiteAttachmentDto
+            {
+                Id = image.Id,
+                Url = _attachmentManager.GetUrl(image),
+                LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(image),
+            };
             return result;
         }
 
