@@ -8,7 +8,9 @@ namespace Wazzifni.Trainees.Dto
 
         public long TraineePhotoId { get; set; }
 
-        
+        public string RegistrationFullName { get; set; }
+        public string EmailAddress { get; set; }
+
 
     }
 }

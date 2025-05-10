@@ -20,6 +20,7 @@ using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.Educations;
+using Wazzifni.Domain.IndividualUserProfiles;
 using Wazzifni.Domain.Skills;
 using Wazzifni.Domain.SpokenLanguages;
 using Wazzifni.Domain.Trainees;
@@ -146,9 +147,13 @@ namespace Wazzifni.Trainees
             {
                 await _attachmentManager.CheckAndUpdateRefIdAsync(input.TraineePhotoId, AttachmentRefType.Trainee, Trainee.Id);
             }
-           
-
             await Repository.UpdateAsync(Trainee);
+
+            Trainee.User.RegistrationFullName = input.RegistrationFullName;
+            Trainee.User.EmailAddress = input.EmailAddress;
+
+            await _userManager.UpdateAsync(Trainee.User);
+
             UnitOfWorkManager.Current.SaveChanges();
 
             return _mapper.Map<TraineeDetailsDto>(Trainee);
