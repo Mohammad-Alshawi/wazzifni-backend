@@ -24,6 +24,7 @@ using Wazzifni.Domain.IndividualUserProfiles;
 using Wazzifni.Domain.Skills;
 using Wazzifni.Domain.SpokenLanguages;
 using Wazzifni.Domain.Trainees;
+using Wazzifni.Domain.Universities;
 using Wazzifni.Domain.WorkExperiences;
 using Wazzifni.Trainees.Dto;
 using static Wazzifni.Enums.Enum;
@@ -36,19 +37,21 @@ namespace Wazzifni.Trainees
          ITraineeAppService
     {
         private readonly IRepository<Trainee, long> _repository;
+        private readonly IRepository<University> _universityRepo;
         private readonly IAttachmentManager _attachmentManager;
         private readonly UserManager _userManager;
         private readonly ITraineeManager _TraineeManager;
         private readonly DeactivatedUsersSet _deactivatedUsersSet;
         private readonly IMapper _mapper;
 
-        public TraineeAppService(IRepository<Trainee, long> repository, IAttachmentManager attachmentManager, UserManager userManager,
+        public TraineeAppService(IRepository<Trainee, long> repository,IRepository<University> universityRepo, IAttachmentManager attachmentManager, UserManager userManager,
             ITraineeManager TraineeManager, 
            
             DeactivatedUsersSet deactivatedUsersSet,
             IMapper mapper) : base(repository)
         {
             _repository = repository;
+            _universityRepo = universityRepo;
             _attachmentManager = attachmentManager;
             _userManager = userManager;
             _TraineeManager = TraineeManager;
@@ -127,6 +130,7 @@ namespace Wazzifni.Trainees
 
             Trainee = _mapper.Map(input, Trainee);
 
+            var image = new Attachment();
 
             var oldAttachment = await _attachmentManager.GetElementByRefAsync(Trainee.Id, AttachmentRefType.Trainee);
 
@@ -139,14 +143,17 @@ namespace Wazzifni.Trainees
                 if (oldAttachment.Id != input.TraineePhotoId)
                 {
                     await _attachmentManager.DeleteRefIdAsync(oldAttachment);
-                    await _attachmentManager.CheckAndUpdateRefIdAsync(
+                    image = await _attachmentManager.CheckAndUpdateRefIdAsync(
                      input.TraineePhotoId, AttachmentRefType.Trainee, Trainee.Id);
                 }
             }
             else if (input.TraineePhotoId != 0)
             {
-                await _attachmentManager.CheckAndUpdateRefIdAsync(input.TraineePhotoId, AttachmentRefType.Trainee, Trainee.Id);
+                image = await _attachmentManager.CheckAndUpdateRefIdAsync(input.TraineePhotoId, AttachmentRefType.Trainee, Trainee.Id);
             }
+
+            Trainee.University = await _universityRepo.GetAll().Include(x=>x.Translations).Where(x=>x.Id == input.UniversityId).FirstOrDefaultAsync();
+           
             await Repository.UpdateAsync(Trainee);
 
             Trainee.User.RegistrationFullName = input.RegistrationFullName;
@@ -156,7 +163,11 @@ namespace Wazzifni.Trainees
 
             UnitOfWorkManager.Current.SaveChanges();
 
-            return _mapper.Map<TraineeDetailsDto>(Trainee);
+            var result = _mapper.Map<TraineeDetailsDto>(Trainee);
+
+            result.Image = _mapper.Map<LiteAttachmentDto>(image);
+
+            return result;
         }
 
 
