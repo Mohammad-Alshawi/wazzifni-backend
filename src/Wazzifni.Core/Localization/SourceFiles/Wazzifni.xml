@@ -246,6 +246,10 @@
 	  <text name="UniversityUpdate">Permission to update universities</text>
 	  <text name="UniversityDelete">Permission to delete universities</text>
 
+	  <text name="PushedNotifications">Permissions to Create, Update and Delete Push Notification</text>
+	  <text name="PushedNotificationsList">Permission to Read Pushed Notifications</text>
+	  <text name="PusheNotificationCreate">Permission to Send Push Notification</text>
+
 
 
   </texts>

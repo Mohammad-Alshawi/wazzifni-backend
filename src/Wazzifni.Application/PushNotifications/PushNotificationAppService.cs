@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Services;
 using Abp.Application.Services.Dto;
+using Abp.Authorization;
 using Abp.Configuration;
 using Abp.Domain.Repositories;
 using Abp.Extensions;
@@ -14,6 +15,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.PushNotifications;
@@ -25,7 +27,7 @@ using static Wazzifni.Enums.Enum;
 namespace Wazzifni.PushNotifications
 {
 
-    //[AbpAuthorize(PermissionNames.Pages_PushNotification)]
+    [AbpAuthorize(PermissionNames.Pages_PushNotification)]
     public class PushNotificationAppService : WazzifniAsyncCrudAppService<PushNotification, PushNotificationDetailsDto, int, LitePushNotificationDto,
         PagedPushNotificationResultRequestDto, CreatePushNotificationDto, UpdatePushNotificationDto>,
         IPushNotificationAppService
@@ -65,8 +67,7 @@ namespace Wazzifni.PushNotifications
             _mapper = mapper;
         }
 
-        [RemoteService(IsEnabled = false)]
-        //[AbpAuthorize(PermissionNames.PushNotification_Create)]
+        [AbpAuthorize(PermissionNames.PushNotification_Create)]
         public override async Task<PushNotificationDetailsDto> CreateAsync(CreatePushNotificationDto input)
         {
             if (input.Translations == null || !input.Translations.Any())
@@ -97,8 +98,7 @@ namespace Wazzifni.PushNotifications
         }
 
 
-        [ApiExplorerSettings(IgnoreApi = false)]
-        //[AbpAuthorize(PermissionNames.PushNotification_List)]
+        [AbpAuthorize(PermissionNames.PushNotification_List)]
         public override async Task<PagedResultDto<LitePushNotificationDto>> GetAllAsync(PagedPushNotificationResultRequestDto input)
         {
             var lang = await _settingManager.GetSettingValueForUserAsync(LocalizationSettingNames.DefaultLanguage, _session.TenantId, (long)AbpSession.UserId);

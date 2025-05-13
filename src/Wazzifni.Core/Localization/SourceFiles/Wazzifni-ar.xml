@@ -124,6 +124,10 @@
 	  <text name="UniversityUpdate">صلاحية تعديل معلومات الجامعات</text>
 	  <text name="UniversityDelete">صلاحية حذف الجامعات</text>
 
+	  <text name="PushedNotifications">صلاحيات قراءة و ارسال حذف الاشعارات</text>
+	  <text name="PushedNotificationsList">صلاحية قراءة الاشعارات المرسلة</text>
+	  <text name="PusheNotificationCreate">صلاحية ارسال اشعار</text>
+
 
   </texts>
 </localizationDictionary>

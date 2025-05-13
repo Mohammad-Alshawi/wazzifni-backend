@@ -114,5 +114,11 @@
         public const string University_Create = University + "." + "Create";
         public const string University_Delete = University + "." + "Delete";
         public const string University_Update = University + "." + "Update";
+
+
+        public const string Pages_PushNotification = "Pages.PushNotification";
+
+        public const string PushNotification_List = Pages_PushNotification + ".List";
+        public const string PushNotification_Create = Pages_PushNotification + ".Create";
     }
 }

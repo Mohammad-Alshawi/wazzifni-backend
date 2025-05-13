@@ -117,6 +117,10 @@ namespace Wazzifni.Authorization
             context.CreatePermission(PermissionNames.University_Create, L("UniversityCreate"));
             context.CreatePermission(PermissionNames.University_Update, L("UniversityUpdate"));
             context.CreatePermission(PermissionNames.University_Delete, L("UniversityDelete"));
+
+            context.CreatePermission(PermissionNames.Pages_PushNotification, L("PushedNotifications"));
+            context.CreatePermission(PermissionNames.PushNotification_List, L("PushedNotificationsList"));
+            context.CreatePermission(PermissionNames.PushNotification_Create, L("PushedNotificationCreate"));
         }
 
         private static ILocalizableString L(string name)
