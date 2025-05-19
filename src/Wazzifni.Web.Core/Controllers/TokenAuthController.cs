@@ -334,7 +334,7 @@ namespace Wazzifni.Controllers
             {
                 throw new UserFriendlyException(string.Format(Exceptions.YourPhoneNumberIsntVerified + "Or it was verified a while ago. Re-verify the number"));
             }
-
+            var traineeEmail = input.Email;
             input.Email ??= $"{input.FullName}{new Random().Next(100, 100000)}@EntityFrameWorkCore.net";
 
             var userName = input.PhoneNumber;
@@ -375,8 +375,7 @@ namespace Wazzifni.Controllers
             else if (input.UserType == UserType.Trainee)
             {
                 await _userManager.SetRolesAsync(user, new[] { StaticRoleNames.Tenants.Trainee });
-                user.TraineeId = await _traineeManager.InitateTrainee(user.Id, input.TraineeCreate.UniversityId , input.TraineeCreate.UniversityMajor , input.TraineeCreate.TraineePhotoId);
-
+                user.TraineeId = await _traineeManager.InitateTrainee(user.Id, input.TraineeCreate.UniversityId , input.TraineeCreate.UniversityMajor , input.TraineeCreate.TraineePhotoId , traineeEmail);
             }
             else
             {

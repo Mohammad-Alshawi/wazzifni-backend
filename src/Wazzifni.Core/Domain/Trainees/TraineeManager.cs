@@ -42,9 +42,9 @@ namespace Wazzifni.Domain.Trainees
               .Where(x => x.UserId == UserId).FirstOrDefaultAsync();
         }
 
-        public async Task<long> InitateTrainee(long UserId, int? UniversityId, string? UniversityMajor ,long LogoAttchmentId)
+        public async Task<long> InitateTrainee(long UserId, int? UniversityId, string? UniversityMajor ,long LogoAttchmentId , string EmailAddress)
         {
-            var Trainee = new Trainee { UserId = UserId, UniversityId = UniversityId , UniversityMajor = UniversityMajor };
+            var Trainee = new Trainee { UserId = UserId, UniversityId = UniversityId , UniversityMajor = UniversityMajor , EmailAddress = EmailAddress };
 
             var id = await repository.InsertAndGetIdAsync(Trainee);
 

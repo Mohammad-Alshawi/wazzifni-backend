@@ -65,6 +65,7 @@ namespace Wazzifni.Trainees
             var Trainee = await _TraineeManager.GetEntityByIdAsync(input.Id);
 
             var result = _mapper.Map<TraineeDetailsDto>(Trainee);
+            result.User.EmailAddress = Trainee.EmailAddress;
             var logo = await _attachmentManager.GetElementByRefAsync(result.Id, AttachmentRefType.Trainee);
             if (logo is not null)
             {
@@ -158,6 +159,7 @@ namespace Wazzifni.Trainees
 
             Trainee.User.RegistrationFullName = input.RegistrationFullName;
             Trainee.User.EmailAddress = input.EmailAddress;
+            Trainee.EmailAddress = input.EmailAddress;
 
             await _userManager.UpdateAsync(Trainee.User);
 

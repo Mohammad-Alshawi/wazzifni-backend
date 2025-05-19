@@ -31,7 +31,7 @@ namespace Wazzifni.Domain.Trainees
 
         public ICollection<CourseComment> CourseComments { get; set; }
 
-
+        public string EmailAddress { get; set; }
 
     }
 }

@@ -6,7 +6,7 @@ namespace Wazzifni.Domain.Trainees
 {
     public interface ITraineeManager : IDomainService
     {
-        Task<long> InitateTrainee(long UserId, int? UniversityId , string? UniversityMajor ,long LogoAttchmentId);
+        Task<long> InitateTrainee(long UserId, int? UniversityId , string? UniversityMajor ,long LogoAttchmentId,string EmailAddress);
 
         Task<Trainee> GetEntityByIdAsync(long TraineeId);
 
