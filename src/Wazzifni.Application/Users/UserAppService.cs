@@ -271,6 +271,10 @@ namespace Wazzifni.Users
 
             if (input.CreateDateFrom.HasValue && input.CreateDateTo.HasValue)
                 data = data.Where(x => x.CreationTime.Date >= input.CreateDateFrom.Value.Date && x.CreationTime.Date <= input.CreateDateTo.Value.Date).AsNoTracking();
+            if (input.UserIds is not null && input.UserIds.Count > 0)
+            {
+                data = data.Where(x => input.UserIds.Contains(x.Id));
+            }
             return data;
 
 
