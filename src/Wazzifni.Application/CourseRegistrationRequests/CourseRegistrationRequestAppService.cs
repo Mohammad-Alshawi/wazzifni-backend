@@ -1,27 +1,27 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Abp.Application.Services;
+using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Domain.Repositories;
 using Abp.UI;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
+using Wazzifni.CourseRegistrationRequests.Dto;
 using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.CourseRegistrationRequests;
 using Wazzifni.Domain.Courses;
-using Wazzifni.Localization.SourceFiles;
-using Wazzifni.CourseRegistrationRequests.Dto;
-using static Wazzifni.Enums.Enum;
-using Abp.Application.Services.Dto;
-using Abp.Application.Services;
 using Wazzifni.Domain.Trainees;
-using Wazzifni.Authorization;
+using Wazzifni.Localization.SourceFiles;
+using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.CourseRegistrationRequests
 {
@@ -35,7 +35,7 @@ namespace Wazzifni.CourseRegistrationRequests
         private readonly ICourseManager _CourseManager;
         private readonly IAttachmentManager _attachmentManager;
         private readonly ICourseRegistrationRequestManager _CourseRegistrationRequestManager;
-       // private readonly ICourseRegistrationRequestNotificationsAppService _CourseRegistrationRequestNotificationsAppService;
+        // private readonly ICourseRegistrationRequestNotificationsAppService _CourseRegistrationRequestNotificationsAppService;
         private readonly ICompanyManager _companyManager;
 
         public CourseRegistrationRequestAppService(IRepository<CourseRegistrationRequest, long> repository,
@@ -53,7 +53,7 @@ namespace Wazzifni.CourseRegistrationRequests
             _CourseManager = CourseManager;
             _attachmentManager = attachmentManager;
             _CourseRegistrationRequestManager = CourseRegistrationRequestManager;
-           // _CourseRegistrationRequestNotificationsAppService = CourseRegistrationRequestNotificationsAppService;
+            // _CourseRegistrationRequestNotificationsAppService = CourseRegistrationRequestNotificationsAppService;
             _companyManager = companyManager;
         }
 
@@ -61,13 +61,12 @@ namespace Wazzifni.CourseRegistrationRequests
         public override async Task<CourseRegistrationRequestDetailsDto> CreateAsync(CreateCourseRegistrationRequestDto input)
         {
             var registrationRequest = _mapper.Map<CourseRegistrationRequest>(input);
-            var currentTraineeId = await _TraineeManager.GetTraineeIdByUserId(AbpSession.UserId.Value);
             var Course = await _CourseManager.GetLiteCourseByIdAsync(input.CourseId);
 
-            if(!input.IsSpecial) registrationRequest.Status = CourseRegistrationRequestStatus.Checking;
+            if (!input.IsSpecial) registrationRequest.Status = CourseRegistrationRequestStatus.Checking;
             registrationRequest.IsSpecial = input.IsSpecial;
 
-            registrationRequest.TraineeId = currentTraineeId;
+            registrationRequest.UserId = AbpSession.UserId.Value;
 
 
             /*if (Course.ApplicantsCount >= Course.RequiredEmployeesCount)
@@ -118,11 +117,11 @@ namespace Wazzifni.CourseRegistrationRequests
                 throw new UserFriendlyException("registrationRequest not found.");
 
             var Course = await _CourseManager.GetLiteCourseByIdAsync(registrationRequest.CourseId);
-            var currentUserId = AbpSession.UserId.Value;
-            var currentTraineeId = await _TraineeManager.GetTraineeIdByUserId(currentUserId);
-            var isOwner = registrationRequest.TraineeId == currentTraineeId;
+            /*      var currentUserId = AbpSession.UserId.Value;
+                  var currentTraineeId = await _TraineeManager.GetTraineeIdByUserId(currentUserId);
+                  var isOwner = registrationRequest.TraineeId == currentTraineeId;*/
 
-            if (!(isOwner) && await _userManager.IsTrainee())
+            if (registrationRequest.UserId != AbpSession.UserId.Value && !await _userManager.IsAdminSession())
                 throw new UserFriendlyException("You are not authorized to delete this registrationRequest.");
 
             if (registrationRequest.Status == CourseRegistrationRequestStatus.Approved)
@@ -133,14 +132,14 @@ namespace Wazzifni.CourseRegistrationRequests
 
             if (registrationRequest.Status == CourseRegistrationRequestStatus.Checking)
             {
-                
-                    Course.RegisteredTraineesCount--;
-                    await Repository.DeleteAsync(registrationRequest);
-                    await UnitOfWorkManager.Current.SaveChangesAsync();
-                    return;
-                             
-            }               
-            
+
+                Course.RegisteredCount--;
+                await Repository.DeleteAsync(registrationRequest);
+                await UnitOfWorkManager.Current.SaveChangesAsync();
+                return;
+
+            }
+
         }
 
 
@@ -154,11 +153,11 @@ namespace Wazzifni.CourseRegistrationRequests
             registrationRequest.Status = CourseRegistrationRequestStatus.Approved;
             Course.CourseRegistrationRequests.Where(x => x.Id == input.Id).FirstOrDefault().Status = CourseRegistrationRequestStatus.Approved;
 
-            if (Course.RegisteredTraineesCount >= Course.NumberOfSeats && Course.CourseRegistrationRequests.Where(x => x.Status == CourseRegistrationRequestStatus.Approved).Count() == Course.NumberOfSeats)
+            if (Course.RegisteredCount >= Course.NumberOfSeats && Course.CourseRegistrationRequests.Where(x => x.Status == CourseRegistrationRequestStatus.Approved).Count() == Course.NumberOfSeats)
             {
                 Course.IsClosed = true;
                 Course.ClosedDate = DateTime.Now;
-                Course.RegisteredTraineesCount++;
+                Course.RegisteredCount++;
             }
 
 
@@ -171,7 +170,7 @@ namespace Wazzifni.CourseRegistrationRequests
         }
 
 
-       [HttpPost, AbpAuthorize(PermissionNames.CourseRegistrationRequests_Reject)]
+        [HttpPost, AbpAuthorize(PermissionNames.CourseRegistrationRequests_Reject)]
 
         public async Task<CourseRegistrationRequestDetailsDto> Reject(RejectCourseRegistrationRequestDto input)
         {
@@ -179,7 +178,7 @@ namespace Wazzifni.CourseRegistrationRequests
 
             var Course = await _CourseManager.GetEntityByAsTrackingIdAsync(registrationRequest.CourseId);
 
-          
+
             if (await _userManager.IsAdminSession())
                 registrationRequest.Status = CourseRegistrationRequestStatus.Rejected;
 
@@ -187,7 +186,7 @@ namespace Wazzifni.CourseRegistrationRequests
 
             Course.CourseRegistrationRequests.Where(x => x.Id == input.Id).FirstOrDefault().Status = CourseRegistrationRequestStatus.Rejected;
 
- 
+
 
             await Repository.UpdateAsync(registrationRequest);
             await UnitOfWorkManager.Current.SaveChangesAsync();
@@ -205,22 +204,34 @@ namespace Wazzifni.CourseRegistrationRequests
         {
             var result = await base.GetAllAsync(input);
 
-            var attachments = await _attachmentManager.GetListByRefAsync(result.Items.Select(x => (long)x.Trainee.Id).ToList(), AttachmentRefType.Trainee);
+            var attachmentsProfiles = await _attachmentManager.GetListByRefAsync(result.Items.Where(x => x.User.ProfileId.HasValue).Select(x => (long)x.User.ProfileId.Value).ToList(), AttachmentRefType.Profile);
 
-            var attachmentsDict = new Dictionary<long, List<Attachment>>();
+            var attachmentsProfilesDict = new Dictionary<long, List<Attachment>>();
 
-            if (attachments.Count > 0)
-                attachmentsDict = attachments.GroupBy(A => A.RefId.Value).ToDictionary(G => G.Key, G => G.ToList());
+            if (attachmentsProfiles.Count > 0)
+                attachmentsProfilesDict = attachmentsProfiles.GroupBy(A => A.RefId.Value).ToDictionary(G => G.Key, G => G.ToList());
+
+            var attachmentsCompanies = await _attachmentManager.GetListByRefAsync(result.Items.Where(x => x.User.CompanyId.HasValue).Select(x => (long)x.User.ProfileId.Value).ToList(), AttachmentRefType.CompanyLogo);
+
+            var attachmentsCompaniesDict = new Dictionary<long, List<Attachment>>();
+
+            if (attachmentsCompanies.Count > 0)
+                attachmentsCompaniesDict = attachmentsCompanies.GroupBy(A => A.RefId.Value).ToDictionary(G => G.Key, G => G.ToList());
 
             foreach (var item in result.Items)
             {
-                if (attachmentsDict.TryGetValue(item.Trainee.Id, out var itemAttachments))
+                if (item.User.ProfileId.HasValue && attachmentsProfilesDict.TryGetValue(item.User.ProfileId.Value, out var itemProfileAttachments))
                 {
-                    item.Trainee.Image = itemAttachments
+                    item.User.Profile.Image = itemProfileAttachments
                         .Select(A => new LiteAttachmentDto(A.Id, _attachmentManager.GetUrl(A), _attachmentManager.GetLowResolutionPhotoUrl(A), A.Size))
                         .FirstOrDefault();
                 }
-
+                if (item.User.CompanyId.HasValue && attachmentsCompaniesDict.TryGetValue(item.User.CompanyId.Value, out var itemCompanyAttachments))
+                {
+                    item.User.Company.Profile = itemCompanyAttachments
+                        .Select(A => new LiteAttachmentDto(A.Id, _attachmentManager.GetUrl(A), _attachmentManager.GetLowResolutionPhotoUrl(A), A.Size))
+                        .FirstOrDefault();
+                }
 
             }
             return result;
@@ -230,8 +241,9 @@ namespace Wazzifni.CourseRegistrationRequests
         {
             var data = base.CreateFilteredQuery(input);
 
-            
-            data = data.Include(x => x.Trainee).ThenInclude(x => x.User);
+
+            data = data.Include(x => x.User).ThenInclude(x => x.Profile);
+            data = data.Include(x => x.User).ThenInclude(x => x.Company);
             data = data.Include(x => x.Course).ThenInclude(x => x.Translations);
 
             if (!string.IsNullOrEmpty(input.Keyword))
@@ -246,15 +258,15 @@ namespace Wazzifni.CourseRegistrationRequests
                     crr.RejectReason.Contains(input.Keyword) ||
                     (matchingStatus.Contains(crr.Status.Value) && crr.Status.HasValue) ||
                     crr.Course.Translations.Any(t => t.Title.Contains(input.Keyword)) ||
-                    crr.Trainee.User.Name.Contains(input.Keyword) ||
-                    crr.Trainee.User.Surname.Contains(input.Keyword)
+                    crr.User.Name.Contains(input.Keyword) ||
+                    crr.User.Surname.Contains(input.Keyword)
 
                 );
             }
             if (input.IsSpecial.HasValue)
             {
-                if(input.IsSpecial.Value)
-                     data = data.Where(crr => crr.IsSpecial == input.IsSpecial.Value);
+                if (input.IsSpecial.Value)
+                    data = data.Where(crr => crr.IsSpecial == input.IsSpecial.Value);
             }
 
             if (!input.IsSpecial.HasValue)
@@ -264,10 +276,13 @@ namespace Wazzifni.CourseRegistrationRequests
                 data = data.Where(crr => crr.CourseId == input.CourseId.Value);
 
             if (input.Status.HasValue)
-                data = data.Where(crr => crr.Status == input.Status.Value);           
+                data = data.Where(crr => crr.Status == input.Status.Value);
+            /*
+                        if (input.TraineeId.HasValue)
+                            data = data.Where(crr => crr.TraineeId == input.TraineeId.Value);*/
 
-            if (input.TraineeId.HasValue)
-                data = data.Where(crr => crr.TraineeId == input.TraineeId.Value);
+            if (input.UserId.HasValue)
+                data = data.Where(crr => crr.UserId == input.UserId.Value);
 
             return data;
         }

@@ -1,4 +1,10 @@
-﻿using Abp.Authorization;
+﻿using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Abp.Authorization;
 using Abp.Authorization.Users;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
@@ -10,12 +16,6 @@ using KeyFinder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
 using Wazzifni.Authentication.JwtBearer;
 using Wazzifni.Authorization;
 using Wazzifni.Authorization.Roles;
@@ -374,8 +374,8 @@ namespace Wazzifni.Controllers
             }
             else if (input.UserType == UserType.Trainee)
             {
-                await _userManager.SetRolesAsync(user, new[] { StaticRoleNames.Tenants.Trainee });
-                user.TraineeId = await _traineeManager.InitateTrainee(user.Id, input.TraineeCreate.UniversityId , input.TraineeCreate.UniversityMajor , input.TraineeCreate.TraineePhotoId , traineeEmail);
+                //  await _userManager.SetRolesAsync(user, new[] { StaticRoleNames.Tenants.Trainee });
+                ///   user.TraineeId = await _traineeManager.InitateTrainee(user.Id, input.TraineeCreate.UniversityId , input.TraineeCreate.UniversityMajor , input.TraineeCreate.TraineePhotoId , traineeEmail);
             }
             else
             {

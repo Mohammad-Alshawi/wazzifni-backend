@@ -1,10 +1,9 @@
-﻿using Abp.Authorization.Users;
-using Abp.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Abp.Authorization.Users;
+using Abp.Extensions;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.IndividualUserProfiles;
-using Wazzifni.Domain.Trainees;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Authorization.Users
@@ -25,8 +24,8 @@ namespace Wazzifni.Authorization.Users
         public long? ProfileId { get; set; }
         public Profile Profile { get; set; }
 
-        public long? TraineeId { get; set; }
-        public Trainee Trainee { get; set; }
+        /*   public long? TraineeId { get; set; }
+           public Trainee Trainee { get; set; }*/
 
 
         public static string CreateRandomPassword()

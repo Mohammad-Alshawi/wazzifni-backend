@@ -1,11 +1,11 @@
-﻿using Abp.Domain.Repositories;
-using Abp.Domain.Services;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Wazzifni.Domain.Trainees;
+using Abp.Domain.Repositories;
+using Abp.Domain.Services;
+using Microsoft.EntityFrameworkCore;
 using Wazzifni.Domain.Courses;
+using Wazzifni.Domain.Trainees;
 
 namespace Wazzifni.Domain.CourseRegistrationRequests
 {
@@ -26,7 +26,8 @@ namespace Wazzifni.Domain.CourseRegistrationRequests
         public async Task<CourseRegistrationRequest> GetEntityByIdAsync(long CourseRegistrationRequestId)
         {
             return await _repository
-                .GetAll().Include(x => x.Trainee).ThenInclude(x => x.User)
+                .GetAll().Include(x => x.User).ThenInclude(x => x.Profile)
+                .Include(x => x.User).ThenInclude(x => x.Company)
                 .Include(x => x.Course).ThenInclude(x => x.Translations)
                 .AsNoTracking().Where(x => x.Id == CourseRegistrationRequestId).FirstOrDefaultAsync();
         }
@@ -34,7 +35,8 @@ namespace Wazzifni.Domain.CourseRegistrationRequests
         public async Task<CourseRegistrationRequest> GetEntityByIdAsTrackingAsync(long CourseRegistrationRequestId)
         {
             return await _repository
-                .GetAll().Include(x => x.Trainee).ThenInclude(x => x.User)
+                .GetAll().Include(x => x.User).ThenInclude(x => x.Profile)
+                .Include(x => x.User).ThenInclude(x => x.Company)
                 .Include(x => x.Course).ThenInclude(x => x.Translations)
                 .Where(x => x.Id == CourseRegistrationRequestId).FirstOrDefaultAsync();
         }
@@ -45,7 +47,7 @@ namespace Wazzifni.Domain.CourseRegistrationRequests
 
             var courseRegistredIds = _repository
                     .GetAll()
-                    .Where(f => f.TraineeId == traineeId && coursesIds.Contains(f.CourseId))
+                    .Where(f => f.UserId == userId && coursesIds.Contains(f.CourseId))
                     .Select(f => f.CourseId)
                     .ToHashSet();
 
@@ -54,10 +56,9 @@ namespace Wazzifni.Domain.CourseRegistrationRequests
 
         public IQueryable<Course> GetApplyCourseQueryByUserIdAsync(long userId)
         {
-            var traineeId = _traineeManager.GetTraineeIdByUserId(userId).Result;
 
             var applicationQuery = _repository.GetAll()
-                 .Where(F => F.TraineeId == traineeId);
+                 .Where(F => F.UserId == userId);
 
             var CourseQuery = _CourseRepository.GetAll().Join(
                 applicationQuery,
@@ -71,9 +72,9 @@ namespace Wazzifni.Domain.CourseRegistrationRequests
 
         public async Task<bool> CheckIfCourseInRegesrationsUserAsync(long CourseId, long userId)
         {
-            var traineeId = _traineeManager.GetTraineeIdByUserId(userId).Result;
+            //var traineeId = _traineeManager.GetTraineeIdByUserId(userId).Result;
 
-            return await _repository.GetAll().AnyAsync(x => x.CourseId == CourseId && x.TraineeId == traineeId);
+            return await _repository.GetAll().AnyAsync(x => x.CourseId == CourseId && x.UserId == userId);
 
         }
     }

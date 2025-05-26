@@ -9,7 +9,6 @@ using Wazzifni.Domain.CourseComments;
 using Wazzifni.Domain.CourseRegistrationRequests;
 using Wazzifni.Domain.CourseTags;
 using Wazzifni.Domain.Teachers;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Domain.Courses
@@ -17,7 +16,7 @@ namespace Wazzifni.Domain.Courses
     public class Course : FullAuditedEntity, IMultiLingualEntity<CourseTranslation>
     {
         public double TotalHours { get; set; }
-        public int RegisteredTraineesCount { get; set; }
+        public int RegisteredCount { get; set; }
         public CourseMode Mode { get; set; }
 
         public int CityId { get; set; }
@@ -53,7 +52,7 @@ namespace Wazzifni.Domain.Courses
 
         public int NumberOfSeats { get; set; }
 
-        public DateTime? ClosedDate { get; set; }   
+        public DateTime? ClosedDate { get; set; }
     }
 
 }

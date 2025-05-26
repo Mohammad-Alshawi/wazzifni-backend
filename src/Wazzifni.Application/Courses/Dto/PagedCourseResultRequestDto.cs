@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Abp.Application.Services.Dto;
 using static Wazzifni.Enums.Enum;
 
@@ -27,6 +23,8 @@ namespace Wazzifni.Courses.Dto
         public CourseDifficulty? Difficulty { get; set; }
 
         public long? TraineeId { get; set; }
+
+        public long? UserId { get; set; }
 
         public decimal? MinPrice { get; set; }
 

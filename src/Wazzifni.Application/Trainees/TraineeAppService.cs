@@ -1,31 +1,23 @@
-﻿using Abp.Application.Services;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
-using Abp.Collections.Extensions;
 using Abp.Domain.Entities;
 using Abp.Domain.Repositories;
 using Abp.UI;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
-using Wazzifni.Awards;
 using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Attachments;
-using Wazzifni.Domain.Companies;
-using Wazzifni.Domain.Educations;
-using Wazzifni.Domain.IndividualUserProfiles;
-using Wazzifni.Domain.Skills;
-using Wazzifni.Domain.SpokenLanguages;
 using Wazzifni.Domain.Trainees;
 using Wazzifni.Domain.Universities;
-using Wazzifni.Domain.WorkExperiences;
 using Wazzifni.Trainees.Dto;
 using static Wazzifni.Enums.Enum;
 
@@ -44,9 +36,9 @@ namespace Wazzifni.Trainees
         private readonly DeactivatedUsersSet _deactivatedUsersSet;
         private readonly IMapper _mapper;
 
-        public TraineeAppService(IRepository<Trainee, long> repository,IRepository<University> universityRepo, IAttachmentManager attachmentManager, UserManager userManager,
-            ITraineeManager TraineeManager, 
-           
+        public TraineeAppService(IRepository<Trainee, long> repository, IRepository<University> universityRepo, IAttachmentManager attachmentManager, UserManager userManager,
+            ITraineeManager TraineeManager,
+
             DeactivatedUsersSet deactivatedUsersSet,
             IMapper mapper) : base(repository)
         {
@@ -88,14 +80,14 @@ namespace Wazzifni.Trainees
         }
 
 
-      
+
         public override async Task DeleteAsync(EntityDto<long> input)
         {
             var trainee = await Repository.GetAllIncluding(
-                           c => c.User,
-                           c => c.CourseRates,
+                           c => c.User
+                       /*    c => c.CourseRates,
                            c => c.CourseRegistrationRequests,
-                           c => c.CourseComments
+                           c => c.CourseComments*/
                        ).FirstOrDefaultAsync(c => c.Id == input.Id);
 
             if (trainee == null)
@@ -103,9 +95,9 @@ namespace Wazzifni.Trainees
                 throw new UserFriendlyException("Not Found");
             }
 
-            trainee.CourseRates.Clear();
-            trainee.CourseRegistrationRequests.Clear();
-            trainee.CourseComments.Clear();
+            /* trainee.CourseRates.Clear();
+             trainee.CourseRegistrationRequests.Clear();
+             trainee.CourseComments.Clear();*/
 
             await Repository.DeleteAsync(trainee);
 
@@ -153,8 +145,8 @@ namespace Wazzifni.Trainees
                 image = await _attachmentManager.CheckAndUpdateRefIdAsync(input.TraineePhotoId, AttachmentRefType.Trainee, Trainee.Id);
             }
 
-            Trainee.University = await _universityRepo.GetAll().Include(x=>x.Translations).Where(x=>x.Id == input.UniversityId).FirstOrDefaultAsync();
-           
+            Trainee.University = await _universityRepo.GetAll().Include(x => x.Translations).Where(x => x.Id == input.UniversityId).FirstOrDefaultAsync();
+
             await Repository.UpdateAsync(Trainee);
 
             Trainee.User.RegistrationFullName = input.RegistrationFullName;
@@ -273,7 +265,7 @@ namespace Wazzifni.Trainees
 
                     p.User.RegistrationFullName.Contains(keyword) ||
                     p.UniversityMajor.Contains(keyword) ||
-                    p.University.Translations.Any(t => t.Name.Contains(keyword)) 
+                    p.University.Translations.Any(t => t.Name.Contains(keyword))
                 );
             }
 
@@ -289,6 +281,6 @@ namespace Wazzifni.Trainees
             return query.OrderByDescending(r => r.CreationTime);
         }
 
-     
+
     }
 }

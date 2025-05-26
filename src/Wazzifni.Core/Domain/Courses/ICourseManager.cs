@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Abp.Domain.Services;
 using Wazzifni.Domain.CourseComments;
@@ -24,7 +21,7 @@ namespace Wazzifni.Domain.Courses
         Task<bool> IsCategoryHasCoursesAsync(int courseCategoryId);
         Task<bool> IsTeacherHasCoursesAsync(int teacherId);
 
-        Task<HashSet<int>> GetCourseIdsTraineeIsRigesteredAsync(long traineeId, List<int> courseIds);
+        Task<HashSet<int>> GetCourseIdsUserIsRigesteredAsync(long traineeId, List<int> courseIds);
 
 
 

@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services.Dto;
+using Wazzifni.Profiles.Dto;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Companies.Dto
@@ -16,9 +17,13 @@ namespace Wazzifni.Companies.Dto
         public string PhoneNumber { get; set; }
         public UserType Type { get; set; }
 
+        public int? CompanyId { get; set; }
+        public long? ProfileId { get; set; }
 
-        public  string EmailAddress { get; set; }
+        public string EmailAddress { get; set; }
 
+        public ProfileLiteDto Profile { get; set; }
+        public LiteCompanyDto Company { get; set; }
 
 
     }

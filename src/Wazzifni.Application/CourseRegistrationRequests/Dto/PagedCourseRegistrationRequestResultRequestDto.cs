@@ -12,6 +12,7 @@ namespace Wazzifni.CourseRegistrationRequests.Dto
         public CourseRegistrationRequestStatus? Status { get; set; }
 
         public long? TraineeId { get; set; }
+        public long? UserId { get; set; }
 
         public bool? IsSpecial { get; set; }
 

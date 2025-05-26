@@ -10,6 +10,7 @@ namespace Wazzifni.CourseComments.Dto
 
         public long? TraineeId { get; set; }
 
+        public long? UserId { get; set; }
 
 
     }

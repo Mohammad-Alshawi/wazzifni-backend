@@ -1,36 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Wazzifni.Courses.Dto;
-using Wazzifni.Courses;
-using Wazzifni.CrudAppServiceBase;
-using Wazzifni.Domain.Courses;
-using Abp.Domain.Repositories;
 using Abp.Application.Services.Dto;
-using Abp.Application.Services;
 using Abp.Authorization;
+using Abp.Collections.Extensions;
+using Abp.Domain.Repositories;
 using Abp.UI;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using static Wazzifni.Enums.Enum;
 using Wazzifni.Authorization;
-using Wazzifni.Companies.Dto;
-using Wazzifni.Domain.Companies.Dto;
-using Wazzifni.Domain.Companies;
-using Wazzifni.Localization.SourceFiles;
 using Wazzifni.Authorization.Users;
-using AutoMapper;
+using Wazzifni.Courses.Dto;
+using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Attachments;
-using Abp.Configuration;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Wazzifni.Configuration;
-using Abp.Collections.Extensions;
+using Wazzifni.Domain.Courses;
 using Wazzifni.Domain.CourseTags;
-using Castle.MicroKernel;
 using Wazzifni.Domain.Teachers;
 using Wazzifni.Domain.Trainees;
+using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Courses
 {
@@ -47,13 +35,13 @@ namespace Wazzifni.Courses
         private readonly ITraineeManager _traineeManager;
         private readonly IAttachmentManager _attachmentManager;
 
-        public CourseAppService(IRepository<Course, int> repository,UserManager userManager,
+        public CourseAppService(IRepository<Course, int> repository, UserManager userManager,
             IMapper mapper,
             ICourseManager courseManager,
             ICourseTagManager courseTagManager,
             IRepository<CourseTag> courseTagRepository,
             IRepository<Teacher> teacherRepository,
-            ITraineeManager traineeManager ,
+            ITraineeManager traineeManager,
             IAttachmentManager attachmentManager) : base(repository)
         {
             _userManager = userManager;
@@ -75,9 +63,9 @@ namespace Wazzifni.Courses
             var userLogin = await _userManager.GetUserByIdAsync(AbpSession.UserId.Value);
 
             var course = _mapper.Map<Course>(input);
-;
+            ;
             if (!input.TagsIds.IsNullOrEmpty())
-            {          
+            {
 
                 var tags = await _courseTagRepository.GetAll()
                     .Where(t => input.TagsIds.Contains(t.Id))
@@ -100,13 +88,13 @@ namespace Wazzifni.Courses
             {
                 await _attachmentManager.CheckAndUpdateRefIdAsync(
                     attachmentId, AttachmentRefType.Course, CourseId);
-            }          
+            }
 
             return _mapper.Map<CourseDetailsDto>(course);
         }
 
 
-     
+
         public async override Task DeleteAsync(EntityDto<int> input)
         {
             var course = await Repository.GetAllIncluding(
@@ -144,7 +132,7 @@ namespace Wazzifni.Courses
         public override async Task<CourseDetailsDto> UpdateAsync(UpdateCourseDto input)
         {
             var course = await _courseManager.GetEntityByAsTrackingIdAsync(input.Id);
-            
+
             var oldSeatsNumber = course.NumberOfSeats;
             var oldTeacherId = course.TeacherId;
 
@@ -208,7 +196,7 @@ namespace Wazzifni.Courses
             {
                 await _attachmentManager.CheckAndUpdateRefIdAsync(
                     attachmentId, AttachmentRefType.Course, course.Id);
-            }      
+            }
 
             await UnitOfWorkManager.Current.SaveChangesAsync();
 
@@ -221,16 +209,13 @@ namespace Wazzifni.Courses
 
             var courseRigsteredIds = new HashSet<int>();
 
-            long traineeId = 0;
             var result = _mapper.Map<CourseDetailsDto>(Course);
 
-            if (await _userManager.IsTrainee())
+            if (AbpSession.UserId.HasValue)
             {
-                traineeId = await _traineeManager.GetTraineeIdByUserId(AbpSession.UserId.Value);
-
                 result.OldRate = await _courseManager.GetCourseRateForUser(AbpSession.UserId.Value, Course.Id);
 
-                courseRigsteredIds = await _courseManager.GetCourseIdsTraineeIsRigesteredAsync(traineeId, new List<int> { result.Id});
+                courseRigsteredIds = await _courseManager.GetCourseIdsUserIsRigesteredAsync(AbpSession.UserId.Value, new List<int> { result.Id });
 
                 result.IRegistered = courseRigsteredIds.Contains(result.Id);
 
@@ -254,14 +239,14 @@ namespace Wazzifni.Courses
             var attachmentsTeacher = await _attachmentManager.GetElementByRefAsync(result.Teacher.Id, AttachmentRefType.Teacher);
             if (attachmentsTeacher is not null)
             {
-                                 
+
                 result.Teacher.Image = new LiteAttachmentDto
                 {
                     Id = attachmentsTeacher.Id,
                     Url = _attachmentManager.GetUrl(attachmentsTeacher),
                     LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(attachmentsTeacher),
-                };              
-                
+                };
+
             }
 
 
@@ -314,7 +299,7 @@ namespace Wazzifni.Courses
             data = data.Include(x => x.City).ThenInclude(x => x.Translations);
             data = data.Include(x => x.Teacher);
             data = data.Include(x => x.Tags).ThenInclude(x => x.Translations);
-            data = data.Include(x => x.CourseCategory).ThenInclude(x=>x.Translations);
+            data = data.Include(x => x.CourseCategory).ThenInclude(x => x.Translations);
             data = data.Include(x => x.CourseRegistrationRequests);
 
             if (!string.IsNullOrWhiteSpace(input.Keyword))
@@ -353,8 +338,9 @@ namespace Wazzifni.Courses
             if (input.IsFeatured.HasValue)
                 data = data.Where(x => x.IsFeatured == input.IsFeatured.Value);
 
-            if (input.TraineeId.HasValue)
-                data = data.Where(x => x.CourseRegistrationRequests.Any(cr => input.TraineeId == cr.Id));
+
+            if (input.UserId.HasValue)
+                data = data.Where(x => x.CourseRegistrationRequests.Any(cr => input.UserId == cr.UserId));
 
             if (input.MinPrice.HasValue)
                 data = data.Where(x => x.Price.HasValue && x.Price.Value >= input.MinPrice.Value);

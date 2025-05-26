@@ -1,23 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Abp.Domain.Entities;
 using Abp.Domain.Repositories;
 using Abp.Domain.Services;
 using Abp.UI;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.Cities;
-using Wazzifni.Domain.Companies;
-using static Wazzifni.Enums.Enum;
-using Wazzifni.Localization.SourceFiles;
-using Microsoft.EntityFrameworkCore;
-using Abp.Domain.Entities;
-using Wazzifni.Domain.Trainees;
 using Wazzifni.Domain.CourseComments;
 using Wazzifni.Domain.CourseRegistrationRequests;
+using Wazzifni.Domain.Trainees;
+using Wazzifni.Localization.SourceFiles;
+using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Domain.Courses
 {
@@ -35,13 +33,13 @@ namespace Wazzifni.Domain.Courses
         private readonly UserManager _userManager;
         public CourseManager(
             IRepository<CourseTranslation> CourseTranslationsRepository,
-            IRepository<CourseRate,long> CourseRateRepository,
+            IRepository<CourseRate, long> CourseRateRepository,
             IAttachmentManager attachmentManager,
             ICityManager cityManager,
             ITraineeManager traineeManager,
             IRepository<Course> CourseRepository,
             IMapper mapper,
-            IRepository<CourseComment,long> courseCommentRepository,
+            IRepository<CourseComment, long> courseCommentRepository,
             IRepository<CourseRegistrationRequest, long> courseRegistrationRequestRepository,
             UserManager userManager)
         {
@@ -68,9 +66,9 @@ namespace Wazzifni.Domain.Courses
                 .GetAll().Include(x => x.Translations)
                 .Include(x => x.City)
                 .ThenInclude(x => x.Translations)
-                .Include(c => c.Tags).ThenInclude(x=>x.Translations)
-                .Include(x=>x.CourseCategory).ThenInclude(x=>x.Translations)
-                .Include(x=>x.Teacher)
+                .Include(c => c.Tags).ThenInclude(x => x.Translations)
+                .Include(x => x.CourseCategory).ThenInclude(x => x.Translations)
+                .Include(x => x.Teacher)
                 .AsNoTracking().Where(x => x.Id == id).FirstOrDefaultAsync();
         }
         public async Task<Course> GetEntityByIdAsync(int id)
@@ -110,7 +108,7 @@ namespace Wazzifni.Domain.Courses
             return await _CourseRepository.GetAll().Where(x => CourseIds.Contains(x.Id)).ToListAsync();
         }
 
-   
+
 
         public async Task<bool> CheckIfCourseExict(int CourseId)
         {
@@ -162,14 +160,12 @@ namespace Wazzifni.Domain.Courses
         {
             var userRate = await _courseRateRepository.FirstOrDefaultAsync(x => x.UserId == userId && x.CourseId == CourseId);
 
-            var traineeId = await _traineeManager.GetTraineeIdByUserId(userId);
             if (userRate is null)
             {
                 return await _courseRateRepository.InsertAsync(new CourseRate
                 {
                     CourseId = CourseId,
                     UserId = userId,
-                    TraineeId = traineeId,
                     Rate = rate
                 });
             }
@@ -210,7 +206,7 @@ namespace Wazzifni.Domain.Courses
         public async Task<bool> IsCategoryHasCoursesAsync(int courseCategoryId)
         {
             return await _CourseRepository.GetAll()
-                .AnyAsync(c => c.CourseCategoryId == courseCategoryId); 
+                .AnyAsync(c => c.CourseCategoryId == courseCategoryId);
         }
 
         public async Task<bool> IsTeacherHasCoursesAsync(int teacherId)
@@ -218,12 +214,12 @@ namespace Wazzifni.Domain.Courses
             return await _CourseRepository.GetAll()
                 .AnyAsync(c => c.TeacherId == teacherId);
         }
-        public async Task<HashSet<int>> GetCourseIdsTraineeIsRigesteredAsync(long traineeId, List<int> courseIds)
+        public async Task<HashSet<int>> GetCourseIdsUserIsRigesteredAsync(long userId, List<int> courseIds)
         {
 
             var coursesIds = _courseRegistrationRequestRepository
                     .GetAll()
-                    .Where(f => f.TraineeId == traineeId && courseIds.Contains(f.CourseId))
+                    .Where(f => f.UserId == userId && courseIds.Contains(f.CourseId))
                     .Select(f => f.CourseId)
                     .ToHashSet();
 

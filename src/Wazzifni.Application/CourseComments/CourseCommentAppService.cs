@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Collections.Extensions;
@@ -5,28 +8,18 @@ using Abp.Domain.Repositories;
 using Abp.Extensions;
 using Abp.Runtime.Caching;
 using Abp.UI;
-using KeyFinder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
-using Wazzifni.Cities.Dto;
-using Wazzifni.CourseCategories.Dto;
 using Wazzifni.CourseComments.Dto;
 using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Attachments;
-using Wazzifni.Domain.Cities;
 using Wazzifni.Domain.Countries;
-using Wazzifni.Domain.CourseCategories;
 using Wazzifni.Domain.CourseComments;
 using Wazzifni.Domain.Courses;
 using Wazzifni.Domain.Trainees;
 using Wazzifni.Localization.SourceFiles;
-using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.CourseComments
 {
@@ -40,7 +33,7 @@ namespace Wazzifni.CourseComments
         private readonly UserManager _userManager;
         private readonly ICacheManager _cacheManager;
         private readonly CountryManager _countryManager;
-        private readonly IRepository<CourseComment,long> _CourseCommentRepository;
+        private readonly IRepository<CourseComment, long> _CourseCommentRepository;
         private readonly ICourseManager _courseManager;
         private readonly ITraineeManager _traineeManager;
         private readonly IAttachmentManager _attachmentManager;
@@ -84,20 +77,19 @@ namespace Wazzifni.CourseComments
         {
 
 
-            var currentTraineeId = await _traineeManager.GetTraineeIdByUserId(AbpSession.UserId.Value);
 
             var CourseComment = ObjectMapper.Map<CourseComment>(input);
 
             CourseComment.CreationTime = DateTime.UtcNow;
-            CourseComment.TraineeId = currentTraineeId;
+            CourseComment.UserId = AbpSession.UserId.Value;
 
             await Repository.InsertAsync(CourseComment);
             await CurrentUnitOfWork.SaveChangesAsync();
 
-           /* if (input.AttachmentId != 0)
-            {
-                await _attachmentManager.CheckAndUpdateRefIdAsync(input.AttachmentId, AttachmentRefType.CourseComment, CourseComment.Id);
-            }*/
+            /* if (input.AttachmentId != 0)
+             {
+                 await _attachmentManager.CheckAndUpdateRefIdAsync(input.AttachmentId, AttachmentRefType.CourseComment, CourseComment.Id);
+             }*/
 
 
             return MapToEntityDto(CourseComment);
@@ -107,21 +99,20 @@ namespace Wazzifni.CourseComments
         [AbpAuthorize(PermissionNames.CourseComment_Update)]
         public override async Task<CourseCommentDetailsDto> UpdateAsync(UpdateCourseCommentDto input)
         {
-            var CourseComment = await _CourseCommentRepository.GetAll().Where(x=>x.Id == input.Id).FirstOrDefaultAsync();
+            var CourseComment = await _CourseCommentRepository.GetAll().Where(x => x.Id == input.Id).FirstOrDefaultAsync();
 
             if (CourseComment is null)
             {
                 throw new UserFriendlyException(string.Format(Exceptions.ObjectWasNotFound, "Tokens.CourseComment"));
             }
-            var currentTraineeId = await _traineeManager.GetTraineeIdByUserId(AbpSession.UserId.Value);
-            if (currentTraineeId != CourseComment?.TraineeId) 
+            if (AbpSession.UserId.Value != CourseComment?.UserId)
             {
                 throw new UserFriendlyException(string.Format(Exceptions.YouCannotDoThisAction));
             }
 
             MapToEntity(input, CourseComment);
 
-            CourseComment.TraineeId = currentTraineeId;
+            CourseComment.UserId = AbpSession.UserId.Value;
 
             await _CourseCommentRepository.UpdateAsync(CourseComment);
             await UnitOfWorkManager.Current.SaveChangesAsync();
@@ -139,13 +130,12 @@ namespace Wazzifni.CourseComments
             {
                 throw new UserFriendlyException(string.Format(Exceptions.ObjectWasNotFound, "Tokens.CourseComment"));
             }
-            var currentTraineeId = await _traineeManager.GetTraineeIdByUserId(AbpSession.UserId.Value);
-            if (!await _userManager.IsAdminSession() && currentTraineeId != CourseComment?.TraineeId)
+            if (!await _userManager.IsAdminSession() && AbpSession.UserId.Value != CourseComment?.UserId)
             {
                 throw new UserFriendlyException(string.Format(Exceptions.YouCannotDoThisAction));
             }
 
-            
+
             await _CourseCommentRepository.DeleteAsync(input.Id);
         }
 
@@ -156,10 +146,13 @@ namespace Wazzifni.CourseComments
 
         private async Task<CourseCommentDetailsDto> GetFromDatabase(EntityDto<long> input)
         {
-            var CourseComment = await _CourseCommentRepository.GetAll().Include(x=>x.Course).ThenInclude(x=>x.Translations).Include(x=>x.Trainee).ThenInclude(x=>x.User).Where(x => x.Id == input.Id).FirstOrDefaultAsync();
+            var CourseComment = await _CourseCommentRepository.GetAll().Include(x => x.Course).ThenInclude(x => x.Translations)
+                .Include(x => x.User).ThenInclude(x => x.Profile)
+                .Include(x => x.User).ThenInclude(x => x.Company)
+                .Where(x => x.Id == input.Id).FirstOrDefaultAsync();
 
             var CourseCommentDetailsDto = MapToEntityDto(CourseComment);
-     
+
             return CourseCommentDetailsDto;
         }
 
@@ -169,15 +162,15 @@ namespace Wazzifni.CourseComments
 
             var ItemsIds = result.Items.Select(x => x.Id).ToList();
 
-            long  traineeId = 0; 
+            //long traineeId = 0;
 
-            if (AbpSession.UserId.HasValue)  traineeId = await _traineeManager.GetTraineeIdByUserId(AbpSession.UserId.Value);
+            //if (AbpSession.UserId.HasValue) traineeId = await _traineeManager.GetTraineeIdByUserId(AbpSession.UserId.Value);
 
             foreach (var item in result.Items)
             {
-                if (AbpSession.UserId.HasValue && await _userManager.IsTrainee() && traineeId is not 0)
+                if (AbpSession.UserId.HasValue && !await _userManager.IsAdminSession())
                 {
-                    item.IsForMe = item.Trainee.Id == traineeId;
+                    item.IsForMe = item.UserId == AbpSession.UserId.Value;
                 }
             }
 
@@ -192,25 +185,27 @@ namespace Wazzifni.CourseComments
         {
             var data = base.CreateFilteredQuery(input);
 
-            data = data.Include(x => x.Course).ThenInclude(x => x.Translations).Include(x => x.Trainee).ThenInclude(x => x.User);
+            data = data.Include(x => x.Course).ThenInclude(x => x.Translations).Include(x => x.User).ThenInclude(x => x.Profile).Include(x => x.User).ThenInclude(x => x.Company);
 
             if (input.CourseId.HasValue)
                 data = data.Where(x => x.CourseId == input.CourseId.Value);
+            /*
+                        if (input.TraineeId.HasValue)
+                            data = data.Where(x => x.TraineeId == input.TraineeId.Value);*/
 
-            if (input.TraineeId.HasValue)
-                data = data.Where(x => x.TraineeId == input.TraineeId.Value);
-    
+            if (input.UserId.HasValue)
+                data = data.Where(x => x.UserId == input.UserId.Value);
 
             if (!input.Keyword.IsNullOrEmpty())
                 data = data.Where(x => x.Content.Contains(input.Keyword));
 
-            
+
             return data;
         }
 
         protected override IQueryable<CourseComment> ApplySorting(IQueryable<CourseComment> query, PagedCourseCommentResultRequestDto input)
         {
-            
+
             return query.OrderBy(r => r.Id);
         }
     }

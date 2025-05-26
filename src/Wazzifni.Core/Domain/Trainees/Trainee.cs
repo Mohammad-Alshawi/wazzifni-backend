@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Domain.Entities.Auditing;
 using Wazzifni.Authorization.Users;
-using Wazzifni.Domain.CourseComments;
-using Wazzifni.Domain.CourseRegistrationRequests;
-using Wazzifni.Domain.Courses;
 using Wazzifni.Domain.Universities;
 
 namespace Wazzifni.Domain.Trainees
@@ -25,11 +17,11 @@ namespace Wazzifni.Domain.Trainees
 
         public string UniversityMajor { get; set; }
 
-        public ICollection<CourseRegistrationRequest> CourseRegistrationRequests { get; set; }
+        /*      public ICollection<CourseRegistrationRequest> CourseRegistrationRequests { get; set; }
 
-        public ICollection<CourseRate> CourseRates { get; set; }
+              public ICollection<CourseRate> CourseRates { get; set; }
 
-        public ICollection<CourseComment> CourseComments { get; set; }
+              public ICollection<CourseComment> CourseComments { get; set; }*/
 
         public string EmailAddress { get; set; }
 
