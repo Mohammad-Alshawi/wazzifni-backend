@@ -185,7 +185,7 @@ namespace Wazzifni.CourseComments
         {
             var data = base.CreateFilteredQuery(input);
 
-            data = data.Include(x => x.Course).ThenInclude(x => x.Translations).Include(x => x.User).ThenInclude(x => x.Profile).Include(x => x.User).ThenInclude(x => x.Company);
+            data = data.Include(x => x.Course).ThenInclude(x => x.Translations).Include(x => x.User).ThenInclude(x => x.Profile).Include(x => x.User).ThenInclude(x => x.Company).ThenInclude(x => x.Translations);
 
             if (input.CourseId.HasValue)
                 data = data.Where(x => x.CourseId == input.CourseId.Value);

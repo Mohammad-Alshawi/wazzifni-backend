@@ -27,7 +27,7 @@ namespace Wazzifni.Domain.CourseRegistrationRequests
         {
             return await _repository
                 .GetAll().Include(x => x.User).ThenInclude(x => x.Profile)
-                .Include(x => x.User).ThenInclude(x => x.Company)
+                .Include(x => x.User).ThenInclude(x => x.Company).ThenInclude(x => x.Translations)
                 .Include(x => x.Course).ThenInclude(x => x.Translations)
                 .AsNoTracking().Where(x => x.Id == CourseRegistrationRequestId).FirstOrDefaultAsync();
         }
@@ -36,7 +36,7 @@ namespace Wazzifni.Domain.CourseRegistrationRequests
         {
             return await _repository
                 .GetAll().Include(x => x.User).ThenInclude(x => x.Profile)
-                .Include(x => x.User).ThenInclude(x => x.Company)
+                .Include(x => x.User).ThenInclude(x => x.Company).ThenInclude(x => x.Translations)
                 .Include(x => x.Course).ThenInclude(x => x.Translations)
                 .Where(x => x.Id == CourseRegistrationRequestId).FirstOrDefaultAsync();
         }

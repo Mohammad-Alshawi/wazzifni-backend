@@ -2,13 +2,12 @@
 using Abp.Application.Services.Dto;
 using Wazzifni.Companies.Dto;
 using Wazzifni.Courses.Dto;
-using Wazzifni.Trainees.Dto;
 
 namespace Wazzifni.CourseComments.Dto
 {
     public class CourseCommentLiteDto : EntityDto<long>
     {
-        public TraineeLiteDto Trainee { get; set; }
+        //public TraineeLiteDto Trainee { get; set; }
 
         public SuperLiteUserDto User { get; set; }
 

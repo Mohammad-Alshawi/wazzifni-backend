@@ -244,7 +244,7 @@ namespace Wazzifni.CourseRegistrationRequests
 
 
             data = data.Include(x => x.User).ThenInclude(x => x.Profile);
-            data = data.Include(x => x.User).ThenInclude(x => x.Company);
+            data = data.Include(x => x.User).ThenInclude(x => x.Company).ThenInclude(x => x.Translations);
             data = data.Include(x => x.Course).ThenInclude(x => x.Translations);
 
             if (!string.IsNullOrEmpty(input.Keyword))
