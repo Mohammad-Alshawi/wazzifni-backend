@@ -1,9 +1,9 @@
-﻿using Abp.Authorization;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Abp.Authorization;
 using Abp.Authorization.Roles;
 using Abp.MultiTenancy;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
 using Wazzifni.Authorization;
 using Wazzifni.Authorization.Roles;
 
@@ -86,7 +86,29 @@ namespace Wazzifni.EntityFrameworkCore.Seed.Tenants
 
                  PermissionNames.Skill,
                  PermissionNames.SpokenLanguage,
-                
+
+
+                 PermissionNames.CourseRegistrationRequests,
+                 PermissionNames.CourseRegistrationRequests_Create,
+                 PermissionNames.CourseRegistrationRequests_Update,
+                 PermissionNames.CourseRegistrationRequests_Delete,
+                 PermissionNames.Courses,
+                 PermissionNames.Courses_Rate,
+                 PermissionNames.CourseTag,
+                 PermissionNames.Courses_Read,
+                 PermissionNames.CourseComment,
+                 PermissionNames.CourseComment_Read,
+                 PermissionNames.CourseComment_Create,
+                 PermissionNames.CourseComment_Update,
+                 PermissionNames.CourseComment_Delete,
+
+                 PermissionNames.CourseCategory,
+                 PermissionNames.CourseCategory_Read,
+
+                 PermissionNames.University,
+                 PermissionNames.Teacher,
+                 PermissionNames.Teacher_Read,
+
 
             };
 
@@ -124,6 +146,27 @@ namespace Wazzifni.EntityFrameworkCore.Seed.Tenants
                   PermissionNames.WorkApplications_Approve,
                   PermissionNames.WorkApplications_Reject,
                   PermissionNames.WorkApplications_Delete,
+
+                 PermissionNames.CourseRegistrationRequests,
+                 PermissionNames.CourseRegistrationRequests_Create,
+                 PermissionNames.CourseRegistrationRequests_Update,
+                 PermissionNames.CourseRegistrationRequests_Delete,
+                 PermissionNames.Courses,
+                 PermissionNames.Courses_Rate,
+                 PermissionNames.CourseTag,
+                 PermissionNames.Courses_Read,
+                 PermissionNames.CourseComment,
+                 PermissionNames.CourseComment_Read,
+                 PermissionNames.CourseComment_Create,
+                 PermissionNames.CourseComment_Update,
+                 PermissionNames.CourseComment_Delete,
+
+                 PermissionNames.CourseCategory,
+                 PermissionNames.CourseCategory_Read,
+
+                 PermissionNames.University,
+                 PermissionNames.Teacher,
+                 PermissionNames.Teacher_Read,
 
 
 

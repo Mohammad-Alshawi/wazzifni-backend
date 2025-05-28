@@ -113,6 +113,10 @@ namespace Wazzifni
                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))
                .ForMember(dest => dest.About, opt => opt.MapFrom(src => src.About));
+                configuration.CreateMultiLingualMap<Company, CompanyTranslation, UserLiteCompanyDto>(context).TranslationMap
+               .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
+               .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))
+               .ForMember(dest => dest.About, opt => opt.MapFrom(src => src.About));
                 configuration.CreateMultiLingualMap<Company, CompanyTranslation, CompanyDto>(context).TranslationMap
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))

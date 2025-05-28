@@ -22,8 +22,8 @@ namespace Wazzifni.Companies.Dto
 
         public string EmailAddress { get; set; }
 
-        public ProfileLiteDto Profile { get; set; }
-        public LiteCompanyDto Company { get; set; }
+        public UserProfileLiteDto Profile { get; set; }
+        public UserLiteCompanyDto Company { get; set; }
 
 
     }

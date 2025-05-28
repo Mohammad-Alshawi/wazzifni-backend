@@ -25923,3 +25923,603 @@ Abp.Authorization.AbpAuthorizationException: Required permissions are not grante
    at Abp.Authorization.AuthorizationHelper.CheckPermissionsAsync(MethodInfo methodInfo, Type type)
    at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type)
    at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context)
+DEBUG 2025-05-28 15:21:25,555 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-05-28 15:21:25,600 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-05-28 15:21:25,607 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,608 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,608 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,608 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,608 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,608 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,608 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,609 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,609 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,610 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,610 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,610 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,611 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,611 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,611 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:25,613 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-05-28 15:21:25,785 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:21:25,785 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:21:25,785 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:21:25,785 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:21:26,018 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:21:26,232 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-05-28 15:21:26,252 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-05-28 15:21:26,258 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-05-28 15:21:26,259 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-05-28 15:21:26,261 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-05-28 15:21:26,267 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-05-28 15:21:26,273 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-05-28 15:21:26,286 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 20 classes define auto mapping attributes
+DEBUG 2025-05-28 15:21:26,286 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-05-28 15:21:26,288 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-05-28 15:21:26,288 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-05-28 15:21:26,288 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Universities.Dto.UniversityTranslationDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.PushNotifications.Dto.PushNotificationTranslationDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.CourseTags.Dto.CourseTagTranslationDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Courses.Dto.CourseTranslationDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.CourseCategories.Dto.CourseCategoryTranslationDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-05-28 15:21:26,289 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+WARN  2025-05-28 15:22:01,103 [15   ] Mvc.Authorization.AbpAuthorizationFilter - Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes)
+   at Abp.Authorization.AuthorizationHelper.CheckPermissionsAsync(MethodInfo methodInfo, Type type)
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type)
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context)
+Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes)
+   at Abp.Authorization.AuthorizationHelper.CheckPermissionsAsync(MethodInfo methodInfo, Type type)
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type)
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context)
+WARN  2025-05-28 15:22:33,441 [16   ] Mvc.Authorization.AbpAuthorizationFilter - Abp.Authorization.AbpAuthorizationException: Required permissions are not granted. At least one of these permissions must be granted: Permission to create course registration requests
+   at Abp.Authorization.PermissionCheckerExtensions.AuthorizeAsync(IPermissionChecker permissionChecker, Boolean requireAll, String[] permissionNames)
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes)
+   at Abp.Authorization.AuthorizationHelper.CheckPermissionsAsync(MethodInfo methodInfo, Type type)
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type)
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context)
+Abp.Authorization.AbpAuthorizationException: Required permissions are not granted. At least one of these permissions must be granted: Permission to create course registration requests
+   at Abp.Authorization.PermissionCheckerExtensions.AuthorizeAsync(IPermissionChecker permissionChecker, Boolean requireAll, String[] permissionNames)
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes)
+   at Abp.Authorization.AuthorizationHelper.CheckPermissionsAsync(MethodInfo methodInfo, Type type)
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type)
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context)
+DEBUG 2025-05-28 15:24:53,464 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-05-28 15:24:53,569 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-05-28 15:24:53,577 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,578 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,579 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,579 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,579 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,579 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,579 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,580 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,580 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,580 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,580 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,580 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,581 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,581 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,581 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:53,582 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-05-28 15:24:53,754 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:24:53,754 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:24:53,754 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:24:53,754 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:24:53,978 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:24:54,200 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-05-28 15:24:54,219 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-05-28 15:24:54,224 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-05-28 15:24:54,225 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-05-28 15:24:54,227 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-05-28 15:24:54,232 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-05-28 15:24:54,238 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-05-28 15:24:54,250 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 20 classes define auto mapping attributes
+DEBUG 2025-05-28 15:24:54,250 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-05-28 15:24:54,252 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Universities.Dto.UniversityTranslationDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.PushNotifications.Dto.PushNotificationTranslationDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.CourseTags.Dto.CourseTagTranslationDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Courses.Dto.CourseTranslationDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.CourseCategories.Dto.CourseCategoryTranslationDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-05-28 15:24:54,253 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+ERROR 2025-05-28 15:27:24,674 [16   ] AspNetCore.Server.IIS.Core.IISHttpServer - Connection ID "18230571292401074195", Request ID "40000014-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'user' with type 'Wazzifni.Companies.Dto.SuperLiteUserDto'. Path 'result.items[0].user.profile'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Wazzifni.Authentication.DeactivatedUsersMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Core\Authentication\DeactivatedUsersMiddleware.cs:line 68
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Abp.AspNetCore.Security.AbpSecurityHeadersMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+ERROR 2025-05-28 15:27:33,634 [22   ] AspNetCore.Server.IIS.Core.IISHttpServer - Connection ID "18302628925093707785", Request ID "4000000a-0009-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'user' with type 'Wazzifni.Companies.Dto.SuperLiteUserDto'. Path 'result.items[0].user.profile'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Wazzifni.Authentication.DeactivatedUsersMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Core\Authentication\DeactivatedUsersMiddleware.cs:line 68
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Abp.AspNetCore.Security.AbpSecurityHeadersMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+ERROR 2025-05-28 15:29:08,554 [16   ] AspNetCore.Server.IIS.Core.IISHttpServer - Connection ID "18230571292401074197", Request ID "40000016-0000-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'user' with type 'Wazzifni.Companies.Dto.SuperLiteUserDto'. Path 'result.items[0].user.profile'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Wazzifni.Authentication.DeactivatedUsersMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Core\Authentication\DeactivatedUsersMiddleware.cs:line 68
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Abp.AspNetCore.Security.AbpSecurityHeadersMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+ERROR 2025-05-28 15:29:59,546 [22   ] AspNetCore.Server.IIS.Core.IISHttpServer - Connection ID "18158513724132950024", Request ID "40000009-0006-fc00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'user' with type 'Wazzifni.Companies.Dto.SuperLiteUserDto'. Path 'result.user.profile'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Wazzifni.Authentication.DeactivatedUsersMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Core\Authentication\DeactivatedUsersMiddleware.cs:line 68
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Abp.AspNetCore.Security.AbpSecurityHeadersMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+ERROR 2025-05-28 15:30:40,054 [24   ] AspNetCore.Server.IIS.Core.IISHttpServer - Connection ID "18302628920798740488", Request ID "40000009-0008-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'user' with type 'Wazzifni.Companies.Dto.SuperLiteUserDto'. Path 'result.user.profile'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Wazzifni.Authentication.DeactivatedUsersMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Core\Authentication\DeactivatedUsersMiddleware.cs:line 68
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Abp.AspNetCore.Security.AbpSecurityHeadersMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+ERROR 2025-05-28 15:31:48,337 [24   ] AspNetCore.Server.IIS.Core.IISHttpServer - Connection ID "18158513724132950026", Request ID "4000000b-0006-fc00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'user' with type 'Wazzifni.Companies.Dto.SuperLiteUserDto'. Path 'result.user.profile'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Wazzifni.Authentication.DeactivatedUsersMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Core\Authentication\DeactivatedUsersMiddleware.cs:line 68
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Abp.AspNetCore.Security.AbpSecurityHeadersMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+ERROR 2025-05-28 15:32:53,667 [30   ] AspNetCore.Server.IIS.Core.IISHttpServer - Connection ID "18302628895028936717", Request ID "4000000e-0002-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'user' with type 'Wazzifni.Companies.Dto.SuperLiteUserDto'. Path 'result.user.profile'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Wazzifni.Authentication.DeactivatedUsersMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Core\Authentication\DeactivatedUsersMiddleware.cs:line 68
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Abp.AspNetCore.Security.AbpSecurityHeadersMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+DEBUG 2025-05-28 15:37:58,346 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-05-28 15:37:58,390 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-05-28 15:37:58,397 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,398 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,399 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,399 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,399 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,399 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,399 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,400 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,400 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,400 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,400 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:58,402 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-05-28 15:37:58,598 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:37:58,598 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:37:58,598 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:37:58,598 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:37:58,846 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:37:59,103 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-05-28 15:37:59,124 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-05-28 15:37:59,129 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-05-28 15:37:59,130 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-05-28 15:37:59,132 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-05-28 15:37:59,137 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-05-28 15:37:59,145 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-05-28 15:37:59,157 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 20 classes define auto mapping attributes
+DEBUG 2025-05-28 15:37:59,157 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-05-28 15:37:59,159 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-05-28 15:37:59,159 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-05-28 15:37:59,159 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Universities.Dto.UniversityTranslationDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.PushNotifications.Dto.PushNotificationTranslationDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.CourseTags.Dto.CourseTagTranslationDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Courses.Dto.CourseTranslationDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.CourseCategories.Dto.CourseCategoryTranslationDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-05-28 15:37:59,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+ERROR 2025-05-28 15:38:59,318 [17   ] AspNetCore.Server.IIS.Core.IISHttpServer - Connection ID "18014398510287290376", Request ID "40000009-0000-fa00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'user' with type 'Wazzifni.Companies.Dto.SuperLiteUserDto'. Path 'result.items[0].user.profile'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Wazzifni.Authentication.DeactivatedUsersMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Core\Authentication\DeactivatedUsersMiddleware.cs:line 68
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Abp.AspNetCore.Security.AbpSecurityHeadersMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+ERROR 2025-05-28 15:39:11,702 [24   ] AspNetCore.Server.IIS.Core.IISHttpServer - Connection ID "18374686523426603027", Request ID "40000014-000a-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'user' with type 'Wazzifni.Companies.Dto.SuperLiteUserDto'. Path 'result.user.profile'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Wazzifni.Authentication.DeactivatedUsersMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Core\Authentication\DeactivatedUsersMiddleware.cs:line 68
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Abp.AspNetCore.Security.AbpSecurityHeadersMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+ERROR 2025-05-28 15:39:29,412 [17   ] AspNetCore.Server.IIS.Core.IISHttpServer - Connection ID "18230571309580943363", Request ID "40000004-0004-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'user' with type 'Wazzifni.Companies.Dto.SuperLiteUserDto'. Path 'result.user.profile'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Wazzifni.Authentication.DeactivatedUsersMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Web.Core\Authentication\DeactivatedUsersMiddleware.cs:line 68
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Abp.AspNetCore.Security.AbpSecurityHeadersMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+DEBUG 2025-05-28 15:40:28,198 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-05-28 15:40:28,239 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-05-28 15:40:28,248 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,250 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,250 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,250 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,250 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,252 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,252 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,252 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,252 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,252 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,252 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,253 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:28,254 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-05-28 15:40:28,452 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:40:28,452 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:40:28,452 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:40:28,452 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:40:28,738 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:40:29,000 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-05-28 15:40:29,022 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-05-28 15:40:29,032 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-05-28 15:40:29,034 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-05-28 15:40:29,037 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-05-28 15:40:29,044 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-05-28 15:40:29,051 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-05-28 15:40:29,064 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 20 classes define auto mapping attributes
+DEBUG 2025-05-28 15:40:29,064 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-05-28 15:40:29,066 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-05-28 15:40:29,067 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-05-28 15:40:29,067 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Universities.Dto.UniversityTranslationDto
+DEBUG 2025-05-28 15:40:29,067 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-05-28 15:40:29,067 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-05-28 15:40:29,067 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-05-28 15:40:29,067 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-05-28 15:40:29,067 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.PushNotifications.Dto.PushNotificationTranslationDto
+DEBUG 2025-05-28 15:40:29,067 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-05-28 15:40:29,067 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-05-28 15:40:29,067 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.CourseTags.Dto.CourseTagTranslationDto
+DEBUG 2025-05-28 15:40:29,067 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Courses.Dto.CourseTranslationDto
+DEBUG 2025-05-28 15:40:29,068 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.CourseCategories.Dto.CourseCategoryTranslationDto
+DEBUG 2025-05-28 15:40:29,068 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-05-28 15:40:29,068 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-05-28 15:40:29,068 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-05-28 15:40:29,068 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-05-28 15:40:29,068 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-05-28 15:40:29,068 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto

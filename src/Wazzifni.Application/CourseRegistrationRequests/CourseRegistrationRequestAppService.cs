@@ -94,7 +94,8 @@ namespace Wazzifni.CourseRegistrationRequests
         {
             var registrationRequest = await _CourseRegistrationRequestManager.GetEntityByIdAsync(input.Id);
 
-            return _mapper.Map<CourseRegistrationRequestDetailsDto>(registrationRequest);
+            var c = _mapper.Map<CourseRegistrationRequestDetailsDto>(registrationRequest);
+            return c;
         }
 
 

@@ -16,4 +16,15 @@ namespace Wazzifni.Profiles.Dto
         public Gender? Gender { get; set; }
 
     }
+
+
+    public class UserProfileLiteDto : EntityDto<long>
+    {
+        public string About { get; set; }
+        public LiteCity City { get; set; }
+        public LiteAttachmentDto Image { get; set; }
+
+        public Gender? Gender { get; set; }
+
+    }
 }

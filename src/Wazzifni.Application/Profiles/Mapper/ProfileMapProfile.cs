@@ -20,7 +20,7 @@ namespace Wazzifni.Profiles.Mapper
             CreateMap<Domain.IndividualUserProfiles.Profile, ProfileDetailsDto>();
             CreateMap<UpdateProfileDto, Domain.IndividualUserProfiles.Profile>();
             CreateMap<Domain.IndividualUserProfiles.Profile, ProfileLiteDto>();
-
+            CreateMap<Domain.IndividualUserProfiles.Profile, UserProfileLiteDto>();
             CreateMap<WorkExperience, WorkExperienceDto>();
             CreateMap<WorkExperienceDto, WorkExperience>();
 
