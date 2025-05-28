@@ -25690,3 +25690,236 @@ DEBUG 2025-05-07 17:06:50,313 [1    ] Abp.AutoMapper.AbpAutoMapperModule       -
 DEBUG 2025-05-07 17:06:50,313 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
 DEBUG 2025-05-07 17:06:50,313 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
 DEBUG 2025-05-07 17:06:50,313 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+DEBUG 2025-05-28 15:04:02,575 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-05-28 15:04:03,350 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-05-28 15:04:03,358 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,360 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,360 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,360 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,360 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,360 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,360 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,361 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,362 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,362 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,363 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,363 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,363 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,363 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,363 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:03,364 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-05-28 15:04:04,005 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:04:04,006 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:04:04,006 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:04:04,006 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:04:04,268 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:04:04,429 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-05-28 15:04:04,451 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-05-28 15:04:04,504 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-05-28 15:04:04,506 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-05-28 15:04:04,508 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-05-28 15:04:04,514 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-05-28 15:04:04,522 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-05-28 15:04:04,534 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 20 classes define auto mapping attributes
+DEBUG 2025-05-28 15:04:04,534 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-05-28 15:04:04,537 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-05-28 15:04:04,538 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-05-28 15:04:04,538 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Universities.Dto.UniversityTranslationDto
+DEBUG 2025-05-28 15:04:04,538 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-05-28 15:04:04,538 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-05-28 15:04:04,538 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-05-28 15:04:04,538 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-05-28 15:04:04,538 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.PushNotifications.Dto.PushNotificationTranslationDto
+DEBUG 2025-05-28 15:04:04,538 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-05-28 15:04:04,538 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-05-28 15:04:04,538 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.CourseTags.Dto.CourseTagTranslationDto
+DEBUG 2025-05-28 15:04:04,538 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Courses.Dto.CourseTranslationDto
+DEBUG 2025-05-28 15:04:04,539 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.CourseCategories.Dto.CourseCategoryTranslationDto
+DEBUG 2025-05-28 15:04:04,539 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-05-28 15:04:04,539 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-05-28 15:04:04,539 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-05-28 15:04:04,539 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-05-28 15:04:04,539 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-05-28 15:04:04,539 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+ERROR 2025-05-28 15:04:58,859 [14   ] oft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (616ms) [Parameters=[@__ef_filter__p_0='?' (DbType = Boolean), @__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__ef_filter__p_2='?' (DbType = Boolean), @__ef_filter__p_4='?' (DbType = Boolean), @__ef_filter__p_6='?' (DbType = Boolean), @__ef_filter__p_1='?' (DbType = Boolean), @__ef_filter__p_3='?' (DbType = Boolean), @__ef_filter__p_5='?' (DbType = Boolean), @__ef_filter__p_9='?' (DbType = Boolean), @__ef_filter__p_7='?' (DbType = Boolean), @__ef_filter__p_8='?' (DbType = Boolean)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[AverageRating], [t].[CityId], [t].[ClosedDate], [t].[CourseCategoryId], [t].[CreationTime], [t].[CreatorUserId], [t].[DailyCommitment], [t].[DeleterUserId], [t].[DeletionTime], [t].[Difficulty], [t].[IsClosed], [t].[IsDeleted], [t].[IsFeatured], [t].[LastModificationTime], [t].[LastModifierUserId], [t].[LocationAddress], [t].[Mode], [t].[NumberOfSeats], [t].[Price], [t].[RegisteredCount], [t].[StartDate], [t].[TeacherId], [t].[TotalHours], [t0].[Id], [t1].[Id], [t3].[Id], [t4].[Id], [t4].[CoreId], [t4].[CreationTime], [t4].[CreatorUserId], [t4].[DeleterUserId], [t4].[DeletionTime], [t4].[Description], [t4].[IsDeleted], [t4].[Language], [t4].[LastModificationTime], [t4].[LastModifierUserId], [t4].[Title], [t0].[CountryId], [t0].[CreationTime], [t0].[CreatorUserId], [t0].[DeleterUserId], [t0].[DeletionTime], [t0].[IsActive], [t0].[IsDeleted], [t0].[LastModificationTime], [t0].[LastModifierUserId], [t5].[Id], [t5].[CoreId], [t5].[CreationTime], [t5].[CreatorUserId], [t5].[DeleterUserId], [t5].[DeletionTime], [t5].[IsDeleted], [t5].[Language], [t5].[LastModificationTime], [t5].[LastModifierUserId], [t5].[Name], [t1].[About], [t1].[AssignedCourseCount], [t1].[CreationTime], [t1].[CreatorUserId], [t1].[DeleterUserId], [t1].[DeletionTime], [t1].[IsDeleted], [t1].[LastModificationTime], [t1].[LastModifierUserId], [t1].[Name], [t6].[CoursesId], [t6].[TagsId], [t6].[Id], [t6].[CreationTime], [t6].[CreatorUserId], [t6].[DeleterUserId], [t6].[DeletionTime], [t6].[IsActive], [t6].[IsDeleted], [t6].[LastModificationTime], [t6].[LastModifierUserId], [t6].[Id0], [t6].[CoreId], [t6].[CreationTime0], [t6].[CreatorUserId0], [t6].[DeleterUserId0], [t6].[DeletionTime0], [t6].[IsDeleted0], [t6].[Language], [t6].[LastModificationTime0], [t6].[LastModifierUserId0], [t6].[Name], [t3].[CreationTime], [t3].[CreatorUserId], [t3].[DeleterUserId], [t3].[DeletionTime], [t3].[IsActive], [t3].[IsDeleted], [t3].[LastModificationTime], [t3].[LastModifierUserId], [t9].[Id], [t9].[CoreId], [t9].[CreationTime], [t9].[CreatorUserId], [t9].[DeleterUserId], [t9].[DeletionTime], [t9].[IsDeleted], [t9].[Language], [t9].[LastModificationTime], [t9].[LastModifierUserId], [t9].[Name], [t10].[Id], [t10].[CourseId], [t10].[CreationTime], [t10].[CreatorUserId], [t10].[DeleterUserId], [t10].[DeletionTime], [t10].[IsDeleted], [t10].[IsSpecial], [t10].[LastModificationTime], [t10].[LastModifierUserId], [t10].[NumberOfRegisteredPeople], [t10].[RejectReason], [t10].[Status], [t10].[UserId]
+FROM (
+    SELECT [c].[Id], [c].[AverageRating], [c].[CityId], [c].[ClosedDate], [c].[CourseCategoryId], [c].[CreationTime], [c].[CreatorUserId], [c].[DailyCommitment], [c].[DeleterUserId], [c].[DeletionTime], [c].[Difficulty], [c].[IsClosed], [c].[IsDeleted], [c].[IsFeatured], [c].[LastModificationTime], [c].[LastModifierUserId], [c].[LocationAddress], [c].[Mode], [c].[NumberOfSeats], [c].[Price], [c].[RegisteredCount], [c].[StartDate], [c].[TeacherId], [c].[TotalHours]
+    FROM [Courses] AS [c]
+    WHERE @__ef_filter__p_0 = CAST(1 AS bit) OR [c].[IsDeleted] = CAST(0 AS bit)
+    ORDER BY [c].[CreationTime] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN (
+    SELECT [c0].[Id], [c0].[CountryId], [c0].[CreationTime], [c0].[CreatorUserId], [c0].[DeleterUserId], [c0].[DeletionTime], [c0].[IsActive], [c0].[IsDeleted], [c0].[LastModificationTime], [c0].[LastModifierUserId]
+    FROM [Cities] AS [c0]
+    WHERE @__ef_filter__p_2 = CAST(1 AS bit) OR [c0].[IsDeleted] = CAST(0 AS bit)
+) AS [t0] ON [t].[CityId] = [t0].[Id]
+INNER JOIN (
+    SELECT [t2].[Id], [t2].[About], [t2].[AssignedCourseCount], [t2].[CreationTime], [t2].[CreatorUserId], [t2].[DeleterUserId], [t2].[DeletionTime], [t2].[IsDeleted], [t2].[LastModificationTime], [t2].[LastModifierUserId], [t2].[Name]
+    FROM [Teachers] AS [t2]
+    WHERE @__ef_filter__p_4 = CAST(1 AS bit) OR [t2].[IsDeleted] = CAST(0 AS bit)
+) AS [t1] ON [t].[TeacherId] = [t1].[Id]
+INNER JOIN (
+    SELECT [c1].[Id], [c1].[CreationTime], [c1].[CreatorUserId], [c1].[DeleterUserId], [c1].[DeletionTime], [c1].[IsActive], [c1].[IsDeleted], [c1].[LastModificationTime], [c1].[LastModifierUserId]
+    FROM [CourseCategories] AS [c1]
+    WHERE @__ef_filter__p_6 = CAST(1 AS bit) OR [c1].[IsDeleted] = CAST(0 AS bit)
+) AS [t3] ON [t].[CourseCategoryId] = [t3].[Id]
+LEFT JOIN (
+    SELECT [c2].[Id], [c2].[CoreId], [c2].[CreationTime], [c2].[CreatorUserId], [c2].[DeleterUserId], [c2].[DeletionTime], [c2].[Description], [c2].[IsDeleted], [c2].[Language], [c2].[LastModificationTime], [c2].[LastModifierUserId], [c2].[Title]
+    FROM [CourseTranslations] AS [c2]
+    WHERE @__ef_filter__p_1 = CAST(1 AS bit) OR [c2].[IsDeleted] = CAST(0 AS bit)
+) AS [t4] ON [t].[Id] = [t4].[CoreId]
+LEFT JOIN (
+    SELECT [c3].[Id], [c3].[CoreId], [c3].[CreationTime], [c3].[CreatorUserId], [c3].[DeleterUserId], [c3].[DeletionTime], [c3].[IsDeleted], [c3].[Language], [c3].[LastModificationTime], [c3].[LastModifierUserId], [c3].[Name]
+    FROM [CityTranslations] AS [c3]
+    WHERE @__ef_filter__p_3 = CAST(1 AS bit) OR [c3].[IsDeleted] = CAST(0 AS bit)
+) AS [t5] ON [t0].[Id] = [t5].[CoreId]
+LEFT JOIN (
+    SELECT [c4].[CoursesId], [c4].[TagsId], [t7].[Id], [t7].[CreationTime], [t7].[CreatorUserId], [t7].[DeleterUserId], [t7].[DeletionTime], [t7].[IsActive], [t7].[IsDeleted], [t7].[LastModificationTime], [t7].[LastModifierUserId], [t8].[Id] AS [Id0], [t8].[CoreId], [t8].[CreationTime] AS [CreationTime0], [t8].[CreatorUserId] AS [CreatorUserId0], [t8].[DeleterUserId] AS [DeleterUserId0], [t8].[DeletionTime] AS [DeletionTime0], [t8].[IsDeleted] AS [IsDeleted0], [t8].[Language], [t8].[LastModificationTime] AS [LastModificationTime0], [t8].[LastModifierUserId] AS [LastModifierUserId0], [t8].[Name]
+    FROM [CourseCourseTag] AS [c4]
+    INNER JOIN (
+        SELECT [c5].[Id], [c5].[CreationTime], [c5].[CreatorUserId], [c5].[DeleterUserId], [c5].[DeletionTime], [c5].[IsActive], [c5].[IsDeleted], [c5].[LastModificationTime], [c5].[LastModifierUserId]
+        FROM [CourseTags] AS [c5]
+        WHERE @__ef_filter__p_5 = CAST(1 AS bit) OR [c5].[IsDeleted] = CAST(0 AS bit)
+    ) AS [t7] ON [c4].[TagsId] = [t7].[Id]
+    LEFT JOIN (
+        SELECT [c6].[Id], [c6].[CoreId], [c6].[CreationTime], [c6].[CreatorUserId], [c6].[DeleterUserId], [c6].[DeletionTime], [c6].[IsDeleted], [c6].[Language], [c6].[LastModificationTime], [c6].[LastModifierUserId], [c6].[Name]
+        FROM [CourseTagTranslations] AS [c6]
+        WHERE @__ef_filter__p_9 = CAST(1 AS bit) OR [c6].[IsDeleted] = CAST(0 AS bit)
+    ) AS [t8] ON [t7].[Id] = [t8].[CoreId]
+) AS [t6] ON [t].[Id] = [t6].[CoursesId]
+LEFT JOIN (
+    SELECT [c7].[Id], [c7].[CoreId], [c7].[CreationTime], [c7].[CreatorUserId], [c7].[DeleterUserId], [c7].[DeletionTime], [c7].[IsDeleted], [c7].[Language], [c7].[LastModificationTime], [c7].[LastModifierUserId], [c7].[Name]
+    FROM [CourseCategoryTranslations] AS [c7]
+    WHERE @__ef_filter__p_7 = CAST(1 AS bit) OR [c7].[IsDeleted] = CAST(0 AS bit)
+) AS [t9] ON [t3].[Id] = [t9].[CoreId]
+LEFT JOIN (
+    SELECT [c8].[Id], [c8].[CourseId], [c8].[CreationTime], [c8].[CreatorUserId], [c8].[DeleterUserId], [c8].[DeletionTime], [c8].[IsDeleted], [c8].[IsSpecial], [c8].[LastModificationTime], [c8].[LastModifierUserId], [c8].[NumberOfRegisteredPeople], [c8].[RejectReason], [c8].[Status], [c8].[UserId]
+    FROM [CourseRegistrationRequests] AS [c8]
+    WHERE @__ef_filter__p_8 = CAST(1 AS bit) OR [c8].[IsDeleted] = CAST(0 AS bit)
+) AS [t10] ON [t].[Id] = [t10].[CourseId]
+ORDER BY [t].[CreationTime] DESC, [t].[Id], [t0].[Id], [t1].[Id], [t3].[Id], [t4].[Id], [t5].[Id], [t6].[CoursesId], [t6].[TagsId], [t6].[Id], [t6].[Id0], [t9].[Id]
+ERROR 2025-05-28 15:04:58,906 [14   ] Microsoft.EntityFrameworkCore.Query      - An exception occurred while iterating over the results of a query for context type 'Wazzifni.EntityFrameworkCore.WazzifniDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'NumberOfRegisteredPeople'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:0230a705-ef1d-4902-92a1-1226327935ee
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'NumberOfRegisteredPeople'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:0230a705-ef1d-4902-92a1-1226327935ee
+Error Number:207,State:1,Class:16
+ERROR 2025-05-28 15:05:00,089 [14   ] Mvc.ExceptionHandling.AbpExceptionFilter - Invalid column name 'NumberOfRegisteredPeople'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'NumberOfRegisteredPeople'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Wazzifni.CrudAppServiceBase.WazzifniAsyncCrudAppService`7.GetAllAsync(TGetAllInput input) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Application\CrudAppServiceBase\WazzifniAsyncCrudAppService.cs:line 42
+   at Wazzifni.Courses.CourseAppService.GetAllAsync(PagedCourseResultRequestDto input) in C:\Users\Lenovo\Source\Repos\wazzifni-backend\src\Wazzifni.Application\Courses\CourseAppService.cs:line 272
+   at Abp.Authorization.AuthorizationInterceptor.InternalInterceptAsynchronous[TResult](IInvocation invocation)
+   at lambda_method1933(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ClientConnectionId:0230a705-ef1d-4902-92a1-1226327935ee
+Error Number:207,State:1,Class:16
+DEBUG 2025-05-28 15:07:09,901 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2025-05-28 15:07:10,002 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2025-05-28 15:07:10,010 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.Web.Host.Startup.WazzifniWebHostModule, Wazzifni.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,011 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniWebCoreModule, Wazzifni.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,011 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniApplicationModule, Wazzifni.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,011 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.WazzifniCoreModule, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,012 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,012 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,012 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,012 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,013 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Wazzifni.EntityFrameworkCore.WazzifniEntityFrameworkModule, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,013 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,013 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,013 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,013 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,013 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,013 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=8.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,014 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2025-05-28 15:07:10,187 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:07:10,187 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:07:10,187 [1    ] o.Configuration.LanguageManagementConfig - Converted Wazzifni (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:07:10,187 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2025-05-28 15:07:10,450 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Wazzifni.EntityFrameworkCore.WazzifniDbContext, Wazzifni.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2025-05-28 15:07:10,672 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2025-05-28 15:07:10,697 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2025-05-28 15:07:10,703 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2025-05-28 15:07:10,707 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Wazzifni
+DEBUG 2025-05-28 15:07:10,709 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2025-05-28 15:07:10,714 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2025-05-28 15:07:10,721 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[Wazzifni.MultiTenancy.Tenant, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Wazzifni.Authorization.Users.User, Wazzifni.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2025-05-28 15:07:10,733 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 20 classes define auto mapping attributes
+DEBUG 2025-05-28 15:07:10,733 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.LiteAttachmentDto
+DEBUG 2025-05-28 15:07:10,736 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.CreateUserDto
+DEBUG 2025-05-28 15:07:10,736 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Users.Dto.UserDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Universities.Dto.UniversityTranslationDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Skills.Dto.SkillTranslationDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Sessions.Dto.UserLoginInfoDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Roles.Dto.PermissionDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.PushNotifications.Dto.PushNotificationTranslationDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.MultiTenancy.Dto.TenantDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.CourseTags.Dto.CourseTagTranslationDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Courses.Dto.CourseTranslationDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.CourseCategories.Dto.CourseCategoryTranslationDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Countries.Dto.CountryTranslationDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Companies.Dto.CompanyTranslationDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Cities.Dto.CityTranslationDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.AttachmentDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadAttachmentInputDto
+DEBUG 2025-05-28 15:07:10,737 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Wazzifni.Attachments.Dto.UploadMultiAttachmentInputDto
+WARN  2025-05-28 15:09:05,656 [13   ] Mvc.Authorization.AbpAuthorizationFilter - Abp.Authorization.AbpAuthorizationException: Required permissions are not granted. At least one of these permissions must be granted: Permission to create course registration requests
+   at Abp.Authorization.PermissionCheckerExtensions.AuthorizeAsync(IPermissionChecker permissionChecker, Boolean requireAll, String[] permissionNames)
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes)
+   at Abp.Authorization.AuthorizationHelper.CheckPermissionsAsync(MethodInfo methodInfo, Type type)
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type)
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context)
+Abp.Authorization.AbpAuthorizationException: Required permissions are not granted. At least one of these permissions must be granted: Permission to create course registration requests
+   at Abp.Authorization.PermissionCheckerExtensions.AuthorizeAsync(IPermissionChecker permissionChecker, Boolean requireAll, String[] permissionNames)
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes)
+   at Abp.Authorization.AuthorizationHelper.CheckPermissionsAsync(MethodInfo methodInfo, Type type)
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type)
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context)
