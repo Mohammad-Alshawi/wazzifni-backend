@@ -27,5 +27,8 @@ namespace Wazzifni.Domain.CourseRegistrationRequests
         public bool IsSpecial { get; set; }
 
         public string RejectReason { get; set; }
+
+        public int NumberOfRegisteredPeople { get; set; }
+
     }
 }

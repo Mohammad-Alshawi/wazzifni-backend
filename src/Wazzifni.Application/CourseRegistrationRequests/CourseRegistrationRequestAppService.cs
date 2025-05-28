@@ -69,8 +69,12 @@ namespace Wazzifni.CourseRegistrationRequests
             registrationRequest.UserId = AbpSession.UserId.Value;
 
 
-            /*if (Course.ApplicantsCount >= Course.RequiredEmployeesCount)
-                Course.WorkAvailbility = WorkAvailbility.Unavilable;*/
+            if (await _userManager.IsCompany() && input.NumberOfRegisteredPeople is null)
+                throw new UserFriendlyException("NumberOfRegisteredPeople is required");
+
+            if (await _userManager.IsBasicUser())
+                registrationRequest.NumberOfRegisteredPeople = 1;
+
             var id = await Repository.InsertAndGetIdAsync(registrationRequest);
             UnitOfWorkManager.Current.SaveChanges();
 
@@ -132,12 +136,9 @@ namespace Wazzifni.CourseRegistrationRequests
 
             if (registrationRequest.Status == CourseRegistrationRequestStatus.Checking)
             {
-
-                Course.RegisteredCount--;
                 await Repository.DeleteAsync(registrationRequest);
                 await UnitOfWorkManager.Current.SaveChangesAsync();
                 return;
-
             }
 
         }
@@ -152,12 +153,12 @@ namespace Wazzifni.CourseRegistrationRequests
 
             registrationRequest.Status = CourseRegistrationRequestStatus.Approved;
             Course.CourseRegistrationRequests.Where(x => x.Id == input.Id).FirstOrDefault().Status = CourseRegistrationRequestStatus.Approved;
+            Course.RegisteredCount = Course.RegisteredCount + registrationRequest.NumberOfRegisteredPeople;
 
-            if (Course.RegisteredCount >= Course.NumberOfSeats && Course.CourseRegistrationRequests.Where(x => x.Status == CourseRegistrationRequestStatus.Approved).Count() == Course.NumberOfSeats)
+            if (Course.RegisteredCount >= Course.NumberOfSeats && Course.CourseRegistrationRequests.Where(x => x.Status == CourseRegistrationRequestStatus.Approved).Select(x => x.NumberOfRegisteredPeople).Sum() == Course.NumberOfSeats)
             {
                 Course.IsClosed = true;
                 Course.ClosedDate = DateTime.Now;
-                Course.RegisteredCount++;
             }
 
 

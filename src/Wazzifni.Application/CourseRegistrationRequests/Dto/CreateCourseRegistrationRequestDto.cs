@@ -1,5 +1,5 @@
-﻿using Abp.Runtime.Validation;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using Abp.Runtime.Validation;
 
 namespace Wazzifni.CourseRegistrationRequests.Dto
 {
@@ -8,6 +8,8 @@ namespace Wazzifni.CourseRegistrationRequests.Dto
         public int CourseId { get; set; }
 
         public bool IsSpecial { get; set; }
+
+        public int? NumberOfRegisteredPeople { get; set; }
 
         public void AddValidationErrors(CustomValidationContext context)
         {
