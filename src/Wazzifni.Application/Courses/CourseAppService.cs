@@ -263,6 +263,7 @@ namespace Wazzifni.Courses
             await UnitOfWorkManager.Current.SaveChangesAsync();
 
             Course.AverageRating = await _courseManager.GetAverageRatingForCourse(Course.Id);
+            await Repository.UpdateAsync(Course);
             await UnitOfWorkManager.Current.SaveChangesAsync();
             return new { Result = true };
         }

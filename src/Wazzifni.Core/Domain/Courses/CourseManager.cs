@@ -160,9 +160,11 @@ namespace Wazzifni.Domain.Courses
         {
             var userRate = await _courseRateRepository.FirstOrDefaultAsync(x => x.UserId == userId && x.CourseId == CourseId);
 
+            CourseRate courseRate;
+
             if (userRate is null)
             {
-                return await _courseRateRepository.InsertAsync(new CourseRate
+                courseRate = await _courseRateRepository.InsertAsync(new CourseRate
                 {
                     CourseId = CourseId,
                     UserId = userId,
@@ -172,8 +174,11 @@ namespace Wazzifni.Domain.Courses
             else
             {
                 userRate.Rate = rate;
-                return await _courseRateRepository.UpdateAsync(userRate);
+                courseRate = await _courseRateRepository.UpdateAsync(userRate);
             }
+
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+            return courseRate;
         }
 
         public async Task<double?> GetCourseRateForUser(long userId, int CourseId)
