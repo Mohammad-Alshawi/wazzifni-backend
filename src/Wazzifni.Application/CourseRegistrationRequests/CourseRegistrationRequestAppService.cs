@@ -220,6 +220,14 @@ namespace Wazzifni.CourseRegistrationRequests
             if (attachmentsCompanies.Count > 0)
                 attachmentsCompaniesDict = attachmentsCompanies.GroupBy(A => A.RefId.Value).ToDictionary(G => G.Key, G => G.ToList());
 
+
+            var attachmentsCourse = await _attachmentManager.GetListByRefAsync(result.Items.Where(x => x.Course is not null).Select(x => (long)x.Course.Id).ToList(), AttachmentRefType.Course);
+
+            var attachmentsCourseDict = new Dictionary<long, List<Attachment>>();
+
+            if (attachmentsCourse.Count > 0)
+                attachmentsCourseDict = attachmentsCourse.GroupBy(A => A.RefId.Value).ToDictionary(G => G.Key, G => G.ToList());
+
             foreach (var item in result.Items)
             {
                 if (item.User.ProfileId.HasValue && attachmentsProfilesDict.TryGetValue(item.User.ProfileId.Value, out var itemProfileAttachments))
@@ -231,6 +239,12 @@ namespace Wazzifni.CourseRegistrationRequests
                 if (item.User.CompanyId.HasValue && attachmentsCompaniesDict.TryGetValue(item.User.CompanyId.Value, out var itemCompanyAttachments))
                 {
                     item.User.Company.Profile = itemCompanyAttachments
+                        .Select(A => new LiteAttachmentDto(A.Id, _attachmentManager.GetUrl(A), _attachmentManager.GetLowResolutionPhotoUrl(A), A.Size))
+                        .FirstOrDefault();
+                }
+                if (item.Course is not null && attachmentsCourseDict.TryGetValue(item.Course.Id, out var itemCourseAttachments))
+                {
+                    item.Course.Image = itemCourseAttachments
                         .Select(A => new LiteAttachmentDto(A.Id, _attachmentManager.GetUrl(A), _attachmentManager.GetLowResolutionPhotoUrl(A), A.Size))
                         .FirstOrDefault();
                 }
