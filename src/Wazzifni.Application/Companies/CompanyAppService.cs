@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
+using Abp.Domain.Entities;
 using Abp.Domain.Repositories;
 using Abp.UI;
 using AutoMapper;
@@ -28,6 +29,7 @@ namespace Wazzifni.Companies
         private readonly UserManager _userManager;
         private readonly ICompanyManager _companyManager;
         private readonly IAttachmentManager _attachmentManager;
+        private readonly DeactivatedUsersSet _deactivatedUsersSet;
         private readonly IMapper _mapper;
 
         public CompanyAppService(
@@ -35,6 +37,7 @@ namespace Wazzifni.Companies
             IRepository<Company> repository,
             ICompanyManager companyManager,
             IAttachmentManager attachmentManager,
+            DeactivatedUsersSet deactivatedUsersSet,
             IMapper mapper
 
 
@@ -44,6 +47,7 @@ namespace Wazzifni.Companies
             _userManager = userManager;
             _companyManager = companyManager;
             _attachmentManager = attachmentManager;
+            _deactivatedUsersSet = deactivatedUsersSet;
             _mapper = mapper;
 
         }
@@ -119,6 +123,35 @@ namespace Wazzifni.Companies
             await _userManager.DeleteAsync(user);
 
             await UnitOfWorkManager.Current.SaveChangesAsync();
+        }
+
+
+
+        [AbpAuthorize(PermissionNames.Pages_Users_Activation)]
+        public async Task ToggleActiveStatusAsync(int companyId)
+        {
+            try
+            {
+                var Company = await _companyManager.GetEntityByIdWithUserAsync(companyId);
+                if (Company == null)
+                {
+                    throw new EntityNotFoundException($"Company with ID {companyId} not found.");
+                }
+
+                Company.User.IsActive = !Company.User.IsActive;
+
+                await _userManager.UpdateAsync(Company.User);
+                await UnitOfWorkManager.Current.SaveChangesAsync();
+
+                if (!Company.User.IsActive)
+                    _deactivatedUsersSet.Add(Company.UserId.Value);
+                else _deactivatedUsersSet.Remove(Company.UserId.Value);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         [HttpPut, AbpAuthorize(PermissionNames.Companies_Update)]

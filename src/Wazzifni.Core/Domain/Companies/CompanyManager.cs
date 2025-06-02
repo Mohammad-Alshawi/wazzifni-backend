@@ -1,12 +1,12 @@
-﻿using Abp.Domain.Repositories;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Abp.Domain.Repositories;
 using Abp.Domain.Services;
 using Abp.UI;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.Cities;
@@ -221,6 +221,13 @@ namespace Wazzifni.Domain.Companies
             company.Translations.Clear();
             company.WorkPosts.Clear();
             await _companyRepository.DeleteAsync(company);
+        }
+
+
+        public async Task<Company> GetEntityByIdWithUserAsync(int companyId)
+        {
+            return await _companyRepository
+                .GetAllIncluding(x => x.User).Where(x => x.Id == companyId).FirstOrDefaultAsync();
         }
     }
 }

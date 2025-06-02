@@ -1,5 +1,5 @@
-﻿using Abp.Domain.Services;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Abp.Domain.Services;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Domain.Companies
@@ -20,6 +20,8 @@ namespace Wazzifni.Domain.Companies
         Task<Company> GetLiteCompanyByIdAsync(int id);
 
         Task DeleteCompanyByUserId(long userId);
+
+        Task<Company> GetEntityByIdWithUserAsync(int companyId);
 
     }
 }
