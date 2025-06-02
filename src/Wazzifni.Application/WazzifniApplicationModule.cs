@@ -6,6 +6,7 @@ using Abp.Threading.BackgroundWorkers;
 using AutoMapper;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
+using Microsoft.Extensions.Configuration;
 using Wazzifni.Authorization;
 using Wazzifni.Cities.Dto;
 using Wazzifni.Companies.Dto;
@@ -24,6 +25,7 @@ using Wazzifni.Domain.Regions;
 using Wazzifni.Domain.Skills;
 using Wazzifni.Domain.Universities;
 using Wazzifni.NotificationService;
+using Wazzifni.Otp.BulkSmsIraq;
 using Wazzifni.Skills.Dto;
 using Wazzifni.Universities.Dto;
 
@@ -34,6 +36,12 @@ namespace Wazzifni
         typeof(AbpAutoMapperModule))]
     public class WazzifniApplicationModule : AbpModule
     {
+        private readonly IConfiguration configuration;
+
+        public WazzifniApplicationModule(IConfiguration configuration)
+        {
+            this.configuration = configuration;
+        }
         public override void PostInitialize()
         {
             var workManager = IocManager.Resolve<IBackgroundWorkerManager>();
@@ -43,6 +51,8 @@ namespace Wazzifni
         }
         public override void PreInitialize()
         {
+            ConfigureBulkSmsIraqOptions();
+
             FirebaseApp.Create(new AppOptions() { Credential = GoogleCredential.FromFile(@"Firebase/firebasesettings.json") });
 
             Configuration.Authorization.Providers.Add<WazzifniAuthorizationProvider>();
@@ -66,7 +76,18 @@ namespace Wazzifni
             });
         }
 
+        private void ConfigureBulkSmsIraqOptions()
+        {
+            var bulkSmsIraqSection = configuration.GetSection(BulkSmsIraqOptions.AppSettingsPath);
+            var bulkSmsIraqOptions = bulkSmsIraqSection.Get<BulkSmsIraqOptions>();
 
+            IocManager.IocContainer.Register(
+                Castle.MicroKernel.Registration.Component
+                    .For<BulkSmsIraqOptions>()
+                    .Instance(bulkSmsIraqOptions)
+                    .LifestyleSingleton()
+            );
+        }
         internal static class CustomDtoMapper
         {
             public static void CreateMappings(IMapperConfigurationExpression configuration, MultiLingualMapContext context)

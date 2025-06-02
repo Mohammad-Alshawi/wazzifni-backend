@@ -1,3 +1,5 @@
+using System.Linq;
+using System.Threading.Tasks;
 using Abp.Authorization;
 using Abp.Domain.Repositories;
 using Abp.Localization;
@@ -5,8 +7,6 @@ using Abp.Runtime.Session;
 using Abp.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading.Tasks;
 using Wazzifni.Authorization.Accounts.Dto;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Domain.Attachments;
@@ -17,6 +17,7 @@ using Wazzifni.Domain.RegisterdPhoneNumbers;
 using Wazzifni.Domain.Trainees;
 using Wazzifni.Domains.UserVerficationCodes;
 using Wazzifni.Localization.SourceFiles;
+using Wazzifni.Otp;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.Authorization.Accounts
@@ -35,6 +36,7 @@ namespace Wazzifni.Authorization.Accounts
         private readonly IProfileManager _profileManager;
         private readonly ICompanyManager _companyManager;
         private readonly ITraineeManager _traineeManager;
+        private readonly IOtpService _otpService;
         private readonly IRepository<ChangedPhoneNumberForUser> _changedPhoneNumberForUserRepository;
 
 
@@ -47,6 +49,7 @@ namespace Wazzifni.Authorization.Accounts
             IProfileManager profileManager,
             ICompanyManager companyManager,
             ITraineeManager traineeManager,
+            IOtpService otpService,
             IRepository<ChangedPhoneNumberForUser> changedPhoneNumberForUserRepository)
         {
             _userManager = userManager;
@@ -57,6 +60,7 @@ namespace Wazzifni.Authorization.Accounts
             _profileManager = profileManager;
             _companyManager = companyManager;
             _traineeManager = traineeManager;
+            _otpService = otpService;
             _changedPhoneNumberForUserRepository = changedPhoneNumberForUserRepository;
 
         }
@@ -104,7 +108,9 @@ namespace Wazzifni.Authorization.Accounts
             var phoneNumber = input.DialCode.Replace("+", "") + input.PhoneNumber;
             var userLanguage = await SettingManager.GetSettingValueForUserAsync(
             LocalizationSettingNames.DefaultLanguage, AbpSession.ToUserIdentifier());
-            //Send Otp
+
+            await _otpService.SendOtpWithWhatsAppAsync(phoneNumber, changedPhone.NewDialCode);
+
             return new SignInWithPhoneNumberOutput { Code = changedPhone.NewDialCode };
         }
 
@@ -149,7 +155,7 @@ namespace Wazzifni.Authorization.Accounts
                 var phoneNumber = input.DialCode.Replace("+", "") + input.PhoneNumber;
 
 
-                //Send Otp;
+                await _otpService.SendOtpWithWhatsAppAsync(phoneNumber, phoneNumberWithVerificationCode.VerficationCode);
 
                 return new SignInWithPhoneNumberOutput { Code = phoneNumberWithVerificationCode.VerficationCode };
 
@@ -179,7 +185,7 @@ namespace Wazzifni.Authorization.Accounts
                 RegisterdPhoneNumber registeredPhoneNumber = await _registerdPhoneNumberManager.AddOrUpdatePhoneNumberAsync(input.DialCode, input.PhoneNumber);
                 var phoneNumber = input.DialCode.Replace("+", "") + input.PhoneNumber;
 
-                //Send Otp;
+                await _otpService.SendOtpWithWhatsAppAsync(phoneNumber, registeredPhoneNumber.VerficationCode);
 
                 return new SignInWithPhoneNumberOutput { Code = registeredPhoneNumber.VerficationCode };
             }
@@ -223,7 +229,7 @@ namespace Wazzifni.Authorization.Accounts
                 var userVerificationCode = await _userVerficationCodeManager.UpdateVerificationCodeAsync(user.Id, ConfirmationCodeType.ConfirmPhoneNumber);
                 verificationCode = userVerificationCode.VerficationCode;
                 var phoneNumber = input.DialCode.Replace("+", "") + input.PhoneNumber;
-                // Send Otp;
+                await _otpService.SendOtpWithWhatsAppAsync(phoneNumber, verificationCode);
 
             }
             return new SignInWithPhoneNumberOutput { Code = verificationCode };
