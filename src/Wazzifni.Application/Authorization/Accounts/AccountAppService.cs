@@ -111,7 +111,7 @@ namespace Wazzifni.Authorization.Accounts
 
             await _otpService.SendOtpWithWhatsAppAsync(phoneNumber, changedPhone.NewDialCode);
 
-            return new SignInWithPhoneNumberOutput { Code = changedPhone.NewDialCode };
+            return new SignInWithPhoneNumberOutput { Code = null };
         }
 
 
@@ -157,7 +157,7 @@ namespace Wazzifni.Authorization.Accounts
 
                 await _otpService.SendOtpWithWhatsAppAsync(phoneNumber, phoneNumberWithVerificationCode.VerficationCode);
 
-                return new SignInWithPhoneNumberOutput { Code = phoneNumberWithVerificationCode.VerficationCode };
+                return new SignInWithPhoneNumberOutput { Code = null };
 
             }
 
@@ -187,7 +187,7 @@ namespace Wazzifni.Authorization.Accounts
 
                 await _otpService.SendOtpWithWhatsAppAsync(phoneNumber, registeredPhoneNumber.VerficationCode);
 
-                return new SignInWithPhoneNumberOutput { Code = registeredPhoneNumber.VerficationCode };
+                return new SignInWithPhoneNumberOutput { Code = null };
             }
 
         }
@@ -232,7 +232,7 @@ namespace Wazzifni.Authorization.Accounts
                 await _otpService.SendOtpWithWhatsAppAsync(phoneNumber, verificationCode);
 
             }
-            return new SignInWithPhoneNumberOutput { Code = verificationCode };
+            return new SignInWithPhoneNumberOutput { Code = null };
         }
 
     }
