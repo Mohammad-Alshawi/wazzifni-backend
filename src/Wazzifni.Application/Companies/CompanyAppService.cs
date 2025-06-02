@@ -1,16 +1,14 @@
-﻿using Abp.Application.Services;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
-using Abp.Collections.Extensions;
 using Abp.Domain.Repositories;
 using Abp.UI;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Companies.Dto;
@@ -18,7 +16,6 @@ using Wazzifni.CrudAppServiceBase;
 using Wazzifni.Domain.Attachments;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.Companies.Dto;
-using Wazzifni.Domain.IndividualUserProfiles;
 using Wazzifni.Localization.SourceFiles;
 using static Wazzifni.Enums.Enum;
 
@@ -89,11 +86,39 @@ namespace Wazzifni.Companies
         }
 
 
-        [ApiExplorerSettings(IgnoreApi = true)]
-        [RemoteService(IsEnabled = false)]
-        public override Task DeleteAsync(EntityDto<int> input)
+
+        public async override Task DeleteAsync(EntityDto<int> input)
         {
-            return base.DeleteAsync(input);
+            var company = await Repository.GetAll()
+                .Include(c => c.User)
+                .Include(x => x.Translations)
+                .Include(x => x.WorkPosts)
+                .ThenInclude(w => w.Applications)
+                .FirstOrDefaultAsync(c => c.Id == input.Id);
+
+            if (company == null)
+            {
+                throw new UserFriendlyException("Not Found");
+            }
+
+            company.Translations.Clear();
+
+            foreach (var item in company.WorkPosts)
+            {
+                item.Applications.Clear();
+            }
+
+            company.WorkPosts.Clear();
+
+            await Repository.DeleteAsync(company);
+
+            var user = await _userManager.Users
+              .Where(t => t.Id == company.UserId)
+              .FirstOrDefaultAsync();
+
+            await _userManager.DeleteAsync(user);
+
+            await UnitOfWorkManager.Current.SaveChangesAsync();
         }
 
         [HttpPut, AbpAuthorize(PermissionNames.Companies_Update)]
@@ -260,13 +285,13 @@ namespace Wazzifni.Companies
                                                  .Where(e => e.ToString().ToLower().Contains(keyword))
                                                  .ToList();
 
-           
+
                 data = data.Where(c =>
 
                     c.User.RegistrationFullName.Contains(keyword) ||
                     matchingStatus.Contains(c.Status) ||
                     c.Translations.Any(t => t.Name.Contains(keyword)) ||
-                    c.Translations.Any(t => t.About.Contains(keyword))                    
+                    c.Translations.Any(t => t.About.Contains(keyword))
 
                 );
             }
