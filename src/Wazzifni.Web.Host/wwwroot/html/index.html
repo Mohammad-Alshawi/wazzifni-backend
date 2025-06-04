@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>SignalR Notification Test</title>
+    <!-- تحميل jQuery أولاً -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
+
+    <!-- toastr يحتاج jQuery -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</head>
+<body>
+    <h1>SignalR Notification Test</h1>
+
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("https://api.wazzifni.net/alerts"/*, {
+                transport: signalR.HttpTransportType.LongPolling
+            }*/,{ 
+                    skipNegotiation: true,
+                    transport: signalR.HttpTransportType.WebSockets
+                })
+            .configureLogging(signalR.LogLevel.Information)
+            .build();
+
+        connection.start()
+            .then(() => {
+                console.log("Connected to SignalR hub");
+            })
+            .catch(err => {
+                console.error("Error connecting to SignalR hub:", err.toString());
+            });
+
+        connection.on("ReceiveMessage", (user, message) => {
+            console.log("Notification received:", user, message);
+
+            const lang = "ar";
+
+            if (!message || typeof message !== "object") {
+                console.warn("Received invalid message:", message);
+                toastr.info("تنبيه جديد", "تنبيه جديد " + (user || ""));
+                return;
+            }
+
+            const textToShow = message.messages?.[lang] || "تنبيه جديد";
+
+            toastr.info(textToShow, "تنبيه جديد " + (user || ""));
+        });
+    </script>
+</body>
+</html>

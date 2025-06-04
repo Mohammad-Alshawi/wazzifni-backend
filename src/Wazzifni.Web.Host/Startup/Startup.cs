@@ -1,4 +1,8 @@
-﻿using Abp.AspNetCore;
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using Abp.AspNetCore;
 using Abp.AspNetCore.Mvc.Antiforgery;
 using Abp.AspNetCore.SignalR.Hubs;
 using Abp.Castle.Logging.Log4Net;
@@ -8,19 +12,18 @@ using Abp.Json;
 using Castle.Facilities.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
-using System;
-using System.IO;
-using System.Linq;
-using System.Reflection;
 using Wazzifni.Authentication;
 using Wazzifni.Configuration;
 using Wazzifni.Identity;
+using Wazzifni.SignalR.NotificationHubs;
+using Wazzifni.SignalR.NotificationHubs.Hubs;
 
 namespace Wazzifni.Web.Host.Startup
 {
@@ -58,6 +61,7 @@ namespace Wazzifni.Web.Host.Startup
             AuthConfigurer.Configure(services, _appConfiguration);
 
             services.AddSignalR();
+            services.AddSingleton<IUserIdProvider, CustomUserIdProvider>();
 
             // Configure CORS for angular2 UI
             services.AddCors(
@@ -115,6 +119,8 @@ namespace Wazzifni.Web.Host.Startup
                 endpoints.MapHub<AbpCommonHub>("/signalr");
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute("defaultWithArea", "{area}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapHub<SignalRNotificationHub>("/alerts");
+
             });
 
             // Enable middleware to serve generated Swagger as a JSON endpoint

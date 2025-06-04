@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>SignalR Notification Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #messagesList {
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-width: 600px;
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 6px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .userId {
+            font-weight: bold;
+            color: #0078D7;
+        }
+
+        .text-en {
+            color: #333;
+        }
+
+        .text-ar {
+            font-family: "Tahoma", "Arial", sans-serif;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>SignalR Notification Demo</h2>
+    <div id="messagesList"></div>
+
+    <script>
+        const jwtToken = "bM2JEZTzZIXpu01FhA3pLTdPCiFF9x0u5pf38NGVWjVIygZ0mBWYLsyiAT24rWwxH2O9oB5VWXY18AEnGhqiL8o2Te/zsgnoGCL3lHBUpBZXg5+9UN1bcJSrAV3ksM+DfZxWjjTdyG09ouLLESdFk6LU1MAGzftTodGLo8busKDg+h2sVvfRI9bRSq4oigYbx+UiTJinFe/VK7/kbsYNY2VMNn5zWrj7Qlc7xmAVZ+Iw313s/cN/JGbKcBLEAAAH+ED+xuRZ96ziPikjXOvfyxWFEZver7QQiFHzO30syfNAfwkDj8FGupahyxSfGCZ/DyR6o6nGwWHVyAWNpCr1NbJaSHaipI38O8r86UW9pvx7ZeHmq8poWOPqzbadJHMUcMd0ABl3vFIklVFNYKYVMxBQuV+GU4YbRkaSGeQ36d46G1xAw7Migao50G3kgpWJ0tLiNfZeP6ijcGZr0Y1z5m1+u1c7pq1iy0PzHuQEyUJyPCWf0QOfuTGsZfFR4fujxmZ+mPUf7X+1W/jM1OqTFnMMJXC1zUJtSFXuZJZo82lnq0InkOCefRnVhp4tGOrzAAepi10V/51Ng9Jq9hEySiYd0UTOj/bZKFwJ+ryT+uJPkkXNT35Bgev9D7Mk6u2YPsGrqDbAKWTghRvaq9OkFcLxKZtXMwy7RbE4W1A86u/LVfSxfUU/HwDQWGM+23VAHs3oOULrwpUC7ratfNl2rjHBuPeprfWbl+5XqaPLdU89GaNTV/zEsqoM8GRazrE6nCePTmDyZCpQqPAV+XQKv7N93X8foNIa1K2qeUxIKnizLI07H0/dAICS2MEyHm/OqQAYgrnIw5Mmo6NwWw2RxhjkPeSldyq+y1s7E7mIgFbuExCCJD3tQXxkdIwFzrGs5w+Zc7JdA5b1Z1AtiAjJ/nCCqrRy7b1BNByaA40j2Ih3L7d5Y6e6elMOlDzVakMqPcOlvOvB4PfMWfR5u61fqRGAOCfW6voDi6mFIikTMpREOmAmn9uicklEO8tEz8OKcKLdwJtXzmaXDtf+z1oEeKM3XVcjRdeT2JKCgK4M4FMRfZbBYmK1KHaMKjAf5MsM/X26oox6JLU4bTrSQLbJQjrHrOAE/JjxtGTyP4vYKeYK51reYTW8QyQUn/FH/VrxI5vgucIKZAbQfRCwZLeuPtAKV1rQAL3pxNX+yqOa1ZGX0yMfEEAOHmS/5IcQ1Q5+";
+
+        function simpleEncrypt(text) {
+            return btoa(text);
+        }
+
+        const encryptedToken = simpleEncrypt(jwtToken);
+
+        const connection = new signalR.HubConnectionBuilder()
+            //.withUrl(`http://localhost:44311/alerts?enc_auth_token=${encodeURIComponent(jwtToken)}`)
+            .withUrl(`https://api.wazzifni.net/alerts?enc_auth_token=${encodeURIComponent(jwtToken)}`/*, {
+                transport: signalR.HttpTransportType.LongPolling
+            }*/)
+            .withAutomaticReconnect()
+            .build();
+
+        connection.on("ReceiveMessage", (userId, alert) => {
+            console.log("Notification received:", alert);
+
+            const container = document.getElementById("messagesList");
+
+            const msgDiv = document.createElement("div");
+            msgDiv.classList.add("message");
+
+            const userSpan = document.createElement("span");
+            userSpan.classList.add("userId");
+            userSpan.textContent = `User: ${userId} - `;
+
+            const enMsgSpan = document.createElement("span");
+            enMsgSpan.classList.add("text-en");
+            enMsgSpan.textContent = alert.messages?.en || "No message";
+
+            const arMsgSpan = document.createElement("div");
+            arMsgSpan.classList.add("text-ar");
+            arMsgSpan.textContent = alert.messages?.ar || "لا توجد رسالة";
+
+            msgDiv.appendChild(userSpan);
+            msgDiv.appendChild(enMsgSpan);
+            msgDiv.appendChild(arMsgSpan);
+
+            container.appendChild(msgDiv);
+
+            container.scrollTop = container.scrollHeight;
+        });
+
+        async function start() {
+            try {
+                await connection.start();
+                console.log("Connected to SignalR hub");
+            } catch (err) {
+                console.error(err);
+                setTimeout(start, 5000);
+            }
+        }
+
+        start();
+    </script>
+
+</body>
+</html>
