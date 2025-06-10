@@ -137,10 +137,11 @@ namespace Wazzifni.Companies
                 {
                     throw new EntityNotFoundException($"Company with ID {companyId} not found.");
                 }
-
+                Company.IsActive = !Company.IsActive;
                 Company.User.IsActive = !Company.User.IsActive;
 
                 await _userManager.UpdateAsync(Company.User);
+                await Repository.UpdateAsync(Company);
                 await UnitOfWorkManager.Current.SaveChangesAsync();
 
                 if (!Company.User.IsActive)
