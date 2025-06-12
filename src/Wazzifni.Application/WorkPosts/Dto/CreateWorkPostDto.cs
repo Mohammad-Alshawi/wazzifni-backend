@@ -1,6 +1,7 @@
-﻿using Abp.Runtime.Validation;
-using Microsoft.EntityFrameworkCore;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Abp.Runtime.Validation;
+using Microsoft.EntityFrameworkCore;
 using static Wazzifni.Enums.Enum;
 
 namespace Wazzifni.WorkPosts.Dto
@@ -20,6 +21,9 @@ namespace Wazzifni.WorkPosts.Dto
         public int ExperienceYearsCount { get; set; }
         public int RequiredEmployeesCount { get; set; }
         public WorkPlace WorkPlace { get; set; }
+
+        public DateTime? StartTime { get; set; }
+        public DateTime? EndTime { get; set; }
 
         public void AddValidationErrors(CustomValidationContext context)
         {

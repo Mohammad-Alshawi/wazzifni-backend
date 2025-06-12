@@ -1,5 +1,5 @@
-﻿using Abp.Application.Services.Dto;
-using System;
+﻿using System;
+using Abp.Application.Services.Dto;
 using Wazzifni.Companies.Dto;
 using static Wazzifni.Enums.Enum;
 
@@ -32,6 +32,11 @@ namespace Wazzifni.WorkPosts.Dto
         public string ReasonRefuse { get; set; }
         public bool IsFeatured { get; set; }
         public DateTime? IsFeaturedAt { get; set; }
+
+
+
+        public DateTime? StartTime { get; set; }
+        public DateTime? EndTime { get; set; }
 
     }
 }

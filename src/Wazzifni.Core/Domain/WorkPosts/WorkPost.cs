@@ -1,8 +1,8 @@
-﻿using Abp.Domain.Entities.Auditing;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using Abp.Domain.Entities.Auditing;
+using Microsoft.EntityFrameworkCore;
 using Wazzifni.Domain.Companies;
 using Wazzifni.Domain.WorkApplications;
 using static Wazzifni.Enums.Enum;
@@ -49,6 +49,10 @@ namespace Wazzifni.Domain.WorkPosts
         public bool IsFeatured { get; set; }
         public DateTime? IsFeaturedAt { get; set; }
 
+
+
+        public DateTime? StartTime { get; set; }
+        public DateTime? EndTime { get; set; }
 
     }
 }
