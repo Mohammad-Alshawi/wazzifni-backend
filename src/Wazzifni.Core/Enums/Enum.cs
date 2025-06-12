@@ -195,8 +195,10 @@ namespace Wazzifni.Enums
             FullTime = 1,
             PartTime = 2,
             Contract = 3,
-            ProjectOnly = 4,
-            StrategicPartnership = 5
+            Freelance = 4,
+            StrategicPartnership = 5,
+            Training = 6,
+            VolunteerWork = 7,
         }
 
 
