@@ -15,6 +15,7 @@ using Wazzifni.Domain.CourseComments;
 using Wazzifni.Domain.CourseRegistrationRequests;
 using Wazzifni.Domain.Courses;
 using Wazzifni.Domain.CourseTags;
+using Wazzifni.Domain.Crushes;
 using Wazzifni.Domain.Educations;
 using Wazzifni.Domain.Feedbacks;
 using Wazzifni.Domain.IndividualUserProfiles;
@@ -70,11 +71,11 @@ namespace Wazzifni.EntityFrameworkCore
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Advertisiment> Advertisiments { get; set; }
 
-        public virtual DbSet<Trainee>  Trainees { get; set; }
-        public virtual DbSet<University>  Universities { get; set; }
-        public virtual DbSet<UniversityTranslation>  UniversityTranslations { get; set; }
-        public virtual DbSet<CourseCategory>  CourseCategories { get; set; }
-        public virtual DbSet<CourseCategoryTranslation>  CourseCategoryTranslations { get; set; }
+        public virtual DbSet<Trainee> Trainees { get; set; }
+        public virtual DbSet<University> Universities { get; set; }
+        public virtual DbSet<UniversityTranslation> UniversityTranslations { get; set; }
+        public virtual DbSet<CourseCategory> CourseCategories { get; set; }
+        public virtual DbSet<CourseCategoryTranslation> CourseCategoryTranslations { get; set; }
         public virtual DbSet<CourseTag> CourseTags { get; set; }
         public virtual DbSet<CourseTagTranslation> CourseTagTranslations { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
@@ -82,7 +83,7 @@ namespace Wazzifni.EntityFrameworkCore
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<CourseTranslation> CourseTranslations { get; set; }
 
-        public virtual DbSet<CourseComment>  CourseComments { get; set; }
+        public virtual DbSet<CourseComment> CourseComments { get; set; }
 
         public virtual DbSet<CourseRegistrationRequest> CourseRegistrationRequests { get; set; }
 
@@ -91,6 +92,9 @@ namespace Wazzifni.EntityFrameworkCore
         public virtual DbSet<Message> Messages { get; set; }
 
         public virtual DbSet<Chat> Chats { get; set; }
+
+
+        public virtual DbSet<Crush> Crushes { get; set; }
 
         public WazzifniDbContext(DbContextOptions<WazzifniDbContext> options)
             : base(options)
