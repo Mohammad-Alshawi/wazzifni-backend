@@ -1,4 +1,9 @@
-﻿using Abp.Application.Services;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Collections.Extensions;
@@ -8,10 +13,6 @@ using Abp.UI;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 using Wazzifni.Authorization;
 using Wazzifni.Authorization.Users;
 using Wazzifni.Awards;
@@ -202,9 +203,110 @@ namespace Wazzifni.Profiles
             return _mapper.Map<ProfileDetailsDto>(profile);
         }
 
+        [AbpAuthorize]
+        public async Task UpdateBasicInfoAsync(UpdateBasicProfileDto input)
+        {
+            var profile = await _profileManager.GetEntityByUserIdAsync(AbpSession.UserId.Value);
+
+            if (profile.Id != input.Id || !await _userManager.IsBasicUser())
+            {
+                throw new UserFriendlyException("Cant do this");
+            }
+
+            profile.CityId = input.CityId;
+            profile.Gender = input.Gender;
+            profile.User.RegistrationFullName = input.RegistrationFullName;
+
+            await _userManager.UpdateAsync(profile.User);
+            await Repository.UpdateAsync(profile);
+        }
 
         [AbpAuthorize]
-        public async Task<ProfileDetailsDto> UpdateLogoAsync(int Id, [Required] long LogoAttchmentId)
+        public async Task UpdateSkillsAsync(UpdateSkillsDto input)
+        {
+            var profile = await _profileManager.GetEntityByUserIdAsync(AbpSession.UserId.Value);
+
+            if (profile.Id != input.Id || !await _userManager.IsBasicUser())
+            {
+                throw new UserFriendlyException("Cant do this");
+            }
+            var existingSkillIds = profile.Skills.Select(s => s.Id).ToList();
+            var skillsToRemove = profile.Skills.Where(s => !input.SkillIds.Contains(s.Id)).ToList();
+            var skillsToAddIds = input.SkillIds.Except(existingSkillIds).ToList();
+
+            foreach (var skill in skillsToRemove)
+                profile.Skills.Remove(skill);
+
+            foreach (var skillId in skillsToAddIds)
+            {
+                var skill = await _skillManager.GetEntityByIdAsync(skillId);
+                profile.Skills.Add(skill);
+            }
+
+            await Repository.UpdateAsync(profile);
+        }
+
+        [AbpAuthorize]
+        public async Task UpdateEducationsAsync(UpdateEducationsDto input)
+        {
+            var profile = await _profileManager.GetEntityByUserIdAsync(AbpSession.UserId.Value);
+
+            if (profile.Id != input.Id || !await _userManager.IsBasicUser())
+            {
+                throw new UserFriendlyException("Cant do this");
+            }
+            await _educationRepo.HardDeleteAsync(x => x.ProfileId == profile.Id);
+            profile.Educations = _mapper.Map<List<Education>>(input.Educations);
+            await Repository.UpdateAsync(profile);
+        }
+
+        [AbpAuthorize]
+        public async Task UpdateWorkExperiencesAsync(UpdateWorkExperiencesDto input)
+        {
+            var profile = await _profileManager.GetEntityByUserIdAsync(AbpSession.UserId.Value);
+
+            if (profile.Id != input.Id || !await _userManager.IsBasicUser())
+            {
+                throw new UserFriendlyException("Cant do this");
+            }
+            await _workExperienceRepo.HardDeleteAsync(x => x.ProfileId == profile.Id);
+            profile.WorkExperiences = _mapper.Map<List<WorkExperience>>(input.WorkExperiences);
+            await Repository.UpdateAsync(profile);
+        }
+
+        [AbpAuthorize]
+        public async Task UpdateAwardsAsync(UpdateAwardsDto input)
+        {
+            var profile = await _profileManager.GetEntityByUserIdAsync(AbpSession.UserId.Value);
+
+            if (profile.Id != input.Id || !await _userManager.IsBasicUser())
+            {
+                throw new UserFriendlyException("Cant do this");
+            }
+            await _awardRepo.HardDeleteAsync(x => x.ProfileId == profile.Id);
+            profile.Awards = _mapper.Map<List<Award>>(input.Awards);
+            await Repository.UpdateAsync(profile);
+        }
+
+
+        [AbpAuthorize]
+        public async Task UpdateSpokenLanguagesAsync(UpdateSpokenLanguagesDto input)
+        {
+            var profile = await _profileManager.GetEntityByUserIdAsync(AbpSession.UserId.Value);
+
+            if (profile.Id != input.Id || !await _userManager.IsBasicUser())
+            {
+                throw new UserFriendlyException("Cant do this");
+            }
+            await _spLanRepo.HardDeleteAsync(x => x.ProfileId == profile.Id);
+            profile.SpokenLanguages = _mapper.Map<List<SpokenLanguageValue>>(input.SpokenLanguages);
+            await Repository.UpdateAsync(profile);
+
+        }
+
+
+        [AbpAuthorize]
+        public async Task<ProfileDetailsDto> UpdateLogoAsync(long Id, [Required] long LogoAttchmentId)
         {
             if (!await _userManager.IsBasicUser())
             {
@@ -228,6 +330,31 @@ namespace Wazzifni.Profiles
             return result;
         }
 
+
+        [AbpAuthorize]
+        public async Task<ProfileDetailsDto> UpdateCvAsync(long Id, [Required] long CvAttchmentId)
+        {
+            if (!await _userManager.IsBasicUser())
+            {
+                throw new UserFriendlyException("Cant do this");
+            }
+            var profile = await _profileManager.GetEntityByUserIdAsync(AbpSession.UserId.Value);
+
+            var Cv = await _attachmentManager.GetElementByRefAsync(Id, AttachmentRefType.CV);
+            if (Cv is not null && Cv.Id != CvAttchmentId && CvAttchmentId != 0)
+            {
+                await _attachmentManager.DeleteRefIdAsync(Cv);
+                await _attachmentManager.CheckAndUpdateRefIdAsync(CvAttchmentId, AttachmentRefType.CV, profile.Id);
+
+            }
+            else if (Cv is null && CvAttchmentId != 0)
+                await _attachmentManager.CheckAndUpdateRefIdAsync(CvAttchmentId, AttachmentRefType.CV, profile.Id);
+
+            profile.LastModificationTime = DateTime.Now;
+            await UnitOfWorkManager.Current.SaveChangesAsync();
+            var result = MapToEntityDto(profile);
+            return result;
+        }
 
 
         public async Task ToggleActiveStatusAsync(int profileId)
@@ -298,7 +425,7 @@ namespace Wazzifni.Profiles
                 data = data.Where(p =>
 
                     p.User.RegistrationFullName.Contains(keyword) ||
-                    p.About.Contains(keyword) 
+                    p.About.Contains(keyword)
                 );
             }
 
