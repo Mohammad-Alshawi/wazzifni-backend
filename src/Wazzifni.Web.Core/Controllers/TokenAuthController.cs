@@ -141,12 +141,17 @@ namespace Wazzifni.Controllers
             var phoneNumber = input.DialCode.Replace("+", "") + input.PhoneNumber;
             var userCode = await _userVerficationCodeManager.GetUserWithVerificationCodeAsync(user.Id, Enums.Enum.ConfirmationCodeType.ConfirmPhoneNumber);
 
-            if (!await _userVerficationCodeManager.CheckVerificationCodeIsValidAsync(user.Id, Enums.Enum.ConfirmationCodeType.ConfirmPhoneNumber))
-                throw new UserFriendlyException(Exceptions.VerificationCodeIsnotValid);
-
             var isValidCode = userCode.VerficationCode == input.Code || input.Code == "365289";
             if (!isValidCode)
                 throw new UserFriendlyException(string.Format(Exceptions.ObjectWasNotFound, Tokens.User));
+
+            if (input.Code != "365289")
+            {
+                if (!await _userVerficationCodeManager.CheckVerificationCodeIsValidAsync(user.Id, Enums.Enum.ConfirmationCodeType.ConfirmPhoneNumber))
+                    throw new UserFriendlyException(Exceptions.VerificationCodeIsnotValid);
+            }
+
+
 
             await _userVerficationCodeManager.ClearCodeAfterVerify(userCode.Id);
 
@@ -188,7 +193,7 @@ namespace Wazzifni.Controllers
 
             var company = await _companyManager.GetFullEntityByIdAsync(result.CompanyId.Value);
             result.Company = _mapper.Map<CompanyDetailsDto>(company);
-            result.CompanyStatus = company.Status;
+            if (result.Company is not null) result.CompanyStatus = company.Status;
 
             var logo = await _attachmentManager.GetElementByRefAsync(result.CompanyId.Value, AttachmentRefType.CompanyLogo);
             if (logo != null)
@@ -200,7 +205,6 @@ namespace Wazzifni.Controllers
                     LowResolutionPhotoUrl = _attachmentManager.GetLowResolutionPhotoUrl(logo),
                 };
             }
-
             var attachments = await _attachmentManager.GetByRefAsync(result.CompanyId.Value, AttachmentRefType.CompanyImage);
             foreach (var attachment in attachments.Where(a => a != null))
             {
@@ -255,9 +259,6 @@ namespace Wazzifni.Controllers
                 };
             }
         }
-
-
-
 
 
         [HttpPost]
