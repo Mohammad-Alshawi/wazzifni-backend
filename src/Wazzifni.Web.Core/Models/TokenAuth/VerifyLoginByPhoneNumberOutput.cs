@@ -22,6 +22,6 @@ namespace Wazzifni.Models.TokenAuth
 
         public TraineeDetailsDto Trainee { get; set; }
 
-
+        public string RegistrationFullName { get; set; }
     }
 }

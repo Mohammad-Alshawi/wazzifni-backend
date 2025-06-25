@@ -165,7 +165,8 @@ namespace Wazzifni.Controllers
                 AccessToken = CreateAccessToken(CreateJwtClaims(loginResult.Identity)),
                 UserId = user.Id,
                 UserName = user.UserName,
-                UserType = user.Type
+                UserType = user.Type,
+                RegistrationFullName = user.RegistrationFullName,
             };
 
             switch (user.Type)
