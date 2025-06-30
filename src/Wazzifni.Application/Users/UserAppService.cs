@@ -1,4 +1,8 @@
-﻿using Abp.Application.Services;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.Auditing;
 using Abp.Authorization;
@@ -16,10 +20,6 @@ using Abp.UI;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Wazzifni.Authorization;
 using Wazzifni.Authorization.Roles;
 using Wazzifni.Authorization.Users;
@@ -124,7 +124,7 @@ namespace Wazzifni.Users
 
         }
 
-        [AbpAuthorize(PermissionNames.Users_Create)]
+        [AbpAllowAnonymous]
 
         public override async Task<UserDto> CreateAsync(CreateUserDto input)
         {

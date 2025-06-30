@@ -2849,6 +2849,43 @@ namespace Wazzifni.Migrations
                     b.ToTable("Messages");
                 });
 
+            modelBuilder.Entity("Wazzifni.Domain.MobileApps.MobileApp", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<byte>("AppType")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsPublished")
+                        .HasColumnType("bit");
+
+                    b.Property<byte>("SystemType")
+                        .HasColumnType("tinyint");
+
+                    b.Property<byte>("UpdateOptions")
+                        .HasColumnType("tinyint");
+
+                    b.Property<int>("VersionCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("VersionNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MobileApps");
+                });
+
             modelBuilder.Entity("Wazzifni.Domain.Regions.Region", b =>
                 {
                     b.Property<int>("Id")

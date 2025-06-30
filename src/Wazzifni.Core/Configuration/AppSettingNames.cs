@@ -6,5 +6,11 @@
         public const string FileSize = "App.FileSize";
         public const string ImageSize = "App.ImageSize";
 
+
+        public const string AndroidLinkForBasic = "App.AndroidLinkForBasic";
+        public const string IosLinkForBasic = "App.IosLinkForBasic";
+        public const string AndroidLinkForBusiness = "App.AndroidLinkForBusiness";
+        public const string IosLinkForBusiness = "App.IosLinkForBusiness";
+
     }
 }
