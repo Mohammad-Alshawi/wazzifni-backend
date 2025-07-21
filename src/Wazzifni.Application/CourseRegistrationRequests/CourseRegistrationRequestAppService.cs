@@ -213,7 +213,7 @@ namespace Wazzifni.CourseRegistrationRequests
             if (attachmentsProfiles.Count > 0)
                 attachmentsProfilesDict = attachmentsProfiles.GroupBy(A => A.RefId.Value).ToDictionary(G => G.Key, G => G.ToList());
 
-            var attachmentsCompanies = await _attachmentManager.GetListByRefAsync(result.Items.Where(x => x.User.CompanyId.HasValue).Select(x => (long)x.User.ProfileId.Value).ToList(), AttachmentRefType.CompanyLogo);
+            var attachmentsCompanies = await _attachmentManager.GetListByRefAsync(result.Items.Where(x => x.User.CompanyId.HasValue).Select(x => (long)x.User.CompanyId.Value).ToList(), AttachmentRefType.CompanyLogo);
 
             var attachmentsCompaniesDict = new Dictionary<long, List<Attachment>>();
 
