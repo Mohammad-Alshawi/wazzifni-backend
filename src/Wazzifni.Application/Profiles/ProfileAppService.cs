@@ -349,8 +349,11 @@ namespace Wazzifni.Profiles
             }
             else if (Cv is null && CvAttchmentId != 0)
                 await _attachmentManager.CheckAndUpdateRefIdAsync(CvAttchmentId, AttachmentRefType.CV, profile.Id);
+            else if (Cv is not null && CvAttchmentId == 0)
+                await _attachmentManager.DeleteRefIdAsync(Cv);
 
             profile.LastModificationTime = DateTime.Now;
+
             await UnitOfWorkManager.Current.SaveChangesAsync();
             var result = MapToEntityDto(profile);
             return result;
