@@ -9,6 +9,7 @@ using Abp.Castle.Logging.Log4Net;
 using Abp.Dependency;
 using Abp.Extensions;
 using Abp.Json;
+using Abp.Timing;
 using Castle.Facilities.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,6 +39,8 @@ namespace Wazzifni.Web.Host.Startup
 
         public Startup(IWebHostEnvironment env)
         {
+            Clock.Provider = ClockProviders.Local;
+
             _hostingEnvironment = env;
             _appConfiguration = env.GetAppConfiguration();
         }
